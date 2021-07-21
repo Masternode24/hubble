@@ -35,21 +35,6 @@ module NearHelper
     end
   end
 
-  def event_emote(event)
-    case event.action
-    when 'joined_active_set'
-      '🤝'
-    when 'left_active_set'
-      '🚪'
-    when 'kicked'
-      '👞'
-    when 'balance_changed'
-      '⚖️'
-    else
-      ''
-    end
-  end
-
   private
 
   def kicked_reason(reason)

@@ -7,12 +7,12 @@
 <% end -%>
 <td>
   <%= image_tag "event-missed.svg", alt: "forbidden sign", class: 'event-history__forbidden-sign mr-2' %>
-  <span class='font-weight-bold'>
+  <span class='paragraph'>
     Missed
     <span class='technical'><%= event.data['n'] %></span> consecutive precommits
   </span>
 </td>
-<td>  
+<td>
   <%= link_to event.height, namespaced_path('block', event.height), class: 'technical event-history__block'%>
 </td>
 

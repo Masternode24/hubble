@@ -12,6 +12,7 @@ describe Skale::Client do
     stub_endpoint('/nodes', {}, 'nodes')
     stub_endpoint('/summary', {}, 'delegation_summary')
     stub_endpoint('/accounts', {}, 'accounts')
+    stub_endpoint('/system_events', {}, 'events')
   end
 
   describe '#status' do

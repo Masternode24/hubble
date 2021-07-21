@@ -72,11 +72,10 @@
             <%= render partial: 'commission', locals: { commission: @validator.factored_commission } %>
           </li>
         </ul>
+        <%= render partial: 'blocks', locals: { blocks: @validator.last_sequences.reverse, chain: @chain } %>
       </div>
 
-      <div class='col-md-12 col-lg-6 mb-4 pb-2'>
-        <%= render partial: 'blocks', locals: {blocks: @validator.last_sequences.reverse, chain: @chain} %>
-
+      <div class='col-md-12 col-lg-6'>
         <div class='data-block'>
           <h5 class='data-block__title'>Scores History <small>&mdash; Last <%= @validator_scores.count %> Days</small>
           </h5>
@@ -101,6 +100,12 @@
             ></canvas>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='col-md-12 col-lg-12 mb-4 pb-2'>
+        <%= render partial: 'events', locals: { events: @events, validator: @validator } %>
       </div>
     </div>
   </div>

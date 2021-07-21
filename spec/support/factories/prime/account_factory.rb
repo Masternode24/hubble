@@ -4,5 +4,6 @@ FactoryBot.define do
     type { 'Prime::Accounts::Polkadot' }
     user
     network factory: :prime_network
+    name {}
   end
 end

@@ -13,14 +13,19 @@ module Common
     field :chain_slug
     field :delegators
     field :chain
+    field :created_at
+    field :action
+    field :validator_name
 
     alias kind_string kind
     alias timestamp time
+    alias action kind
 
     def initialize(attrs, chain)
       super(attrs)
+      @data || @data = {}
       @chain_slug = chain.slug
-      @alertable_address = data['actor']
+      @alertable_address = data['actor'] || validator_name
       @chain = chain
     end
 

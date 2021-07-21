@@ -82,7 +82,7 @@
 
           <div class='info mt-5'>
             <div class='data-block__title mb-1'>PROPOSAL DESCRIPTION</div>
-            <div class='paragraph proposal-description-text'><%= Rinku.auto_link(strip_tags(@proposal.description), :urls, "target='_blank' rel='nofollow'") { |url| "#{URI(url.split('#').first).host} <span class='fas fa-external-link-alt'></span>" }.html_safe -%></div>
+            <div class='paragraph proposal-description-text'><%= render_markdown(@proposal.description.gsub("\\n", "\n")) %></div>
           </div>
 
           <div class='mt-5'>

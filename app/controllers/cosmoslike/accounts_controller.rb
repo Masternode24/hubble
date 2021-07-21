@@ -24,6 +24,7 @@ class Cosmoslike::AccountsController < Cosmoslike::BaseController
           if account_info && params[:validator]
             account_info['rewards_for_validator'] = syncer.get_account_rewards(params[:id],
                                                                                params[:validator])
+            account_info['balances'] = syncer.get_account_balances(params[:id])
           end
         end
 

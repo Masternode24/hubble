@@ -41,4 +41,3 @@
 //  THESE SHOULDN'T BE REQUIRED BUT THINGS BREAK WITHOUT THEM?
 // = require components/cosmoslike/gov-proposals-table
 // = require components/cosmoslike/delegations-table
-// = require components/cosmoslike/delegation-modal

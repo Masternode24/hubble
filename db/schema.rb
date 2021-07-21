@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_15_124531) do
+ActiveRecord::Schema.define(version: 2021_06_08_144139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -938,6 +938,7 @@ ActiveRecord::Schema.define(version: 2021_04_15_124531) do
     t.datetime "updated_at", null: false
     t.text "token_denom"
     t.bigint "token_factor", default: 0
+    t.jsonb "validator_event_defs", default: [{"kind"=>"active_set_inclusion", "height"=>0}, {"kind"=>"kicked", "height"=>0}]
     t.index ["slug"], name: "index_near_chains_on_slug"
   end
 
@@ -979,6 +980,7 @@ ActiveRecord::Schema.define(version: 2021_04_15_124531) do
     t.string "address", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name", default: nil
     t.index ["address"], name: "index_prime_accounts_on_address"
     t.index ["prime_network_id"], name: "index_prime_accounts_on_prime_network_id"
     t.index ["user_id"], name: "index_prime_accounts_on_user_id"

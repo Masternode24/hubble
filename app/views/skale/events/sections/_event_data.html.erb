@@ -1,0 +1,18 @@
+<h3>
+  Validator Event for
+    <%= link_to @validator.name, skale_chain_validator_path(@chain, @validator.id) %>
+</h3>
+<div class='mt-3'>
+  <div class='d-flex align-items-center text-lg'>
+    <div class="mr-3 event-details event-<%= @event.kind %>">
+    </div>
+    <div class='event-content event-information'>
+      <span class='paragraph'>
+         <%= format_skale_event_data(@event, @validators, full_account: true).html_safe %> on <%= @event.height %>
+      </span>
+    </div>
+    <span class='timestamp text-sm text-muted text-nowrap ml-auto'>
+      <%= format_date(@event.time) %>
+    </span>
+  </div>
+</div>

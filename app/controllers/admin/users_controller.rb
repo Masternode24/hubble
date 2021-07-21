@@ -1,9 +1,9 @@
 class Admin::UsersController < Admin::BaseController
   def index
     if params[:prime_only]
-      @users = User.with_prime_access
+      @users = User.with_prime_access.includes(:prime_accounts)
     else
-      @users = User.all
+      @users = User.all.includes(:prime_accounts)
     end
   end
 

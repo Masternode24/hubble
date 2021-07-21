@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   namespace :prime do
     root to: 'home#index'
 
-    resources :accounts, only: %i[index create destroy]
+    resources :accounts, only: %i[index create update destroy]
     get :portfolio, to: 'portfolios#index'
     get :events, to: 'events#index'
     get :profile, to: 'profile#show'
@@ -96,17 +96,20 @@ Rails.application.routes.draw do
   namespace :emoney, network: 'emoney' do concerns :cosmoslike end
 
   namespace :near, network: 'near' do
-    resources :chains, constraints: { id: /[^\/]+/ } do
+    resources :chains, only: %i[show] do
+      get '/dashboard' => 'dashboard#index', as: 'dashboard'
+
       member do
-        get :show
         get :search
       end
 
-      resources :validators, only: :show, constraints: { id: /[^\/]+/ }
+      resources :validators, only: :show, constraints: { id: /[^\/]+/ } do
+        resources :subscriptions, only: %i[index create], controller: '/util/subscriptions'
+      end
       resources :blocks, only: :show, constraints: { id: /[^\/]+/ } do
         resources :transactions, only: :show, constraints: { id: /[^\/]+/ }
       end
-      resources :events, only: :index
+      resources :events, only: %i[index show]
     end
 
     root to: 'chains#show'
@@ -130,6 +133,7 @@ Rails.application.routes.draw do
       resources :validators, only: :show
       resources :nodes, only: :show, constraints: { id: /[^\/]+/ }
       resources :accounts, only: %i[index show]
+      resources :events, only: %i[index show]
     end
     root to: 'chains#show'
   end

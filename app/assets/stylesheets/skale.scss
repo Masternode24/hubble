@@ -16,14 +16,17 @@
 // app pages
 @import 'page/skale/chain';
 @import 'page/skale/validator';
+@import 'page/common/delegation-modal';
 
 // components
 @import 'components/network-chain-header';
 @import 'components/data-block';
 @import 'components/data-table';
+@import 'components/event-history';
 @import 'components/validator-header';
 @import 'components/validator-table';
 @import 'components/skale/account-table';
 @import 'components/skale/account-data-table';
+@import 'components/skale/events-table';
 @import 'components/skale/validator-delegations-table';
 @import 'components/search-bar';

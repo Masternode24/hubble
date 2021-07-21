@@ -28,7 +28,10 @@ class Common::CsvExporter
   attr_reader :attributes
 
   def headers
-    attributes.map { |a| a.to_s.titlecase }
+    attributes.map do |a|
+      header = a.to_s.titlecase
+      header.present? && header.include?('Usd') ? header = header.sub!('Usd', 'USD') : header
+    end
   end
 
   def record_fields(record)

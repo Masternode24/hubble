@@ -8,9 +8,9 @@
   </div>
   <div class='d-flex justify-content-end align-items-center'>
     <%= button_to prime_toggle_text(@user), toggle_prime_admin_user_path(@user), method: 'patch', class: 'btn btn-sm btn-outline-secondary', form: { class: 'd-inline mr-2' } %>
-    <a class='btn btn-sm btn-outline-warning mr-2 <%= 'disabled' if !@user.verified? %>' <%= 'disabled=disabled' if !@user.verified? %> href='<%= masq_admin_user_path(@user) %>'>login-as</a>
+    <a class='btn btn-sm btn-outline-warning mr-2 mt-1 <%= 'disabled' if !@user.verified? %>' <%= 'disabled=disabled' if !@user.verified? %> href='<%= masq_admin_user_path(@user) %>'>login-as</a>
     <%= button_to 'delete', admin_user_path(@user), method: 'delete', class: 'btn btn-sm btn-danger action-delete-confirmation', form: { class: 'd-inline mr-2' } %>
-    <a class='btn btn-sm btn-outline-secondary' href='<%= admin_users_path %>'>back</a>
+    <a class='btn btn-sm btn-outline-secondary mt-1' href='<%= admin_users_path %>'>back</a>
   </div>
 </h2>
 
@@ -39,6 +39,37 @@
     </tr>
   </tbody>
 </table>
+
+<% if @user.prime %>
+  <div class='row mt-5'>
+    <div class='col-12'>
+      <h4>Prime Addresses</h4>
+      <table id="prime_address_table" class="table table-pagination">
+        <thead>
+          <tr>
+            <th>Network</th>
+            <th>Name</th>
+            <th>Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @user.prime_accounts.empty? -%>
+            <tr>
+              <td colspan=3>There is no prime account.</td>
+            </tr>
+          <% end -%>
+          <% @user.prime_accounts.includes([:network]).each do |account| -%>
+            <tr>
+              <td><%= account.network.name.capitalize %></td>
+              <td><%= account.name %></td>
+              <td><%= link_to account.address, hubble_account_linker(account), class: 'link', style: 'font-size: 15px' %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>
 
 <div class='row mt-5'>
   <div class='col-12'>

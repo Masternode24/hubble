@@ -3,7 +3,7 @@
   <td><%= reward.account.network.name.capitalize %></td>
   <td>
     <div class="copy">
-      <%= reward.account.address.truncate(20) %>
+      <%= reward.account.name_or_address %>
       <button class="copy__btn">
         <%= image_tag "prime/icons/copy.svg", alt: 'copy' %>
       </button>

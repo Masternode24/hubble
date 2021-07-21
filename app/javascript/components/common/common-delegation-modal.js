@@ -29,6 +29,12 @@ class CommonDelegationModal {
     this.showStep('.step-new-delegation');
   }
 
+  fillNewDelegationForm(delegationStep) {
+    delegationStep.find('.account-address').text(this.accountAddress);
+    delegationStep.find('.account-balance').text(this.formatAmount(this.accountBalance));
+    delegationStep.find('.transaction-fee').text(this.formatAmount(this.fee()));
+  }
+
   showComplete() {
     this.modal.find('.view-delegation').attr('href', this.delegationPath());
     this.showStep('.step-complete');
@@ -60,6 +66,10 @@ class CommonDelegationModal {
 
   factoredAmount(amount) {
     return amount / (10 ** this.tokenFactor);
+  }
+
+  fee() {
+    return this.FEE;
   }
 }
 

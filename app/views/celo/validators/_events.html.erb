@@ -1,0 +1,8 @@
+<a name='events'></a>
+<div class='data-table mb-4'>
+  <div class='data-table__header d-flex'>
+    <h3 class='data-table__title mr-auto'>Event History</h3>
+  </div>
+
+  <%= render partial: 'common/validators/events_table_content', locals: { events: @events, validator: @validator } %>
+</div>

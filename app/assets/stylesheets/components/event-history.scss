@@ -42,3 +42,35 @@
   letter-spacing: 0;
   line-height: 15px;
 }
+
+.event-details {
+  font-size: 30px;
+}
+
+.event-information {
+  font-size: 14px;
+}
+
+.event-joined_active_set::before, .event-delegation_accepted::before {
+  content: '🤝';
+}
+
+.event-left_active_set::before, .event-undelegation_requested::before {
+  content: '🚪';
+}
+
+.event-kicked::before, .event-slashed::before {
+  content: '👞';
+}
+
+.event-balance_changed::before {
+  content: '⚖️';
+}
+
+.event-new_delegation::before {
+  content: '📋';
+}
+
+.event-delegation_rejected::before {
+  content: '❌';
+}

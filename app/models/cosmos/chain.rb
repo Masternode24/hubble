@@ -3,7 +3,7 @@ class Cosmos::Chain < ApplicationRecord
 
   SYNC_OFFSET = 1
   SYNC_INTERVAL = 1.minute
-  SUPPORTS_LEDGER = false
+  SUPPORTS_LEDGER = false # used in disabled ledger features
 
   DEFAULT_TOKEN_DISPLAY = 'ATOM'.freeze
   DEFAULT_TOKEN_REMOTE = 'uatom'.freeze
@@ -23,6 +23,11 @@ class Cosmos::Chain < ApplicationRecord
   end
 
   def has_csir?
+    true
+  end
+
+  # used in fixed ledger features
+  def supports_ledger?
     true
   end
 end

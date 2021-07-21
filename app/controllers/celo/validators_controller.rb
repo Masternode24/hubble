@@ -1,4 +1,6 @@
 class Celo::ValidatorsController < Celo::BaseController
+  include Pagy::Backend
+
   SEQUENCES_LIMIT = 50
 
   def show
@@ -11,5 +13,8 @@ class Celo::ValidatorsController < Celo::BaseController
     @validator_hourly_uptime = client.validator_hourly_uptime(@validator.address).map do |validator_summary|
       Common::UptimeChartDecorator.new(validator_summary).point
     end
+
+    events = client.validator_events(@chain, @validator.address).sort_by(&:time).reverse
+    @pagination, @events = pagy_array(events)
   end
 end

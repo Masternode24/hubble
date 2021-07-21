@@ -28,6 +28,7 @@
 
   <% when 'slashing' %>
     Slashing with penalty <%= number_to_human(event.penalty) %> LPT of orchestrator <%= event.orchestrator.name_or_address %>
-
+  <% when 'kicked' %>
+    Kicked. Reason: <%= event["metadata"]["reason"].humanize %> at block <%= event.block_height %>
   <% end -%>
 <% end -%>

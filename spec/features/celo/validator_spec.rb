@@ -13,6 +13,8 @@ describe 'celo validator details' do
     expect(page).to have_content('COMMISSION')
     expect(page).to have_content('SCORES HISTORY')
     expect(page).to have_content('UPTIME HISTORY')
+    expect(page).to have_content('Event History')
+    expect(page).to have_content('Added to active set')
 
     within '.validator-blocks' do
       block_link = page.all('a').last[:href]

@@ -7,7 +7,7 @@ export default class DelegationModal extends CommonDelegationModal {
     super(target, new Ledger());
 
     this.testnet = this.delegateButton.data('testnet');
-    this.fee = 1000000;
+    this.FEE = 1000000;
 
     this.delegateButton.on('click', () => this.startDelegation());
     this.modal.find('.account-form').on('submit', (e) => this.setAccountNumber(e));
@@ -31,21 +31,15 @@ export default class DelegationModal extends CommonDelegationModal {
     }
   }
 
-  fillNewDelegationForm(delegationStep) {
-    delegationStep.find('.account-address').text(this.accountAddress);
-    delegationStep.find('.account-balance').text(this.formatAmount(this.accountBalance));
-    delegationStep.find('.transaction-fee').text(this.formatAmount(this.fee));
-  }
-
   async submitDelegation(e) {
     e.preventDefault();
     this.showStep('.step-confirm');
 
     try {
       const signature = await this.provider.signDelegation(this.accountNumber,
-          this.accountAddress, this.validator, this.fee, this.testnet, this.nonce);
+          this.accountAddress, this.validator, this.FEE, this.testnet, this.nonce);
       this.transactionHash = await broadcastTransaction(
-          this.endpoint, this.accountAddress, this.validator, this.fee,
+          this.endpoint, this.accountAddress, this.validator, this.FEE,
           this.nonce, this.provider.DELEGATION_MEMO, signature);
       this.showComplete();
     } catch (err) {

@@ -1,5 +1,7 @@
 class Cosmos::ChainsController < Cosmoslike::ChainsController
   def broadcast
+    render json: { ok: true, txhash: 'TESTHASH' } and return if Rails.env.development?
+
     tx = { tx: params[:payload] }
 
     if @chain.sdk_gte?('0.34.0')

@@ -1,0 +1,42 @@
+<div class='data-table events-table'>
+  <div class='d-flex align-items-center flex-grow-1 py-2 events-table-header'>
+    <h3 class="data-table__title">Events</h3>
+    <input type='text' class='form-control form-control-sm events-search' placeholder='filter events...'>
+  </div>
+  <div class='table-responsive'>
+    <table class='w-100'>
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Block</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @events.records.blank? -%>
+          <tr>
+            <td class='data-table__empty' colspan='3'>No events yet.</td>
+          </tr>
+        <% else -%>
+            <% @events.records.each do |event| -%>
+            <tr>
+              <td  class="event-<%= event.action %>" data-order="<%= format_event_data(event) %>">
+                <%= link_to event.item_id, near_chain_validator_path( @chain, event.item_id ), class: "font-weight-bold" %> <%= format_event_data(event) %>
+              </td>
+              <td data-order="<%= event.block_height %>">
+                <%= link_to event.block_height, near_chain_block_path( @chain, event.block_height ), class: 'technical event-history__block' %>
+              </td>
+              <td data-order="<%= event.created_at %>">
+                <div class='d-flex align-items-center justify-content-between text-underline'>
+                  <%= link_to format_date(event.created_at), near_chain_event_path(@chain, event.id) %>
+                </div>
+              </td>
+            </tr>
+          <% end -%>
+        <% end -%>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= render 'near/shared/events_pagination' %>

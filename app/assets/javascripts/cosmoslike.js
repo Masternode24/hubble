@@ -47,7 +47,6 @@
 // = require components/cosmoslike/governance-proposal-activity
 // = require components/cosmoslike/tiny-average-active-validators-chart
 // = require components/cosmoslike/ledger
-// = require components/cosmoslike/delegation-modal
 // = require components/cosmoslike/gov-proposal-submit-modal
 // = require components/cosmoslike/gov-proposal-deposit-modal
 // = require components/cosmoslike/gov-proposal-vote-modal

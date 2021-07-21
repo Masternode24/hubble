@@ -20,10 +20,13 @@
 // = require page/skale/chain-show
 // = require page/skale/validator-show
 // = require page/skale/account-show
+// = require page/skale/events-index
 // = require components/skale/account-table
 // = require components/skale/account-data-table
 // = require components/skale/validator-table
 // = require components/skale/validator-delegations-table
+// = require components/skale/events-table
 // = require components/skale/node-table
 // = require components/common/sparkline-chart
 // = require components/skale/staked-time-chart
+

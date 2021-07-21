@@ -78,6 +78,11 @@
                 of orchestrator
                 <%= render partial: 'orchestrator', locals: { event: event } %>
               </p>
+            <% when 'kicked' %>
+              Kicked
+              <p class='sub'>
+                <%= render partial: 'orchestrator', locals: { event: event } %>
+              </p>
             <% end -%>
           </td>
         </tr>

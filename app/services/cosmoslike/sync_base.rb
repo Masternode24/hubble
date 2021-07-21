@@ -50,12 +50,21 @@ class Cosmoslike::SyncBase
   end
 
   def get_validator_set(height)
-    r = rpc_get('validators', height: height, per_page: VALIDATORS_PER_PAGE)
-    begin
-      r['result']['validators']
-    rescue StandardError
-      raise "Could not retrieve validator set at height #{height}. #{r}"
+    validators = []
+    page = 1
+    total_pages = 1
+
+    while page <= total_pages
+      result = rpc_get('validators', height: height, page: page, per_page: VALIDATORS_PER_PAGE)
+      validators_total = result['result']['total'].to_f
+      total_pages = (validators_total / VALIDATORS_PER_PAGE).ceil
+      validators.concat(result['result']['validators'])
+      page += 1
     end
+
+    validators
+  rescue StandardError
+    raise "Could not retrieve validator set at height #{height}. #{result}"
   end
 
   def get_staking_pool
@@ -204,12 +213,24 @@ class Cosmoslike::SyncBase
   end
 
   def get_account_rewards(account, validator = nil)
-    r = lcd_get(['distribution/delegators', account, 'rewards', validator].compact)
-    if r.is_a?(Array)
-      return r
-    elsif r.is_a?(Hash) && r.has_key?('total')
-      r['total']
+    if @chain.sdk_gte?('0.40.0')
+      # throws a RestClient::BadRequest when there are no rewards
+      r = lcd_get(['cosmos/distribution/v1beta1/delegators', account, 'rewards', validator].compact)
+      if validator
+        r['rewards']
+      else
+        r['total']
+      end
+    else
+      r = lcd_get(['distribution/delegators', account, 'rewards', validator].compact)
+      if r.is_a?(Array)
+        return r
+      elsif r.is_a?(Hash) && r.has_key?('total')
+        r['total']
+      end
     end
+  rescue RestClient::BadRequest
+    []
   end
 
   def get_account_delegation_transactions(account)
@@ -223,7 +244,6 @@ class Cosmoslike::SyncBase
 
   def broadcast_tx(signed_tx)
     final_json = signed_tx.to_json
-    # Rails.logger.debug "FINAL TX PAYLOAD: #{final_json}"
     r = lcd_post('txs', final_json)
 
     # add human readable error to payload
@@ -343,7 +363,7 @@ class Cosmoslike::SyncBase
                                     read_timeout: timeout_seconds * 2,
                                     open_timeout: timeout_seconds,
                                     verify_ssl: !@chain.use_ssl_for_lcd?,
-                                    paylod: params)
+                                    payload: params)
     end_time = Time.now.utc.to_f
     Rails.logger.debug "#{@chain.network_name} LCD #{path} took #{end_time - start_time} seconds" unless Rails.env.production?
     body = r.body

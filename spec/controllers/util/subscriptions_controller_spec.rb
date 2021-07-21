@@ -3,10 +3,12 @@ require 'rails_helper'
 RSpec.describe Util::SubscriptionsController do
   let!(:cosmos_chain) { create(:cosmos_chain) }
   let!(:oasis_chain) { create(:oasis_chain, api_url: 'http://localhost:1111') }
+  let!(:near_chain) { create(:near_chain, api_url: 'http://localhost:1111') }
   let!(:polkadot_chain) { create(:polkadot_chain, api_url: 'http://localhost:1111') }
   let!(:user) { create(:user) }
   let!(:cosmos_alertable) { create(:cosmos_validator, chain: cosmos_chain) }
   let!(:oasis_alertable) { create(:alertable_address, chain: oasis_chain) }
+  let!(:near_alertable) { create(:alertable_address, chain: near_chain, address: 'bisontrails.poolv1.near') }
   let!(:polkadot_alertable) { create(:alertable_address, chain: polkadot_chain, address: '138QdRbUTB9eNY94Q4Mj5r39FkgMiyHCAy8UFMNA5gvtrfSB') }
 
   describe 'GET #index' do
@@ -72,6 +74,31 @@ RSpec.describe Util::SubscriptionsController do
       let(:params) do
         { network: oasis_chain.network_name.downcase, chain_id: oasis_chain.slug,
           validator_id: oasis_alertable.address, alert_subscription: alert_params }
+      end
+
+      it 'saves the new subscription', :vcr do
+        expect { post :create, params: params }.to change(AlertSubscription, :count).by(1)
+      end
+
+      it 'responds with 302 status', :vcr do
+        post :create, params: params
+        expect(response).to have_http_status(:found)
+      end
+
+      it 'shows confirmation notice', :vcr do
+        post :create, params: params
+        expect(flash[:notice]).to eq('Subscribed to events for this validator!')
+      end
+    end
+
+    context 'Near Subscription with valid subscription' do
+      let(:alert_params) do
+        { 'event_kinds' => { 'kicked' => 'on', 'left_active_set' => 'off' },
+          'wants_daily_digest' => 'on' }
+      end
+      let(:params) do
+        { network: near_chain.network_name.downcase, chain_id: near_chain.slug,
+          validator_id: near_alertable.address, alert_subscription: alert_params }
       end
 
       it 'saves the new subscription', :vcr do

@@ -5,8 +5,9 @@
     </button>
     <h3 class="modal__title">Are you sure you want to delete your address?</h3>
     <p class="delete-modal__name"><%= account.network.name.capitalize %></p>
-    <a href="#" class="link delete-modal__link"><%= account.address %></a>
+    <%= link_to account.address, '#', class: "link delete-modal__link" %>
   </div>
+  
   <div class="modal__footer">
     <%= button_to 'Delete', prime_account_path(account), method: :delete, class: "button button--danger modal__button button--l", id: "confirm-delete-#{account.address}-button" %>
   </div>

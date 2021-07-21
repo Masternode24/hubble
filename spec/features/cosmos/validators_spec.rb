@@ -21,7 +21,7 @@ describe 'cosmos validators' do
       expect(page).to have_content('UPTIME HISTORY')
       expect(page).to have_content('Governance Proposal Activity')
       expect(page).to have_content('Event History')
-      expect(page).to have_content('Delegations')
+      # expect(page).to have_content('Delegations') # https://github.com/figment-networks/hubble-internal/pull/561
       expect(page).to have_content('CURRENT VOTING POWER')
     end
   end

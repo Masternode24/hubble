@@ -1,9 +1,5 @@
 require 'features_helper'
 
-def visit_validator_subscription_page(chain_slug, validator_id)
-  visit "/oasis/chains/#{chain_slug}/validators/#{validator_id}/subscriptions"
-end
-
 describe 'oasis subscriptions' do
   let!(:chain) { create(:oasis_chain, api_url: 'http://localhost:1111') }
   let!(:alertable) { create(:alertable_address, chain: chain) }
@@ -16,7 +12,7 @@ describe 'oasis subscriptions' do
 
   context 'logged out' do
     it 'visiting Oasis Validators Subscriptions View as not signed in user', :vcr do
-      visit_validator_subscription_page(chain.slug, alertable.address)
+      visit "/oasis/chains/#{chain.slug}/validators/#{alertable.address}/subscriptions"
       expect(page).to have_content('Login')
     end
   end
@@ -25,7 +21,7 @@ describe 'oasis subscriptions' do
     it 'visiting Oasis Validators Subscriptions View as signed in user', :vcr do
       log_in(user)
 
-      visit_validator_subscription_page(chain.slug, alertable.address)
+      visit "/oasis/chains/#{chain.slug}/validators/#{alertable.address}/subscriptions"
 
       expect(page).to have_content('Voting Power Change %')
       expect(page).to have_content('Misses N of Last M Precommits')
