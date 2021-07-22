@@ -21,7 +21,9 @@ module Near
     field :created_at
     field :updated_at
     field :reward_fee, type: :integer
+    field :address
 
+    alias address account_id
     # Associated resources
     field :epochs
     field :account

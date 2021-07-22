@@ -9,6 +9,8 @@ class Near::ValidatorsController < Near::BaseController
     @pagination_delegations, @delegations = pagy_array(delegations, page_param: :delegations_page, items: 5)
     @pagination_epochs, @epochs = pagy_array(epochs, page_param: :epochs_page, items: 5)
 
+    @alertable_address = AlertableAddress.find_by(chain: @chain, address: @validator.account_id)
+
     @current_events_page = params['events_page'].to_i || 1
     @events = client.paginate(Near::Event, '/events', { item_id: params[:id], item_type: 'validator', page: @current_events_page, limit: 5 })
   end

@@ -1,0 +1,16 @@
+[
+  {
+    "height": 12742385,
+    "time": "2021-07-01T14:41:02Z",
+    "kind": "new_delegation",
+    "sender_id": 0,
+    "recipient_id": 19,
+    "sender": "0x5942e876cb84021ce850cd8f076f0996857e4931",
+    "recipient": "0x0000000000000000000000000000000000000000",
+    "data": {
+      "before": 0,
+      "after": 373000000000000000000,
+      "change": "0"
+    }
+  }
+]

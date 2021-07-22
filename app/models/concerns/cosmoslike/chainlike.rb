@@ -67,6 +67,14 @@ module Cosmoslike::Chainlike
     token_map.keys.first # fallback, should not happen
   end
 
+  def token_display
+    token_map[primary_token]['display']
+  end
+
+  def token_factor
+    token_map[primary_token]['factor']
+  end
+
   def prefixes
     self.class::PREFIXES
   end
@@ -200,6 +208,10 @@ module Cosmoslike::Chainlike
 
   def halted?
     !halted_at.nil?
+  end
+
+  def supports_ledger?
+    false
   end
 
   private

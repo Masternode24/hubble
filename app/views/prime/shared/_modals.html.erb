@@ -32,6 +32,12 @@
   <% end %>
 <% end %>
 
+<% if @edit_account_modal %>
+  <% user_accounts.each do |account| %>
+    <%= render '/prime/shared/modals/edit_account', account: account %>
+  <% end %>
+<% end %>
+
 <% if @network_event_info_modal %>
   <% network_events.each do |event| %>
     <%= render '/prime/shared/modals/network_event_info', event: event %>

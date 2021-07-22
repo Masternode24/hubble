@@ -1,6 +1,6 @@
 module Celo
   class Client < Common::IndexerClient
-    DEFAULT_TIMEOUT = 5
+    DEFAULT_TIMEOUT = 10
     DEFAULT_BLOCK_HOURS = 48
     DEFAULT_DAYS_LIMIT = 89
     ACCOUNT_DETAILS_TRANSFERS_LIMIT = -1 # no limit
@@ -117,6 +117,11 @@ module Celo
       get('/validators_summary', params).map do |summary|
         Celo::ValidatorSummary.new(summary)
       end
+    end
+
+    def validator_events(chain, address, after = nil)
+      events_list = get("/system_events/#{address}", after: after)['items'] || []
+      events_list.map { |event| Celo::EventFactory.generate(event, chain) }
     end
 
     def blocks_summary(limit = DEFAULT_BLOCK_HOURS)

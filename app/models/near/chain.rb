@@ -7,6 +7,9 @@ class Near::Chain < ApplicationRecord
   DEFAULT_TOKEN_REMOTE  = 'near'.freeze
   DEFAULT_TOKEN_FACTOR  = 9
 
+  has_many :alertable_addresses, as: :chain, dependent: :destroy
+  has_many :alert_subscriptions, through: :alertable_addresses
+
   validates :name, presence: true
   validates :slug, format: { with: /\A[a-z0-9-]+\z/ }, uniqueness: { case_sensitive: false }
   validates :api_url, presence: true
@@ -34,8 +37,16 @@ class Near::Chain < ApplicationRecord
     slug
   end
 
+  def namespace
+    self.class.name.deconstantize.constantize
+  end
+
   def enabled?
     !disabled
+  end
+
+  def has_dashboard?
+    true
   end
 
   def out_of_sync?
@@ -48,5 +59,13 @@ class Near::Chain < ApplicationRecord
 
   def last_sync_time
     @last_sync_time ||= status.last_block_time
+  end
+
+  def alertable_type
+    'validator'
+  end
+
+  def get_events_for_alert(subscription, seconds_ago, date = nil)
+    client.get_events_for_alert(self, subscription, seconds_ago, date)
   end
 end

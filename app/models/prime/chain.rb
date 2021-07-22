@@ -3,6 +3,7 @@ class Prime::Chain < ApplicationRecord
 
   validates :type, presence: true
   validates :api_url, presence: true
+  validates :slug, presence: true, uniqueness: { scope: :network }
   validates :reward_token_remote, presence: true
   validates :reward_token_display, presence: true
   validates :reward_token_factor, presence: true
@@ -12,6 +13,8 @@ class Prime::Chain < ApplicationRecord
   after_save :ensure_single_primary_chain
 
   alias_attribute :primary_token_divisor, :reward_token_factor
+
+  attr_accessor :to_remove
 
   scope :active, -> { where(active: true) }
 

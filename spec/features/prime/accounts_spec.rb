@@ -43,14 +43,21 @@ describe 'Prime My Addressess' do
   context 'signed in prime user' do
     it 'displays Prime My Addresses', :vcr do
       log_in(prime_user)
-      visit('/prime/accounts')
-      expect(page).to have_content('Figment Prime')
-      expect(page).to have_content('Polkadot')
-      expect(page).to have_content('138QdRbUTB9eNY94Q4Mj5r39Fkg...')
-      expect(page).to have_content('101.85 DOT')
-      expect(page).to have_content('Oasis')
-      expect(page).to have_content('oasis1qzkdwhw4hnu2pl49c6kpm...')
-      expect(page).to have_content('26,745.46 ROSE')
+      VCR.use_cassette('Prime_My_Addressess/signed_in_prime_user/displays_Prime_My_Addresses', record: :new_episodes) do
+        visit('/prime/accounts')
+        expect(page).to have_content('Figment Prime')
+        expect(page).to have_content('Polkadot')
+        expect(page).to have_content('138QdRbUTB9eNY94Q4Mj5r39Fkg...')
+        expect(page).to have_content('101.85 DOT')
+        expect(page).to have_content('Oasis')
+        expect(page).to have_content('oasis1qzkdwhw4hnu2pl49c6kpm...')
+        expect(page).to have_content('26,745.46 ROSE')
+        click_button('edit-oasis1qzkdwhw4hnu2pl49c6kpm8znh83uagvh9q7l8m2w-button')
+        fill_in('Nickname', with: 'Oasis Account 1')
+        click_button('Update Account Name')
+        expect(page).to have_content('Account name has been updated!')
+        expect(page).to have_content('Oasis Account 1')
+      end
     end
   end
 end

@@ -21,6 +21,7 @@
 //
 // = require page/near/chain-show
 // = require page/near/validator-show
+// = require page/near/events-index
 //
 // = require components/near/validator-table
 // = require components/near/validator-epochs-table
@@ -30,3 +31,4 @@
 // = require components/common/sparkline-chart
 // = require components/near/average-block-time-chart
 // = require components/cosmoslike/tiny-average-active-validators-chart.js
+// = require components/near/events-table

@@ -76,6 +76,8 @@ module ApplicationHelper
   end
 
   def render_markdown(text)
-    Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(text).html_safe
+    options = { escape_html: true, link_attributes: { rel: 'nofollow', target: '_blank' }, safe_links_only: true }
+    extensions = { autolink: true }
+    Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(options), extensions).render(text).html_safe
   end
 end

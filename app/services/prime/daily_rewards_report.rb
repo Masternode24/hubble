@@ -1,6 +1,7 @@
 class Prime::DailyRewardsReport
   FIELDS = %i[
     date
+    name
     address
     reward
     currency
@@ -34,6 +35,7 @@ class Prime::DailyRewardsReport
         factored_reward = reward.amount.to_f / (10 ** factor)
         rows << {
           date: reward.time,
+          name: account.name,
           address: account.address,
           reward: factored_reward,
           currency: reward.token_display,

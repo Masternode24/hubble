@@ -18,14 +18,12 @@
         <% else -%>
           <% @events.records.each do |event| -%>
             <tr class="events-table">
-              <td>
-                <span>
-                  <%= event_emote(event) %> <%= link_to event.item_id, near_chain_validator_path( @chain, event.item_id ), class: "font-weight-bold" %> <%= format_event_data(event) %>
-                </span>
+              <td  class="event-<%= event.action %>">
+                <%= link_to event.item_id, near_chain_validator_path( @chain, event.item_id ), class: "font-weight-bold" %> <%= format_event_data(event) %>
               </td>
               <td>
                 <div class='d-flex align-items-center justify-content-between'>
-                  <%= format_date(event.created_at) %>
+                  <%= link_to format_date(event.created_at), near_chain_event_path(@chain, event.id) %>
                 </div>
               </td>
             </tr>

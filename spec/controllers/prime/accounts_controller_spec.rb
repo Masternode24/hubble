@@ -11,7 +11,7 @@ RSpec.describe Prime::AccountsController do
   end
   let!(:admin) { create(:admin) }
   let(:account) { create(:prime_account, network: network, user: user, address: '138QdRbUTB9eNY94Q4Mj5r39FkgMiyHCAy8UFMNA5gvtrfSB') }
-  let!(:existing_account) { create(:prime_account, network: network, user: user, address: '1WG3jyNqniQMRZGQUc7QD2kVLT8hkRPGMSqAb5XYQM1UDxN') }
+  let!(:existing_account) { create(:prime_account, network: network, user: user, address: '1WG3jyNqniQMRZGQUc7QD2kVLT8hkRPGMSqAb5XYQM1UDxN', name: '') }
 
   before do
     session[:admin_id] = admin.id
@@ -66,6 +66,27 @@ RSpec.describe Prime::AccountsController do
         end.to change(Prime::Account, :count).by(0)
         expect(flash[:error]).to match('This address is already in your portfolio.')
       end
+    end
+  end
+
+  describe 'PUT #update' do
+    let(:new_params) { { name: 'new name' } }
+
+    before { allow(controller).to receive(:current_user).and_return(user) }
+
+    before { put :update, params: { id: account.id, update: new_params } }
+
+    it 'updates the account' do
+      account.reload
+      expect(account.name).to eq('new name')
+    end
+
+    it 'flashes success notice' do
+      expect(flash[:success]).to match('Account name has been updated!')
+    end
+
+    it 'redirects to prime_accounts_path' do
+      expect(response).to redirect_to(prime_accounts_path)
     end
   end
 

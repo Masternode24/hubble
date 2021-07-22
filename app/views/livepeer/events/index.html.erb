@@ -29,7 +29,7 @@
                 <tr>
                   <%= render partial: event.to_partial_path, locals: { event: event, icon_classes: nil } %>
                   <td>
-                    <div class='d-flex align-items-center justify-content-between'>
+                    <div class='d-flex align-items-center justify-content-between text-underline'>
                       <%= link_to namespaced_path( 'event', event ), class: "event-history__date" do %>
                         <% date_string = event.timestamp.strftime("%B %d, %Y") -%>
                         <% time_string = event.timestamp.strftime("at %H:%M %Z") -%>

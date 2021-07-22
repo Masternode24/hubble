@@ -23,7 +23,11 @@ class AlertableAddress < ApplicationRecord
   end
 
   def short_name(max_length = 16)
-    long_name.truncate(max_length)
+    if chain.network_name == 'NEAR'
+      long_name
+    else
+      long_name.truncate(max_length)
+    end
   end
 
   def recent_events(klass, time_ago)

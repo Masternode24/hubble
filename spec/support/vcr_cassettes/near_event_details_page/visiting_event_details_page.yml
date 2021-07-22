@@ -1,0 +1,37 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:8080/events/735
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin20.3.0 x86_64) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:8080
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 01 Jun 2021 15:14:51 GMT
+      Content-Length:
+      - '330'
+    body:
+      encoding: UTF-8
+      string: '{"id":735,"scope":"staking","action":"left_active_set","block_height":38505055,"block_time":"2021-05-28T08:33:06.552912Z","epoch":"GsQjdVmy54guT7Yu3JNxiUjDPFjo7oh9s2u1WLZxmFBm","item_id":"sweden.poolv1.near","item_type":"validator","metadata":{"stake":"3665947692512021036024495009172"},"created_at":"2021-05-28T08:33:22.310188Z"}'
+  recorded_at: Tue, 01 Jun 2021 15:14:51 GMT
+recorded_with: VCR 6.0.0

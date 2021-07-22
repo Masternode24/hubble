@@ -1,0 +1,39 @@
+<div class='data-table events-table'>
+  <div class='d-flex align-items-center flex-grow-1 py-2 events-table-header'>
+    <h3 class="data-table__title">Events</h3>
+    <input type='text' class='form-control form-control-sm events-search' placeholder='filter events...'>
+  </div>
+  <div class='table-responsive'>
+    <table class='w-100'>
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Block</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @events.blank? -%>
+          <tr>
+            <td class='data-table__empty' colspan='3'>No Events available.</td>
+          </tr>
+        <% else -%>
+          <% @events.each do |event| -%>
+            <tr>
+              <td class="event-<%= event.kind %>">
+                <%= format_skale_event_data(event, @validators).html_safe %>
+              </td>
+              <td>
+                <%= event.height %>
+              </td>
+              <td class="text-underline">
+                <%= link_to format_date(event.time), skale_chain_event_path(@chain, id: event.id) %>
+              </td>
+            </tr>
+          <% end -%>
+        <% end -%>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= render 'skale/shared/events_pagination' %>

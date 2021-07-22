@@ -77,5 +77,25 @@ module Near
     def delegations(id)
       get_collection(Near::Delegation, "/delegations/#{id}")
     end
+
+    def event(id)
+      Near::Event.new(get("/events/#{id}"))
+    end
+
+    # Events subscriptions
+    def validator_events(chain, validator_name)
+      params = { "item_id": validator_name, "item_type": 'validator' }
+      events_list = get('/events', params)['records'] | []
+      events_list.map { |event| Near::EventFactory.generate(event, chain, validator_name) }
+    end
+
+    def get_recent_events(chain, address, klass, time_ago)
+      all_events = validator_events(chain, address)
+      all_events.select { |e| e.created_at >= time_ago && klass == "Common::ValidatorEvents::#{e.kind_class.classify}".constantize }
+    end
+
+    def get_alertable_name(address)
+      address
+    end
   end
 end

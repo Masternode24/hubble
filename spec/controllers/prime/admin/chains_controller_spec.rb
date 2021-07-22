@@ -47,7 +47,7 @@ RSpec.describe Prime::Admin::ChainsController do
   end
 
   describe 'PUT #update' do
-    let(:new_params) { { name: 'new name' } }
+    let(:new_params) { { name: 'new name', figment_validator_addresses: ['hi there'] } }
 
     before { put :update, params: { id: chain.slug, network_id: chain.network.name, prime_chains_polkadot: new_params } }
 
@@ -61,6 +61,12 @@ RSpec.describe Prime::Admin::ChainsController do
 
     it 'flashes success notice' do
       expect(flash[:notice]).to match('Chain info has been updated!')
+    end
+
+    it 'new params changed' do
+      chain.reload
+      expect(chain.name).to match('new name')
+      expect(chain.figment_validator_addresses).to match(['hi there'])
     end
   end
 

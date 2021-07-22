@@ -17,10 +17,12 @@
     "fullcalendar": "^5.4.0",
     "inputmask": "^5.0.3",
     "jquery": "^3.5.1",
+    "ledger-cosmos-js": "^2.1.8",
     "lodash": "^4.17.21",
     "mina-ledger-js": "^1.0.6",
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.20",
+    "secp256k1": "^4.0.2",
     "tooltipster": "^4.2.6"
   },
   "devDependencies": {

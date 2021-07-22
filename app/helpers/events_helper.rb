@@ -10,6 +10,7 @@ module EventsHelper
     when 'n_of_m' then 'Misses N of Last M Precommits'
     when 'n_consecutive' then 'Misses N Consecutive Precommits'
     when 'balance_change' then 'Balance Change %'
+    when 'kicked' then 'Was Kicked'
     else kind.titlecase
     end
   end
@@ -22,5 +23,9 @@ module EventsHelper
     event_classes.map do |kind_class|
       kind_class.name.split('::').last.underscore
     end
+  end
+
+  def to_partial_path(event)
+    "/common/validator_events/#{event.kind_class}"
   end
 end

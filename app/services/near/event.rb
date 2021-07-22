@@ -1,5 +1,6 @@
 module Near
   class Event < Common::Resource
+    field :id
     field :action
     field :block_height
     field :item_id

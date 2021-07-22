@@ -2,6 +2,7 @@
 
 <% content_for :additional_header_tabs do %>
   <%= render partial: 'shared/chain_header_link', locals: { active_tab: '', link_text: 'Accounts', link_path:  skale_chain_accounts_path(@chain) } %>
+  <%= render partial: 'shared/chain_header_link', locals: { active_tab: '', link_text: 'Events', link_path:  skale_chain_events_path(@chain) } %>
 <% end %>
 <%= render partial: "shared/chain_header", locals: { active_tab: '' } %>
 <%= render_flash_messages %>

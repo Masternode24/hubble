@@ -20,7 +20,7 @@ describe 'cosmos validators' do
       expect(page).to have_content(chain.name)
       expect(page).to have_content(proposal.title)
       expect(page).to have_content('33.4%')
-      expect(page).to have_content('See the full proposal here: ipfs.io')
+      expect(page).to have_content('See the full proposal here: https://ipfs.io/ipfs/Qmbo3fF54tX3JdoHZNVLcSBrdkXLie56Vh2u29wLfs4PnW')
     end
   end
 end

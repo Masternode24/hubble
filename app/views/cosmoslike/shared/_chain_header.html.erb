@@ -66,7 +66,7 @@
         <% if defined?(events_link) -%>
           <%= render partial: 'shared/chain_header_link', locals: { active_tab: active_tab, link_text: 'Events', link_path: namespaced_path('events') } %>
         <% end -%>
-        <% if defined?(tx_search_link) && @chain.has_attribute?(:tx_search_enabled) %>
+        <% if defined?(tx_search_link) && @chain.respond_to?(:tx_search_enabled) && @chain.tx_search_enabled? %>
           <%= render partial: 'shared/chain_header_link', locals: { active_tab: active_tab, link_text: 'Search', link_path: namespaced_path('transactions') } %>
         <% end %>
         <% if defined?(reports_link) -%>

@@ -48,6 +48,15 @@
   margin-right: 8px;
 }
 
+.edit-btn {
+  width: 14px;
+  height: 16px;
+  padding: 0;
+  background-image: image-url("prime/icons/pencil.svg");
+  background-size: contain;
+  border: none;
+}
+
 .delete-btn {
   width: 14px;
   height: 16px;

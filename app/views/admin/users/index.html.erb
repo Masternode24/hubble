@@ -34,7 +34,11 @@
             <span class='badge badge-danger'>pending</span>
           <% end -%>
           <% if user.prime? %>
-            <span class='ml-2 badge badge-success'>PRIME</span>
+            <% if user.prime_accounts.length %>
+              <span class='ml-2 badge badge-success'>PRIME <small> with <%= user.prime_accounts.length %> addresses </small> </span>
+            <% else %>
+              <span class='ml-2 badge badge-success'>PRIME</span>
+            <% end %>
           <% end %>
         </td>
         <td class='extra-info'></td>

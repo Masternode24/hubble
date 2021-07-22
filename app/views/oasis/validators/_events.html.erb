@@ -7,50 +7,11 @@
         <%= link_to 'Subscribe', new_user_path, class: "button-secondary" %>
       </div>
     <% else -%>
-      <%= link_to namespaced_path( 'validator_subscriptions', validator.address ), class: "button-secondary" do %>
-        <%= current_user.subscribed_to?(validator) ? 'Edit Subscription' : 'Subscribe to Alerts' %>
+      <%= link_to namespaced_path('validator_subscriptions', validator.address), class: "button-secondary" do %>
+        <%= current_user.subscribed_to?(@alertable_address) ? 'Edit Subscription' : 'Subscribe to Alerts' %>
       <% end -%>
     <% end -%>
   </div>
 
-  <div>
-    <% if events.empty? -%>
-      <p class='data-table__empty'>No events yet.</p>
-    <% else -%>
-      <div class="table-responsive ">
-        <table class="w-100 event-history">
-          <thead>
-            <tr>
-              <th>EVENT</th>
-              <th>BLOCK</th>
-              <th>DATE</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% events.each do |event| -%>
-              <tr>
-                <%= render partial: to_partial_path(event), locals: { event: event, icon_classes: nil } %>
-                <td>
-                  <div class='d-flex align-items-center justify-content-between'>
-                    <span class="event-history__date">
-                      <%= event.timestamp.strftime("%B %d, %Y") -%>
-                    </span>
-                  </div>
-                </td>
-              </tr>
-            <% end -%>
-
-            <% if @pagination.pages > 1 %>
-              <tr>
-                <td colspan="3">
-                  <%= raw(pagy_bootstrap_nav(@pagination)) %>
-                </td>
-              </tr>
-            <% end -%>
-
-          </tbody>
-        </table>
-      </div>
-    <% end -%>
-  </div>
+  <%= render partial: 'common/validators/events_table_content', locals: { events: @events, validator: @validator } %>
 </div>

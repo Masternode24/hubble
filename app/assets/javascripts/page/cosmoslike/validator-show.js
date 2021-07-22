@@ -10,9 +10,6 @@ $(document).ready(function() {
     new App.Cosmoslike.GovernanceProposalActivity(td).render();
   });
 
-
-  new App.Cosmoslike.DelegationModal($('#delegation-modal'));
-
   // 2 charts
   const charts = {
     last48h: null,

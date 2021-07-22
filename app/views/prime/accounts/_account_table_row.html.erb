@@ -1,8 +1,9 @@
 <tr>
   <td><%= account.network.name.capitalize %></td>
+  <td><%= account.name %></td>
   <td>
     <div class="copy">
-      <%= link_to account.address.truncate(30), hubble_account_linker(account), class: 'link' %>
+      <%= link_to account.shorten_address, hubble_account_linker(account), class: 'link' %>
 
       <button class="copy__btn">
         <!-- TO DO: copy buttons don't actually copy, JS not included from EthWorks -->
@@ -14,6 +15,10 @@
     <b>
       <%= account.formatted_balance %> <%= account.network.primary.reward_token_display %>
     </b> (<%= account.usd_balance %>)
+  </td>
+  <td>
+    <button class="edit-btn" id="edit-<%= account.address%>-button" data-target="edit-<%= account.address %>-modal">
+    </button>
   </td>
   <td>
     <button class="delete-btn" id="delete-<%= account.address%>-button" data-target="delete-<%= account.address %>-modal">

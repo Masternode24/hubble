@@ -11,6 +11,9 @@ Capybara.register_driver :headless_chrome do |app|
   chrome_options = ['--headless', '--window-size=1280x720', '--disable-gpu', '--no-sandbox']
   chrome_options.each { |arg| options.add_argument(arg) }
 
+  options.add_preference('browser.download.dir', DownloadHelpers::PATH.to_s)
+  options.add_preference('browser.download.folderList', 2)
+
   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 

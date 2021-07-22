@@ -3,7 +3,6 @@
 
 <div class="container">
   <div class="content">
-  
     <%= form_for @subscription, url: namespaced_path('validator_subscriptions', @validator.address), html: { method: 'POST', class: 'validator-subscription-form' } do |f| -%>
       <div class='d-flex justify-content-between align-items-center mb-4'>
         <h1 class='validator-header__title'>Subscribe to Events</h1>
@@ -50,7 +49,7 @@
                       <div class="custom-control custom-radio">
                         <input id='<%= event_kind %>_on' class="custom-control-input" type='radio' name='alert_subscription[event_kinds][<%= event_kind %>]' <%='checked=true' if selected %> value='on' autocomplete='off'/>
                         <label for='<%= event_kind %>_on' class='custom-control-label'>On</label>
-                      </div>  
+                      </div>
                     </div>
                   </div>
                 </h5>
@@ -111,7 +110,7 @@
       <% end -%>
 
 
-      <div class='d-flex flex-column align-items-center justify-content-center mt-5'/>
+      <div class='d-flex flex-column align-items-center justify-content-center mt-5'>
         <% selected = @subscription && @subscription.wants_daily_digest? -%>
         <span class='text-muted text-lg'>Receive Daily Digest?</span>
         <span class='text-muted text-sm text-center daily-digest-description'>All events will be included regardless of instant notification settings above.</span>
@@ -123,7 +122,7 @@
           <div class="custom-control custom-radio">
             <input class="custom-control-input" id="alert_on" type='radio' name='alert_subscription[wants_daily_digest]' <%= 'checked=true' if selected %> value='on' autocomplete='off'>
             <label for='alert_on' class='custom-control-label'>On</label>
-          </div>  
+          </div>
         </div>
       </div>
     <% end -%>

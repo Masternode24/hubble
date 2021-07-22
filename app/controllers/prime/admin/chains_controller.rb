@@ -39,11 +39,11 @@ class Prime::Admin::ChainsController < Prime::Admin::BaseController
   private
 
   def require_network
-    @network = Prime::Network.find_by!(name: params[:network_id])
+    @network ||= Prime::Network.find_by!(name: params[:network_id])
   end
 
   def require_chain
-    @chain = Prime::Chain.find_by!(slug: params[:id])
+    @chain ||= require_network.chains.find_by!(slug: params[:id])
   end
 
   def chain_class
@@ -51,10 +51,21 @@ class Prime::Admin::ChainsController < Prime::Admin::BaseController
   end
 
   def update_chain_params
-    if params[chain_class][:figment_validator_addresses]
-      address_array = params[chain_class][:figment_validator_addresses].split(/\s*,\s*/)
-      params[chain_class][:figment_validator_addresses] = address_array
+    @chain[:figment_validator_addresses] = []
+
+    if params[chain_class][:figment_validator_addresses].present?
+      params[chain_class][:figment_validator_addresses].each do |address|
+        @chain[:figment_validator_addresses] << address if address.present?
+      end
     end
+
+    if params[chain_class][:to_remove].present?
+      params[chain_class][:to_remove].reverse_each do |index|
+        @chain[:figment_validator_addresses].delete_at(index.to_i)
+      end
+    end
+
+    params[chain_class][:figment_validator_addresses] = @chain[:figment_validator_addresses]
 
     params.require(chain_class).permit(:name,
                                        :slug,

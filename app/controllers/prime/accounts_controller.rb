@@ -1,5 +1,5 @@
 class Prime::AccountsController < Prime::ApplicationController
-  before_action :require_network, except: %i[index destroy]
+  before_action :require_network, except: %i[index update destroy]
 
   def index
     @new_account = Prime::Account.new
@@ -14,7 +14,7 @@ class Prime::AccountsController < Prime::ApplicationController
       return redirect_to prime_root_path
     end
 
-    @account = Prime::Account.new(account_params)
+    @account = Prime::Account.new(create_account_params)
 
     if @account.save
       flash[:success] = 'Account added successfully!'
@@ -22,6 +22,17 @@ class Prime::AccountsController < Prime::ApplicationController
     else
       flash[:error] = "We were unable to add that account. #{@account.errors.messages[:address].first}"
       redirect_to prime_root_path
+    end
+  end
+
+  def update
+    @account = Prime::Account.find_by(id: params[:id])
+    if @account.update(update_account_params)
+      flash[:success] = 'Account name has been updated!'
+      redirect_to prime_accounts_path
+    else
+      flash[:error] = 'Account name could not be updated!'
+      redirect_to prime_accounts_path
     end
   end
 
@@ -34,13 +45,22 @@ class Prime::AccountsController < Prime::ApplicationController
 
   private
 
-  def account_params
+  def create_account_params
     params[:prime_account][:type] = "Prime::Accounts::#{@network.name.capitalize}"
 
     params.require(:prime_account).permit(:prime_network_id,
                                           :user_id,
                                           :type,
-                                          :address)
+                                          :address,
+                                          :name)
+  end
+
+  def update_account_params
+    params[:update].permit(:prime_network_id,
+                           :user_id,
+                           :type,
+                           :address,
+                           :name)
   end
 
   def require_network

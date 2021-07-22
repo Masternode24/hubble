@@ -2,13 +2,13 @@ FactoryBot.define do
   factory :cosmos_chain, class: 'Cosmos::Chain' do
     name { 'CosmosChain' }
     sequence(:slug) { |n| "cosmos-#{n}" }
-    ext_id { 'cosmoshub-3' }
+    ext_id { 'cosmoshub-4' }
     rpc_host { 'localhost' }
     lcd_host { 'localhost' }
     rpc_path { '' }
     lcd_path { '' }
-    use_ssl_for_rpc { false }
-    use_ssl_for_lcd { false }
+    use_ssl_for_rpc { true }
+    use_ssl_for_lcd { true }
     rpc_port { 443 }
     lcd_port { 443 }
     disabled { false }

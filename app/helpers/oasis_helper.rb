@@ -19,10 +19,6 @@ module OasisHelper
     delegators_shares.to_f / validators_total_delegations.sum(&:shares)
   end
 
-  def to_partial_path(event)
-    "/common/validator_events/#{event.kind_class}"
-  end
-
   def oasis_format_amount(amount, chain = nil, denom: nil, thousands_delimiter: true, hide_units: false, html: true, precision: 3)
     chain ||= @chain
     denom ||= chain.token_display

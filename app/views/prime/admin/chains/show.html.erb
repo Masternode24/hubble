@@ -83,10 +83,25 @@
     <tr>
       <th class='align-middle'>FIGMENT VALIDATOR:</th>
       <td>
-        <%= form_for @chain, url: prime_admin_network_chain_path, method: 'patch' do |f| %>
-          <div class='rpc-host-edit d-flex'>
-            <%= f.text_field :figment_validator_addresses, class: 'mr-2 w-50 form-control technical', placeholder: 'comma separated if multiple addresses' %>
-            <%= f.submit 'update', class: 'btn btn-sm btn-primary ml-auto' %>
+        <%= form_for @chain, url: prime_admin_network_chain_path, id: "address_form", method: 'patch' do |f| %>
+          <div class='rpc-host-edit d-flex flex-column py-3'>
+            <% if @chain.figment_validator_addresses %>
+              <% @chain.figment_validator_addresses.each_with_index do |address, index| %>
+                <div class='d-flex py-1'>
+                  <div class='w-100 mr-0'>
+                    <%= f.text_field :figment_validator_addresses, multiple: true, value: address, class: 'mr-2 w-100 form-control technical', id: 'address' + address %>
+                  </div>
+                  <div class='w-100 ml-0' style="display: flex; justify-content: flex-end">
+                    <%= f.label 'Check to remove' %>
+                    <%= f.check_box :to_remove, { :multiple => true }, index, nil %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+            <div class='d-flex py-1'>
+              <%= f.text_field :figment_validator_addresses, multiple: true, value: '', placeholder: 'new address', class: 'mr-2 w-50 form-control technical', id: 'new address' %>
+            </div>
+            <%= f.submit 'update', class: 'btn btn-sm btn-primary ml-auto', id: 'address update' %>
           </div>
         <% end -%>
       </td>

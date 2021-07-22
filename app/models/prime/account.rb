@@ -18,4 +18,12 @@ class Prime::Account < ApplicationRecord
   def rewards
     raise NotImplementedError
   end
+
+  def shorten_address
+    address.truncate(30)
+  end
+
+  def name_or_address
+    name.presence || shorten_address
+  end
 end
