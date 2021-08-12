@@ -1,0 +1,16 @@
+<div class='data-block'>
+  <h5 class='data-block__title'>Governance</h5>
+  <div>
+    <label class='text-label d-inline'>Total Proposals:</label>
+    <div class='stat-value d-inline'>
+      <span class='text-monospace'><%= total_proposals %></span>
+    </div>
+  </div>
+  <div>
+    <label class='text-label d-inline'>Pending Proposals:</label>
+    <div class='stat-value d-inline'>
+      <span class='text-monospace'><%= pending_poposals %></span>
+    </div>
+  </div>
+  <%= link_to 'View Proposals', namespaced_path( 'governance_root' ), class: 'button-secondary mt-3' %>
+</div>

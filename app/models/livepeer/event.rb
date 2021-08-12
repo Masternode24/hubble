@@ -1,7 +1,7 @@
 class Livepeer::Event < ApplicationRecord
   belongs_to :round
 
-  def kind_string
+  def kind_class
     self.class.name.demodulize.underscore
   end
 

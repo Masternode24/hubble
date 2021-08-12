@@ -1,6 +1,6 @@
 module Polkadot
   class Client < Common::IndexerClient
-    DEFAULT_TIMEOUT = 10
+    DEFAULT_TIMEOUT = 15
     DEFAULT_DAYS_LIMIT = 89
     DEFAULT_HOURS_LIMIT = 24
     DEFAULT_SESSIONS_LIMIT = 1
@@ -25,8 +25,8 @@ module Polkadot
 
     def prime_rewards(prime_account)
       Rails.cache.fetch([self.class.name, 'rewards', prime_account.address].join('-'), expires_in: MEDIUM_EXPIRY_TIME) do
-        token_factor = prime_account.network.primary.reward_token_factor
-        token_display = prime_account.network.primary.reward_token_display
+        token_factor = prime_account.network.primary_chain.reward_token_factor
+        token_display = prime_account.network.primary_chain.reward_token_display
         list = get("/rewards/#{prime_account.address}") || []
         list.map do |reward|
           Prime::Reward::Polkadot.new(reward, prime_account, token_factor: token_factor, token_display: token_display)

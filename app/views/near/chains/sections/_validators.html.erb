@@ -66,7 +66,7 @@
               <%= format_amount(v.stake, denom: "near") %>
             </td>
             <td data-order='<%= v.reward_fee %>'>
-              <%= v.reward_fee %>
+              <%= reward_fee_helper(v.reward_fee) %>
             </td>
             <td class='d-none'>
               _all_ <%= v.active? ? '_active_' : '_inactive_' %>

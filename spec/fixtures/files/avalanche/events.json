@@ -1,0 +1,19 @@
+{
+  "id": "2NpeKFUWWE6aLgyPTuNWyrffVZuoSm5E7gmSqJ3h2szsLPe5Kv",
+  "type": "delegator_added",
+  "scope": "staking",
+  "chain": "11111111111111111111111111111111LpoYY",
+  "block": "sNC3ofYfPc1Q9D191hZdyztRXBV6ktEhnTisMiLAUgWbTiibh",
+  "block_height": 681211,
+  "tx_hash": "gNMTkhni9fPEjFzT6cjrEhgPZzqbEZYq74krSdJwzWNfoYeEV",
+  "item_id": "AJsnGeLYKJMvLTPj78T9J1P285hZ3k94H",
+  "item_type": "validator",
+  "timestamp": "2021-08-06T19:45:37.514837Z",
+  "data": {
+    "duration": 1487397,
+    "end_time": "2021-08-24T01:00:32Z",
+    "node_id": "AJsnGeLYKJMvLTPj78T9J1P285hZ3k94H",
+    "start_time": "2021-08-06T19:50:35Z",
+    "weight": 26234506540
+  }
+}

@@ -46,7 +46,7 @@ module Prime::ApplicationHelper
   end
 
   def user_network_rewards(network)
-    user_rewards.select { |reward| reward.account.network.name == network.name }.sum(&:amount) / (10 ** network.primary.reward_token_factor)
+    user_rewards.select { |reward| reward.account.network.name == network.name }.sum(&:amount) / (10 ** network.primary_chain.reward_token_factor)
   end
 
   def network_events

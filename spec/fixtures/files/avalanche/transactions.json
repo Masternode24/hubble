@@ -1,0 +1,68 @@
+{
+  "id": "2Ahm4cjc8KJ6yGFnumpzH7RzuDKkBvKGdH1RPMYzYSQnHo34gi",
+  "chain": "11111111111111111111111111111111LpoYY",
+  "type": "p_add_validator",
+  "block": "ZhBW4tZQoCFqXUuW1mQrBe742LJpiTvwfjEf99SRuy77nTiTq",
+  "block_height": 676509,
+  "timestamp": "2021-08-03T20:19:45.664975Z",
+  "status": "accepted",
+  "memo": "",
+  "memo_text": "",
+  "fee": 0,
+  "metadata": {
+    "commission_rate": 2,
+    "duration": 5443424,
+    "end_time": "2021-10-05T20:28:27Z",
+    "node_id": "PjvcUhTKUSuwmFqbQbifyWhzmJyc7q5xK",
+    "start_time": "2021-08-03T20:24:43Z",
+    "weight": 2000996000000
+  },
+  "inputs": [
+    {
+      "id": "2QTnM6KNBnGMoA7anUupgF8CJLK5Mw8rmRDAzdUqErZHkMtHDM",
+      "tx_id": "2YDG4QQZhLVYtTP3AiVRdAyZzjKv4tFKwMkVzWCpTXxBQT3Hgn",
+      "chain": "",
+      "asset": "FvwEAhmxKfeiG8SnEvq42hc6whRyY3EFYAvebMqDNDGCgxN5Z",
+      "type": "transfer",
+      "index": 0,
+      "locktime": 0,
+      "threshold": 1,
+      "amount": 2000996000000,
+      "group": 0,
+      "addresses": [
+        "avax1dhyt9j0vrtk5gnf56h5t89pht26cqnczxmlclv"
+      ],
+      "stake": false,
+      "reward": false,
+      "spent": true,
+      "spent_in_tx": "2Ahm4cjc8KJ6yGFnumpzH7RzuDKkBvKGdH1RPMYzYSQnHo34gi"
+    }
+  ],
+  "input_amounts": {
+    "FvwEAhmxKfeiG8SnEvq42hc6whRyY3EFYAvebMqDNDGCgxN5Z": 2000996000000
+  },
+  "outputs": [
+    {
+      "id": "2GMfkhar8mQpjNsD3VETApFArzmAFZ5L4w2iu6Yyaddio5HARY",
+      "tx_id": "2Ahm4cjc8KJ6yGFnumpzH7RzuDKkBvKGdH1RPMYzYSQnHo34gi",
+      "chain": "",
+      "asset": "FvwEAhmxKfeiG8SnEvq42hc6whRyY3EFYAvebMqDNDGCgxN5Z",
+      "type": "transfer",
+      "index": 0,
+      "locktime": 0,
+      "threshold": 1,
+      "amount": 2000996000000,
+      "group": 0,
+      "addresses": [
+        "avax1kjr5ph5xunrw9dysc8az7krz2a2c0ymep8huy3"
+      ],
+      "stake": false,
+      "reward": false,
+      "spent": false,
+      "spent_in_tx": null
+    }
+  ],
+  "output_amounts": {
+    "FvwEAhmxKfeiG8SnEvq42hc6whRyY3EFYAvebMqDNDGCgxN5Z": 2000996000000
+  }
+}

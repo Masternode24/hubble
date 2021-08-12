@@ -13,8 +13,9 @@ class Celo::ValidatorsController < Celo::BaseController
     @validator_hourly_uptime = client.validator_hourly_uptime(@validator.address).map do |validator_summary|
       Common::UptimeChartDecorator.new(validator_summary).point
     end
+    @alertable = AlertableAddress.find_or_initialize_by(chain: @chain, address: @validator.address)
 
-    events = client.validator_events(@chain, @validator.address).sort_by(&:time).reverse
+    events = client.validator_events(chain: @chain, address: @validator.address)
     @pagination, @events = pagy_array(events)
   end
 end

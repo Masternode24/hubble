@@ -1,0 +1,40 @@
+<% content_for :body_class, "transaction-index" %>
+
+<%= render "/shared/dh_banner_script" %>
+<% content_for :additional_header_tabs do %>
+  <%= render partial: 'shared/chain_header_link', locals: { active_tab: 'Search', link_text: 'Search', link_path:  avalanche_chain_transactions_url(@chain) } %>
+  <%= render partial: 'shared/chain_header_link', locals: { active_tab: '', link_text: 'Events', link_path:  avalanche_chain_events_url(@chain) } %>
+<% end %>
+<%= render partial: "shared/chain_header", locals: { active_tab: 'Search'} %>
+
+<%= render_flash_messages %>
+
+<div class='container'>
+  <div class='content'>
+    <div class='data-table transactions-search-form'>
+      <div class='data-table__header'>
+        <h3 class='data-table__title'>Filter Transactions</h3>
+      </div>
+      <div class='px-3 pb-4'>
+        <%= render "avalanche/transactions/index/search",
+          search_form: @search_form,
+          chain: @chain
+        %>
+      </div>
+    </div>
+
+    <div class='data-table'>
+      <div class='data-table__header'>
+        <h3 class='data-table__title'>Search Results</h3>
+      </div>
+      <div class="transactions-search-results">
+        <% if @transactions.any? %>
+          <%= render "avalanche/transactions/index/table", transactions: @transactions %>
+          <%= render "avalanche/transactions/index/pagination", search_form: @search_form, transactions: @transactions %>
+      <% else %>
+          <div class="data-table__empty">No transactions found</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

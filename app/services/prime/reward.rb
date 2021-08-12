@@ -9,8 +9,8 @@ module Prime
 
     def initialize(attr, account, token_factor: nil, token_display: nil)
       super(attr)
-      @token_factor = token_factor || account.network.primary.reward_token_factor
-      @token_display = token_display || account.network.primary.reward_token_display
+      @token_factor = token_factor || account.network.primary_chain.reward_token_factor
+      @token_display = token_display || account.network.primary_chain.reward_token_display
       @account = account
     end
   end

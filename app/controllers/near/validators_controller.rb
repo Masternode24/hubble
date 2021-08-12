@@ -6,7 +6,16 @@ class Near::ValidatorsController < Near::BaseController
     @performance_chart = generate_performance_chart(@validator.epochs)
     delegations = client.delegations(params[:id])
     epochs = @validator.epochs
-    @pagination_delegations, @delegations = pagy_array(delegations, page_param: :delegations_page, items: 5)
+
+    # This is required due to a bug in how the Near indexer currently performs as it does a count over the entire
+    # table when returning delegations regardless of limit or page number. This only affects Validators with a
+    # large number of delegations and is similar for Transactions
+    if delegations.nil?
+      @delegations = delegations
+    else
+      @pagination_delegations, @delegations = pagy_array(delegations, page_param: :delegations_page, items: 5)
+    end
+
     @pagination_epochs, @epochs = pagy_array(epochs, page_param: :epochs_page, items: 5)
 
     @alertable_address = AlertableAddress.find_by(chain: @chain, address: @validator.account_id)

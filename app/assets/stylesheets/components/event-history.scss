@@ -51,8 +51,12 @@
   font-size: 14px;
 }
 
-.event-joined_active_set::before, .event-delegation_accepted::before {
+.event-joined_active_set::before, .event-delegation_accepted::before, .event-delegator_added::before {
   content: '🤝';
+}
+
+.event-subnet_validator_added::before {
+  content: '➕'
 }
 
 .event-left_active_set::before, .event-undelegation_requested::before {
@@ -63,7 +67,7 @@
   content: '👞';
 }
 
-.event-balance_changed::before {
+.event-balance_changed::before, .event-validator_commission_changed::before, .event-mdr_change::before, .event-fee_change::before {
   content: '⚖️';
 }
 
@@ -73,4 +77,16 @@
 
 .event-delegation_rejected::before {
   content: '❌';
+}
+
+.event-delegator_finished::before {
+  content: '✅'
+}
+
+.event-validator_added::before {
+  content: '🎉'
+}
+
+.event-validator_finished::before {
+  content: '🏁'
 }

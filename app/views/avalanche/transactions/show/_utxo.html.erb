@@ -1,0 +1,37 @@
+<div class="utxo-card">
+  <div>
+    <strong><%= (utxo.index.to_s + '.') if type == :output %> <%= utxo.id %></strong>
+    <hr/>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <%= format_amount(utxo.amount, denom_stripped: true, token_denom: @assets[utxo.asset]&.denomination, precision: 9) %> <%= @assets[utxo.asset]&.symbol.present? ? @assets[utxo.asset]&.symbol : "N/A" %>
+    </div>
+    <div class="col-4 text-right">
+      <% if type == :output %>
+        <span class="badge badge-primary" style="color: white"><%= utxo.type %></span>
+      <% end %>
+
+      <% if type == :input %>
+        <span class="badge badge-success" style="color: white;"><%= link_to "spent", avalanche_chain_transaction_path(@chain, utxo.tx_id) %></span>
+      <% else %>
+        <% if utxo.spent %>
+          <span class="badge badge-success"><%= link_to "spent", avalanche_chain_transaction_path(@chain, utxo.spent_in_tx) %></span>
+        <% else %>
+          <span class="badge badge-info">unspent</span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <% if type == :output && utxo.stake && utxo.locktime > 0 %>
+    <div class="small text-muted">
+      <%= utxo.locktime > Time.current.to_i ? 'unlocks' : 'unlocked' %> on <%= Time.at(utxo.locktime).utc.strftime("%b %d, %Y %H:%M %Z") %>
+    </div>
+  <% end %>
+  <div>
+    <div><span class='badge badge-sm mr-1 badge-<%= @blockchains[@transaction.chain]&.name %>'><%= @blockchains[@transaction.chain]&.name %>-Chain </span></div>
+    <% utxo.addresses.each do |addr| %>
+      <%= link_to addr, namespaced_path('account', addr) %>
+    <% end %>
+  </div>
+</div>

@@ -12,19 +12,19 @@ class Prime::Network < ApplicationRecord
   end
 
   def enabled?
-    primary ? primary.active : false
+    primary_chain ? primary_chain.active : false
   end
 
   def to_param
     name
   end
 
-  def primary
-    @primary ||= chains.find_by(primary: true) || chains.order('created_at DESC').first
+  def primary_chain
+    @primary_chain ||= chains.find_by(primary: true)
   end
 
   def token_metrics!
-    @token_metrics ||= Prime::MessariDataService.new.token_metrics(primary.reward_token_remote)
+    @token_metrics ||= Prime::MessariDataService.new.token_metrics(primary_chain.reward_token_remote)
   end
 
   def token_price_time_series!
@@ -32,7 +32,7 @@ class Prime::Network < ApplicationRecord
       params = {
         'interval' => '1d'
       }
-      Prime::MessariDataService.new.token_price_time_series(primary.reward_token_remote, params: params)
+      Prime::MessariDataService.new.token_price_time_series(primary_chain.reward_token_remote, params: params)
     end
   end
 
@@ -51,7 +51,7 @@ class Prime::Network < ApplicationRecord
   end
 
   def figment_validators!
-    @figment_validators ||= primary.figment_validators
+    @figment_validators ||= primary_chain.figment_validators
   end
 
   private

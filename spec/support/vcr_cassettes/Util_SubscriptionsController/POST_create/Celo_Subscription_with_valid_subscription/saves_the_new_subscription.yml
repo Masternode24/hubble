@@ -1,0 +1,119 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:9292/validator/0x112fF12927CD6f924d80b9Aba32E531733B602fF?sequences_limit=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin20.1.0 arm) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:9292
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Jul 2021 12:35:31 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '656'
+      Connection:
+      - close
+      Ratelimit-Limit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4999'
+      X-Ratelimit-Remaining-Minute:
+      - '4999'
+      X-Ratelimit-Limit-Minute:
+      - '5000'
+      Ratelimit-Reset:
+      - '29'
+      X-Quota-Remaining-Day:
+      - '9999990'
+      X-Quota-Limit-Day:
+      - '10000000'
+      Quota-Reset:
+      - '41069'
+      Quota-Remaining:
+      - '9999990'
+      Quota-Limit:
+      - '10000000'
+    body:
+      encoding: UTF-8
+      string: '{"id":90,"created_at":"2021-01-21T21:38:01.761781Z","updated_at":"2021-02-09T17:31:16.116919Z","started_at_height":3022,"started_at":"2020-04-22T20:26:19Z","recent_at_height":311039,"recent_at":"2020-05-10T16:43:31Z","address":"0x112fF12927CD6f924d80b9Aba32E531733B602fF","recent_as_validator_height":311039,"recent_name":"","recent_metadata_url":"","uptime":0.9946691427124389,"last_sequences":[{"id":0,"height":311039,"time":"2020-05-10T16:43:31Z","address":"0x112fF12927CD6f924d80b9Aba32E531733B602fF","affiliation":"0x35aE10F412503aBcf9275133613E8df7f56E72Be","signed":true,"score":999999561623500000000000,"recent_name":"","recent_metadata_url":""}]}
+
+'
+  recorded_at: Tue, 13 Jul 2021 12:35:31 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/validator_group/0x35aE10F412503aBcf9275133613E8df7f56E72Be?sequences_limit=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin20.1.0 arm) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:9292
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 13 Jul 2021 12:35:32 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1459'
+      Connection:
+      - close
+      X-Ratelimit-Remaining-Minute:
+      - '4998'
+      X-Ratelimit-Limit-Minute:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4998'
+      Ratelimit-Limit:
+      - '5000'
+      Ratelimit-Reset:
+      - '28'
+      X-Quota-Remaining-Day:
+      - '9999989'
+      Quota-Limit:
+      - '10000000'
+      X-Quota-Limit-Day:
+      - '10000000'
+      Quota-Remaining:
+      - '9999989'
+      Quota-Reset:
+      - '41068'
+    body:
+      encoding: UTF-8
+      string: '{"id":59,"created_at":"2021-01-21T21:38:01.63307Z","updated_at":"2021-02-09T17:31:16.02489Z","started_at_height":3022,"started_at":"2020-04-22T20:26:19Z","recent_at_height":311039,"recent_at":"2020-05-10T16:43:31Z","address":"0x35aE10F412503aBcf9275133613E8df7f56E72Be","recent_name":"","recent_metadata_url":"","uptime":0,"last_sequences":[{"height":311039,"time":"2020-05-10T16:43:31Z","address":"0x35aE10F412503aBcf9275133613E8df7f56E72Be","name":"","metadata_url":"","commission":"1000000000000000000000000","active_votes":"15982743070658461394105564","pending_votes":"0","members_count":5,"members_avg_uptime":1}],"delegation_activity":[{"id":3834,"height":173110,"time":"2020-05-02T17:09:25Z","transaction_hash":"0x0f99704e60af2e76f681c840bd3190e753359502846c2da11e178d6bd7c3c493","address":"0x35aE10F412503aBcf9275133613E8df7f56E72Be","amount":10013243929151379599984,"kind":"ValidatorGroupVoteActivatedReceived","data":{"Raw":{"data":"0x","topics":null,"address":"0x0000000000000000000000000000000000000000","removed":false,"logIndex":"0x0","blockHash":"0x0000000000000000000000000000000000000000000000000000000000000000","blockNumber":"0x0","transactionHash":"0x0000000000000000000000000000000000000000000000000000000000000000","transactionIndex":"0x0"},"Group":"0x35ae10f412503abcf9275133613e8df7f56e72be","Units":1001324392915137959998400000000000000000000,"Value":10013243929151379599984,"Account":"0x68fbd650921067bc33124bdca2b00b8c44ada651"}}]}
+
+'
+  recorded_at: Tue, 13 Jul 2021 12:35:32 GMT
+recorded_with: VCR 6.0.0

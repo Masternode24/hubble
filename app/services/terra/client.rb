@@ -1,15 +1,7 @@
 module Terra
-  class Client < Common::IndexerClient
+  class Client < Cosmoslike::Client
     DEFAULT_TIMEOUT = 30
     DEFAULT_REWARDS_REQUEST_LENGTH = 90.days
-
-    def transaction_search_request(body)
-      tx_list = post(body: body, content_type: 'application/json') || []
-
-      tx_list.map do |transaction|
-        Terra::TransactionSearchResult.new(transaction)
-      end
-    end
 
     def account(address)
       Terra::AccountDecorator.new(Terra::Chain.primary, address)

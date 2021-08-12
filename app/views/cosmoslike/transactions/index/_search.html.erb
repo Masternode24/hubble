@@ -1,11 +1,11 @@
-<%= bootstrap_form_for search_form, as: :search, method: :get, url: terra_chain_transactions_path(chain) do |f| %>
+<%= bootstrap_form_for search_form, as: :search, method: :get, url: namespaced_path('transactions', chain) do |f| %>
   <%= f.hidden_field :network, value: @chain.namespace.to_s.downcase %>
   <div class="container">
     <div class="row">
       <div class="col-md-5">
         <%= f.text_field :accounts_array, label: "Account (Sender/Receiver):", class: "form-control form-control-sm" %>
         <div class="show-opts">
-          <%= f.collection_radio_buttons :show, terra_tx_include_opts,
+          <%= f.collection_radio_buttons :show, default_tx_include_opts,
                                           :first,
                                           :last,
                                           label: "Include: ",

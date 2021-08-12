@@ -6,6 +6,7 @@ class Common::IndexerClient
 
   class Error         < StandardError; end
   class NotFoundError < Error; end
+  class Timeout < TimeoutError; end
 
   def initialize(endpoint, options = {})
     @endpoint = endpoint
@@ -45,6 +46,8 @@ class Common::IndexerClient
     # so let's have an eye on it
     Rails.logger.error(err)
     raise Common::IndexerClient::NotFoundError, err
+  rescue RestClient::Exceptions::ReadTimeout => err
+    raise Common::IndexerClient::Timeout, err
   rescue RestClient::ExceptionWithResponse => err
     handle_error(err)
   rescue StandardError => err

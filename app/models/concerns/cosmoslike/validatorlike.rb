@@ -86,8 +86,12 @@ module Cosmoslike::Validatorlike
     chain.governance_proposals.where(id: ids)
   end
 
+  def event_kind_to_class(kind)
+    "Common::ValidatorEvents::#{kind.classify}".constantize
+  end
+
   def recent_events(type, since)
-    events.where(type: type.to_s).where('timestamp >= ?', since)
+    events.where(type: event_kind_to_class(type).to_s).where('timestamp >= ?', since)
   end
 
   def in_active_set?(block = nil)

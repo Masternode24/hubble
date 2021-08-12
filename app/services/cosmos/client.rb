@@ -1,5 +1,5 @@
 module Cosmos
-  class Client < Common::IndexerClient
+  class Client < Cosmoslike::Client
     DEFAULT_TIMEOUT = 30
     DEFAULT_REWARDS_REQUEST_LENGTH = 90.days
 

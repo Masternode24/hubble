@@ -3,4 +3,5 @@ $(document).ready(function() {
     return;
   }
   new App.Common.HourlyUptimeChart($('.validator-hourly-uptime-chart')).render();
+  new App.Avalanche.DelegationsTable($('.delegations-table')).render();
 });

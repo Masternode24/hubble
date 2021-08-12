@@ -7,11 +7,9 @@ module Common
       return super(attrs) unless mapping
 
       attrs = HashWithIndifferentAccess.new(attrs)
-
       mapping.each_pair do |name, opts|
         val = attrs[opts[:source]]
         val = opts[:default] if val.nil? && !opts[:default].nil?
-
         case opts[:type]
         when :integer
           instance_variable_set("@#{name}", val&.to_i)

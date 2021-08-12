@@ -1,9 +1,9 @@
 class Prime::Accounts::Oasis < Prime::Account
   def details
-    @details ||= network.primary.client.account(address, retrieve_delegations: true)
+    @details ||= network.primary_chain.client.account(address, retrieve_delegations: true)
   end
 
   def rewards
-    @rewards ||= network.primary.client.prime_rewards(self)
+    @rewards ||= network.primary_chain.client.prime_rewards(self)
   end
 end

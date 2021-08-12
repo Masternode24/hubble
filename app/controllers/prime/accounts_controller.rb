@@ -68,7 +68,7 @@ class Prime::AccountsController < Prime::ApplicationController
   end
 
   def account_valid?
-    @network.primary.client.account(params[:prime_account][:address]).present?
+    @network.primary_chain.client.account(params[:prime_account][:address]).present?
   rescue Common::IndexerClient::Error => e
     flash[:error] = 'That does not appear to be a valid address.'
     false

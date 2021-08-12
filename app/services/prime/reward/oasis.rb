@@ -8,6 +8,7 @@ module Prime
       @time = Time.zone.parse(attr['time_bucket'])
       @amount = attr['total_rewards']
       @validator_address = attr['escrow_address']
+      @commission = attr['total_commission']
     end
   end
 end

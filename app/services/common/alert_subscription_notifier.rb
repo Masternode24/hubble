@@ -52,6 +52,8 @@ class Common::AlertSubscriptionNotifier
       )
     end
 
+    sub.update(last_daily_at: Time.now.utc) and return if events.empty?
+
     print "\tNotifying about #{events.count} events..." if ENV['DEBUG']
 
     # we don't filter, just send everything that happened that day

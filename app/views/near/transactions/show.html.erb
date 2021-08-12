@@ -32,7 +32,7 @@
           <div class='data-block'>
             <h5 class='data-block__title'>Fees</h5>
               <ul class='list-unstyled mb-0'>
-                <li>N/A</li>
+                <li><%= format_amount(@transaction.fee, denom: "near", precision: 6) %></li>
               </ul>
           </div>
           <div class='data-block'>
@@ -62,15 +62,15 @@
                     <tbody>
                       <tr>
                         <td class='text-nowrap'>Sender</td>
-                        <td><%= @transaction.sender %></td>
+                        <td class='text-underline'><%= link_to @transaction.sender, near_chain_account_path(@chain, @transaction.sender) %></td>
                       </tr>
                       <tr>
                         <td class='text-nowrap'>Receiver</td>
-                        <td><%= @transaction.receiver %></td>
+                        <td class='text-underline'><%= link_to @transaction.receiver, near_chain_account_path(@chain, @transaction.receiver) %></td>
                       </tr>
                       <tr>
                         <td class='text-nowrap'>Gas Burnt</td>
-                        <td><%= format_amount(@transaction.gas_burnt, denom: 'GAS') %></td>
+                        <td><%= format_amount(@transaction.gas_burnt, denom: 'GAS', in_billions: true) %></td>
                       </tr>
                     </tbody>
                   </table>

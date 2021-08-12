@@ -5,9 +5,19 @@
 
 <div class='validator-header'>
   <div class='container'>
-    <h2 class='mb-4 validator-header__title mr-0'>
-      <%= @validator.account_id %>
-    </h2>
+    <div class='d-flex flex-wrap'>
+      <h2 class='mb-4 validator-header__title mr-auto'>
+        <%= @validator.account_id %>
+      </h2>
+      <div class='validator-info pb-4'>
+        <ul class="validator-info__list">
+          <li class="validator-info__item">
+            <p class="text-label validator-info__label">Account</p>
+            <%= link_to @validator.account_id, near_chain_account_path(@chain, @validator.account_id), class: "validator-info__value technical" %>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -38,7 +48,9 @@
             </div>
           </div>
         </div>
-      <% if @delegations.empty? -%>
+      <% if @delegations.nil? -%>
+        <br><p class="text-label validator-info__label">Delegations are currently unavailable for this Validator</p><br>
+      <% elsif @delegations.empty? -%>
         <br><p class="text-label validator-info__label">This Address has no Active Delegations</p><br>
       <% else -%>
         <%= render "delegations", delegations: @delegations %>

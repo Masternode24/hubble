@@ -2,7 +2,18 @@
 <div class='data-table mb-4'>
   <div class='data-table__header d-flex'>
     <h3 class='data-table__title mr-auto'>Event History</h3>
+
+    <% if !current_user -%>
+      <div data-toggle='tooltip' title='Sign up to subscribe to alerts!'>
+        <%= link_to 'Subscribe', new_user_path, class: "button-secondary" %>
+      </div>
+    <% else -%>
+      <%= link_to namespaced_path('validator_subscriptions', validator.address), class: "button-secondary" do %>
+        <%= current_user.subscribed_to?(alertable) ? 'Edit Subscription' : 'Subscribe to Alerts' %>
+      <% end -%>
+    <% end -%>
   </div>
 
-  <%= render partial: 'common/validators/events_table_content', locals: { events: @events, validator: @validator } %>
+
+  <%= render partial: 'common/validators/events_table_content', locals: { events: events, validator: validator } %>
 </div>

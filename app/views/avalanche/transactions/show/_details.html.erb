@@ -1,0 +1,127 @@
+<div class="data-table m-0 mb-4">
+  <header class="data-table__header d-flex align-items-center justify-content-between">
+    <h4 class="data-table__title m-0">Transaction Details</h4>
+    <span class="d-none d-md-flex badge badge-pill badge-dark text-uppercase">Type: <%= transaction.type_name %></span>
+  </header>
+  <div class="card-body no-padding">
+    <div class="table-responsive">
+      <table class="table table-sm m-0">
+        <thead>
+          <tr class="text-uppercase text-secondary">
+            <th width="30%">Parameter</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-nowrap">Type</td>
+            <td><%= transaction.type_name %></td>
+          </tr>
+          <tr>
+            <td class="text-nowrap">Chain</td>
+            <td><span class='badge badge-sm mr-1 badge-<%= @blockchains[transaction.chain]&.name %>'><%= @blockchains[transaction.chain]&.name %>-Chain </span><small>(<%= transaction.chain %>)</small></td>
+          </tr>
+          <% if transaction.source_chain %>
+            <tr>
+              <td class="text-nowrap">Source Chain</td>
+              <td><span class='badge badge-sm mr-1 badge-<%= @blockchains[transaction.source_chain]&.name %>'><%= @blockchains[transaction.source_chain]&.name %>-Chain </span><small>(<%= transaction.source_chain %>)</small></td>
+            </tr>
+          <% end %>
+          <% if transaction.destination_chain %>
+            <tr>
+              <td class="text-nowrap">Destination Chain</td>
+              <td><span class='badge badge-sm m1-1 badge-<%= @blockchains[transaction.destination_chain]&.name %>'><%= @blockchains[transaction.destination_chain].name %>-Chain </span><small>(<%= transaction.destination_chain %>)</small></td>
+            </tr>
+          <% end %>
+          <tr>
+            <td class="text-nowrap">Timestamp</td>
+            <td><%= transaction.timestamp.strftime("%b %d, %Y %H:%M %Z") %></td>
+          </tr>
+          <% if transaction.reference_tx_id %>
+            <tr>
+              <td class="text-nowrap">Reference Tx</td>
+              <td><%= link_to transaction.reference_tx_id, avalanche_chain_transaction_path(@chain, transaction.reference_tx_id) %></td>
+            </tr>
+          <% end %>
+          <% if transaction.block %>
+            <tr>
+              <td class="text-nowrap">Block Hash</td>
+              <td><%= transaction.block %></td>
+            </tr>
+            <tr>
+              <td class="text-nowrap">Block Height</td>
+              <td><%= transaction.block_height %></td>
+            </tr>
+          <% end %>
+          <% if transaction.memo %>
+          <tr>
+            <td class="text-nowrap">Memo <small>(base64)</small></td>
+            <td><small><%= transaction.memo %></small></td>
+          </tr>
+          <tr>
+            <td class="text-nowrap">Memo Text <small>(utf-8)</small></td>
+            <td><small><%= transaction.memo_text %></small></td>
+          </tr>
+        <% end %>
+          <tr>
+            <td class="text-nowrap">Fee</td>
+            <td><%= format_amount transaction.fee %></td>
+          </tr>
+          <% if transaction.input_amounts %>
+            <tr>
+              <td class="text-nowrap">Input Totals</td>
+              <td>
+                <% transaction.input_amounts.each_pair do |token, amount| %>
+                  <div><%= format_amount(amount, denom_stripped: true, token_denom: @assets[token]&.denomination, precision: 9) %> <span class="text-sm text-muted sup"><%= @assets[token]&.symbol %></span></div>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+          <% if transaction.output_amounts %>
+            <tr>
+              <td class="text-nowrap">Output Totals</td>
+              <td>
+                <% transaction.output_amounts.each_pair do |token, amount| %>
+                  <div><%= format_amount(amount, denom_stripped: true, token_denom: @assets[token]&.denomination, precision: 9) %> <span class="text-sm text-muted sup"><%= @assets[token]&.symbol %></span></div>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+          <% if transaction.metadata %>
+            <tr>
+              <td class="text-nowrap">Metadata</td>
+              <td>
+                <% transaction.metadata.each_pair do |k, v| %>
+                  <% if k == 'node_id' %>
+                    <div><%= k.humanize %>: <%= link_to v, avalanche_chain_validator_path(@chain, 'NodeID-' + v) %></div>
+                  <% else %>
+                    <div><%= k.humanize %>: <%= v %></div>
+                  <% end %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <% if transaction.inputs.any? || transaction.outputs.any? %>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-6">
+          <h5>Inputs</h5>
+          <% transaction.inputs.each do |input| %>
+            <%= render "avalanche/transactions/show/utxo", utxo: input, type: :input %>
+          <% end %>
+        </div>
+        <div class="col-6">
+          <h5>Outputs</h5>
+          <% transaction.outputs.each do |output| %>
+            <%= render "avalanche/transactions/show/utxo", utxo: output, type: :output %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

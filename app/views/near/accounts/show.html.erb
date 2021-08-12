@@ -1,0 +1,29 @@
+<% content_for :body_class, 'accounts-show' %>
+<%= render partial: 'near/base/chain_header', locals: { active_tab: '' } %>
+
+<div class='validator-header border-top-0'>
+  <div class='container'>
+    <div class='data-block my-4'>
+      <label class='data-block__title'>Account</label>
+      <span class='data-block__value d-block word-break'><%= @account.id %></span>
+    </div>
+    <% if @account.id.include?('.poolv1.near') -%>
+      <h5 class='mb-4'>
+        <%= link_to 'Validator Information', near_chain_validator_path(@chain, @account.id), class: 'text-muted text-underline'%>
+      </h5>
+    <% end -%>
+  </div>
+</div>
+
+<%= render_flash_messages %>
+
+<div class='content'>
+  <div class='container'>
+    <div class="row">
+      <div class="col-md-12 col-lg-8 mb-5 mb-lg-0">
+        <%= render "near/accounts/sections/account", account: @account %>
+      </div>
+    </div>
+    <%= render "near/accounts/sections/transactions", transactions: @transactions %>
+  </div>
+</div>

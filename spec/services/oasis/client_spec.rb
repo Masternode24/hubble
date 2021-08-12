@@ -171,7 +171,7 @@ describe Oasis::Client do
 
     it 'returns validator_events list' do
       expect(validator_events).to be_a Array
-      expect(validator_events.first).to be_a Common::Event::ActiveSetInclusion
+      expect(validator_events.first).to be_a Common::IndexerEvent::ActiveSetInclusion
     end
   end
 

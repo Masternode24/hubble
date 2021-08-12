@@ -29,9 +29,9 @@ class Prime::ValidatorEventDecorator < SimpleDelegator
       end
     when 'VotingPowerChange'
       if positive?
-        "Figment voting power increased #{number_with_delimiter(display_voting_power_delta.round(2))} #{network.primary.reward_token_display}"
+        "Figment voting power increased #{number_with_delimiter(display_voting_power_delta.round(2))} #{network.primary_chain.reward_token_display}"
       else
-        "Figment voting power decreased #{number_with_delimiter(display_voting_power_delta.abs.round(2))} #{network.primary.reward_token_display}"
+        "Figment voting power decreased #{number_with_delimiter(display_voting_power_delta.abs.round(2))} #{network.primary_chain.reward_token_display}"
       end
     when 'NConsecutive'
       "Figment missed #{n} consecutive blocks"

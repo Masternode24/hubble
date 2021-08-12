@@ -15,6 +15,20 @@ describe FormattingHelper do
         expect(subject).to eq "<span class='text-monospace'>123M</span> <span class='text-sm text-muted sup'>NGM</span>"
       end
     end
+
+    context 'with in_millions without denom' do
+      subject { format_amount(amount, chain, in_millions: true, denom_stripped: true) }
+
+      let(:amount) { 123000000000000 }
+      let(:chain) do
+        double(token_map: { 'ungm' => { 'factor' => 6, 'display' => 'NGM', 'primary' => true } },
+               primary_token: 'ungm')
+      end
+
+      it 'returns a value formatted in millions' do
+        expect(subject).to eq "<span class='text-monospace'>123M</span>"
+      end
+    end
   end
 
   describe '#rounded_percentage' do

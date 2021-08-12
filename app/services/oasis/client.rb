@@ -97,8 +97,8 @@ module Oasis
 
     def prime_rewards(prime_account)
       Rails.cache.fetch([self.class.name, 'rewards', prime_account.address].join('-'), expires_in: MEDIUM_EXPIRY_TIME) do
-        token_factor = prime_account.network.primary.reward_token_factor
-        token_display = prime_account.network.primary.reward_token_display
+        token_factor = prime_account.network.primary_chain.reward_token_factor
+        token_display = prime_account.network.primary_chain.reward_token_display
         list = get("/balance/#{prime_account.address}") || []
         list.map do |reward|
           Prime::Reward::Oasis.new(reward, prime_account, token_factor: token_factor, token_display: token_display)
@@ -141,7 +141,7 @@ module Oasis
 
     def get_recent_events(chain, address, klass, time_ago)
       all_events = retrieve_events(chain, address, Time.now - time_ago)
-      all_events.select { |e| e.time >= time_ago && klass == "Common::ValidatorEvents::#{e.kind_class.classify}".constantize }
+      all_events.select { |e| e.time >= time_ago && klass == e.kind }
     end
 
     def get_events_for_alert(chain, subscription, seconds_ago, date = nil)

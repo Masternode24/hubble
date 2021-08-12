@@ -18,6 +18,8 @@ class Cosmos::Chain < ApplicationRecord
     validator_operator_public_key: 'cosmosvaloperpub1'
   }.freeze
 
+  scope :tx_search_enabled, -> { where(tx_search_enabled: true) }
+
   def network_name
     'Cosmos'
   end

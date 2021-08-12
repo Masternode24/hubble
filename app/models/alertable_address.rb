@@ -6,6 +6,8 @@ class AlertableAddress < ApplicationRecord
 
   delegate :validator_event_defs, to: :chain
 
+  FULL_LENGTH_NETWORK_NAMES = %w[NEAR Avalanche].freeze
+
   def to_param
     address
   end
@@ -15,26 +17,18 @@ class AlertableAddress < ApplicationRecord
   end
 
   def long_name
-    if chain.respond_to?(:client)
-      chain.client.get_alertable_name(address)
-    else
-      chain.get_alertable_name(address)
-    end
+    chain.get_alertable_name(address)
   end
 
   def short_name(max_length = 16)
-    if chain.network_name == 'NEAR'
+    if FULL_LENGTH_NETWORK_NAMES.include?(chain.network_name)
       long_name
     else
       long_name.truncate(max_length)
     end
   end
 
-  def recent_events(klass, time_ago)
-    if chain.respond_to?(:client)
-      chain.client.get_recent_events(chain, address, klass, time_ago)
-    else
-      chain.get_recent_events(address, klass, time_ago)
-    end
+  def recent_events(event_kind, after_time)
+    chain.get_recent_events(chain, address, event_kind, after_time)
   end
 end

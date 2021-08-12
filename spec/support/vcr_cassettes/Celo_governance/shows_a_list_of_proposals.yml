@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:9292/proposals
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin20.1.0 arm) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:9292
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 26 Jul 2021 10:23:58 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1009'
+      Connection:
+      - close
+      Ratelimit-Limit:
+      - '5000'
+      Ratelimit-Remaining:
+      - '4999'
+      X-Ratelimit-Remaining-Minute:
+      - '4999'
+      X-Ratelimit-Limit-Minute:
+      - '5000'
+      Ratelimit-Reset:
+      - '2'
+      X-Quota-Remaining-Day:
+      - '9999997'
+      X-Quota-Limit-Day:
+      - '10000000'
+      Quota-Reset:
+      - '48962'
+      Quota-Remaining:
+      - '9999997'
+      Quota-Limit:
+      - '10000000'
+    body:
+      encoding: UTF-8
+      string: '{"items":[{"id":1,"created_at":"2021-01-27T06:23:33.24378Z","updated_at":"2021-01-31T12:16:38.562488Z","started_at_height":91471,"started_at":"2020-04-27T23:46:07Z","recent_at_height":161105,"recent_at":"2020-05-02T00:29:00Z","proposal_id":1,"proposer_address":"","description_url":"https://github.com/celo-org/celo-proposals/blob/master/CGPs/0001.md","deposit":"","transaction_count":0,"proposed_at_height":0,"proposed_at":"0001-01-01T00:00:00Z","recent_stage":"executed","dequeue_address":"","dequeued_at_height":0,"dequeued_at":"0001-01-01T00:00:00Z","approval_address":"","approved_at_height":0,"approved_at":"0001-01-01T00:00:00Z","executor_address":"","executed_at_height":161105,"executed_at":"2020-05-02T00:29:00Z","expired_at_height":0,"expired_at":"0001-01-01T00:00:00Z","upvotes_total":"","yes_votes_total":0,"yes_votes_weight_total":"","no_votes_total":0,"no_votes_weight_total":"","abstain_votes_total":0,"abstain_votes_weight_total":"","votes_total":0,"votes_weight_total":""}],"next_cursor":1}
+
+'
+  recorded_at: Mon, 26 Jul 2021 10:23:58 GMT
+recorded_with: VCR 6.0.0

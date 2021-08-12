@@ -1,6 +1,7 @@
 require 'rails_helper'
 require 'capybara/rspec'
 require 'rspec/retry'
+require 'download_helper'
 
 Capybara.register_driver :chrome do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)

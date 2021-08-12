@@ -15,6 +15,8 @@ module Avalanche
     field :capacity, type: :integer
     field :capacity_percent
 
+    alias address node_id
+
     def display_name
       @display_name.presence || account_details&.display_name || node_id
     end

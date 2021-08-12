@@ -1,0 +1,14 @@
+<% content_for :body_class, 'events-index' %>
+
+<%= render "/shared/dh_banner_script" %>
+<% content_for :additional_header_tabs do %>
+  <%= render partial: 'shared/chain_header_link', locals: { active_tab: '', link_text: 'Search', link_path:  avalanche_chain_transactions_url(@chain) } %>
+  <%= render partial: 'shared/chain_header_link', locals: { active_tab: (params[:validator_id].present? ? '' : 'Events'), link_text: 'Events', link_path:  avalanche_chain_events_url(@chain) } %>
+<% end %>
+<%= render partial: "shared/chain_header", locals: { active_tab: 'Events' } %>
+
+<div class='content'>
+  <div class='container'>
+    <%= render partial: 'avalanche/events/sections/events' %>
+  </div>
+</div>
