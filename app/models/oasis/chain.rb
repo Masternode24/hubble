@@ -21,6 +21,8 @@ class Oasis::Chain < ApplicationRecord
   validates :slug, format: { with: /\A[a-z0-9-]+\z/ }, uniqueness: true, presence: true
   validates :api_url, presence: true
 
+  delegate :status, :get_recent_events, :get_alertable_name, to: :client
+
   def self.token_map
     {
       'amber' => {
@@ -80,7 +82,7 @@ class Oasis::Chain < ApplicationRecord
   end
 
   def last_sync_time
-    @last_sync_time ||= client.status.last_indexed_time
+    @last_sync_time ||= status.last_indexed_time
   end
 
   def current_voting_power

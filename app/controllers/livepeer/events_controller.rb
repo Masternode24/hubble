@@ -21,8 +21,8 @@ class Livepeer::EventsController < Livepeer::BaseController
     @event = @chain.events.find(params[:id])
     @orchestrator = @event.orchestrator
 
-    page_title @event.kind_string.humanize
-    meta_description @event.kind_string.humanize
+    page_title @event.kind_class.humanize
+    meta_description @event.kind_class.humanize
   end
 
   private

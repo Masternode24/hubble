@@ -25,10 +25,10 @@
               <%= transaction.hash %>
             </td>
             <td>
-              <%= format_amount(transaction.gas_burnt, denom: 'gas') %>
+              <%= format_amount(transaction.gas_burnt, denom: 'gas', in_billions: true) %>
             </td>
             <td>
-              N/A
+              <%= format_amount(transaction.fee, denom: "near", precision: 6) %>
             </td>
             <td>
               <% if !transaction.success -%>

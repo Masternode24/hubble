@@ -99,8 +99,7 @@
 
                   <div class='recent-event-count mt-4'>
                     There have been
-                    <% klass = event_kind_to_class( event_kind ) -%>
-                    <%= @alertable.recent_events(klass, 1.week.ago).count %> instances in the past week.
+                    <%= @alertable.recent_events(event_kind, 1.week.ago).count %> instances in the past week.
                   </div>
                 </div>
               </div>

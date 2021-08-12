@@ -1,0 +1,96 @@
+.transaction-index {
+  .card {
+    .card-header {
+      h4 {
+        margin-bottom: 0;
+      }
+    }
+
+    .no-padding {
+      padding: 0;
+    }
+
+    table {
+      margin-bottom: 0;
+    }
+  }
+
+  form.new_search {
+    .flatpickr {
+      background: #fff;
+    }
+
+    .show-opts label{
+      margin-right: 0.5rem;
+    }
+
+    .tx-search-types-card {
+      box-shadow: none;
+    }
+
+    .tx-type-category {
+      label {
+        margin-right: 2rem;
+      }
+
+      label[for='search_type'] {
+        display: none;
+      }
+    }
+  }
+
+  .transactions-search-results {
+    .inline-pagination {
+      padding: 12px;
+      text-align: center;
+
+      a {
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.transaction-show {
+  .card-body {
+    &.no-padding {
+      padding: 0;
+    }
+  }
+}
+
+.flatpickr-clear {
+  padding: 4px;
+  cursor: pointer;
+  border-top: 1px solid #eee;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.badge-X {
+  background-color: #99c8f7;
+}
+
+.badge-C {
+  background-color: #cafaca;
+}
+
+.badge-P {
+  background-color: #ffdfb3;
+}
+
+.utxo-card {
+  background: #eee;
+  margin-bottom: 12px;
+  padding: 8px;
+  border-radius: 8px;
+
+  .badge {
+    a {
+      color: white;
+    }
+  }
+}
+

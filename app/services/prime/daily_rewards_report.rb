@@ -4,9 +4,11 @@ class Prime::DailyRewardsReport
     name
     address
     reward
+    commission
     currency
     token_price
-    usd_equivalent
+    reward_usd_equiv
+    commission_usd_equiv
     validator
   ].freeze
 
@@ -17,7 +19,8 @@ class Prime::DailyRewardsReport
 
   def to_csv
     data = rewards_to_rows(user_network_accounts)
-    Common::CsvExporter.new(data, FIELDS).call
+    fields = Common::CsvExporter.filter_unused_fields(FIELDS, data)
+    Common::CsvExporter.new(data, fields).call
   end
 
   private
@@ -28,19 +31,25 @@ class Prime::DailyRewardsReport
 
   def rewards_to_rows(accounts)
     rows = []
+    total_commission = accounts.map { |a| a.rewards.sum(&:commission) }.sum
     accounts.each do |account|
       token_hash = account.network.daily_price_series_hash
-      factor = account.network.primary.reward_token_factor
+      factor = account.network.primary_chain.reward_token_factor
       account.rewards.each do |reward|
         factored_reward = reward.amount.to_f / (10 ** factor)
+        factored_commission = reward.commission.to_f / (10 ** factor) if reward.commission != 0
+        reward_usd_equivalent, commission_usd_equivalent = usd_equivalent(account.network.primary_chain, reward, token_hash)
+        commission_usd_equivalent = nil if commission_usd_equivalent == 0
         rows << {
           date: reward.time,
           name: account.name,
           address: account.address,
           reward: factored_reward,
+          commission: factored_commission,
           currency: reward.token_display,
           token_price: token_price(reward.time, token_hash),
-          usd_equivalent: usd_equivalent(account.network.primary, reward, token_hash),
+          reward_usd_equiv: reward_usd_equivalent,
+          commission_usd_equiv: commission_usd_equivalent,
           validator: reward.validator_address
         }
       end
@@ -58,9 +67,10 @@ class Prime::DailyRewardsReport
 
   def usd_equivalent(primary, reward, token_hash)
     if reward.token_display == primary.reward_token_display
-      reward.amount.to_f * token_price(reward.time, token_hash) / (10 ** primary.reward_token_factor)
+      factor = token_price(reward.time, token_hash) / (10 ** primary.reward_token_factor)
     elsif reward.token_display == 'USD'
-      reward.amount.to_f / (10 ** primary.reward_token_factor)
+      factor = 1.0 / (10 ** primary.reward_token_factor)
     end
+    defined?(factor) ? [reward.amount.to_f * factor, reward.commission.to_f * factor] : [nil, nil]
   end
 end

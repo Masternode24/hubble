@@ -1,6 +1,6 @@
 <% @events.each do |event| -%>
   - <%= event.timestamp.strftime("%Y-%m-%d %H:%M %Z") %>
-  <% case event.kind_string -%>
+  <% case event.kind_class -%>
   <% when 'voting_power_change' %>
     Voting power changed from <%= event.from %> -> <%= event.to %> (<%= sprintf("%+d", event.delta) %> / <%= sprintf("%+.1f%%", event.percentage_change) %>) at block <%= event.height %>
 
@@ -17,7 +17,7 @@
     <% if event.alertable.chain.alertable_type == 'delegator_list' %>
       Reward cut changed to <%= number_to_percentage(event.reward_cut) %> for orchestrator <%= event.orchestrator.name_or_address %>
     <% elsif event.alertable.chain.alertable_type == 'validator' %>
-      Commission changed to <%= number_to_percentage(event.to) %> for validator <%= event.actor %>
+      Commission changed to <%= number_to_percentage(event.to) %> for validator <%= event.alertable.address %>
     <% end %>
 
   <% when 'missed_reward_call' %>

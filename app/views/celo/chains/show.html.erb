@@ -39,6 +39,10 @@
             </div>
           </div>
         </div>
+
+        <%= render partial: 'shared/governance_block', locals:
+          { total_proposals: @chain.client.proposals.count,
+            pending_poposals: @chain.client.proposals.select(&:pending?).count } %>
       </div>
     </div>
   </div>

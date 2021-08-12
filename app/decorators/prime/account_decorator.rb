@@ -2,7 +2,7 @@ class Prime::AccountDecorator < SimpleDelegator
   include ActionView::Helpers::NumberHelper
 
   def factor
-    network.primary.reward_token_factor
+    network.primary_chain.reward_token_factor
   end
 
   def formatted_balance

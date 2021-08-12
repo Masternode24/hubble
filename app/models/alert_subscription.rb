@@ -32,8 +32,8 @@ class AlertSubscription < ApplicationRecord
 
   def wants_event?(event)
     # are they subscribed to this type?
-    ignored_event = !event_kinds.include?(event.kind_string)
-    puts "\t\tSend #{event.kind_string} (wants #{event_kinds})" if ENV['DEBUG']
+    ignored_event = !event_kinds.include?(event.kind_class)
+    puts "\t\tSend #{event.kind_class} (wants #{event_kinds})" if ENV['DEBUG']
 
     # is it a voting power change, but not enough of a change?
     if !ignored_event && event.is_a?(Common::ValidatorEvents::VotingPowerChange)

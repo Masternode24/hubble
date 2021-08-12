@@ -4,6 +4,7 @@ describe Prime::PortfoliosHelper do
   let!(:prime_user) { create(:user, prime: true) }
   let!(:polkadot) { create(:prime_network, name: 'Polkadot') }
   let!(:oasis) { create(:prime_network, name: 'Oasis') }
+  let!(:near) { create(:prime_network, name: 'Near') }
 
   let!(:polkadot_chain) do
     create(:prime_chain,
@@ -25,6 +26,18 @@ describe Prime::PortfoliosHelper do
            reward_token_display: 'ROSE')
   end
 
+  let!(:near_chain) do
+    create(:prime_chain,
+           network: near,
+           name: 'Mainnet',
+           slug: 'mainnet',
+           type: 'Prime::Chains::Near',
+           api_url: 'https://localhost:3333',
+           reward_token_factor: 24,
+           reward_token_remote: 'near',
+           reward_token_display: 'NEAR')
+  end
+
   let!(:polkadot_account) do
     create(:prime_account,
            user: prime_user,
@@ -40,6 +53,14 @@ describe Prime::PortfoliosHelper do
            address: 'oasis1qzkdwhw4hnu2pl49c6kpm8znh83uagvh9q7l8m2w')
   end
 
+  let!(:near_account) do
+    create(:prime_account,
+           user: prime_user,
+           network: near,
+           type: 'Prime::Accounts::Near',
+           address: 'figment.near')
+  end
+
   describe '#portfolio_balance_usd', :vcr do
     it 'returns correct balance' do
       networks = Prime::Network.enabled.order(name: :asc).map do |network|
@@ -48,9 +69,10 @@ describe Prime::PortfoliosHelper do
       network_balances = prime_user.network_balances
       polkadot_balance = network_balances['polkadot'] * networks.select { |n| n.name == 'polkadot' }.first.price_usd
       oasis_balance = network_balances['oasis'] * networks.select { |n| n.name == 'oasis' }.first.price_usd
+      near_balance = network_balances['near'] * networks.select { |n| n.name == 'near' }.first.price_usd
 
       result = portfolio_balance_usd(networks, network_balances)
-      expect(result).to eq (polkadot_balance + oasis_balance).round(2)
+      expect(result).to eq (polkadot_balance + oasis_balance + near_balance).round(2)
     end
   end
 
@@ -62,11 +84,13 @@ describe Prime::PortfoliosHelper do
       network_balances = prime_user.network_balances
       polkadot_roi = networks.select { |n| n.name == 'polkadot' }.first.one_month_roi
       oasis_roi = networks.select { |n| n.name == 'oasis' }.first.one_month_roi
+      near_roi = networks.select { |n| n.name == 'near' }.first.one_month_roi
       polkadot_change = network_balances['polkadot'] * networks.select { |n| n.name == 'polkadot' }.first.price_usd * polkadot_roi
       oasis_change = network_balances['oasis'] * networks.select { |n| n.name == 'oasis' }.first.price_usd * oasis_roi
+      near_change = network_balances['near'] * networks.select { |n| n.name == 'near' }.first.price_usd * near_roi
 
       result = portfolio_one_month_roi(networks, network_balances)
-      expect(result).to eq ((polkadot_change + oasis_change) / portfolio_balance_usd(networks, network_balances)).round(2)
+      expect(result).to eq ((polkadot_change + oasis_change + near_change) / portfolio_balance_usd(networks, network_balances)).round(2)
     end
   end
 end

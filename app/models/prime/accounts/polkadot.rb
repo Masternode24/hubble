@@ -1,9 +1,9 @@
 class Prime::Accounts::Polkadot < Prime::Account
   def details
-    @details ||= network.primary.client.account_details(address)
+    @details ||= network.primary_chain.client.account_details(address)
   end
 
   def rewards
-    @rewards ||= network.primary.client.prime_rewards(self)
+    @rewards ||= network.primary_chain.client.prime_rewards(self)
   end
 end

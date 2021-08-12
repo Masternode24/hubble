@@ -1,4 +1,4 @@
-<%= render partial: '/cosmoslike/shared/chain_header', locals: { active_tab: nil, faucet_link: true, events_link: true, reports_link: true } %>
+<%= render partial: '/cosmoslike/shared/chain_header', locals: { active_tab: nil, faucet_link: true, events_link: true } %>
 
 <div class="content">
   <div class="container">
@@ -131,7 +131,6 @@
                 <span class="paragraph d-block"><%= pluralize( @total_minutelies, 'by-the-minute sync log' ) %>.</span>
                 <%= link_to 'Show less', namespaced_path( 'logs' ), class: "text-small text-underline" %>
               <% else -%>
-                
                 <%= link_to 'Load more', "#{namespaced_path( 'logs' )}?all", class: "text-small text-underline" %>
               <% end -%>
             </td>

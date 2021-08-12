@@ -4,7 +4,6 @@
   <td>
     <div class="copy">
       <%= link_to account.shorten_address, hubble_account_linker(account), class: 'link' %>
-
       <button class="copy__btn">
         <!-- TO DO: copy buttons don't actually copy, JS not included from EthWorks -->
         <%= image_tag 'prime/icons/copy.svg', alt: "copy" %>
@@ -13,7 +12,7 @@
   </td>
   <td>
     <b>
-      <%= account.formatted_balance %> <%= account.network.primary.reward_token_display %>
+      <%= account.formatted_balance %> <%= account.network.primary_chain.reward_token_display %>
     </b> (<%= account.usd_balance %>)
   </td>
   <td>

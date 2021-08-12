@@ -9,6 +9,7 @@ module Prime
       @amount = attr['numeric'] / (10 ** attr['exp'])
       @validator_address = validator
       @token_display = currency.slice(1..).upcase
+      @commission = 0
     end
   end
 end

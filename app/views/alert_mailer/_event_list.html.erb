@@ -14,7 +14,7 @@
         <tr>
           <td width='20%' class='sub events_time'><%= event.timestamp.strftime('%Y-%m-%d<br/>at %H:%M %Z').html_safe %></td>
           <td width='80%' class='events_description'>
-            <% case event.kind_string -%>
+            <% case event.kind_class -%>
             <% when 'voting_power_change' %>
               Voting power changed from
               <%= event.from %> &rarr; <%= event.to %>
@@ -55,8 +55,8 @@
                 Commission changed to <%= number_to_percentage(event.to) %>
                 <p class='sub'>
                   for validator
-                  <%= link_to namespaced_path('validator', event.actor, chain: @alertable.chain, full: true) do %>
-                    <%= event.actor %>
+                  <%= link_to namespaced_path('validator', event.alertable.address, chain: @alertable.chain, full: true) do %>
+                    <%= event.alertable.address %>
                   <% end -%>
                 </p>
               <% end %>

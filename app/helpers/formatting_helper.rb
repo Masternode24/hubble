@@ -1,7 +1,7 @@
 module FormattingHelper
   include ActionView::Helpers::NumberHelper
 
-  def format_amount(amount, chain = nil, denom: nil, thousands_delimiter: true, hide_units: false, html: true, precision: 3, in_millions: false, in_billions: false)
+  def format_amount(amount, chain = nil, denom: nil, thousands_delimiter: true, hide_units: false, html: true, precision: 3, in_millions: false, in_billions: false, denom_stripped: false, token_denom: nil)
     chain ||= @chain
     denom ||= chain.primary_token
 
@@ -10,7 +10,8 @@ module FormattingHelper
       # gas should not be scaled
       denom = 'GAS'
     elsif denom.in?(chain.token_map.keys)
-      amount /= 10 ** chain.token_map[denom]['factor'].to_f
+      denom_factor = token_denom ? token_denom.to_f : chain.token_map[denom]['factor'].to_f
+      amount /= 10 ** denom_factor
       denom = chain.token_map[denom]['display']
     end
     # 'amount' here can be huge, so let's decide on a denomination to display
@@ -28,8 +29,11 @@ module FormattingHelper
       num_str = "<span class='text-monospace'>#{num_str}</span>"
       denom_str = "<span class='text-sm text-muted sup'>#{denom_str}</span>" if denom_str.present?
     end
-
-    "#{num_str} #{denom_str}".strip.html_safe
+    if denom_stripped
+      num_str.to_s.strip.html_safe
+    else
+      "#{num_str} #{denom_str}".strip.html_safe
+    end
   end
 
   def round_if_whole(num, precision = 3)

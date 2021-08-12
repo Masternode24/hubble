@@ -19,6 +19,6 @@ module Prime::HomeHelper
   end
 
   def decorate_user_network_reward(network)
-    "#{number_with_delimiter(user_network_rewards(network).round(2))} #{network.primary.reward_token_display}"
+    "#{number_with_delimiter(user_network_rewards(network).round(2))} #{network.primary_chain.reward_token_display}"
   end
 end

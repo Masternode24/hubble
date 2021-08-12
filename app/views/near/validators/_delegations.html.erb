@@ -16,8 +16,8 @@
       </thead>
       <tbody>
         <% delegations.each do |delegation| %>
-          <tr class=''>
-            <td class='technical'><small><%= delegation.account %></small></td>
+          <tr>
+            <td class='technical text-underline'><small><%= link_to delegation.account, near_chain_account_path(@chain, delegation.account) %></small></td>
             <td class='technical'><small><%= format_amount(delegation.unstaked_balance, denom: "near") %></small></td>
             <td class='technical'><small><%= format_amount(delegation.staked_balance, denom: "near") %></small></td>
             <td class='technical'><small><%= delegation.can_withdraw ? "Yes" : "No" %></small></td>
@@ -30,8 +30,7 @@
             <%= raw(pagy_bootstrap_nav(@pagination_delegations)) %>
           </td>
         </tr>
-      <% end -%>
-      </tbody>
+        <% end -%>
       </tbody>
     </table>
   </div>

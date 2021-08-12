@@ -1,6 +1,10 @@
 <% content_for :body_class, "account-show" %>
 
 <%= render "/shared/dh_banner_script" %>
+<% content_for :additional_header_tabs do %>
+  <%= render partial: 'shared/chain_header_link', locals: { active_tab: '', link_text: 'Search', link_path:  avalanche_chain_transactions_url(@chain) } %>
+  <%= render partial: 'shared/chain_header_link', locals: { active_tab: '', link_text: 'Events', link_path:  avalanche_chain_events_url(@chain) } %>
+<% end %>
 <%= render partial: "shared/chain_header", locals: { active_tab: '' } %>
 
 <div class='validator-header border-top-0'>
@@ -8,7 +12,7 @@
     <div>
       <h3 class='text-label m-0'>Account</h3>
       <h2 class='mb-4 validator-header__title mr-auto'>
-        <%= params[:id] %>
+        <%= @stripped_account_address %>
       </h2>
     </div>
   </div>
@@ -19,7 +23,7 @@
 <div class='content'>
   <div class='container'>
       <div class="row">
-        <div class="col-md-12 col-lg-6 mb-5 mb-lg-0">
+        <div class="col-md-12 col-lg-10 mb-5 mb-lg-0">
           <%= render "avalanche/accounts/sections/account", account: @account %>
         </div>
       </div>

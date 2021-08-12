@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:5252/events/F6vYX6vQNBxUMXV6y4gk2dGz5LvhHcigrjeYPKweCfVKuzQ3f
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin20.5.0 arm) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:5252
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 06 Aug 2021 18:16:25 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '435'
+      Connection:
+      - close
+      Ratelimit-Limit:
+      - '2000'
+      Ratelimit-Remaining:
+      - '1999'
+      X-Ratelimit-Remaining-Minute:
+      - '1999'
+      X-Ratelimit-Limit-Minute:
+      - '2000'
+      Ratelimit-Reset:
+      - '35'
+      X-Quota-Limit-Day:
+      - '1440000000'
+      Quota-Reset:
+      - '35'
+      Quota-Remaining:
+      - '999999'
+      Quota-Limit:
+      - '1000000'
+      X-Quota-Remaining-Minute:
+      - '999999'
+      X-Quota-Limit-Minute:
+      - '1000000'
+      X-Quota-Remaining-Day:
+      - '1439999404'
+    body:
+      encoding: UTF-8
+      string: '{"id":"F6vYX6vQNBxUMXV6y4gk2dGz5LvhHcigrjeYPKweCfVKuzQ3f","type":"delegator_finished","scope":"staking","chain":"11111111111111111111111111111111LpoYY","block":"2qU3HmhAEQTCxBo6MWVUzaNuJ93CEfTd31UWBUCd3K4VeVNyY5","block_height":681100,"tx_hash":"2DdnJC6ahxyJL7PjAnVQxL6PaFDTdijaUPRFUv74ixAS7cptVb","item_id":"JLReqNPLjBqUMcdew9JLQD7dGLaUEZUaM","item_type":"validator","timestamp":"2021-08-06T18:10:27.852284Z","data":{"rewarded":true}}'
+  recorded_at: Fri, 06 Aug 2021 18:16:25 GMT
+recorded_with: VCR 6.0.0

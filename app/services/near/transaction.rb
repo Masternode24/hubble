@@ -8,6 +8,7 @@ module Near
     field :receiver
     field :gas_burnt, type: :integer
     field :success
+    field :fee, type: :integer
     collection :actions
   end
 end

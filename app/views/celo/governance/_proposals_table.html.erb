@@ -1,0 +1,38 @@
+<div class='gov-proposals-table'>
+  <table data-empty='<%= proposals.empty? %>' class='table m-0'>
+    <thead>
+      <tr role='row'>
+        <th>Id</th>
+        <th>Stage</th>
+        <th>Started at</th>
+        <th>Started at height</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if proposals.empty? -%>
+        <tr>
+          <td colspan='4' class='text-center py-3'>
+            Unable to retrieve governance activity data.
+          </td>
+        </tr>
+      <% else %>
+        <% proposals.each do |proposal| -%>
+          <tr>
+            <td data-order='<%= proposal.id %>'>
+              <%= proposal.id %>
+            </td>
+            <td data-order='<%= proposal.recent_stage %>'>
+              <div class='badge badge-pill badge-primary text-uppercase'><%= proposal.recent_stage %></div>
+            </td>
+            <td data-order='<%= proposal.started_at.to_i %>'>
+                <pre class='m-0'><%= proposal.started_at.strftime("%Y-%m-%d<br/>at %H:%M %Z").html_safe %></pre>
+            </td>
+            <td data-order='<%= proposal.started_at_height %>'>
+              <%= link_to proposal.started_at_height, namespaced_path('block', proposal.started_at_height) %>
+            </td>
+          </tr>
+        <% end -%>
+      <% end -%>
+    </tbody>
+  </table>
+</div>

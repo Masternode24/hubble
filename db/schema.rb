@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_08_144139) do
+ActiveRecord::Schema.define(version: 2021_07_26_141126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -194,6 +194,8 @@ ActiveRecord::Schema.define(version: 2021_06_08_144139) do
     t.float "staking_participation"
     t.float "rewards_rate"
     t.float "daily_rewards"
+    t.string "tx_search_url"
+    t.boolean "tx_search_enabled", default: false
   end
 
   create_table "cosmos_faucets", force: :cascade do |t|
@@ -980,7 +982,7 @@ ActiveRecord::Schema.define(version: 2021_06_08_144139) do
     t.string "address", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", default: nil
+    t.string "name"
     t.index ["address"], name: "index_prime_accounts_on_address"
     t.index ["prime_network_id"], name: "index_prime_accounts_on_prime_network_id"
     t.index ["user_id"], name: "index_prime_accounts_on_user_id"
@@ -1005,6 +1007,7 @@ ActiveRecord::Schema.define(version: 2021_06_08_144139) do
     t.integer "final_block_height"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "analytics_enabled", default: false
     t.index ["name"], name: "index_prime_chains_on_name"
     t.index ["prime_network_id"], name: "index_prime_chains_on_prime_network_id"
   end

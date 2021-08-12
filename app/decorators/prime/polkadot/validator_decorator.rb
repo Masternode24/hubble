@@ -8,7 +8,7 @@ class Prime::Polkadot::ValidatorDecorator < Prime::ValidatorDecorator
   end
 
   def validator_events!
-    @validator_events ||= network.primary.client.validator_events(chain: network.primary, address: address).map do |event|
+    @validator_events ||= network.primary_chain.client.validator_events(chain: network.primary_chain, address: address).map do |event|
       Prime::ValidatorEventDecorator.new(event)
     end
   end

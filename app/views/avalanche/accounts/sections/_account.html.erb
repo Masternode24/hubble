@@ -1,29 +1,53 @@
 <div class="data-block">
-  <h3 class="data-block__title">Account Information</h3>
+  <h3 class="data-block__title">P-Chain Account Information</h3>
   <div class="row">
-    <div class="col-md-12 col-lg-3 mb-3">
+    <div class="col-md-12 col-lg-2 mb-3">
       <label class="text-label m-0">Balance</label>
       <div>
         <%= format_amount(account.balance, denom: @chain.class::DEFAULT_TOKEN_REMOTE) %>
       </div>
     </div>
-    <div class="col-md-12 col-lg-3 mb-3">
+    <div class="col-md-12 col-lg-2 mb-3">
       <label class="text-label m-0">Unlocked</label>
       <div>
         <%= format_amount(account.unlocked, denom: @chain.class::DEFAULT_TOKEN_REMOTE) %>
       </div>
     </div>
-    <div class="col-md-12 col-lg-3 mb-3">
+    <div class="col-md-12 col-lg-2 mb-3">
+      <label class="text-label m-0">Staked</label>
+      <div>
+        <%= format_amount(account.staked, denom: @chain.class::DEFAULT_TOKEN_REMOTE) %>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-2 mb-3">
       <label class="text-label m-0">Locked Stakeable</label>
       <div>
         <%= format_amount(account.locked_stakeable, denom: @chain.class::DEFAULT_TOKEN_REMOTE) %>
       </div>
     </div>
-    <div class="col-md-12 col-lg-3 mb-3">
+    <div class="col-md-12 col-lg-2 mb-3">
       <label class="text-label m-0">Locked Not Stakeable</label>
       <div>
         <%= format_amount(account.locked_not_stakeable, denom: @chain.class::DEFAULT_TOKEN_REMOTE) %>
       </div>
     </div>
   </div>
+
+  <% if account.x_chain_assets.any? %>
+    <h3 class="data-block__title">X-Chain Portfolio</h3>
+    <div class="row">
+      <% account.x_chain_assets.each do |asset| %>
+        <div class="col-md-12 col-lg-2 mb-3">
+          <label class="text-label m-0"><%= @assets[asset['asset']]&.symbol || asset['asset'] %></label>
+          <div>
+            <% if asset['asset'] == 'AVAX' %>
+              <%= format_amount(asset['balance'].to_i, denom: @chain.class::DEFAULT_TOKEN_REMOTE) %>
+            <% else %>
+              <%= asset['balance'].to_i %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

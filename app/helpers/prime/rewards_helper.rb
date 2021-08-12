@@ -3,7 +3,7 @@ module Prime::RewardsHelper
 
   def network_reward_total(network)
     total_rewards = 0
-    factor = network.primary.reward_token_factor
+    factor = network.primary_chain.reward_token_factor
     current_user.prime_accounts.for_network(network.id).includes([:network]).each do |account|
       total_rewards += (account.rewards.sum(&:amount) / (10 ** factor))
     end
@@ -15,10 +15,10 @@ module Prime::RewardsHelper
   end
 
   def usd_equivalent(reward)
-    if reward.token_display == reward.account.network.primary.reward_token_display
+    if reward.token_display == reward.account.network.primary_chain.reward_token_display
       return number_to_currency(reward_in_usd(reward.time, [reward], reward.account.network))
     elsif reward.token_display == 'USD'
-      return number_to_currency(reward.amount.to_f / (10 ** reward.account.network.primary.reward_token_factor))
+      return number_to_currency(reward.amount.to_f / (10 ** reward.account.network.primary_chain.reward_token_factor))
     else
       return nil
     end
@@ -39,7 +39,7 @@ module Prime::RewardsHelper
         data: monthly_rewards
       }
     end
-    series
+    series.select { |s| s[:data].present? }
   end
 
   def reward_history_chart_options
@@ -58,7 +58,7 @@ module Prime::RewardsHelper
     # TO DO - what to return if no pricing available??
     formatted_time = format_reward_timestamp(time)
     if network.daily_price_series_hash.has_key? formatted_time
-      (network.daily_price_series_hash[formatted_time] || 0) * reward_group.sum(&:amount) / (10 ** network.primary.reward_token_factor)
+      (network.daily_price_series_hash[formatted_time] || 0) * reward_group.sum(&:amount) / (10 ** network.primary_chain.reward_token_factor)
     else
       0
     end

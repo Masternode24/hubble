@@ -1,7 +1,11 @@
 <% content_for :body_class, "validator-show" %>
 
 <%= render "/shared/dh_banner_script" %>
-<%= render partial: "shared/chain_header", locals: { active_tab: '' } %>
+<% content_for :additional_header_tabs do %>
+  <%= render partial: 'shared/chain_header_link', locals: { active_tab: '', link_text: 'Search', link_path:  avalanche_chain_transactions_url(@chain) } %>
+  <%= render partial: 'shared/chain_header_link', locals: { active_tab: '', link_text: 'Events', link_path:  avalanche_chain_events_url(@chain) } %>
+<% end %>
+<%= render partial: "shared/chain_header", locals: { active_tab: ''} %>
 
 <div class='validator-header border-top-0'>
   <div class='container'>
@@ -47,6 +51,13 @@
           <p class="text-label validator-info__label">There are no delegations currently for this validator</p><br>
         <% else -%>
           <%= render "avalanche/validators/sections/delegations", delegations: @validator.delegations %>
+        <% end -%>
+      </div>
+      <div class='mt-4'>
+        <% if @events.empty? -%>
+          <p class="text-label validator-info__label">There are no events currently for this validator</p><br>
+        <% else -%>
+          <%= render "avalanche/validators/sections/events" %>
         <% end -%>
       </div>
     </div>

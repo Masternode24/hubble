@@ -41,7 +41,7 @@ module Indexer
       json
     end
 
-    def kind_string
+    def kind_class
       type.to_s
     end
 

@@ -21,7 +21,7 @@ class Polkadot::Chain < ApplicationRecord
   validates :slug, format: { with: /\A[a-z0-9-]+\z/ }, uniqueness: true, presence: true
   validates :api_url, presence: true
 
-  delegate :status, to: :client
+  delegate :get_recent_events, :get_alertable_name, to: :client
   scope :primary, -> { find_by(primary: true) || order('created_at DESC').first }
   scope :enabled, -> { where(disabled: false) }
 

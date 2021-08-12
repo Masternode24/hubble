@@ -9,7 +9,7 @@ describe 'avalanche validator details' do
     expect(page).to have_content('Staking Balance')
     expect(page).to have_content('Beneficiary')
     expect(page).to have_content('Delegation Fee')
-    expect(page).to have_content('P-avax1u2u3m4xgtts7z9u64uckq6gxgh8pgdkhwt9a64')
-    expect(page).to have_content('6,156.151 AVAX')
+    expect(page).to have_content('P-avax13wxm09a4ctjhl7xxh4p3jay29x3fqlfmsrs30q')
+    expect(page).to have_content('5,344.636 AVAX')
   end
 end

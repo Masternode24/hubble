@@ -19,7 +19,7 @@ class Common::ValidatorEvent < ApplicationRecord
 
   after_create :tweet_maybe
 
-  def kind_string
+  def kind_class
     self.class.name.demodulize.underscore
   end
 

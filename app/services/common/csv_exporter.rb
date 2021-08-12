@@ -22,6 +22,10 @@ class Common::CsvExporter
     end
   end
 
+  def self.filter_unused_fields(all_fields, data)
+    all_fields.reduce(%i[]) { |fs, f| data.any? { |d| d[f].present? } ? fs << f : fs }.freeze
+  end
+
   private
 
   attr_reader :records

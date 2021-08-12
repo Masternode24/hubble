@@ -1,0 +1,71 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:8080/accounts/imperfect_triangle.near
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin20.5.0 arm) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:8080
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 28 Jul 2021 19:43:32 GMT
+      Content-Length:
+      - '221'
+    body:
+      encoding: UTF-8
+      string: '{"amount":"350968783050524800000000","locked":"0","code_hash":"11111111111111111111111111111111","storage_usage":334,"storage_paid_at":0,"block_height":43806634,"block_hash":"HKZ8rbRXnj6aMHjJcaojBoGDTmy4e68cMGFrx57DtHok"}'
+  recorded_at: Wed, 28 Jul 2021 19:43:32 GMT
+- request:
+    method: get
+    uri: http://localhost:8080/transactions?account=imperfect_triangle.near&limit=20&page=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin20.5.0 arm) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:8080
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Wed, 28 Jul 2021 19:43:32 GMT
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"page":1,"pages":1,"limit":20,"count":4,"records":[{"id":1264855,"created_at":"2021-04-11T09:10:30.136557Z","updated_at":"2021-04-11T09:10:30.136557Z","time":"2021-04-11T09:10:25.478007Z","height":34483325,"hash":"AtC3S3iXEXhcaaRwJcRRA9cbjPK5ouKfKvrkeUHZmjMd","block_hash":"BRSXykroKurk7XW46C3tA6Dm1USEqN5DRnAkXvsC1S8X","sender":"imperfect_triangle.near","receiver":"p2p-org.poolv1.near","gas_burnt":"2427963482746","fee":"","public_key":"","signature":"","actions":[{"data":{"gas":125000000000000,"deposit":"294935094044978588600000000","method_name":"deposit_and_stake"},"type":"FunctionCall"}],"actions_count":1,"outcome":null,"receipt":null,"success":true},{"id":1264801,"created_at":"2021-04-11T09:05:31.181104Z","updated_at":"2021-04-11T09:05:31.181104Z","time":"2021-04-11T09:05:19.271035Z","height":34483014,"hash":"9W6LV4CvQ7tcfL7qg9k2nJYGevLHfMJT4eS4MHJazhPs","block_hash":"8bNoV4JwcpN66fJtuAj7X9rALR3RvYTDbeC83JqZi7Ai","sender":"imperfect_triangle.near","receiver":"ashpool.near","gas_burnt":"223182562500","fee":"","public_key":"","signature":"","actions":[{"data":{"deposit":"1000000000000000000000000"},"type":"Transfer"}],"actions_count":1,"outcome":null,"receipt":null,"success":true},{"id":1264741,"created_at":"2021-04-11T09:00:34.008749Z","updated_at":"2021-04-11T09:00:34.008749Z","time":"2021-04-11T09:00:25.643854Z","height":34482714,"hash":"6DxbwW39N3HqmQq5gu1DComXK3tgLnJjGpVS4eHxde7P","block_hash":"CYDSvYVo79ypKLdbyCeEQXKZNHHw92CcaAGyFgZubShF","sender":"7747991786f445efb658b69857eadc7a57b6b475beec26ed14da8bc35bb2b5b6","receiver":"imperfect_triangle.near","gas_burnt":"223182562500","fee":"","public_key":"","signature":"","actions":[{"data":{"deposit":"295290764000000000000000000"},"type":"Transfer"}],"actions_count":1,"outcome":null,"receipt":null,"success":true},{"id":1264670,"created_at":"2021-04-11T08:54:45.839736Z","updated_at":"2021-04-11T08:54:45.839736Z","time":"2021-04-11T08:54:34.502432Z","height":34482358,"hash":"7ddHpgSvn6Y2UTBAVcEpJfFPsgwNQKW4w9XS1UnKst7b","block_hash":"8CBht7mg3kBdCMaWzNadsudBgeiCG2DfVPfkKp5miGFQ","sender":"imperfect_triangle.near","receiver":"imperfect_triangle.near","gas_burnt":"210313706289","fee":"","public_key":"","signature":"","actions":[{"data":{"access_key":{"nonce":0,"permission":{"FunctionCall":{"allowance":"0","receiver_id":"imperfect_triangle.near","method_names":["__wallet__metadata"]}}},"public_key":"ed25519:G5AqjdsvkKMKWo1ocTUnAmRuurhDUUpYFz4zY54q3rq9"},"type":"AddKey"}],"actions_count":1,"outcome":null,"receipt":null,"success":true}]}'
+  recorded_at: Wed, 28 Jul 2021 19:43:33 GMT
+recorded_with: VCR 6.0.0

@@ -1,0 +1,26 @@
+<% content_for :body_class, 'governance-index' %>
+
+<%= render partial: '/shared/chain_header', locals: { active_tab: '' } %>
+
+<div class='container'>
+  <div class='content'>
+    <div class='governance-proposals-list'>
+      <div class='row'>
+        <div class='col-12 col-md-12'>
+          <section class='data-table m-0'>
+            <div class='data-table__header d-flex align-items-center justify-content-between'>
+              <h4 class="data-table__title">Governance Proposals</h4>
+              <% if false -%>
+                <div class='controls'>
+                  <button class='btn btn-sm btn-outline-light' data-toggle='modal' data-target='#proposal-modal'>New Proposal</button>
+                </div>
+              <% end -%>
+            </div>
+
+            <%= render 'celo/governance/proposals_table', proposals: @proposals %>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

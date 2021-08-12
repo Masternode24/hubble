@@ -69,11 +69,6 @@
         <% if defined?(tx_search_link) && @chain.respond_to?(:tx_search_enabled) && @chain.tx_search_enabled? %>
           <%= render partial: 'shared/chain_header_link', locals: { active_tab: active_tab, link_text: 'Search', link_path: namespaced_path('transactions') } %>
         <% end %>
-        <% if defined?(reports_link) -%>
-          <% if @chain.has_csir? -%>
-            <%= link_to 'Reports', 'https://app.figment.io/csir', class: "tabs__link", target: "_blank" %>
-          <% end -%>
-        <% end -%>
         <% if defined? governance_link -%>
           <%= render partial: 'shared/chain_header_link', locals: { active_tab: active_tab, link_text: 'Proposals', link_path: namespaced_path('governance_root') } %>
         <% end -%>

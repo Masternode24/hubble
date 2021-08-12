@@ -1,8 +1,4 @@
 module NearHelper
-  def near_chain_dashboard_path(*_args)
-    near_root_path
-  end
-
   def near_epoch_efficiency_color(efficiency)
     case efficiency
     when 0..90
@@ -33,6 +29,10 @@ module NearHelper
     else
       ' '
     end
+  end
+
+  def reward_fee_helper(reward_fee)
+    reward_fee ? "#{reward_fee}%" : 'Not available'
   end
 
   private

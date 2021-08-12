@@ -1,7 +1,10 @@
 <% content_for :body_class, 'transaction-show' -%>
 
-<%= render partial: '/cosmoslike/shared/chain_header', locals: { active_tab: '', events_link: true, tx_search_link: true, reports_link: true } %>
-<%= render_flash_messages %>
+<%= render "/shared/dh_banner_script" %>
+<% content_for :additional_header_tabs do %>
+  <%= render partial: 'shared/chain_header_link', locals: { active_tab: '', link_text: 'Search', link_path:  avalanche_chain_transactions_url(@chain) } %>
+<% end %>
+<%= render partial: "shared/chain_header", locals: { active_tab: ''} %>
 
 <div class="content">
   <div class="container">
@@ -25,12 +28,12 @@
           <div class='data-block'>
             <h3 class='data-block__title'>
               Height
-            </h5>
+            </h3>
             <span class='large-number technical'><%= @block.height %></span>
           </div>
 
           <div class='data-block'>
-            <h3 class='data-block__title'>Result</h5>
+            <h3 class='data-block__title'>Result</h3>
             <% if @transaction.error? -%>
               <span class='badge badge-danger'>ERROR</span>
               <div class='mt-2 text-muted'><%= @transaction.error_message %></div>
@@ -40,12 +43,12 @@
           </div>
 
           <div class='data-block'>
-            <h3 class='data-block__title'>Timestamp</h5>
+            <h3 class='data-block__title'>Timestamp</h3>
             <span class='technical paragraph'><%= format_timestamp(@block.timestamp) %></span>
           </div>
 
           <div class='data-block'>
-            <h3 class='data-block__title'>Fees</h5>
+            <h3 class='data-block__title'>Fees</h3>
             <ul class='list-unstyled mb-0'>
               <% if @transaction.fees.empty? -%>
                 <span class='text-muted'>None</span>

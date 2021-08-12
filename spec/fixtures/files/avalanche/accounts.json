@@ -1,0 +1,23 @@
+{
+  "P": {
+    "balance": "0",
+    "unlocked": "0",
+    "lockedStakeable": "0",
+    "lockedNotStakeable": "0",
+    "staked": "0"
+  },
+  "X": [
+    {
+      "asset": "AVAX",
+      "balance": "2851748805304800"
+    },
+    {
+      "asset": "qNE62d87kVmY6C3Ff89XLWTvHBkmicJV9oM3KsxbGSvwhzWyJ",
+      "balance": "77"
+    },
+    {
+      "asset": "2grQHEwGHj73JPFna6kGxoMtuz8mQDeX4v45oswjVhp5kqUQsL",
+      "balance": "10000000000000"
+    }
+  ]
+}

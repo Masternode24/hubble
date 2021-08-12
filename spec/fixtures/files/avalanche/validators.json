@@ -1,0 +1,25 @@
+[
+  {
+    "node_id": "NodeID-12345678",
+    "stake_amount": "2000000000000",
+    "stake_percent": 0.001059352619850211,
+    "potential_reward": "147664567757",
+    "reward_address": "P-avax12345678",
+    "active": true,
+    "active_start_time": "2021-01-20T00:45:56Z",
+    "active_end_time": "2021-10-03T01:45:56Z",
+    "active_progress_percent": 77.6350257978483,
+    "uptime": 89.37000036239624,
+    "delegations_count": 1,
+    "delegations_percent": 0.0068686036128855,
+    "delegated_amount": "25000000000",
+    "delegated_amount_percent": 0.000065223978128592,
+    "delegation_fee": 2,
+    "capacity": "7975000000000",
+    "capacity_percent": 0.3125,
+    "first_height": 681174,
+    "last_height": 681174,
+    "created_at": "2021-01-20T00:46:32.226727Z",
+    "updated_at": "2021-08-06T19:26:16.407088Z"
+  }
+]

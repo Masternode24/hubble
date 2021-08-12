@@ -8,6 +8,7 @@ module Prime
     def initialize(attr)
       super(attr)
       @tohlcv_values = attr['data']['values'] if attr['success'].nil?
+      # attr['success'].nil? ? @tohlcv_values = attr['data']['values'] : @tohlcv_values = []
     end
 
     def self.failed

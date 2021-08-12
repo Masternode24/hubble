@@ -119,9 +119,13 @@ module Celo
       end
     end
 
-    def validator_events(chain, address, after = nil)
-      events_list = get("/system_events/#{address}", after: after)['items'] || []
-      events_list.map { |event| Celo::EventFactory.generate(event, chain) }
+    def validator_events(chain:, address:, after_block: nil, after_time: nil, before_time: nil, kind_class: nil)
+      events_list = fetch_events(address, after_block)
+      all_events = events_list.map { |event| Celo::EventFactory.generate(event, chain) }
+      all_events.select! { |event| "Common::ValidatorEvents::#{event.kind_class.classify}".constantize == kind_class } if kind_class.present?
+      all_events.select! { |event| event.time >= after_time } if after_time.present?
+      all_events.select! { |event| event.time <= before_time } if before_time.present?
+      all_events.sort_by(&:time).reverse
     end
 
     def blocks_summary(limit = DEFAULT_BLOCK_HOURS)
@@ -133,6 +137,24 @@ module Celo
     def validator_groups_count
       Rails.cache.fetch([self.class.name, 'validator_groups_count'].join('-'), expires_in: MEDIUM_EXPIRY_TIME) do
         get_validator_groups.count
+      end
+    end
+
+    def get_alertable_name(address)
+      validator = validator(address)
+      validator.display_name.presence || validator.address
+    end
+
+    def fetch_events(address, after_block)
+      Rails.cache.fetch([self.class.name, address, after_block, 'fetch_events'].join('-'), expires_in: 30.seconds) do
+        get("/system_events/#{address}", after: after_block)['items'] || []
+      end
+    end
+
+    def proposals
+      Rails.cache.fetch([self.class.name, 'proposals'].join('-'), expires_in: MEDIUM_EXPIRY_TIME) do
+        raw_proposals = get('/proposals')['items'] || []
+        raw_proposals.map { |proposal| Celo::Proposal.new(proposal) }.sort_by(&:started_at).reverse
       end
     end
 

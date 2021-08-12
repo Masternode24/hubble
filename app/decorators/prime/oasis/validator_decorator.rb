@@ -8,7 +8,7 @@ class Prime::Oasis::ValidatorDecorator < Prime::ValidatorDecorator
   end
 
   def validator_events!
-    @validator_events ||= network.primary.client.validator_events(network.primary, address, nil).map do |event|
+    @validator_events ||= network.primary_chain.client.validator_events(network.primary_chain, address, nil).map do |event|
       Prime::ValidatorEventDecorator.new(event)
     end
   end

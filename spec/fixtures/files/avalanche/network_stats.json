@@ -1,0 +1,20 @@
+[
+  {
+    "time": "2021-08-06T19:00:00Z",
+    "bucket": "h",
+    "height_change": 18,
+    "peers": 853,
+    "blockchains": 9,
+    "active_validators": 1021,
+    "pending_validators": 0,
+    "validator_uptime": 0,
+    "active_delegations": 14558,
+    "pending_delegations": 0,
+    "min_validator_stake": 0,
+    "min_delegator_stake": 0,
+    "tx_fee": 0,
+    "create_tx_fee": 0,
+    "total_staked": "188794548908822580",
+    "total_delegated": "38329462135399617"
+  }
+]

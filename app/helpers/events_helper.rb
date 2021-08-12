@@ -11,12 +11,13 @@ module EventsHelper
     when 'n_consecutive' then 'Misses N Consecutive Precommits'
     when 'balance_change' then 'Balance Change %'
     when 'kicked' then 'Was Kicked'
+    when 'validator_added' then 'New Validator Added'
+    when 'validator_finished' then 'Validator Finished'
+    when 'delegator_added' then 'New Delegation Added'
+    when 'delegator_finished' then 'Delegation Finished'
+    when 'validator_commission_changed' then 'Validator Commission Changed'
     else kind.titlecase
     end
-  end
-
-  def event_kind_to_class(kind)
-    "Common::ValidatorEvents::#{kind.classify}".constantize
   end
 
   def event_kind_types(event_classes)

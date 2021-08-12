@@ -82,7 +82,12 @@ Rails.application.routes.draw do
 
   get '/chains/*path', to: redirect('/cosmos/chains/%{path}')
 
-  namespace :cosmos, network: 'cosmos' do concerns :cosmoslike end
+  namespace :cosmos, network: 'cosmos' do
+    concerns :cosmoslike
+    resources :chains, format: false, constraints: { id: /[^\/]+/ }, only: %i[show] do
+      resources :transactions, only: %i[index show]
+    end
+  end
 
   namespace :terra, network: 'terra' do
     concerns :cosmoslike
@@ -96,12 +101,9 @@ Rails.application.routes.draw do
   namespace :emoney, network: 'emoney' do concerns :cosmoslike end
 
   namespace :near, network: 'near' do
-    resources :chains, only: %i[show] do
+    resources :chains, format: false, only: :show do
+      get :search, on: :member
       get '/dashboard' => 'dashboard#index', as: 'dashboard'
-
-      member do
-        get :search
-      end
 
       resources :validators, only: :show, constraints: { id: /[^\/]+/ } do
         resources :subscriptions, only: %i[index create], controller: '/util/subscriptions'
@@ -110,20 +112,26 @@ Rails.application.routes.draw do
         resources :transactions, only: :show, constraints: { id: /[^\/]+/ }
       end
       resources :events, only: %i[index show]
+      resources :accounts, only: :show, constraints: { id: /[^\/]+/ }
     end
 
     root to: 'chains#show'
   end
 
   namespace :avalanche, network: 'avalanche' do
-    resources :chains, constraints: { id: /[^\/]+/ } do
+    resources :chains, constraints: { id: /[^\/]+/ }, only: :show do
       member do
         get :show
         get :search
       end
+      get '/dashboard' => 'dashboard#index', as: 'dashboard'
 
-      resources :validators, only: :show, constraints: { id: /[^\/]+/ }
+      resources :validators, only: :show, constraints: { id: /[^\/]+/ } do
+        resources :subscriptions, only: %i[index create], controller: '/util/subscriptions'
+      end
       resources :accounts, only: :show
+      resources :transactions, only: %i[index show]
+      resources :events, only: %i[index show]
     end
     root to: 'chains#show'
   end
@@ -229,14 +237,22 @@ Rails.application.routes.draw do
   namespace :celo, network: 'celo' do
     resources :chains, format: false, constraints: { id: /[^\/]+/ }, only: :show do
       get :search, on: :member
+      get '/dashboard' => 'dashboard#index', as: 'dashboard'
+
       resources :validator_groups, only: :show
-      resources :validators, only: :show
+      resources :validators, only: :show do
+        resources :subscriptions, only: %i[index create], controller: '/util/subscriptions'
+      end
       resources :blocks, only: :show do
         resources :transactions, only: :show do
           resources :operations, only: :show
         end
       end
       resources :accounts, only: :show
+
+      namespace :governance, only: :index do
+        root to: 'main#index'
+      end
     end
   end
 

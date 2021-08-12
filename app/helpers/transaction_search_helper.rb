@@ -1,4 +1,14 @@
 module TransactionSearchHelper
+  SEARCH_INCLUDE_OPTIONS = [
+    ['', 'All'],
+    %w[sent Sent],
+    %w[received Received]
+  ].freeze
+
+  def default_tx_include_opts
+    SEARCH_INCLUDE_OPTIONS
+  end
+
   def prev_page
     params['page'].to_i > 1 ? params['page'].to_i - 1 : 1
   end

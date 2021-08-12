@@ -25,7 +25,7 @@ module Prime
     end
 
     def network_events(network)
-      params = { asset: network.primary.reward_token_remote }
+      params = { asset: network.primary_chain.reward_token_remote }
       get('v1/intel/events', params: params)['data'].map do |event|
         Prime::NetworkEvent.new(event, network)
       end

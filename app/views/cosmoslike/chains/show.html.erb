@@ -2,7 +2,7 @@
 
 <%= render "/shared/dh_banner_script" %>
 
-<%= render partial: '/cosmoslike/shared/chain_header', locals: { active_tab: 'Validators', faucet_link: true, events_link: true, tx_search_link: true, reports_link: true } %>
+<%= render partial: '/cosmoslike/shared/chain_header', locals: { active_tab: 'Validators', faucet_link: true, events_link: true, tx_search_link: true } %>
 
 <div class='content'>
   <div class='container'>
@@ -191,22 +191,9 @@
         </div>
 
         <% if @chain.governance_params_synced? -%>
-          <div class='data-block'>
-            <h5 class='data-block__title'>Governance</h5>
-            <div>
-              <label class='text-label d-inline'>Total Proposals:</label>
-              <div class='stat-value d-inline'>
-                <span class='text-monospace'><%= @chain.governance_proposals.select(&:valid_proposal?).count %></span>
-              </div>
-            </div>
-            <div>
-              <label class='text-label d-inline'>Pending Proposals:</label>
-              <div class='stat-value d-inline'>
-                <span class='text-monospace'><%= @chain.governance_proposals.voting_open.count %></span>
-              </div>
-            </div>
-            <%= link_to 'View Proposals', namespaced_path( 'governance_root' ), class: 'button-secondary mt-3' %>
-          </div>
+          <%= render partial: 'shared/governance_block', locals:
+            { total_proposals: @chain.governance_proposals.select(&:valid_proposal?).count,
+              pending_poposals: @chain.governance_proposals.voting_open.count } %>
         <% end -%>
 
         <% if @chain.community_pool -%>

@@ -10,7 +10,7 @@
     <% end %>
   </div>
 
-  <% all_subscriptions = current_user.alert_subscriptions -%>
+  <% all_subscriptions = current_user.alert_subscriptions.includes(alertable: :chain) -%>
   <% subscriptions = all_subscriptions.select { |subscription| subscription.alertable.chain == @chain } -%>
 
   <% all_watched_accounts = current_user.watches.where(chainlike: @chain, watchable_type: "#{@chain.namespace}::Account") -%>

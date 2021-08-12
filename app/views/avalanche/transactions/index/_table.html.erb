@@ -1,0 +1,75 @@
+<table class="table mb-0">
+  <thead>
+    <tr role="row">
+      <th>ID</th>
+      <th>Chain</th>
+      <th>Type</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Amount</th>
+      <th>Fee</th>
+      <th>Time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% transactions.each_with_index do |tx, idx| %>
+      <tr data-id="<%= tx.id %>">
+        <td>
+          <%= truncate(tx.id, length: 15) %>
+          <% if tx.block_height %>
+            <div><small class="text-muted">block <%= tx.block_height %></small></div>
+          <% end %>
+        </td>
+        <td>
+          <span class='badge badge-sm badge-<%= tx.chain_alias %>'><%= tx.chain_alias %>-Chain</span>
+        </td>
+        <td>
+          <small><%= tx.type_name %></small>
+        </td>
+        <td>
+          <% if tx.type == "c_evm" %>
+            <%= truncate tx.metadata["sender"], length: 15 %>
+          <% else %>
+            <% tx.inputs.take(5).each do |input| %>
+              <% input.addresses.each do |addr| %>
+                <div><%= link_to truncate(addr, length: 15), namespaced_path('account', addr) %></div>
+              <% end %>
+            <% end %>
+            <% if tx.inputs.count > 5 %>
+              <small><%= link_to "More information", avalanche_chain_transaction_path(@chain, tx.id), class: 'text-underline' %></small>
+            <% end %>
+          <% end %>
+        </td>
+        <td>
+          <% if tx.type == "c_evm" %>
+            <%= truncate tx.metadata["receiver"], length: 15 %>
+          <% else %>
+            <% tx.outputs.take(5).each do |output| %>
+              <% output.addresses.each do |addr| %>
+                <div><%= link_to truncate(addr, length: 15), namespaced_path('account', addr) %></div>
+              <% end %>
+            <% end %>
+            <% if tx.outputs.count > 5 %>
+              <small><%= link_to "More information", avalanche_chain_transaction_path(@chain, tx.id), class: 'text-underline' %></small>
+            <% end %>
+          <% end %>
+        </td>
+        <td>
+          <% tx.outputs.take(5).each do |output| %>
+            <div><%= format_amount(output.amount, denom_stripped: true, token_denom: @assets[output.asset]&.denomination) %> <span class="text-sm text-muted sup"><%=@assets[output.asset]&.symbol %></span></div>
+          <% end %>
+        </td>
+        <td>
+          <%= format_amount tx.fee %>
+        </td>
+        <td>
+          <small><%= tx.timestamp.strftime("%b %d, %Y %H:%M %Z") %></small>
+        </td>
+        <td class="text-right">
+          <%= link_to "details", avalanche_chain_transaction_path(@chain, tx.id), class: "btn btn-outline-primary btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

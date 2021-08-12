@@ -1,18 +1,24 @@
 require 'rails_helper'
 
-RSpec.describe Util::SubscriptionsController do
+describe Util::SubscriptionsController do
   let!(:cosmos_chain) { create(:cosmos_chain) }
   let!(:oasis_chain) { create(:oasis_chain, api_url: 'http://localhost:1111') }
   let!(:near_chain) { create(:near_chain, api_url: 'http://localhost:1111') }
   let!(:polkadot_chain) { create(:polkadot_chain, api_url: 'http://localhost:1111') }
+  let!(:celo_chain) { create(:celo_chain) }
   let!(:user) { create(:user) }
   let!(:cosmos_alertable) { create(:cosmos_validator, chain: cosmos_chain) }
   let!(:oasis_alertable) { create(:alertable_address, chain: oasis_chain) }
   let!(:near_alertable) { create(:alertable_address, chain: near_chain, address: 'bisontrails.poolv1.near') }
   let!(:polkadot_alertable) { create(:alertable_address, chain: polkadot_chain, address: '138QdRbUTB9eNY94Q4Mj5r39FkgMiyHCAy8UFMNA5gvtrfSB') }
+  let!(:celo_alertable) { create(:alertable_address, chain: celo_chain, address: '0x112fF12927CD6f924d80b9Aba32E531733B602fF') }
+
+  before { allow(controller).to receive(:current_user).and_return(user) }
 
   describe 'GET #index' do
     context 'when logged out' do
+      let(:user) { nil }
+
       it 'redirects to new_user_path' do
         get :index, params: { network: cosmos_chain.network_name.downcase,
                               chain_id: cosmos_chain.slug, validator_id: cosmos_alertable.address }
@@ -20,9 +26,7 @@ RSpec.describe Util::SubscriptionsController do
       end
     end
 
-    context 'when logged in' do
-      before { allow(controller).to receive(:current_user).and_return(user) }
-
+    context 'in Cosmos, while logged in' do
       before do
         get :index, params: { network: cosmos_chain.network_name.downcase, chain_id: cosmos_chain.slug,
                               validator_id: cosmos_alertable.address }
@@ -36,11 +40,21 @@ RSpec.describe Util::SubscriptionsController do
         expect(response).to render_template(:index)
       end
     end
+
+    context 'in Celo, while logged in', :vcr do
+      before do
+        get :index, params: { network: celo_chain.network_name.downcase, chain_id: celo_chain.slug,
+                              validator_id: celo_alertable.address }
+      end
+
+      it 'responds with index template' do
+        expect(response).to have_http_status(:ok)
+        expect(response).to render_template(:index)
+      end
+    end
   end
 
   describe 'POST #create' do
-    before { allow(controller).to receive(:current_user).and_return(user) }
-
     context 'Cosmos Subscription with valid subscription' do
       let(:alert_params) do
         { 'event_kinds' => { 'voting_power_change' => 'on', 'n_of_m' => 'off' },
@@ -187,6 +201,31 @@ RSpec.describe Util::SubscriptionsController do
       it 'shows confirmation notice' do
         post :create, params: params
         expect(flash[:notice]).to eq('No alerts selected. Subscription removed.')
+      end
+    end
+
+    context 'Celo Subscription with valid subscription' do
+      let(:alert_params) do
+        { 'event_kinds' => { 'active_set_inclusion' => 'on', 'reward_cut_change' => 'on', 'n_of_m' => 'on',
+                             'n_consecutive' => 'on' }, 'wants_daily_digest' => 'on' }
+      end
+      let(:params) do
+        { network: celo_chain.network_name.downcase, chain_id: celo_chain.slug,
+          validator_id: celo_alertable.address, alert_subscription: alert_params }
+      end
+
+      it 'saves the new subscription', :vcr do
+        expect { post :create, params: params }.to change(AlertSubscription, :count).by(1)
+      end
+
+      it 'responds with 302 status', :vcr do
+        post :create, params: params
+        expect(response).to have_http_status(:found)
+      end
+
+      it 'shows confirmation notice', :vcr do
+        post :create, params: params
+        expect(flash[:notice]).to eq('Subscribed to events for this validator!')
       end
     end
   end
