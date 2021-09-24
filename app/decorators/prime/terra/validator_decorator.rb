@@ -8,7 +8,9 @@ class Prime::Terra::ValidatorDecorator < Prime::ValidatorDecorator
   end
 
   def validator_events!
-    []
+    @validator_events ||= Terra::Chain.primary.validators.find_by(address: address).events.sort_by(&:time).reverse.map do |event|
+      Prime::ValidatorEventDecorator.new(event, event.chainlike.prime_primary_chain)
+    end
   end
 
   def factored_commission

@@ -2,7 +2,12 @@ module Prime::ValidatorsHelper
   VALIDATOR_EVENTS_LIMIT = 50
 
   def prime_network_average_uptime(network)
-    uptime = network.figment_validators!.sum(&:uptime_as_percentage) / network.figment_validators!.count
+    if network.figment_validators!.count > 0
+      uptime = network.figment_validators!.sum(&:uptime_as_percentage) / network.figment_validators!.count
+    else
+      uptime = 0
+    end
+
     number_to_percentage(uptime, precision: 2)
   end
 

@@ -1,8 +1,4 @@
 module SkaleHelper
-  def skale_chain_dashboard_path(*_args)
-    skale_root_path
-  end
-
   def node_visible?(status)
     visible = %w[Active In_Maintenance]
     visible.include?(status)
@@ -40,12 +36,22 @@ module SkaleHelper
   end
 
   def validator_lookup(id, validators)
-    validator = validators.select { |v| v.id == id }[0]
-    link_to(validator.name, skale_chain_validator_path(@chain, validator.id))
+    if validators.is_a?(Array)
+      validator = validators.select { |v| v.id == id }[0]
+      link_to(validator.name, skale_chain_validator_path(@chain, validator.id))
+    else
+      link_to(validators.name, skale_chain_validator_path(@chain, validators.id))
+    end
   end
 
   def account_lookup(account, full_account)
     account = full_account ? account : account.truncate(10)
     link_to(account, skale_chain_account_path(@chain, account))
+  end
+
+  def validator_name(id)
+    Rails.cache.fetch([self.class.name, 'validator'].join('-'), expires_in: LONG_EXPIRY_TIME) do
+      client.validator(id)['name']
+    end
   end
 end

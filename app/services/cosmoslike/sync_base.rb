@@ -150,7 +150,11 @@ class Cosmoslike::SyncBase
   end
 
   def get_community_pool
-    lcd_get('distribution/community_pool') rescue nil
+    if @chain.sdk_gte?('0.40.0')
+      lcd_get('/cosmos/distribution/v1beta1/community_pool')['pool'] rescue nil
+    else
+      lcd_get('distribution/community_pool') rescue nil
+    end
   end
 
   def get_governance
@@ -181,8 +185,12 @@ class Cosmoslike::SyncBase
     lcd_get(['gov/proposals', proposal_id, 'tally'])
   end
 
-  def get_validator_delegations(validator_operator_id)
-    lcd_get(['staking/validators', validator_operator_id, 'delegations']) || []
+  def get_validator_delegations(validator_operator_id, params = nil)
+    if @chain.sdk_gte?('0.40.0')
+      lcd_get(['cosmos/staking/v1beta1/validators', validator_operator_id, 'delegations'], params)['delegation_responses'] || []
+    else
+      lcd_get(['staking/validators', validator_operator_id, 'delegations'], params) || []
+    end
   end
 
   def get_validator_unbonding_delegations(validator_operator_id)

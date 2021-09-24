@@ -1,0 +1,2 @@
+class Persistence::AverageSnapshotsGeneratorService < Cosmoslike::AverageSnapshotsGeneratorService
+end

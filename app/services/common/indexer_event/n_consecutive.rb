@@ -8,4 +8,8 @@ class Common::IndexerEvent::NConsecutive < Common::IndexerEvent
   def positive?
     false
   end
+
+  def twitter_message
+    "#{validatorlike_short_name} missed #{n} consecutive precommits on as of block #{height}"
+  end
 end

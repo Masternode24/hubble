@@ -1,0 +1,91 @@
+<%= render "prime/admin/eth2_staking/nav", title: "Customer" %>
+
+<div class="card">
+  <div class="card-header">
+    Details
+  </div>
+  <div class="card-body p-0">
+    <table class="table table-sm">
+      <tbody>
+        <tr>
+          <td>Internal ID</td>
+          <td><%= @customer.id %></td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td><%= @customer.name %></td>
+        </tr>
+        <tr>
+          <td>Associated Users</td>
+          <td>
+            <% if @associated_users.any? %>
+              <% @associated_users.each do |user| %>
+                <div><%= link_to user.email, admin_user_path(user) %></div>
+              <% end %>
+            <% else %>
+              <span class="text-muted">Not associated with any user account</span>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Staking Positions
+  </div>
+  <div class="card-body p-0">
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Staked Amount</th>
+          <th>Withdrawal Address</th>
+          <th>Validators</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @staking_positions.each do |pos| %>
+          <tr>
+            <td><%= pos.id %></td>
+            <td><%= pos.display_name %></td>
+            <td><%= pos.staked_eth_amount %></td>
+            <td><%= pos.eth1_withdrawal_address %></td>
+            <td><%= pos.validators.size %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Validators
+  </div>
+  <div class="card-body p-0">
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Amount</th>
+          <th>Network Name</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @validators.each do |validator| %>
+          <tr>
+            <td><%= validator.id %></td>
+            <td><%= validator.amount %></td>
+            <td><%= validator.eth2_network_name %>
+            <td><%= validator.eth1_withdrawal_address %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,1228 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://localhost:26657/status
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin20.5.0 arm) ruby/2.7.2p137
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:26657
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 01 Sep 2021 17:53:05 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - AWSALB=nBTOnLArOa5cr2N/Ye2zcghogYXEFA7UvqsrBPr2nna6aHQhvKKlyY2EkY63EXJJMeszitqrsAcOiVX4Rc/N1aQsAp0w02tvXAZg217J0Cr5+Do9pZCTRwz5/ZkS;
+        Expires=Wed, 08 Sep 2021 17:53:05 GMT; Path=/
+      - AWSALBCORS=nBTOnLArOa5cr2N/Ye2zcghogYXEFA7UvqsrBPr2nna6aHQhvKKlyY2EkY63EXJJMeszitqrsAcOiVX4Rc/N1aQsAp0w02tvXAZg217J0Cr5+Do9pZCTRwz5/ZkS;
+        Expires=Wed, 08 Sep 2021 17:53:05 GMT; Path=/; SameSite=None; Secure
+      - __cf_bm=d7d49e312149db78798d1d45429fb211551341c4-1630518785-1800-ASg4WC/gKjSQBdrInlEiO4s0ujIMvUhln0Ia0FfaqM4+qoSmqzD3EFCOu2FAlVGpyrybY9dJNLLt4A32muMDxwE=;
+        path=/; expires=Wed, 01-Sep-21 18:23:05 GMT; domain=.crypto.org; HttpOnly;
+        Secure; SameSite=None
+      Vary:
+      - Origin
+      X-Server-Time:
+      - '1630518785'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 68805b29884234ea-DUB
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "jsonrpc": "2.0",
+          "id": -1,
+          "result": {
+            "node_info": {
+              "protocol_version": {
+                "p2p": "8",
+                "block": "11",
+                "app": "0"
+              },
+              "id": "8af7c92277f3edce58aa828cf1026cfa74fd6569",
+              "listen_addr": "127.0.0.1:26656",
+              "network": "testnet-croeseid-4",
+              "version": "0.34.11",
+              "channels": "40202122233038606100",
+              "moniker": "seed-node1",
+              "other": {
+                "tx_index": "on",
+                "rpc_address": "tcp://127.0.0.1:26657"
+              }
+            },
+            "sync_info": {
+              "latest_block_hash": "9DD5FB431FDC53067A40AAD8C5B1456F2595616AFED5C0BADBC47135B283674E",
+              "latest_app_hash": "6A4ACB13B6EA6831434DFFCA78DC43DB164250DA406900770B9EC73344D9C93C",
+              "latest_block_height": "219781",
+              "latest_block_time": "2021-09-01T17:52:59.158710232Z",
+              "earliest_block_hash": "1D1ED00BDB7E95A765294BAF16035FB814EBBF7522315990FC8F5013A73CBE62",
+              "earliest_app_hash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+              "earliest_block_height": "1",
+              "earliest_block_time": "2021-08-19T04:44:03.645446Z",
+              "catching_up": false
+            },
+            "validator_info": {
+              "address": "324CB516281B0AEDE9AD10482638C2350CDB253F",
+              "pub_key": {
+                "type": "tendermint/PubKeyEd25519",
+                "value": "a1QFtWqYD09v+TW4BbHB2RLTOwLpX50K8CMH7/45hL4="
+              },
+              "voting_power": "0"
+            }
+          }
+        }
+  recorded_at: Wed, 01 Sep 2021 17:53:05 GMT
+- request:
+    method: get
+    uri: https://localhost:26657/dump_consensus_state
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin20.5.0 arm) ruby/2.7.2p137
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:26657
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 01 Sep 2021 17:53:06 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - AWSALB=0BHuV73QboIDgE8VNciPylDhXY2199RRulVfxucBoYyJ8B3EpYKV8YsqH9sRWeyd4ldO/n2tB+jo/PZ8PsD1t2cT4V1P4ISMiJ6ApRmNE461lGs++bKZwH0t5z1A;
+        Expires=Wed, 08 Sep 2021 17:53:05 GMT; Path=/
+      - AWSALBCORS=0BHuV73QboIDgE8VNciPylDhXY2199RRulVfxucBoYyJ8B3EpYKV8YsqH9sRWeyd4ldO/n2tB+jo/PZ8PsD1t2cT4V1P4ISMiJ6ApRmNE461lGs++bKZwH0t5z1A;
+        Expires=Wed, 08 Sep 2021 17:53:05 GMT; Path=/; SameSite=None; Secure
+      - __cf_bm=4d1b5a378d89abdc248e0d658622cea00f1a43fa-1630518786-1800-AbJCE0BOetMska6VqRZhFn2UxDqgqq1D6BsWdK3zlAXn2XnxuHHvE/VGfhFyTXebSPXBFaMxhL1MwDLWchm4z7E=;
+        path=/; expires=Wed, 01-Sep-21 18:23:06 GMT; domain=.crypto.org; HttpOnly;
+        Secure; SameSite=None
+      Vary:
+      - Origin
+      X-Server-Time:
+      - '1630518786'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 68805b2b8bb634ea-DUB
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "jsonrpc": "2.0",
+          "id": -1,
+          "result": {
+            "round_state": {
+              "height": "219782",
+              "round": 0,
+              "step": 1,
+              "start_time": "2021-09-01T17:53:09.998343388Z",
+              "commit_time": "2021-09-01T17:53:04.998343388Z",
+              "validators": {
+                "validators": [
+                  {
+                    "address": "F9A4582896E5F2692BEDDD7C251755E33D2DE013",
+                    "pub_key": {
+                      "type": "tendermint/PubKeyEd25519",
+                      "value": "pqwk90+eV9yRpfmUOYfHBfc0z17gI5LHKaqSNBuNvi4="
+                    },
+                    "voting_power": "500002603",
+                    "proposer_priority": "362422477"
+                  },
+                  {
+                    "address": "71DA178AE52B2D0654102A86166CE91AC5121CB2",
+                    "pub_key": {
+                      "type": "tendermint/PubKeyEd25519",
+                      "value": "31s2RCQWscItUPtPH0tgGC4kSaZvCKG2MKcyQdkLjv8="
+                    },
+                    "voting_power": "500001000",
+                    "proposer_priority": "-466679907"
+                  },
+                  {
+                    "address": "7E2B455523A35AE8F4064C00AF01515FEF673079",
+                    "pub_key": {
+                      "type": "tendermint/PubKeyEd25519",
+                      "value": "YtUDDZobs3UMl8dyzk+IUxx+ngEhYzLa1IrkGw+2HIM="
+                    },
+                    "voting_power": "500000000",
+                    "proposer_priority": "615576023"
+                  },
+                  {
+                    "address": "2B1F2EB1BAB6A7EAF7B05CDAFA31827528B570EA",
+                    "pub_key": {
+                      "type": "tendermint/PubKeyEd25519",
+                      "value": "dvlBCGOcgGSwcwNmGYcGctsN03vqjC7QI+rZ5kP8ekc="
+                    },
+                    "voting_power": "10000500",
+                    "proposer_priority": "724566326"
+                  },
+                  {
+                    "address": "CF237EDC88CBFF3FE95B8077FDF1F1E6CBA5BB1B",
+                    "pub_key": {
+                      "type": "tendermint/PubKeyEd25519",
+                      "value": "u3Nv2LTEcg/smBjtT11rSBD7I+Ddhf8AJIjEMQUkl5o="
+                    },
+                    "voting_power": "1800",
+                    "proposer_priority": "-529008382"
+                  },
+                  {
+                    "address": "0E63B1F085D2E5551FD20CA8BE73F7C0F0E4A047",
+                    "pub_key": {
+                      "type": "tendermint/PubKeyEd25519",
+                      "value": "9i5ttl050OT2IL3nPgmOaOCUJQiJvkMQ7W/6TB05FSs="
+                    },
+                    "voting_power": "900",
+                    "proposer_priority": "-706876537"
+                  }
+                ],
+                "proposer": {
+                  "address": "71DA178AE52B2D0654102A86166CE91AC5121CB2",
+                  "pub_key": {
+                    "type": "tendermint/PubKeyEd25519",
+                    "value": "31s2RCQWscItUPtPH0tgGC4kSaZvCKG2MKcyQdkLjv8="
+                  },
+                  "voting_power": "500001000",
+                  "proposer_priority": "-466679907"
+                }
+              },
+              "proposal": null,
+              "proposal_block": null,
+              "proposal_block_parts": null,
+              "locked_round": -1,
+              "locked_block": null,
+              "locked_block_parts": null,
+              "valid_round": -1,
+              "valid_block": null,
+              "valid_block_parts": null,
+              "votes": [
+                {
+                  "round": 0,
+                  "prevotes": [
+                    "nil-Vote",
+                    "nil-Vote",
+                    "nil-Vote",
+                    "nil-Vote",
+                    "nil-Vote",
+                    "nil-Vote"
+                  ],
+                  "prevotes_bit_array": "BA{6:______} 0/1510006803 = 0.00",
+                  "precommits": [
+                    "nil-Vote",
+                    "nil-Vote",
+                    "nil-Vote",
+                    "nil-Vote",
+                    "nil-Vote",
+                    "nil-Vote"
+                  ],
+                  "precommits_bit_array": "BA{6:______} 0/1510006803 = 0.00"
+                }
+              ],
+              "commit_round": -1,
+              "last_commit": {
+                "votes": [
+                  "Vote{0:F9A4582896E5 219781/00/SIGNED_MSG_TYPE_PRECOMMIT(Precommit) 9DD5FB431FDC 4CE3626FD430 @ 2021-09-01T17:53:04.765122581Z}",
+                  "Vote{1:71DA178AE52B 219781/00/SIGNED_MSG_TYPE_PRECOMMIT(Precommit) 9DD5FB431FDC 610C8F1DEF8C @ 2021-09-01T17:53:04.804805597Z}",
+                  "Vote{2:7E2B455523A3 219781/00/SIGNED_MSG_TYPE_PRECOMMIT(Precommit) 9DD5FB431FDC 7C98E62E72A3 @ 2021-09-01T17:53:04.576273224Z}",
+                  "Vote{3:2B1F2EB1BAB6 219781/00/SIGNED_MSG_TYPE_PRECOMMIT(Precommit) 9DD5FB431FDC 4E8900CD9BF0 @ 2021-09-01T17:53:04.8893796Z}",
+                  "Vote{4:CF237EDC88CB 219781/00/SIGNED_MSG_TYPE_PRECOMMIT(Precommit) 9DD5FB431FDC 29005A4048C9 @ 2021-09-01T17:53:04.874074619Z}",
+                  "Vote{5:0E63B1F085D2 219781/00/SIGNED_MSG_TYPE_PRECOMMIT(Precommit) 9DD5FB431FDC 306E5B980203 @ 2021-09-01T17:53:41.2974009Z}"
+                ],
+                "votes_bit_array": "BA{6:xxxxxx} 1510006803/1510006803 = 1.00",
+                "peer_maj_23s": {}
+              },
+              "last_validators": {
+                "validators": [
+                  {
+                    "address": "F9A4582896E5F2692BEDDD7C251755E33D2DE013",
+                    "pub_key": {
+                      "type": "tendermint/PubKeyEd25519",
+                      "value": "pqwk90+eV9yRpfmUOYfHBfc0z17gI5LHKaqSNBuNvi4="
+                    },
+                    "voting_power": "500002603",
+                    "proposer_priority": "-137580126"
+                  },
+                  {
+                    "address": "71DA178AE52B2D0654102A86166CE91AC5121CB2",
+                    "pub_key": {
+                      "type": "tendermint/PubKeyEd25519",
+                      "value": "31s2RCQWscItUPtPH0tgGC4kSaZvCKG2MKcyQdkLjv8="
+                    },
+                    "voting_power": "500001000",
+                    "proposer_priority": "543325896"
+                  },
+                  {
+                    "address": "7E2B455523A35AE8F4064C00AF01515FEF673079",
+                    "pub_key": {
+                      "type": "tendermint/PubKeyEd25519",
+                      "value": "YtUDDZobs3UMl8dyzk+IUxx+ngEhYzLa1IrkGw+2HIM="
+                    },
+                    "voting_power": "500000000",
+                    "proposer_priority": "115576023"
+                  },
+                  {
+                    "address": "2B1F2EB1BAB6A7EAF7B05CDAFA31827528B570EA",
+                    "pub_key": {
+                      "type": "tendermint/PubKeyEd25519",
+                      "value": "dvlBCGOcgGSwcwNmGYcGctsN03vqjC7QI+rZ5kP8ekc="
+                    },
+                    "voting_power": "10000500",
+                    "proposer_priority": "714565826"
+                  },
+                  {
+                    "address": "CF237EDC88CBFF3FE95B8077FDF1F1E6CBA5BB1B",
+                    "pub_key": {
+                      "type": "tendermint/PubKeyEd25519",
+                      "value": "u3Nv2LTEcg/smBjtT11rSBD7I+Ddhf8AJIjEMQUkl5o="
+                    },
+                    "voting_power": "1800",
+                    "proposer_priority": "-529010182"
+                  },
+                  {
+                    "address": "0E63B1F085D2E5551FD20CA8BE73F7C0F0E4A047",
+                    "pub_key": {
+                      "type": "tendermint/PubKeyEd25519",
+                      "value": "9i5ttl050OT2IL3nPgmOaOCUJQiJvkMQ7W/6TB05FSs="
+                    },
+                    "voting_power": "900",
+                    "proposer_priority": "-706877437"
+                  }
+                ],
+                "proposer": {
+                  "address": "F9A4582896E5F2692BEDDD7C251755E33D2DE013",
+                  "pub_key": {
+                    "type": "tendermint/PubKeyEd25519",
+                    "value": "pqwk90+eV9yRpfmUOYfHBfc0z17gI5LHKaqSNBuNvi4="
+                  },
+                  "voting_power": "500002603",
+                  "proposer_priority": "-137580126"
+                }
+              },
+              "triggered_timeout_precommit": false
+            },
+            "peers": [
+              {
+                "node_address": "9b00a54736138617f3230532eea1b41aad4c4ab7@127.0.0.1:26656",
+                "peer_state": {
+                  "round_state": {
+                    "height": "219782",
+                    "round": 0,
+                    "step": 1,
+                    "start_time": "2021-09-01T17:53:08.997380563Z",
+                    "proposal": false,
+                    "proposal_block_part_set_header": {
+                      "total": 0,
+                      "hash": ""
+                    },
+                    "proposal_block_parts": null,
+                    "proposal_pol_round": -1,
+                    "proposal_pol": "______",
+                    "prevotes": "______",
+                    "precommits": "______",
+                    "last_commit_round": 0,
+                    "last_commit": "xxxxxx",
+                    "catchup_commit_round": -1,
+                    "catchup_commit": "______"
+                  },
+                  "stats": {
+                    "votes": "338163",
+                    "block_parts": "61345"
+                  }
+                }
+              },
+              {
+                "node_address": "4241f0d930d2379e6e7baf9faa06caac0635c738@127.0.0.1:26656",
+                "peer_state": {
+                  "round_state": {
+                    "height": "219782",
+                    "round": 0,
+                    "step": 1,
+                    "start_time": "2021-09-01T17:53:08.946330217Z",
+                    "proposal": false,
+                    "proposal_block_part_set_header": {
+                      "total": 0,
+                      "hash": ""
+                    },
+                    "proposal_block_parts": null,
+                    "proposal_pol_round": -1,
+                    "proposal_pol": "______",
+                    "prevotes": "______",
+                    "precommits": "______",
+                    "last_commit_round": 0,
+                    "last_commit": "xxxxxx",
+                    "catchup_commit_round": -1,
+                    "catchup_commit": "______"
+                  },
+                  "stats": {
+                    "votes": "627309",
+                    "block_parts": "91867"
+                  }
+                }
+              },
+              {
+                "node_address": "8af7c92277f3edce58aa828cf1026cfa74fd6569@127.0.0.1:46668",
+                "peer_state": {
+                  "round_state": {
+                    "height": "219782",
+                    "round": 0,
+                    "step": 1,
+                    "start_time": "2021-09-01T17:53:09.104252592Z",
+                    "proposal": false,
+                    "proposal_block_part_set_header": {
+                      "total": 0,
+                      "hash": ""
+                    },
+                    "proposal_block_parts": null,
+                    "proposal_pol_round": -1,
+                    "proposal_pol": "______",
+                    "prevotes": "______",
+                    "precommits": "______",
+                    "last_commit_round": 0,
+                    "last_commit": "xxxxxx",
+                    "catchup_commit_round": -1,
+                    "catchup_commit": "______"
+                  },
+                  "stats": {
+                    "votes": "5126",
+                    "block_parts": "509"
+                  }
+                }
+              },
+              {
+                "node_address": "70cb9f3649e5bb6d48a4d4764ac197084e171da6@127.0.0.1:26656",
+                "peer_state": {
+                  "round_state": {
+                    "height": "219782",
+                    "round": 0,
+                    "step": 1,
+                    "start_time": "2021-09-01T17:53:09.019736792Z",
+                    "proposal": false,
+                    "proposal_block_part_set_header": {
+                      "total": 0,
+                      "hash": ""
+                    },
+                    "proposal_block_parts": null,
+                    "proposal_pol_round": -1,
+                    "proposal_pol": "______",
+                    "prevotes": "______",
+                    "precommits": "______",
+                    "last_commit_round": 0,
+                    "last_commit": "xxxxxx",
+                    "catchup_commit_round": -1,
+                    "catchup_commit": "______"
+                  },
+                  "stats": {
+                    "votes": "331468",
+                    "block_parts": "63992"
+                  }
+                }
+              },
+              {
+                "node_address": "02ab7780e0301b855be10d27ae0f5eb2353031bf@127.0.0.1:56578",
+                "peer_state": {
+                  "round_state": {
+                    "height": "219782",
+                    "round": 0,
+                    "step": 1,
+                    "start_time": "2021-09-01T17:53:06.370658179Z",
+                    "proposal": false,
+                    "proposal_block_part_set_header": {
+                      "total": 0,
+                      "hash": ""
+                    },
+                    "proposal_block_parts": null,
+                    "proposal_pol_round": -1,
+                    "proposal_pol": "______",
+                    "prevotes": "______",
+                    "precommits": "______",
+                    "last_commit_round": 0,
+                    "last_commit": "xxxxxx",
+                    "catchup_commit_round": -1,
+                    "catchup_commit": "______"
+                  },
+                  "stats": {
+                    "votes": "187",
+                    "block_parts": "0"
+                  }
+                }
+              },
+              {
+                "node_address": "9187fd1d7582f96759ec23994efc47d52432b27c@127.0.0.1:46560",
+                "peer_state": {
+                  "round_state": {
+                    "height": "219782",
+                    "round": 0,
+                    "step": 1,
+                    "start_time": "2021-09-01T17:53:09.104340058Z",
+                    "proposal": false,
+                    "proposal_block_part_set_header": {
+                      "total": 0,
+                      "hash": ""
+                    },
+                    "proposal_block_parts": null,
+                    "proposal_pol_round": -1,
+                    "proposal_pol": "______",
+                    "prevotes": "______",
+                    "precommits": "______",
+                    "last_commit_round": 0,
+                    "last_commit": "xxxxxx",
+                    "catchup_commit_round": -1,
+                    "catchup_commit": "______"
+                  },
+                  "stats": {
+                    "votes": "3331",
+                    "block_parts": "224"
+                  }
+                }
+              },
+              {
+                "node_address": "15dff87d8ae0957b2d4c3146994ec20a51429300@127.0.0.1:52282",
+                "peer_state": {
+                  "round_state": {
+                    "height": "219782",
+                    "round": 0,
+                    "step": 1,
+                    "start_time": "2021-09-01T17:53:09.019800275Z",
+                    "proposal": false,
+                    "proposal_block_part_set_header": {
+                      "total": 0,
+                      "hash": ""
+                    },
+                    "proposal_block_parts": null,
+                    "proposal_pol_round": -1,
+                    "proposal_pol": "______",
+                    "prevotes": "______",
+                    "precommits": "______",
+                    "last_commit_round": 0,
+                    "last_commit": "xxxxxx",
+                    "catchup_commit_round": -1,
+                    "catchup_commit": "______"
+                  },
+                  "stats": {
+                    "votes": "2739",
+                    "block_parts": "150"
+                  }
+                }
+              },
+              {
+                "node_address": "e43e8deb62a9c188c8975e6f00c9349564a1dbe3@127.0.0.1:51678",
+                "peer_state": {
+                  "round_state": {
+                    "height": "219782",
+                    "round": 0,
+                    "step": 1,
+                    "start_time": "2021-09-01T17:53:06.100000077Z",
+                    "proposal": false,
+                    "proposal_block_part_set_header": {
+                      "total": 0,
+                      "hash": ""
+                    },
+                    "proposal_block_parts": null,
+                    "proposal_pol_round": -1,
+                    "proposal_pol": "______",
+                    "prevotes": "______",
+                    "precommits": "______",
+                    "last_commit_round": 0,
+                    "last_commit": "xxxxxx",
+                    "catchup_commit_round": -1,
+                    "catchup_commit": "______"
+                  },
+                  "stats": {
+                    "votes": "816",
+                    "block_parts": "51"
+                  }
+                }
+              },
+              {
+                "node_address": "30d09999122cc260e33c25f9e141680d5d9af9b9@127.0.0.1:54136",
+                "peer_state": {
+                  "round_state": {
+                    "height": "219782",
+                    "round": 0,
+                    "step": 1,
+                    "start_time": "2021-09-01T17:53:06.23018573Z",
+                    "proposal": false,
+                    "proposal_block_part_set_header": {
+                      "total": 0,
+                      "hash": ""
+                    },
+                    "proposal_block_parts": null,
+                    "proposal_pol_round": -1,
+                    "proposal_pol": "______",
+                    "prevotes": "______",
+                    "precommits": "______",
+                    "last_commit_round": 0,
+                    "last_commit": "xxxxxx",
+                    "catchup_commit_round": -1,
+                    "catchup_commit": "______"
+                  },
+                  "stats": {
+                    "votes": "79",
+                    "block_parts": "0"
+                  }
+                }
+              },
+              {
+                "node_address": "005828d20539ffb42ea5bac3b716d317165890ff@127.0.0.1:60896",
+                "peer_state": {
+                  "round_state": {
+                    "height": "219782",
+                    "round": 0,
+                    "step": 1,
+                    "start_time": "2021-09-01T17:53:06.144088868Z",
+                    "proposal": false,
+                    "proposal_block_part_set_header": {
+                      "total": 0,
+                      "hash": ""
+                    },
+                    "proposal_block_parts": null,
+                    "proposal_pol_round": -1,
+                    "proposal_pol": "______",
+                    "prevotes": "______",
+                    "precommits": "______",
+                    "last_commit_round": 0,
+                    "last_commit": "xxxxxx",
+                    "catchup_commit_round": -1,
+                    "catchup_commit": "______"
+                  },
+                  "stats": {
+                    "votes": "83",
+                    "block_parts": "0"
+                  }
+                }
+              },
+              {
+                "node_address": "2b06c15e86de7465361c11c1a3fd19252e04d91d@127.0.0.1:49872",
+                "peer_state": {
+                  "round_state": {
+                    "height": "219782",
+                    "round": 0,
+                    "step": 1,
+                    "start_time": "2021-09-01T17:53:06.313748993Z",
+                    "proposal": false,
+                    "proposal_block_part_set_header": {
+                      "total": 0,
+                      "hash": ""
+                    },
+                    "proposal_block_parts": null,
+                    "proposal_pol_round": -1,
+                    "proposal_pol": "______",
+                    "prevotes": "______",
+                    "precommits": "______",
+                    "last_commit_round": 0,
+                    "last_commit": "xxxxxx",
+                    "catchup_commit_round": -1,
+                    "catchup_commit": "______"
+                  },
+                  "stats": {
+                    "votes": "4909",
+                    "block_parts": "0"
+                  }
+                }
+              },
+              {
+                "node_address": "5924fcb2d3cfc2649d9c3501dcd123c48b64e11b@127.0.0.1:59042",
+                "peer_state": {
+                  "round_state": {
+                    "height": "219782",
+                    "round": 0,
+                    "step": 1,
+                    "start_time": "2021-09-01T17:53:06.335808937Z",
+                    "proposal": false,
+                    "proposal_block_part_set_header": {
+                      "total": 0,
+                      "hash": ""
+                    },
+                    "proposal_block_parts": null,
+                    "proposal_pol_round": -1,
+                    "proposal_pol": "______",
+                    "prevotes": "______",
+                    "precommits": "______",
+                    "last_commit_round": 0,
+                    "last_commit": "xxxxxx",
+                    "catchup_commit_round": -1,
+                    "catchup_commit": "______"
+                  },
+                  "stats": {
+                    "votes": "1190",
+                    "block_parts": "0"
+                  }
+                }
+              },
+              {
+                "node_address": "5140d968b2bdc18d0c90df675460e47c7e4faedf@127.0.0.1:49863",
+                "peer_state": {
+                  "round_state": {
+                    "height": "219782",
+                    "round": 0,
+                    "step": 1,
+                    "start_time": "2021-09-01T17:53:06.322614308Z",
+                    "proposal": false,
+                    "proposal_block_part_set_header": {
+                      "total": 0,
+                      "hash": ""
+                    },
+                    "proposal_block_parts": null,
+                    "proposal_pol_round": -1,
+                    "proposal_pol": "______",
+                    "prevotes": "______",
+                    "precommits": "______",
+                    "last_commit_round": 0,
+                    "last_commit": "xxxxxx",
+                    "catchup_commit_round": -1,
+                    "catchup_commit": "______"
+                  },
+                  "stats": {
+                    "votes": "1775",
+                    "block_parts": "8"
+                  }
+                }
+              }
+            ]
+          }
+        }
+  recorded_at: Wed, 01 Sep 2021 17:53:06 GMT
+- request:
+    method: get
+    uri: https://localhost:26657/genesis
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin20.5.0 arm) ruby/2.7.2p137
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:26657
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 01 Sep 2021 17:53:06 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - AWSALB=tiz8JklbU+ymQ3XF1cBxUkmxPYaA3a3REcWz+6i2LM2zpZ7eagDxJyYedb/J9zr+KIe2KyWWE91Gu3Jqm/j1QVLnlKq67RHbITUo0VuJt7o0v6yx/OPb3D0jFIwo;
+        Expires=Wed, 08 Sep 2021 17:53:06 GMT; Path=/
+      - AWSALBCORS=tiz8JklbU+ymQ3XF1cBxUkmxPYaA3a3REcWz+6i2LM2zpZ7eagDxJyYedb/J9zr+KIe2KyWWE91Gu3Jqm/j1QVLnlKq67RHbITUo0VuJt7o0v6yx/OPb3D0jFIwo;
+        Expires=Wed, 08 Sep 2021 17:53:06 GMT; Path=/; SameSite=None; Secure
+      - __cf_bm=d342a4743342c28af98f1fbaef41047d63b77b7b-1630518786-1800-AclI2rzdOpi2808TXrxYsEuzTOpek5zpnMj14BwvUPWA+ldBNcC2ITbyaSXoiKdtzgBtGz3TiNCUB6x02DDkkT4=;
+        path=/; expires=Wed, 01-Sep-21 18:23:06 GMT; domain=.crypto.org; HttpOnly;
+        Secure; SameSite=None
+      Vary:
+      - Origin
+      X-Server-Time:
+      - '1630518786'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 68805b2d5c563501-DUB
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "jsonrpc": "2.0",
+          "id": -1,
+          "result": {
+            "genesis": {
+              "genesis_time": "2021-08-19T04:44:03.645446Z",
+              "chain_id": "testnet-croeseid-4",
+              "initial_height": "1",
+              "consensus_params": {
+                "block": {
+                  "max_bytes": "500000",
+                  "max_gas": "81500000",
+                  "time_iota_ms": "1000"
+                },
+                "evidence": {
+                  "max_age_num_blocks": "403200",
+                  "max_age_duration": "2419200000000000",
+                  "max_bytes": "150000"
+                },
+                "validator": {
+                  "pub_key_types": [
+                    "ed25519"
+                  ]
+                },
+                "version": {}
+              },
+              "app_hash": "",
+              "app_state": {
+                "auth": {
+                  "params": {
+                    "max_memo_characters": "256",
+                    "tx_sig_limit": "7",
+                    "tx_size_cost_per_byte": "10",
+                    "sig_verify_cost_ed25519": "590",
+                    "sig_verify_cost_secp256k1": "1000"
+                  },
+                  "accounts": [
+                    {
+                      "@type": "/cosmos.auth.v1beta1.BaseAccount",
+                      "address": "tcro1s4ggq2zuzvwg5k8vnx2xfwtdm4cz6wtnfl4xx7",
+                      "pub_key": null,
+                      "account_number": "0",
+                      "sequence": "0"
+                    },
+                    {
+                      "@type": "/cosmos.auth.v1beta1.BaseAccount",
+                      "address": "tcro163tv59yzgeqcap8lrsa2r4zk580h8ddrpzvf4w",
+                      "pub_key": null,
+                      "account_number": "0",
+                      "sequence": "0"
+                    },
+                    {
+                      "@type": "/cosmos.auth.v1beta1.BaseAccount",
+                      "address": "tcro14fzksz5h72et4ssjtqpwsmhz6ysk6r4ngtg6zj",
+                      "pub_key": null,
+                      "account_number": "0",
+                      "sequence": "0"
+                    }
+                  ]
+                },
+                "authz": {
+                  "authorization": []
+                },
+                "bank": {
+                  "params": {
+                    "send_enabled": [],
+                    "default_send_enabled": true
+                  },
+                  "balances": [
+                    {
+                      "address": "tcro1s4ggq2zuzvwg5k8vnx2xfwtdm4cz6wtnfl4xx7",
+                      "coins": [
+                        {
+                          "denom": "basetcro",
+                          "amount": "840000000000000000"
+                        }
+                      ]
+                    },
+                    {
+                      "address": "tcro14fzksz5h72et4ssjtqpwsmhz6ysk6r4ngtg6zj",
+                      "coins": [
+                        {
+                          "denom": "basetcro",
+                          "amount": "840000000000000000"
+                        }
+                      ]
+                    },
+                    {
+                      "address": "tcro163tv59yzgeqcap8lrsa2r4zk580h8ddrpzvf4w",
+                      "coins": [
+                        {
+                          "denom": "basetcro",
+                          "amount": "840000000000000000"
+                        }
+                      ]
+                    }
+                  ],
+                  "supply": [],
+                  "denom_metadata": [
+                    {
+                      "description": "The native token of Crypto.org Chain.",
+                      "denom_units": [
+                        {
+                          "denom": "basetcro",
+                          "exponent": 0,
+                          "aliases": [
+                            "carson"
+                          ]
+                        },
+                        {
+                          "denom": "tcro",
+                          "exponent": 8,
+                          "aliases": []
+                        }
+                      ],
+                      "base": "basetcro",
+                      "display": "tcro",
+                      "name": "Crypto.org Chain",
+                      "symbol": "CRO"
+                    }
+                  ]
+                },
+                "capability": {
+                  "index": "1",
+                  "owners": []
+                },
+                "chainmain": {},
+                "distribution": {
+                  "delegator_starting_infos": [],
+                  "delegator_withdraw_infos": [],
+                  "fee_pool": {
+                    "community_pool": []
+                  },
+                  "outstanding_rewards": [],
+                  "params": {
+                    "base_proposer_reward": "0.01",
+                    "bonus_proposer_reward": "0.04",
+                    "community_tax": "0",
+                    "withdraw_addr_enabled": true
+                  },
+                  "previous_proposer": "",
+                  "validator_accumulated_commissions": [],
+                  "validator_current_rewards": [],
+                  "validator_historical_rewards": [],
+                  "validator_slash_events": []
+                },
+                "evidence": {
+                  "evidence": []
+                },
+                "feegrant": {
+                  "allowances": []
+                },
+                "genutil": {
+                  "gen_txs": [
+                    {
+                      "body": {
+                        "messages": [
+                          {
+                            "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                            "description": {
+                              "moniker": "node1",
+                              "identity": "",
+                              "website": "",
+                              "security_contact": "",
+                              "details": ""
+                            },
+                            "commission": {
+                              "rate": "0.100000000000000000",
+                              "max_rate": "0.200000000000000000",
+                              "max_change_rate": "0.010000000000000000"
+                            },
+                            "min_self_delegation": "1",
+                            "delegator_address": "tcro163tv59yzgeqcap8lrsa2r4zk580h8ddrpzvf4w",
+                            "validator_address": "tcrocncl163tv59yzgeqcap8lrsa2r4zk580h8ddr5a0sdd",
+                            "pubkey": {
+                              "@type": "/cosmos.crypto.ed25519.PubKey",
+                              "key": "pqwk90+eV9yRpfmUOYfHBfc0z17gI5LHKaqSNBuNvi4="
+                            },
+                            "value": {
+                              "denom": "basetcro",
+                              "amount": "500000000000000"
+                            }
+                          }
+                        ],
+                        "memo": "2fa6f1dfd8918b2ab70087da9efee3d2c9564ecb@127.0.0.1:26656",
+                        "timeout_height": "0",
+                        "extension_options": [],
+                        "non_critical_extension_options": []
+                      },
+                      "auth_info": {
+                        "signer_infos": [
+                          {
+                            "public_key": {
+                              "@type": "/cosmos.crypto.secp256k1.PubKey",
+                              "key": "Ar984eHVMKkFJGxPfbVvte1yk9Aj5W8xs4e3itjjr3rZ"
+                            },
+                            "mode_info": {
+                              "single": {
+                                "mode": "SIGN_MODE_DIRECT"
+                              }
+                            },
+                            "sequence": "0"
+                          }
+                        ],
+                        "fee": {
+                          "amount": [],
+                          "gas_limit": "200000",
+                          "payer": "",
+                          "granter": ""
+                        }
+                      },
+                      "signatures": [
+                        "nQ5Wkz/6b2gtxRLD63ApJ/5DjCDpLZ29p0l5P+46W2BiIcwDGzrXnuGHJ1oXuobnvdVb8uIwQEmFItiVeCW6TQ=="
+                      ]
+                    },
+                    {
+                      "body": {
+                        "messages": [
+                          {
+                            "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                            "description": {
+                              "moniker": "node2",
+                              "identity": "",
+                              "website": "",
+                              "security_contact": "",
+                              "details": ""
+                            },
+                            "commission": {
+                              "rate": "0.100000000000000000",
+                              "max_rate": "0.200000000000000000",
+                              "max_change_rate": "0.010000000000000000"
+                            },
+                            "min_self_delegation": "1",
+                            "delegator_address": "tcro14fzksz5h72et4ssjtqpwsmhz6ysk6r4ngtg6zj",
+                            "validator_address": "tcrocncl14fzksz5h72et4ssjtqpwsmhz6ysk6r4na5tr63",
+                            "pubkey": {
+                              "@type": "/cosmos.crypto.ed25519.PubKey",
+                              "key": "31s2RCQWscItUPtPH0tgGC4kSaZvCKG2MKcyQdkLjv8="
+                            },
+                            "value": {
+                              "denom": "basetcro",
+                              "amount": "500000000000000"
+                            }
+                          }
+                        ],
+                        "memo": "5b08900cee70e1b9c39d2cf9dc964655c10bdd4d@127.0.0.1:26656",
+                        "timeout_height": "0",
+                        "extension_options": [],
+                        "non_critical_extension_options": []
+                      },
+                      "auth_info": {
+                        "signer_infos": [
+                          {
+                            "public_key": {
+                              "@type": "/cosmos.crypto.secp256k1.PubKey",
+                              "key": "A4NEd4ZD1h7q9i04dJ4O8GlqlWg1g3icOfWwGF01wnGy"
+                            },
+                            "mode_info": {
+                              "single": {
+                                "mode": "SIGN_MODE_DIRECT"
+                              }
+                            },
+                            "sequence": "0"
+                          }
+                        ],
+                        "fee": {
+                          "amount": [],
+                          "gas_limit": "200000",
+                          "payer": "",
+                          "granter": ""
+                        }
+                      },
+                      "signatures": [
+                        "gxI5M0HdtoAOpHyIfmuh6kLRFf6mgfoKL1dKb5wJIs59U/Rd0itJgU6g6HuKRf6SFqMWkP4WulA9bCZ9T9Qs1A=="
+                      ]
+                    },
+                    {
+                      "body": {
+                        "messages": [
+                          {
+                            "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                            "description": {
+                              "moniker": "node0",
+                              "identity": "",
+                              "website": "",
+                              "security_contact": "",
+                              "details": ""
+                            },
+                            "commission": {
+                              "rate": "0.100000000000000000",
+                              "max_rate": "0.200000000000000000",
+                              "max_change_rate": "0.010000000000000000"
+                            },
+                            "min_self_delegation": "1",
+                            "delegator_address": "tcro1s4ggq2zuzvwg5k8vnx2xfwtdm4cz6wtnfl4xx7",
+                            "validator_address": "tcrocncl1s4ggq2zuzvwg5k8vnx2xfwtdm4cz6wtnuqkl7a",
+                            "pubkey": {
+                              "@type": "/cosmos.crypto.ed25519.PubKey",
+                              "key": "YtUDDZobs3UMl8dyzk+IUxx+ngEhYzLa1IrkGw+2HIM="
+                            },
+                            "value": {
+                              "denom": "basetcro",
+                              "amount": "500000000000000"
+                            }
+                          }
+                        ],
+                        "memo": "6da1e91bf173058cab88c2ec05184e872530ae73@127.0.0.1:26656",
+                        "timeout_height": "0",
+                        "extension_options": [],
+                        "non_critical_extension_options": []
+                      },
+                      "auth_info": {
+                        "signer_infos": [
+                          {
+                            "public_key": {
+                              "@type": "/cosmos.crypto.secp256k1.PubKey",
+                              "key": "A3+Ot1QWl8G8rG078aeKJYVz9XW9tTCVaBGqlhkIFdZ0"
+                            },
+                            "mode_info": {
+                              "single": {
+                                "mode": "SIGN_MODE_DIRECT"
+                              }
+                            },
+                            "sequence": "0"
+                          }
+                        ],
+                        "fee": {
+                          "amount": [],
+                          "gas_limit": "200000",
+                          "payer": "",
+                          "granter": ""
+                        }
+                      },
+                      "signatures": [
+                        "WCkJwny5y4LiBPsEPBvwyIGCOd193jcXrlsoAeeY/gsLzrHkonogwWueeVBCTSdJz7R9e6O8ZwsCYkC6I9RC/Q=="
+                      ]
+                    }
+                  ]
+                },
+                "gov": {
+                  "deposit_params": {
+                    "max_deposit_period": "1209600000000000ns",
+                    "min_deposit": [
+                      {
+                        "denom": "basetcro",
+                        "amount": "2000000000000"
+                      }
+                    ]
+                  },
+                  "deposits": [],
+                  "proposals": [],
+                  "starting_proposal_id": "1",
+                  "tally_params": {
+                    "quorum": "0.334000000000000000",
+                    "threshold": "0.500000000000000000",
+                    "veto_threshold": "0.334000000000000000"
+                  },
+                  "votes": [],
+                  "voting_params": {
+                    "voting_period": "172800000000000ns"
+                  }
+                },
+                "ibc": {
+                  "channel_genesis": {
+                    "ack_sequences": [],
+                    "acknowledgements": [],
+                    "channels": [],
+                    "commitments": [],
+                    "next_channel_sequence": "0",
+                    "receipts": [],
+                    "recv_sequences": [],
+                    "send_sequences": []
+                  },
+                  "client_genesis": {
+                    "clients": [],
+                    "clients_consensus": [],
+                    "clients_metadata": [],
+                    "create_localhost": false,
+                    "next_client_sequence": "0",
+                    "params": {
+                      "allowed_clients": [
+                        "06-solomachine",
+                        "07-tendermint"
+                      ]
+                    }
+                  },
+                  "connection_genesis": {
+                    "client_connection_paths": [],
+                    "connections": [],
+                    "next_connection_sequence": "0",
+                    "params": {
+                      "max_expected_time_per_block": "30000000000"
+                    }
+                  }
+                },
+                "mint": {
+                  "minter": {
+                    "annual_provisions": "0.000000000000000000",
+                    "inflation": "0.000000000000000000"
+                  },
+                  "params": {
+                    "blocks_per_year": "6311520",
+                    "goal_bonded": "0.3",
+                    "inflation_max": "0.025",
+                    "inflation_min": "0.012",
+                    "inflation_rate_change": "0.006",
+                    "mint_denom": "basetcro"
+                  }
+                },
+                "nft": {
+                  "collections": []
+                },
+                "params": null,
+                "slashing": {
+                  "missed_blocks": [],
+                  "params": {
+                    "downtime_jail_duration": "86400s",
+                    "min_signed_per_window": "0.5",
+                    "signed_blocks_window": "5000",
+                    "slash_fraction_double_sign": "0.05",
+                    "slash_fraction_downtime": "0"
+                  },
+                  "signing_infos": []
+                },
+                "staking": {
+                  "delegations": [],
+                  "exported": false,
+                  "last_total_power": "0",
+                  "last_validator_powers": [],
+                  "params": {
+                    "bond_denom": "basetcro",
+                    "historical_entries": "10000",
+                    "max_entries": "7",
+                    "max_validators": "100",
+                    "unbonding_time": "2419200000000000ns"
+                  },
+                  "redelegations": [],
+                  "unbonding_delegations": [],
+                  "validators": []
+                },
+                "supply": {},
+                "transfer": {
+                  "denom_traces": [],
+                  "params": {
+                    "receive_enabled": true,
+                    "send_enabled": true
+                  },
+                  "port_id": "transfer"
+                },
+                "upgrade": {},
+                "vesting": {}
+              }
+            }
+          }
+        }
+  recorded_at: Wed, 01 Sep 2021 17:53:06 GMT
+recorded_with: VCR 6.0.0

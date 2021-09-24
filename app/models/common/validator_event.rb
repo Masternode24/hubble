@@ -19,6 +19,9 @@ class Common::ValidatorEvent < ApplicationRecord
 
   after_create :tweet_maybe
 
+  alias_attribute :time, :timestamp
+  delegate :short_name, to: :validatorlike, prefix: true
+
   def kind_class
     self.class.name.demodulize.underscore
   end

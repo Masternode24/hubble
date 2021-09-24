@@ -1,0 +1,173 @@
+---
+http_interactions:
+  - request:
+      method: get
+      uri: https://localhost/test/api/v1/customers/958dbd70-eef7-4563-9cd5-0f8a765772ad
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Accept:
+          - "*/*"
+        User-Agent:
+          - rest-client/2.1.0 (darwin20.1.0 x86_64) ruby/2.7.2p137
+        Authorization:
+          - REDACTED
+        Content-Length:
+          - "0"
+        Content-Type:
+          - application/x-www-form-urlencoded
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Host:
+          - localhost
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 31 Aug 2021 22:39:18 GMT
+        Content-Type:
+          - application/vnd.api+json; charset=utf-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        X-Frame-Options:
+          - SAMEORIGIN
+        X-Xss-Protection:
+          - 1; mode=block
+        X-Content-Type-Options:
+          - nosniff
+        X-Download-Options:
+          - noopen
+        X-Permitted-Cross-Domain-Policies:
+          - none
+        Referrer-Policy:
+          - strict-origin-when-cross-origin
+        Vary:
+          - Accept
+        Etag:
+          - W/"7a8cd0b150f546464a21fc5782cc003b"
+        Cache-Control:
+          - max-age=0, private, must-revalidate
+        X-Request-Id:
+          - be385747-f52a-47b6-a7ec-623ff2012c68
+        X-Runtime:
+          - "0.021679"
+      body:
+        encoding: UTF-8
+        string: '{"data":{"id":"958dbd70-eef7-4563-9cd5-0f8a765772ad","type":"customer","attributes":{"name":"MCDOWALL","environment":"test"},"relationships":{"eth2_staking_positions":{"data":[{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position"}]}}},"links":{"self":"https://localhost/test/api/v1/customers/958dbd70-eef7-4563-9cd5-0f8a765772ad"}}'
+    recorded_at: Tue, 31 Aug 2021 22:39:18 GMT
+  - request:
+      method: get
+      uri: https://min-api.cryptocompare.com/data/pricemulti?fsyms=ATOM,LPT,KAVA,DOT,XTZ,LUNA,IRIS,CELO,NEAR,AVAX,MINA,ROSE,SKL&tsyms=USD
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        User-Agent:
+          - Faraday v0.11.0
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - "*/*"
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Server:
+          - nginx
+        Date:
+          - Tue, 31 Aug 2021 22:39:22 GMT
+        Content-Type:
+          - application/json; charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Vary:
+          - Accept-Encoding
+        Content-Security-Policy:
+          - frame-ancestors 'none'
+        Access-Control-Allow-Origin:
+          - "*"
+        Access-Control-Allow-Methods:
+          - GET, POST, OPTIONS
+        Access-Control-Allow-Headers:
+          - Content-Type, Cookie, Set-Cookie, Authorization
+        Access-Control-Allow-Credentials:
+          - "true"
+        Cache-Control:
+          - public, max-age=10
+        X-Cryptocompare-Cache-Hit:
+          - "false"
+        X-Cryptocompare-Server-Id:
+          - ccc-api09
+      body:
+        encoding: UTF-8
+        string: '{"ATOM":{"USD":22.47},"LPT":{"USD":20.44},"KAVA":{"USD":7.395},"DOT":{"USD":29.65},"XTZ":{"USD":5.03},"LUNA":{"USD":30.83},"IRIS":{"USD":0.1113},"CELO":{"USD":5.476},"NEAR":{"USD":5.171},"AVAX":{"USD":38.66},"MINA":{"USD":3.488},"ROSE":{"USD":0.1192},"SKL":{"USD":0.3861}}'
+    recorded_at: Tue, 31 Aug 2021 22:39:22 GMT
+  - request:
+      method: get
+      uri: https://localhost/test/api/v1/staking/eth2/staking_positions?filter%5Bcustomer_id_eq%5D=958dbd70-eef7-4563-9cd5-0f8a765772ad&include=eth2_validators
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Accept:
+          - "*/*"
+        User-Agent:
+          - rest-client/2.1.0 (darwin20.1.0 x86_64) ruby/2.7.2p137
+        Authorization:
+          - REDACTED
+        Content-Length:
+          - "0"
+        Content-Type:
+          - application/x-www-form-urlencoded
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Host:
+          - localhost
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 31 Aug 2021 22:39:22 GMT
+        Content-Type:
+          - application/vnd.api+json; charset=utf-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        X-Frame-Options:
+          - SAMEORIGIN
+        X-Xss-Protection:
+          - 1; mode=block
+        X-Content-Type-Options:
+          - nosniff
+        X-Download-Options:
+          - noopen
+        X-Permitted-Cross-Domain-Policies:
+          - none
+        Referrer-Policy:
+          - strict-origin-when-cross-origin
+        Vary:
+          - Accept
+        Etag:
+          - W/"6bd28bcdc55cc78f20f7ae4716577e10"
+        Cache-Control:
+          - max-age=0, private, must-revalidate
+        X-Request-Id:
+          - d507380b-495d-4254-8749-e4e247af5b8d
+        X-Runtime:
+          - "0.039048"
+      body:
+        encoding: UTF-8
+        string: '{"data":[{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position","attributes":{"staked_eth_amount":96,"eth1_withdrawal_address":"0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"},"relationships":{"customer":{"data":{"id":"958dbd70-eef7-4563-9cd5-0f8a765772ad","type":"customer"}},"eth1_withdrawal_address":{"data":{"id":"10aa9021-31e4-45b8-ba57-02d87c3f32c6","type":"eth1_withdrawal_address"}},"eth2_validators":{"data":[{"id":"f8aa9a9f-c29f-466f-8372-7b1397c1f257","type":"validator"},{"id":"63081c20-27c4-4bb9-8c32-4bcd1720454b","type":"validator"},{"id":"e392ca88-3d85-432a-b875-38c4ceded46f","type":"validator"}]}}}],"included":[{"id":"f8aa9a9f-c29f-466f-8372-7b1397c1f257","type":"validator","attributes":{"pubkey":"ace32a7156de5ef650f2c416455379327488c5d31d03bbf3c567be3fc4c9d928fe2b5569259ddf10a1e32ce5e6011482","withdrawal_credentials":"00ea25ce2c9eb123fb8dc284955dc585aa4d708c0f9f95f14a902427b60b4fa4","amount":"32000000000","signature":"8ecbd8b5042eb9b449eb05b6a779beea7a2f1137e040bc807b53066aa88abfd31a255792bcf168635051913363d6a0b213b46b72ca29dfe06228aa6b4637a7d3a80eb41de1d2011180a810d7d5f6fa6eda2f34e9c6ad4ef244cf260575a80e21","deposit_message_root":"b10edc5d347c30070bedcbd4918e23ed7295641e5dd325d5d7fd3e31b03d8093","deposit_data_root":"a6f47e921ad0d53ab3940cf4ec4f625b27f2833fc2c74d51657451e725f866a1","fork_version":"00002009","eth2_network_name":"pyrmont","deposit_cli_version":"1.1.0","eth1_withdrawal_address":"0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"},"relationships":{"staking_position":{"data":{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position"}}}},{"id":"63081c20-27c4-4bb9-8c32-4bcd1720454b","type":"validator","attributes":{"pubkey":"bce32a7156de5ef650f2c416455379327488c5d31d03bbf3c567be3fc4c9d928fe2b5569259ddf10a1e32ce5e6011482","withdrawal_credentials":"00ea25ce2c9eb123fb8dc284955dc585aa4d708c0f9f95f14a902427b60b4fa4","amount":"32000000000","signature":"8ecbd8b5042eb9b449eb05b6a779beea7a2f1137e040bc807b53066aa88abfd31a255792bcf168635051913363d6a0b213b46b72ca29dfe06228aa6b4637a7d3a80eb41de1d2011180a810d7d5f6fa6eda2f34e9c6ad4ef244cf260575a80e21","deposit_message_root":"b10edc5d347c30070bedcbd4918e23ed7295641e5dd325d5d7fd3e31b03d8093","deposit_data_root":"a6f47e921ad0d53ab3940cf4ec4f625b27f2833fc2c74d51657451e725f866a1","fork_version":"00002009","eth2_network_name":"pyrmont","deposit_cli_version":"1.1.0","eth1_withdrawal_address":"0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"},"relationships":{"staking_position":{"data":{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position"}}}},{"id":"e392ca88-3d85-432a-b875-38c4ceded46f","type":"validator","attributes":{"pubkey":"cce32a7156de5ef650f2c416455379327488c5d31d03bbf3c567be3fc4c9d928fe2b5569259ddf10a1e32ce5e6011482","withdrawal_credentials":"00ea25ce2c9eb123fb8dc284955dc585aa4d708c0f9f95f14a902427b60b4fa4","amount":"32000000000","signature":"8ecbd8b5042eb9b449eb05b6a779beea7a2f1137e040bc807b53066aa88abfd31a255792bcf168635051913363d6a0b213b46b72ca29dfe06228aa6b4637a7d3a80eb41de1d2011180a810d7d5f6fa6eda2f34e9c6ad4ef244cf260575a80e21","deposit_message_root":"b10edc5d347c30070bedcbd4918e23ed7295641e5dd325d5d7fd3e31b03d8093","deposit_data_root":"a6f47e921ad0d53ab3940cf4ec4f625b27f2833fc2c74d51657451e725f866a1","fork_version":"00002009","eth2_network_name":"pyrmont","deposit_cli_version":"1.1.0","eth1_withdrawal_address":"0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"},"relationships":{"staking_position":{"data":{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position"}}}}],"links":{"self":"https://localhost/test/api/v1/staking/eth2/staking_positions?include=eth2_validators\u0026filter[customer_id_eq]=958dbd70-eef7-4563-9cd5-0f8a765772ad","current":"https://localhost/test/api/v1/staking/eth2/staking_positions?filter[customer_id_eq]=958dbd70-eef7-4563-9cd5-0f8a765772ad\u0026include=eth2_validators\u0026page[number]=1"}}'
+    recorded_at: Tue, 31 Aug 2021 22:39:22 GMT
+recorded_with: VCR 6.0.0

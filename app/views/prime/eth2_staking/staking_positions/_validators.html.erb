@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Public Key</th>
+      <th>Amount</th>
+      <th>ETH1 Withdrawal Address</th>
+      <th>Fork Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if validators.empty? %>
+      <tr>
+        <td colspan="5">No validators found</td>
+      </tr>
+    <% end %>
+    <% validators.each do |validator| %>
+      <tr>
+        <td><%= beaconscan_validator_link(validator) %></td>
+        <td><%= validator.amount %></td>
+        <td><%= validator.eth1_withdrawal_address %></td>
+        <td><%= validator.fork_version %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

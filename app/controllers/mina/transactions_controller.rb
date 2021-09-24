@@ -18,6 +18,9 @@ class Mina::TransactionsController < Mina::BaseController
   def show
     @transaction = client.transaction(params[:id])
 
+    if @transaction.canonical == false
+      flash[:warning] = 'Transaction is not included in the canonical block'
+    end
     page_title "#{@transaction.formatted_type} Details"
   end
 
@@ -42,6 +45,7 @@ class Mina::TransactionsController < Mina::BaseController
       :show,
       :before_id,
       :after_id,
+      :canonical,
       type: []
     )
   end

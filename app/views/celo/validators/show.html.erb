@@ -1,6 +1,9 @@
 <% content_for :body_class, 'validator-show' %>
 
-<%= render partial: 'shared/chain_header', locals: { active_tab: nil } %>
+<% content_for :additional_header_tabs do %>
+  <%= render partial: 'shared/chain_header_link', locals: { active_tab: 'Validators', link_text: 'Events', link_path: namespaced_path('events') } %>
+<% end %>
+<%= render partial: 'shared/chain_header', locals: { active_tab: 'Validators' } %>
 
 <%= render_flash_messages %>
 

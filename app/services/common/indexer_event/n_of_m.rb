@@ -9,4 +9,8 @@ class Common::IndexerEvent::NOfM < Common::IndexerEvent
   def positive?
     false
   end
+
+  def twitter_message
+    "#{validatorlike_short_name} missed #{n} of #{m} precommits as of block #{height}"
+  end
 end

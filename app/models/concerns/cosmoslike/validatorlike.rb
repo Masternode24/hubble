@@ -15,6 +15,8 @@ module Cosmoslike::Validatorlike
 
     before_save :promote_owner
     before_save :promote_moniker
+
+    attr_accessor :network
   end
 
   def to_param
@@ -62,17 +64,29 @@ module Cosmoslike::Validatorlike
   end
 
   def current_commission
-    rate = info_field('commission', 'rate')
+    if chain.sdk_lt?('0.36.0-rc1') || chain.sdk_lt?('0.36')
+      rate = info_field('commission', 'rate')
+    else
+      rate = info_field('commission', 'commission_rates', 'rate')
+    end
     rate ? rate.to_f : nil
   end
 
   def max_commission
-    max = info_field('commission', 'max_rate')
+    if chain.sdk_lt?('0.36.0-rc1') || chain.sdk_lt?('0.36')
+      max = info_field('commission', 'max_rate')
+    else
+      max = info_field('commission', 'commission_rates', 'max_rate')
+    end
     max ? max.to_f : nil
   end
 
   def commission_change_rate
-    rate = info_field('commission', 'max_change_rate')
+    if chain.sdk_lt?('0.36.0-rc1') || chain.sdk_lt?('0.36')
+      rate = info_field('commission', 'max_change_rate')
+    else
+      rate = info_field('commission', 'commission_rates', 'max_change_rate')
+    end
     rate ? rate.to_f : nil
   end
 

@@ -16,5 +16,7 @@ describe 'skale validator details' do
     expect(page).to have_content('Currently active:')
     expect(page).to have_content('Figment')
     expect(page).to have_content('NEXT REWARD DATE')
+    expect(page).to have_content('Delegations')
+    expect(page).to have_content('Events')
   end
 end

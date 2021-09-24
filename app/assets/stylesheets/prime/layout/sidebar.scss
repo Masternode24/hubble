@@ -49,6 +49,7 @@
   color: #FFFFFF;
   border: 1px solid transparent;
   border-left: 4px solid transparent;
+  outline: none;
 
   @include media(s) {
     font-size: 14px;
@@ -58,11 +59,11 @@
 
 .nav__link:hover {
   color: #FFF29B;
+  outline: none;
 }
 
 .nav__link:focus {
   outline: none;
-  border: 1px solid #FFF29B;
   border-left: 4px solid #FFF29B;
   background: #212529;
 }
@@ -135,6 +136,16 @@
 .addresses-btn:hover::before,
 .addresses-btn.active::before {
   background-image: image-url("prime/icons/contacts-active.svg");
+}
+
+.eth-staking-btn::before {
+  background-image: image-url("prime/icons/ethereum.svg");
+  left: 30px;
+}
+
+.eth-staking-btn:hover::before,
+.eth-staking-btn.active::before {
+  background-image: image-url("prime/icons/ethereum-active.svg");
 }
 
 .profile-btn::before {

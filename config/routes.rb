@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  get '/login' => 'sessions#new', as: 'login'
-  post '/login' => 'sessions#create', as: 'login_submit'
-  get '/logout' => 'sessions#destroy', as: 'logout'
-  get '/password/forgot' => 'sessions#forgot_password', as: 'forgot_password'
-  post '/password/reset' => 'sessions#reset_password', as: 'reset_password'
-  get '/password/recover' => 'sessions#recover_password', as: 'recover_password'
+  get '/login', to: 'sessions#new', as: 'login'
+  post '/login', to: 'sessions#create', as: 'login_submit'
+  get 'login/verify', to: 'sessions#verify', as: 'login_verify'
+  post 'login/verify', to: 'sessions#verify'
+  get '/logout', to: 'sessions#destroy', as: 'logout'
+  get '/password/forgot', to: 'sessions#forgot_password', as: 'forgot_password'
+  post '/password/reset', to: 'sessions#reset_password', as: 'reset_password'
+  get '/password/recover', to: 'sessions#recover_password', as: 'recover_password'
 
   resources :users, only: %i[new create update] do
     collection do
@@ -18,24 +20,68 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get '/disclaimer', to: 'home#disclaimer', as: :disclaimer
 
+  # API
+  namespace :api do
+    namespace :v1 do
+      namespace :prime do
+        namespace :eth2_staking do
+          root to: 'home#show'
+
+          resources :positions, only: %i[index show]
+          resources :validators, only: %i[index show]
+        end
+      end
+
+      match '*path', to: 'base#invalid_route', via: :all
+    end
+  end
+
   # PRIME
   namespace :prime do
     root to: 'home#index'
 
     resources :accounts, only: %i[index create update destroy]
+    resources :api_keys, only: %i[create destroy]
+
     get :portfolio, to: 'portfolios#index'
     get :events, to: 'events#index'
     get :profile, to: 'profile#show'
+    post 'profile/verify_mfa'
+    post 'profile/disable_mfa'
+
     get :validators, to: 'validators#index'
     get :rewards, to: 'rewards#index'
     get :login, to: 'sessions#new'
     get :contact, to: 'contact#index'
     post :contact, to: 'contact#create', as: 'contact_submit'
 
+    namespace :eth2_staking do
+      get '/', to: 'home#index'
+      get 'docs', to: 'home#docs'
+
+      resources :staking_positions, only: [:show] do
+        get :funding, on: :member
+      end
+    end
+
+    match 'proxy/:network_id/chains/:chain_id/(*path)', to: 'proxy#index', via: :all, as: :rpc_proxy
+
     namespace :admin do
       root to: 'main#index'
-      resources :networks, only: [], path: '' do
-        resources :chains, constraints: { id: /[^\/]+/ }, except: %i[index edit], path: ''
+      resources :networks do
+        resources :chains, constraints: { id: /[^\/]+/ }, except: %i[index edit]
+      end
+
+      namespace :analytics do
+        resources :networks, only: %i[index show]
+      end
+
+      namespace :eth2_staking do
+        root to: 'home#index'
+
+        resources :customers, only: %i[index show]
+        resources :validators, only: %i[index show]
+        resources :staking_positions, only: %i[index]
       end
     end
   end
@@ -89,6 +135,13 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :crypto, network: 'crypto' do
+    concerns :cosmoslike
+    resources :chains, format: false, constraints: { id: /[^\/]+/ }, only: %i[show] do
+      resources :transactions, only: %i[index show]
+    end
+  end
+
   namespace :terra, network: 'terra' do
     concerns :cosmoslike
     resources :chains, format: false, constraints: { id: /[^\/]+/ }, only: %i[show] do
@@ -99,6 +152,7 @@ Rails.application.routes.draw do
   namespace :iris, network: 'iris' do concerns :cosmoslike end
   namespace :kava, network: 'kava' do concerns :cosmoslike end
   namespace :emoney, network: 'emoney' do concerns :cosmoslike end
+  namespace :persistence, network: 'persistence' do concerns :cosmoslike end
 
   namespace :near, network: 'near' do
     resources :chains, format: false, only: :show do
@@ -138,7 +192,18 @@ Rails.application.routes.draw do
 
   namespace :skale, network: 'skale' do
     resources :chains, constraints: { id: /[^\/]+/ } do
-      resources :validators, only: :show
+      member do
+        get :show
+        get :search
+      end
+      get '/dashboard' => 'dashboard#index', as: 'dashboard'
+      # this is required as Skale doesn't have blocks as such
+      # and our daily reports require a block endpoint
+      get '/block' => 'chains#show'
+
+      resources :validators, only: :show do
+        resources :subscriptions, only: %i[index create], controller: '/util/subscriptions'
+      end
       resources :nodes, only: :show, constraints: { id: /[^\/]+/ }
       resources :accounts, only: %i[index show]
       resources :events, only: %i[index show]
@@ -249,10 +314,10 @@ Rails.application.routes.draw do
         end
       end
       resources :accounts, only: :show
-
       namespace :governance, only: :index do
         root to: 'main#index'
       end
+      resources :events, only: :index
     end
   end
 
@@ -279,6 +344,7 @@ Rails.application.routes.draw do
       member do
         get :masq
         patch :toggle_prime
+        match :prime_eth_staking, via: %i[get put]
       end
       resources :alert_subscriptions, only: %i[destroy]
     end
@@ -302,6 +368,8 @@ Rails.application.routes.draw do
     namespace :iris do concerns :cosmoslike end
     namespace :kava do concerns :cosmoslike end
     namespace :emoney do concerns :cosmoslike end
+    namespace :crypto do concerns :cosmoslike end
+    namespace :persistence do concerns :cosmoslike end
 
     namespace :oasis do
       resources :chains, format: false, constraints: { id: /[^\/]+/ } do
@@ -360,5 +428,6 @@ Rails.application.routes.draw do
   end
 
   mount LetterOpenerWeb::Engine, at: '/_mail' if Rails.env.development?
+  health_check_routes
   match '*path', to: 'home#catch_404', via: :all
 end

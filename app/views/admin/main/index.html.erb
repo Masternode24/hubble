@@ -5,11 +5,31 @@
 
     <div class='card'>
       <h5 class='card-header header mb-0'>
+        Avalanche
+        <div class='buttons text-right'>
+          <%= link_to "+ new", new_admin_avalanche_chain_path, class: "btn btn-sm btn-light" %>
+        </div>
+      </h5>
+      <div class='card-body p-0'><%= render '/admin/avalanche/chains/quick_info', chains: Avalanche::Chain.all %></div>
+    </div>
+
+    <div class='card'>
+      <h5 class='card-header header mb-0'>
+        Celo
+        <div class='buttons text-right'>
+          <%= link_to "+ new", new_admin_celo_chain_path, class: "btn btn-sm btn-light" %>
+        </div>
+      </h5>
+      <div class='card-body p-0'><%= render '/admin/indexer/chains/quick_info', chains: Celo::Chain.all %></div>
+    </div>
+
+    <div class='card'>
+      <h5 class='card-header header mb-0'>
         Cosmos
         <div class='buttons text-right'>
           <% show_dead_cosmos = params[:dead] == 'cosmos' -%>
-          <a class='btn btn-sm btn-outline-light' href='<%= admin_root_path( dead: show_dead_cosmos ? nil : 'cosmos' ) %>'><%= show_dead_cosmos ? 'hide' : 'show' %> dead</a>
-          <a class='btn btn-sm btn-light' href='<%= new_admin_cosmos_chain_path %>'>+ new</a>
+          <%= link_to  (show_dead_cosmos ? 'hide' : 'show') + ' dead', admin_root_path( dead: show_dead_cosmos ? nil : 'cosmos' ), class: "btn btn-sm btn-outline-light"%>
+          <%= link_to "+ new", new_admin_cosmos_chain_path, class: "btn btn-sm btn-light" %>
         </div>
       </h5>
       <div class='card-body p-0'><%= render '/admin/cosmoslike/chains/quick_info', chains: Cosmos::Chain.public_send( show_dead_cosmos ? 'all' : 'alive' ) %></div>
@@ -17,14 +37,26 @@
 
     <div class='card'>
       <h5 class='card-header header mb-0'>
-        Terra
+        Crypto
         <div class='buttons text-right'>
-          <% show_dead_terra = params[:dead] == 'terra' -%>
-          <a class='btn btn-sm btn-outline-light' href='<%= admin_root_path( dead: show_dead_terra ? nil : 'terra' ) %>'><%= show_dead_terra ? 'hide' : 'show' %> dead</a>
-          <a class='btn btn-sm btn-light' href='<%= new_admin_terra_chain_path %>'>+ new</a>
+          <% show_dead_crypto = params[:dead] == 'crypto' -%>
+          <%= link_to  (show_dead_crypto ? 'hide' : 'show') + ' dead', admin_root_path( dead: show_dead_crypto ? nil : 'crypto' ), class: "btn btn-sm btn-outline-light"%>
+          <%= link_to "+ new", new_admin_crypto_chain_path, class: "btn btn-sm btn-light" %>
         </div>
       </h5>
-      <div class='card-body p-0'><%= render '/admin/cosmoslike/chains/quick_info', chains: Terra::Chain.public_send( show_dead_terra ? 'all' : 'alive' ) %></div>
+      <div class='card-body p-0'><%= render '/admin/cosmoslike/chains/quick_info', chains: Crypto::Chain.public_send( show_dead_crypto ? 'all' : 'alive' ) %></div>
+    </div>
+
+    <div class='card'>
+      <h5 class='card-header header mb-0'>
+        E-Money
+        <div class='buttons text-right'>
+          <% show_dead_emoney = params[:dead] == 'emoney' -%>
+          <%= link_to  (show_dead_emoney ? 'hide' : 'show') + ' dead', admin_root_path( dead: show_dead_emoney ? nil : 'emoney' ), class: "btn btn-sm btn-outline-light"%>
+          <%= link_to "+ new", new_admin_emoney_chain_path, class: "btn btn-sm btn-light" %>
+        </div>
+      </h5>
+      <div class='card-body p-0'><%= render '/admin/cosmoslike/chains/quick_info', chains: Emoney::Chain.public_send( show_dead_emoney ? 'all' : 'alive' ) %></div>
     </div>
 
     <div class='card'>
@@ -32,8 +64,8 @@
         IRIS
         <div class='buttons text-right'>
           <% show_dead_iris = params[:dead] == 'iris' -%>
-          <a class='btn btn-sm btn-outline-light' href='<%= admin_root_path( dead: show_dead_iris ? nil : 'iris' ) %>'><%= show_dead_iris ? 'hide' : 'show' %> dead</a>
-          <a class='btn btn-sm btn-light' href='<%= new_admin_iris_chain_path %>'>+ new</a>
+          <%= link_to  (show_dead_iris ? 'hide' : 'show') + ' dead', admin_root_path( dead: show_dead_iris ? nil : 'iris' ), class: "btn btn-sm btn-outline-light"%>
+          <%= link_to "+ new", new_admin_iris_chain_path, class: "btn btn-sm btn-light" %>
         </div>
       </h5>
       <div class='card-body p-0'><%= render '/admin/cosmoslike/chains/quick_info', chains: Iris::Chain.public_send( show_dead_iris ? 'all' : 'alive' ) %></div>
@@ -44,8 +76,8 @@
         Kava
         <div class='buttons text-right'>
           <% show_dead_kava = params[:dead] == 'kava' -%>
-          <a class='btn btn-sm btn-outline-light' href='<%= admin_root_path( dead: show_dead_kava ? nil : 'kava' ) %>'><%= show_dead_kava ? 'hide' : 'show' %> dead</a>
-          <a class='btn btn-sm btn-light' href='<%= new_admin_kava_chain_path %>'>+ new</a>
+          <%= link_to  (show_dead_kava ? 'hide' : 'show') + ' dead', admin_root_path( dead: show_dead_kava ? nil : 'kava' ), class: "btn btn-sm btn-outline-light"%>
+          <%= link_to "+ new", new_admin_kava_chain_path, class: "btn btn-sm btn-light" %>
         </div>
       </h5>
       <div class='card-body p-0'><%= render '/admin/cosmoslike/chains/quick_info', chains: Kava::Chain.public_send( show_dead_kava ? 'all' : 'alive' ) %></div>
@@ -53,21 +85,9 @@
 
     <div class='card'>
       <h5 class='card-header header mb-0'>
-        E-Money
-        <div class='buttons text-right'>
-          <% show_dead_emoney = params[:dead] == 'emoney' -%>
-          <a class='btn btn-sm btn-outline-light' href='<%= admin_root_path( dead: show_dead_emoney ? nil : 'emoney' ) %>'><%= show_dead_emoney ? 'hide' : 'show' %> dead</a>
-          <a class='btn btn-sm btn-light' href='<%= new_admin_emoney_chain_path %>'>+ new</a>
-        </div>
-      </h5>
-      <div class='card-body p-0'><%= render '/admin/cosmoslike/chains/quick_info', chains: Emoney::Chain.public_send( show_dead_emoney ? 'all' : 'alive' ) %></div>
-    </div>
-
-    <div class='card'>
-      <h5 class='card-header header mb-0'>
         Livepeer
         <div class='buttons text-right'>
-          <a class='btn btn-sm btn-light' href='<%= new_admin_livepeer_chain_path %>'>+ new</a>
+          <%= link_to '+ new', new_admin_livepeer_chain_path, class: "btn btn-sm btn-light" %>
         </div>
       </h5>
       <div class='card-body p-0'><%= render '/admin/livepeer/chains/quick_info', chains: Livepeer::Chain.all %></div>
@@ -75,51 +95,9 @@
 
     <div class='card'>
       <h5 class='card-header header mb-0'>
-        Oasis
-        <div class='buttons text-right'>
-          <% show_dead_oasis = params[:dead] == 'oasis' -%>
-          <a class='btn btn-sm btn-outline-light' href='<%= admin_root_path( dead: show_dead_oasis ? nil : 'oasis' ) %>'><%= show_dead_oasis ? 'hide' : 'show' %> dead</a>
-          <a class='btn btn-sm btn-light' href='<%= new_admin_oasis_chain_path %>'>+ new</a>
-        </div>
-      </h5>
-      <div class='card-body p-0'><%= render '/admin/oasis/chains/quick_info', chains: Oasis::Chain.public_send( show_dead_oasis ? 'all' : 'alive' ) %></div>
-    </div>
-
-    <div class='card'>
-      <h5 class='card-header header mb-0'>
-        Tezos
-        <div class='buttons text-right'>
-          <a class='btn btn-sm btn-light' href='<%= new_admin_tezos_chain_path %>'>+ new</a>
-        </div>
-      </h5>
-      <div class='card-body p-0'><%= render '/admin/tezos/chains/quick_info', chains: Tezos::Chain.order(name: :asc) %></div>
-    </div>
-
-    <div class='card'>
-      <h5 class='card-header header mb-0'>
-        Polkadot
-        <div class='buttons text-right'>
-          <a class='btn btn-sm btn-light' href='<%= new_admin_polkadot_chain_path %>'>+ new</a>
-        </div>
-      </h5>
-      <div class='card-body p-0'><%= render '/admin/indexer/chains/quick_info', chains: Polkadot::Chain.all %></div>
-    </div>
-
-    <div class='card'>
-      <h5 class='card-header header mb-0'>
-        NEAR
-        <div class='buttons text-right'>
-          <a class='btn btn-sm btn-light' href='<%= new_admin_near_chain_path %>'>+ new</a>
-        </div>
-      </h5>
-      <div class='card-body p-0'><%= render '/admin/near/chains/quick_info', chains: Near::Chain.all %></div>
-    </div>
-
-    <div class='card'>
-      <h5 class='card-header header mb-0'>
         Mina
         <div class='buttons text-right'>
-          <a class='btn btn-sm btn-light' href='<%= new_admin_mina_chain_path %>'>+ new</a>
+          <%= link_to '+ new', new_admin_mina_chain_path, class: "btn btn-sm btn-light" %>
         </div>
       </h5>
       <div class='card-body p-0'><%= render '/admin/mina/chains/quick_info', chains: Mina::Chain.all %></div>
@@ -127,22 +105,46 @@
 
     <div class='card'>
       <h5 class='card-header header mb-0'>
-        Celo
+        NEAR
         <div class='buttons text-right'>
-          <a class='btn btn-sm btn-light' href='<%= new_admin_celo_chain_path %>'>+ new</a>
+          <%= link_to '+ new', new_admin_near_chain_path, class: "btn btn-sm btn-light" %>
         </div>
       </h5>
-      <div class='card-body p-0'><%= render '/admin/indexer/chains/quick_info', chains: Celo::Chain.all %></div>
+      <div class='card-body p-0'><%= render '/admin/near/chains/quick_info', chains: Near::Chain.all %></div>
     </div>
 
     <div class='card'>
       <h5 class='card-header header mb-0'>
-        Avalanche
+        Oasis
         <div class='buttons text-right'>
-          <a class='btn btn-sm btn-light' href='<%= new_admin_avalanche_chain_path %>'>+ new</a>
+          <% show_dead_oasis = params[:dead] == 'oasis' -%>
+          <%= link_to  (show_dead_oasis ? 'hide' : 'show') + ' dead', admin_root_path( dead: show_dead_oasis ? nil : 'oasis' ), class: "btn btn-sm btn-outline-light"%>
+          <%= link_to "+ new", new_admin_oasis_chain_path, class: "btn btn-sm btn-light" %>
         </div>
       </h5>
-      <div class='card-body p-0'><%= render '/admin/avalanche/chains/quick_info', chains: Avalanche::Chain.all %></div>
+      <div class='card-body p-0'><%= render '/admin/oasis/chains/quick_info', chains: Oasis::Chain.public_send( show_dead_oasis ? 'all' : 'alive' ) %></div>
+    </div>
+
+    <div class='card'>
+      <h5 class='card-header header mb-0'>
+        Persistence
+        <div class='buttons text-right'>
+          <% show_dead_persistence = params[:dead] == 'persistence' -%>
+          <%= link_to  (show_dead_persistence ? 'hide' : 'show') + ' dead', admin_root_path( dead: show_dead_persistence ? nil : 'persistence' ), class: "btn btn-sm btn-outline-light"%>
+          <%= link_to "+ new", new_admin_persistence_chain_path, class: "btn btn-sm btn-light" %>
+        </div>
+      </h5>
+      <div class='card-body p-0'><%= render '/admin/cosmoslike/chains/quick_info', chains: Persistence::Chain.public_send( show_dead_persistence ? 'all' : 'alive' ) %></div>
+    </div>
+
+    <div class='card'>
+      <h5 class='card-header header mb-0'>
+        Polkadot
+        <div class='buttons text-right'>
+          <%= link_to '+ new', new_admin_polkadot_chain_path, class: "btn btn-sm btn-light" %>
+        </div>
+      </h5>
+      <div class='card-body p-0'><%= render '/admin/indexer/chains/quick_info', chains: Polkadot::Chain.all %></div>
     </div>
 
     <div class='card'>
@@ -155,14 +157,35 @@
       <div class='card-body p-0'><%= render '/admin/skale/chains/quick_info', chains: Skale::Chain.all %></div>
     </div>
 
+    <div class='card'>
+      <h5 class='card-header header mb-0'>
+        Terra
+        <div class='buttons text-right'>
+          <% show_dead_terra = params[:dead] == 'terra' -%>
+          <%= link_to  (show_dead_terra ? 'hide' : 'show') + ' dead', admin_root_path( dead: show_dead_terra ? nil : 'terra' ), class: "btn btn-sm btn-outline-light"%>
+          <%= link_to "+ new", new_admin_terra_chain_path, class: "btn btn-sm btn-light" %>
+        </div>
+      </h5>
+      <div class='card-body p-0'><%= render '/admin/cosmoslike/chains/quick_info', chains: Terra::Chain.public_send( show_dead_terra ? 'all' : 'alive' ) %></div>
+    </div>
+
+    <div class='card'>
+      <h5 class='card-header header mb-0'>
+        Tezos
+        <div class='buttons text-right'>
+          <%= link_to('+ new', new_admin_tezos_chain_path, class: 'btn btn-sm btn-light') %>
+        </div>
+      </h5>
+      <div class='card-body p-0'><%= render '/admin/tezos/chains/quick_info', chains: Tezos::Chain.order(name: :asc) %></div>
+    </div>
   </div>
 </div>
 
 <div class='row'>
-  <div class='col-12 col-md-3'>
 
+  <div class='col-12 col-md-3'>
     <div class='card'>
-      <a href='<%= admin_users_path %>'>&nbsp;</a>
+      <%= link_to '', admin_users_path %>
       <h5 class='card-header'>Users</h5>
       <div class='card-body'>
         <div><small class='text-muted'><%= pluralize User.count, 'user' %> total</small></div>
@@ -176,12 +199,11 @@
         </small></div>
       </div>
     </div>
-
   </div>
-  <div class='col-12 col-md-3'>
 
+  <div class='col-12 col-md-3'>
     <div class='card'>
-      <a href='<%= admin_administrators_path %>'>&nbsp;</a>
+      <%= link_to '', admin_administrators_path %>
       <h5 class='card-header'>Administrators</h5>
       <div class='card-body'>
         <div><small class='text-muted'><%= pluralize Administrator.count, 'administrator' %></small></div>
@@ -191,6 +213,5 @@
         <% end -%>
       </div>
     </div>
-
   </div>
 </div>

@@ -28,7 +28,9 @@ describe 'avalanche transactions', :vcr do
   context 'search' do
     before do
       fill_in 'Account (Sender/Receiver)', with: 'avax1slt2dhfu6a6qezcn5sgtagumq8ag8we75f84sw'
-      click_on 'Search'
+      within '.new_search' do
+        click_on 'Search'
+      end
     end
 
     it 'displays search results' do
@@ -58,7 +60,9 @@ describe 'avalanche transactions', :vcr do
   context 'empty search' do
     before do
       fill_in 'Account (Sender/Receiver)', with: 'something that does not exist'
-      click_on 'Search'
+      within '.new_search' do
+        click_on 'Search'
+      end
     end
 
     it 'displays empty search results' do

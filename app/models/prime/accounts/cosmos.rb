@@ -3,7 +3,7 @@ class Prime::Accounts::Cosmos < Prime::Account
     @details ||= ::Cosmos::AccountDecorator.new(::Cosmos::Chain.find_by(slug: network.primary_chain.slug), address)
   end
 
-  def rewards
-    @rewards ||= network.primary_chain.client.prime_rewards(self)
+  def rewards(start_time, end_time)
+    @rewards ||= network.primary_chain.client.prime_rewards(self, start_time, end_time)
   end
 end

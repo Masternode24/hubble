@@ -1,4 +1,7 @@
 class Prime::Chain < ApplicationRecord
+  RPC_PROXY_READ_TIMEOUT = 60
+  RPC_PROXY_OPEN_TIMEOUT = nil
+
   validates :name, presence: true
 
   validates :type, presence: true
@@ -17,6 +20,7 @@ class Prime::Chain < ApplicationRecord
   attr_accessor :to_remove
 
   scope :active, -> { where(active: true) }
+  scope :primary_chain, -> { find_by(primary: true) || order('created_at DESC').first }
 
   def to_param
     slug
@@ -28,6 +32,14 @@ class Prime::Chain < ApplicationRecord
 
   def figment_validators
     raise NotImplementedError
+  end
+
+  def account_valid?
+    raise NotImpementedError
+  end
+
+  def rpc_uri
+    URI::Generic.build(scheme: use_ssl_for_rpc ? 'https' : 'http', host: rpc_host, port: rpc_port)
   end
 
   private

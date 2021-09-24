@@ -1,0 +1,87 @@
+{
+  "data": [
+    {
+      "id": "958dbd70-eef7-4563-9cd5-0f8a765772ad",
+      "type": "customer",
+      "attributes": {
+        "name": "MCDOWALL",
+        "environment": "test"
+      },
+      "relationships": {
+        "eth2_staking_positions": {
+          "data": [
+            {
+              "id": "94c8dadf-5b2d-40af-9f93-3c293ecb9326",
+              "type": "staking_position"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "e888c0d2-e48f-4b3c-98b0-846db213fa4a",
+      "type": "customer",
+      "attributes": {
+        "name": "Ryan",
+        "environment": "test"
+      },
+      "relationships": {
+        "eth2_staking_positions": {
+          "data": []
+        }
+      }
+    },
+    {
+      "id": "2348383f-90cc-414b-9d5f-5e8e181eaf18",
+      "type": "customer",
+      "attributes": {
+        "name": "Matt",
+        "environment": "test"
+      },
+      "relationships": {
+        "eth2_staking_positions": {
+          "data": [
+            {
+              "id": "7d5cf55f-ab61-4a8e-8935-451d4f308701",
+              "type": "staking_position"
+            },
+            {
+              "id": "6a197245-d214-405b-8f90-1e0a95c74440",
+              "type": "staking_position"
+            },
+            {
+              "id": "5a862d8f-df89-4f5b-8c20-ecc0da9f8472",
+              "type": "staking_position"
+            },
+            {
+              "id": "c9f53ae6-ee7e-40c3-a0f4-27c39b81d275",
+              "type": "staking_position"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "1c6bd5f5-2650-4931-8be7-4a85a5099565",
+      "type": "customer",
+      "attributes": {
+        "name": "Lido",
+        "environment": "test"
+      },
+      "relationships": {
+        "eth2_staking_positions": {
+          "data": [
+            {
+              "id": "f0334905-9118-41ee-b061-95459a3f8707",
+              "type": "staking_position"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "links": {
+    "self": "https://localhost/test/api/v1/customers",
+    "current": "https://localhost/test/api/v1/customers?page[number]=1"
+  }
+}

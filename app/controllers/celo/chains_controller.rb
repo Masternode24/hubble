@@ -16,8 +16,8 @@ class Celo::ChainsController < Celo::BaseController
     end
     @average_block_time = raw_block_summary.map(&:block_time_avg).sum / raw_block_summary.size.to_f
 
-    page_title 'Overview'
-    meta_description 'Validator groups'
+    page_title @chain.network_name, @chain.name, 'Overview', 'Validators, Validator Groups and Governance'
+    meta_description "#{@chain.network_name} -- #{@chain.name} list of Validators, Validator Groups, Address/Name, Voting Shares, Uptime, Current Block and Governance"
   end
 
   def search

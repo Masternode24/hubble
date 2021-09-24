@@ -23,11 +23,12 @@ module Polkadot
       end
     end
 
-    def prime_rewards(prime_account)
+    def prime_rewards(prime_account, start_date, end_date)
       Rails.cache.fetch([self.class.name, 'rewards', prime_account.address].join('-'), expires_in: MEDIUM_EXPIRY_TIME) do
         token_factor = prime_account.network.primary_chain.reward_token_factor
         token_display = prime_account.network.primary_chain.reward_token_display
         list = get("/rewards/#{prime_account.address}") || []
+        list = select_rewards(list, start_date, end_date)
         list.map do |reward|
           Prime::Reward::Polkadot.new(reward, prime_account, token_factor: token_factor, token_display: token_display)
         end
@@ -144,6 +145,11 @@ module Polkadot
       blocks_back = (seconds_ago * 2) / block_times(1000)
       start_block = (status.last_block_height - blocks_back).round.to_i
       validator_events(chain: chain, address: address, start_block: start_block)
+    end
+
+    def select_rewards(list, start_date, end_date)
+      list = start_date.present? ? list.select { |reward| start_date <= reward['time'] } : list
+      end_date.present? ? list.select { |reward| reward['time'] <= end_date } : list
     end
   end
 end

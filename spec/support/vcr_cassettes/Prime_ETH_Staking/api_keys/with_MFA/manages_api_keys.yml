@@ -1,0 +1,293 @@
+---
+http_interactions:
+  - request:
+      method: get
+      uri: https://localhost/test/api/v1/customers/958dbd70-eef7-4563-9cd5-0f8a765772ad
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Accept:
+          - "*/*"
+        User-Agent:
+          - rest-client/2.1.0 (darwin20.1.0 x86_64) ruby/2.7.2p137
+        Authorization:
+          - REDACTED
+        Content-Length:
+          - "0"
+        Content-Type:
+          - application/x-www-form-urlencoded
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Host:
+          - localhost
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 31 Aug 2021 22:43:20 GMT
+        Content-Type:
+          - application/vnd.api+json; charset=utf-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        X-Frame-Options:
+          - SAMEORIGIN
+        X-Xss-Protection:
+          - 1; mode=block
+        X-Content-Type-Options:
+          - nosniff
+        X-Download-Options:
+          - noopen
+        X-Permitted-Cross-Domain-Policies:
+          - none
+        Referrer-Policy:
+          - strict-origin-when-cross-origin
+        Vary:
+          - Accept
+        Etag:
+          - W/"7a8cd0b150f546464a21fc5782cc003b"
+        Cache-Control:
+          - max-age=0, private, must-revalidate
+        X-Request-Id:
+          - 1a3b94ac-690c-45dd-8a95-85c9bf6866e5
+        X-Runtime:
+          - "0.067674"
+      body:
+        encoding: UTF-8
+        string: '{"data":{"id":"958dbd70-eef7-4563-9cd5-0f8a765772ad","type":"customer","attributes":{"name":"MCDOWALL","environment":"test"},"relationships":{"eth2_staking_positions":{"data":[{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position"}]}}},"links":{"self":"https://localhost/test/api/v1/customers/958dbd70-eef7-4563-9cd5-0f8a765772ad"}}'
+    recorded_at: Tue, 31 Aug 2021 22:43:20 GMT
+  - request:
+      method: get
+      uri: https://min-api.cryptocompare.com/data/pricemulti?fsyms=ATOM,LPT,KAVA,DOT,XTZ,LUNA,IRIS,CELO,NEAR,AVAX,MINA,ROSE,SKL&tsyms=USD
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        User-Agent:
+          - Faraday v0.11.0
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - "*/*"
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Server:
+          - nginx
+        Date:
+          - Tue, 31 Aug 2021 22:43:21 GMT
+        Content-Type:
+          - application/json; charset=UTF-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        Vary:
+          - Accept-Encoding
+        Content-Security-Policy:
+          - frame-ancestors 'none'
+        Access-Control-Allow-Origin:
+          - "*"
+        Access-Control-Allow-Methods:
+          - GET, POST, OPTIONS
+        Access-Control-Allow-Headers:
+          - Content-Type, Cookie, Set-Cookie, Authorization
+        Access-Control-Allow-Credentials:
+          - "true"
+        Cache-Control:
+          - public, max-age=10
+        X-Cryptocompare-Cache-Hit:
+          - "false"
+        X-Cryptocompare-Server-Id:
+          - ccc-api33
+      body:
+        encoding: UTF-8
+        string: '{"ATOM":{"USD":22.39},"LPT":{"USD":20.44},"KAVA":{"USD":7.416},"DOT":{"USD":29.52},"XTZ":{"USD":5.036},"LUNA":{"USD":30.96},"IRIS":{"USD":0.1112},"CELO":{"USD":5.517},"NEAR":{"USD":5.174},"AVAX":{"USD":38.58},"MINA":{"USD":3.492},"ROSE":{"USD":0.1195},"SKL":{"USD":0.3879}}'
+    recorded_at: Tue, 31 Aug 2021 22:43:21 GMT
+  - request:
+      method: get
+      uri: https://localhost/test/api/v1/staking/eth2/staking_positions?filter%5Bcustomer_id_eq%5D=958dbd70-eef7-4563-9cd5-0f8a765772ad&include=eth2_validators
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Accept:
+          - "*/*"
+        User-Agent:
+          - rest-client/2.1.0 (darwin20.1.0 x86_64) ruby/2.7.2p137
+        Authorization:
+          - REDACTED
+        Content-Length:
+          - "0"
+        Content-Type:
+          - application/x-www-form-urlencoded
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Host:
+          - localhost
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 31 Aug 2021 22:43:22 GMT
+        Content-Type:
+          - application/vnd.api+json; charset=utf-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        X-Frame-Options:
+          - SAMEORIGIN
+        X-Xss-Protection:
+          - 1; mode=block
+        X-Content-Type-Options:
+          - nosniff
+        X-Download-Options:
+          - noopen
+        X-Permitted-Cross-Domain-Policies:
+          - none
+        Referrer-Policy:
+          - strict-origin-when-cross-origin
+        Vary:
+          - Accept
+        Etag:
+          - W/"6bd28bcdc55cc78f20f7ae4716577e10"
+        Cache-Control:
+          - max-age=0, private, must-revalidate
+        X-Request-Id:
+          - 20cf2897-bef7-4679-b31e-a10335431469
+        X-Runtime:
+          - "0.041894"
+      body:
+        encoding: UTF-8
+        string: '{"data":[{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position","attributes":{"staked_eth_amount":96,"eth1_withdrawal_address":"0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"},"relationships":{"customer":{"data":{"id":"958dbd70-eef7-4563-9cd5-0f8a765772ad","type":"customer"}},"eth1_withdrawal_address":{"data":{"id":"10aa9021-31e4-45b8-ba57-02d87c3f32c6","type":"eth1_withdrawal_address"}},"eth2_validators":{"data":[{"id":"f8aa9a9f-c29f-466f-8372-7b1397c1f257","type":"validator"},{"id":"63081c20-27c4-4bb9-8c32-4bcd1720454b","type":"validator"},{"id":"e392ca88-3d85-432a-b875-38c4ceded46f","type":"validator"}]}}}],"included":[{"id":"f8aa9a9f-c29f-466f-8372-7b1397c1f257","type":"validator","attributes":{"pubkey":"ace32a7156de5ef650f2c416455379327488c5d31d03bbf3c567be3fc4c9d928fe2b5569259ddf10a1e32ce5e6011482","withdrawal_credentials":"00ea25ce2c9eb123fb8dc284955dc585aa4d708c0f9f95f14a902427b60b4fa4","amount":"32000000000","signature":"8ecbd8b5042eb9b449eb05b6a779beea7a2f1137e040bc807b53066aa88abfd31a255792bcf168635051913363d6a0b213b46b72ca29dfe06228aa6b4637a7d3a80eb41de1d2011180a810d7d5f6fa6eda2f34e9c6ad4ef244cf260575a80e21","deposit_message_root":"b10edc5d347c30070bedcbd4918e23ed7295641e5dd325d5d7fd3e31b03d8093","deposit_data_root":"a6f47e921ad0d53ab3940cf4ec4f625b27f2833fc2c74d51657451e725f866a1","fork_version":"00002009","eth2_network_name":"pyrmont","deposit_cli_version":"1.1.0","eth1_withdrawal_address":"0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"},"relationships":{"staking_position":{"data":{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position"}}}},{"id":"63081c20-27c4-4bb9-8c32-4bcd1720454b","type":"validator","attributes":{"pubkey":"bce32a7156de5ef650f2c416455379327488c5d31d03bbf3c567be3fc4c9d928fe2b5569259ddf10a1e32ce5e6011482","withdrawal_credentials":"00ea25ce2c9eb123fb8dc284955dc585aa4d708c0f9f95f14a902427b60b4fa4","amount":"32000000000","signature":"8ecbd8b5042eb9b449eb05b6a779beea7a2f1137e040bc807b53066aa88abfd31a255792bcf168635051913363d6a0b213b46b72ca29dfe06228aa6b4637a7d3a80eb41de1d2011180a810d7d5f6fa6eda2f34e9c6ad4ef244cf260575a80e21","deposit_message_root":"b10edc5d347c30070bedcbd4918e23ed7295641e5dd325d5d7fd3e31b03d8093","deposit_data_root":"a6f47e921ad0d53ab3940cf4ec4f625b27f2833fc2c74d51657451e725f866a1","fork_version":"00002009","eth2_network_name":"pyrmont","deposit_cli_version":"1.1.0","eth1_withdrawal_address":"0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"},"relationships":{"staking_position":{"data":{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position"}}}},{"id":"e392ca88-3d85-432a-b875-38c4ceded46f","type":"validator","attributes":{"pubkey":"cce32a7156de5ef650f2c416455379327488c5d31d03bbf3c567be3fc4c9d928fe2b5569259ddf10a1e32ce5e6011482","withdrawal_credentials":"00ea25ce2c9eb123fb8dc284955dc585aa4d708c0f9f95f14a902427b60b4fa4","amount":"32000000000","signature":"8ecbd8b5042eb9b449eb05b6a779beea7a2f1137e040bc807b53066aa88abfd31a255792bcf168635051913363d6a0b213b46b72ca29dfe06228aa6b4637a7d3a80eb41de1d2011180a810d7d5f6fa6eda2f34e9c6ad4ef244cf260575a80e21","deposit_message_root":"b10edc5d347c30070bedcbd4918e23ed7295641e5dd325d5d7fd3e31b03d8093","deposit_data_root":"a6f47e921ad0d53ab3940cf4ec4f625b27f2833fc2c74d51657451e725f866a1","fork_version":"00002009","eth2_network_name":"pyrmont","deposit_cli_version":"1.1.0","eth1_withdrawal_address":"0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"},"relationships":{"staking_position":{"data":{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position"}}}}],"links":{"self":"https://localhost/test/api/v1/staking/eth2/staking_positions?include=eth2_validators\u0026filter[customer_id_eq]=958dbd70-eef7-4563-9cd5-0f8a765772ad","current":"https://localhost/test/api/v1/staking/eth2/staking_positions?filter[customer_id_eq]=958dbd70-eef7-4563-9cd5-0f8a765772ad\u0026include=eth2_validators\u0026page[number]=1"}}'
+    recorded_at: Tue, 31 Aug 2021 22:43:21 GMT
+  - request:
+      method: get
+      uri: https://localhost/test/api/v1/staking/eth2/staking_positions?filter%5Bcustomer_id_eq%5D=958dbd70-eef7-4563-9cd5-0f8a765772ad&include=eth2_validators
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Accept:
+          - "*/*"
+        User-Agent:
+          - rest-client/2.1.0 (darwin20.1.0 x86_64) ruby/2.7.2p137
+        Authorization:
+          - REDACTED
+        Content-Length:
+          - "0"
+        Content-Type:
+          - application/x-www-form-urlencoded
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Host:
+          - localhost
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 31 Aug 2021 22:43:22 GMT
+        Content-Type:
+          - application/vnd.api+json; charset=utf-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        X-Frame-Options:
+          - SAMEORIGIN
+        X-Xss-Protection:
+          - 1; mode=block
+        X-Content-Type-Options:
+          - nosniff
+        X-Download-Options:
+          - noopen
+        X-Permitted-Cross-Domain-Policies:
+          - none
+        Referrer-Policy:
+          - strict-origin-when-cross-origin
+        Vary:
+          - Accept
+        Etag:
+          - W/"6bd28bcdc55cc78f20f7ae4716577e10"
+        Cache-Control:
+          - max-age=0, private, must-revalidate
+        X-Request-Id:
+          - 02d19a3e-89e9-418a-a8ee-58e6c1ca9d9c
+        X-Runtime:
+          - "0.047011"
+      body:
+        encoding: UTF-8
+        string: '{"data":[{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position","attributes":{"staked_eth_amount":96,"eth1_withdrawal_address":"0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"},"relationships":{"customer":{"data":{"id":"958dbd70-eef7-4563-9cd5-0f8a765772ad","type":"customer"}},"eth1_withdrawal_address":{"data":{"id":"10aa9021-31e4-45b8-ba57-02d87c3f32c6","type":"eth1_withdrawal_address"}},"eth2_validators":{"data":[{"id":"f8aa9a9f-c29f-466f-8372-7b1397c1f257","type":"validator"},{"id":"63081c20-27c4-4bb9-8c32-4bcd1720454b","type":"validator"},{"id":"e392ca88-3d85-432a-b875-38c4ceded46f","type":"validator"}]}}}],"included":[{"id":"f8aa9a9f-c29f-466f-8372-7b1397c1f257","type":"validator","attributes":{"pubkey":"ace32a7156de5ef650f2c416455379327488c5d31d03bbf3c567be3fc4c9d928fe2b5569259ddf10a1e32ce5e6011482","withdrawal_credentials":"00ea25ce2c9eb123fb8dc284955dc585aa4d708c0f9f95f14a902427b60b4fa4","amount":"32000000000","signature":"8ecbd8b5042eb9b449eb05b6a779beea7a2f1137e040bc807b53066aa88abfd31a255792bcf168635051913363d6a0b213b46b72ca29dfe06228aa6b4637a7d3a80eb41de1d2011180a810d7d5f6fa6eda2f34e9c6ad4ef244cf260575a80e21","deposit_message_root":"b10edc5d347c30070bedcbd4918e23ed7295641e5dd325d5d7fd3e31b03d8093","deposit_data_root":"a6f47e921ad0d53ab3940cf4ec4f625b27f2833fc2c74d51657451e725f866a1","fork_version":"00002009","eth2_network_name":"pyrmont","deposit_cli_version":"1.1.0","eth1_withdrawal_address":"0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"},"relationships":{"staking_position":{"data":{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position"}}}},{"id":"63081c20-27c4-4bb9-8c32-4bcd1720454b","type":"validator","attributes":{"pubkey":"bce32a7156de5ef650f2c416455379327488c5d31d03bbf3c567be3fc4c9d928fe2b5569259ddf10a1e32ce5e6011482","withdrawal_credentials":"00ea25ce2c9eb123fb8dc284955dc585aa4d708c0f9f95f14a902427b60b4fa4","amount":"32000000000","signature":"8ecbd8b5042eb9b449eb05b6a779beea7a2f1137e040bc807b53066aa88abfd31a255792bcf168635051913363d6a0b213b46b72ca29dfe06228aa6b4637a7d3a80eb41de1d2011180a810d7d5f6fa6eda2f34e9c6ad4ef244cf260575a80e21","deposit_message_root":"b10edc5d347c30070bedcbd4918e23ed7295641e5dd325d5d7fd3e31b03d8093","deposit_data_root":"a6f47e921ad0d53ab3940cf4ec4f625b27f2833fc2c74d51657451e725f866a1","fork_version":"00002009","eth2_network_name":"pyrmont","deposit_cli_version":"1.1.0","eth1_withdrawal_address":"0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"},"relationships":{"staking_position":{"data":{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position"}}}},{"id":"e392ca88-3d85-432a-b875-38c4ceded46f","type":"validator","attributes":{"pubkey":"cce32a7156de5ef650f2c416455379327488c5d31d03bbf3c567be3fc4c9d928fe2b5569259ddf10a1e32ce5e6011482","withdrawal_credentials":"00ea25ce2c9eb123fb8dc284955dc585aa4d708c0f9f95f14a902427b60b4fa4","amount":"32000000000","signature":"8ecbd8b5042eb9b449eb05b6a779beea7a2f1137e040bc807b53066aa88abfd31a255792bcf168635051913363d6a0b213b46b72ca29dfe06228aa6b4637a7d3a80eb41de1d2011180a810d7d5f6fa6eda2f34e9c6ad4ef244cf260575a80e21","deposit_message_root":"b10edc5d347c30070bedcbd4918e23ed7295641e5dd325d5d7fd3e31b03d8093","deposit_data_root":"a6f47e921ad0d53ab3940cf4ec4f625b27f2833fc2c74d51657451e725f866a1","fork_version":"00002009","eth2_network_name":"pyrmont","deposit_cli_version":"1.1.0","eth1_withdrawal_address":"0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"},"relationships":{"staking_position":{"data":{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position"}}}}],"links":{"self":"https://localhost/test/api/v1/staking/eth2/staking_positions?include=eth2_validators\u0026filter[customer_id_eq]=958dbd70-eef7-4563-9cd5-0f8a765772ad","current":"https://localhost/test/api/v1/staking/eth2/staking_positions?filter[customer_id_eq]=958dbd70-eef7-4563-9cd5-0f8a765772ad\u0026include=eth2_validators\u0026page[number]=1"}}'
+    recorded_at: Tue, 31 Aug 2021 22:43:22 GMT
+  - request:
+      method: get
+      uri: https://localhost/test/api/v1/staking/eth2/staking_positions?filter%5Bcustomer_id_eq%5D=958dbd70-eef7-4563-9cd5-0f8a765772ad&include=eth2_validators
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Accept:
+          - "*/*"
+        User-Agent:
+          - rest-client/2.1.0 (darwin20.1.0 x86_64) ruby/2.7.2p137
+        Authorization:
+          - REDACTED
+        Content-Length:
+          - "0"
+        Content-Type:
+          - application/x-www-form-urlencoded
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Host:
+          - localhost
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Tue, 31 Aug 2021 22:43:22 GMT
+        Content-Type:
+          - application/vnd.api+json; charset=utf-8
+        Transfer-Encoding:
+          - chunked
+        Connection:
+          - keep-alive
+        X-Frame-Options:
+          - SAMEORIGIN
+        X-Xss-Protection:
+          - 1; mode=block
+        X-Content-Type-Options:
+          - nosniff
+        X-Download-Options:
+          - noopen
+        X-Permitted-Cross-Domain-Policies:
+          - none
+        Referrer-Policy:
+          - strict-origin-when-cross-origin
+        Vary:
+          - Accept
+        Etag:
+          - W/"6bd28bcdc55cc78f20f7ae4716577e10"
+        Cache-Control:
+          - max-age=0, private, must-revalidate
+        X-Request-Id:
+          - 6f42cdf8-0eea-48d2-8aea-7eb3fd545281
+        X-Runtime:
+          - "0.035236"
+      body:
+        encoding: UTF-8
+        string: '{"data":[{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position","attributes":{"staked_eth_amount":96,"eth1_withdrawal_address":"0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"},"relationships":{"customer":{"data":{"id":"958dbd70-eef7-4563-9cd5-0f8a765772ad","type":"customer"}},"eth1_withdrawal_address":{"data":{"id":"10aa9021-31e4-45b8-ba57-02d87c3f32c6","type":"eth1_withdrawal_address"}},"eth2_validators":{"data":[{"id":"f8aa9a9f-c29f-466f-8372-7b1397c1f257","type":"validator"},{"id":"63081c20-27c4-4bb9-8c32-4bcd1720454b","type":"validator"},{"id":"e392ca88-3d85-432a-b875-38c4ceded46f","type":"validator"}]}}}],"included":[{"id":"f8aa9a9f-c29f-466f-8372-7b1397c1f257","type":"validator","attributes":{"pubkey":"ace32a7156de5ef650f2c416455379327488c5d31d03bbf3c567be3fc4c9d928fe2b5569259ddf10a1e32ce5e6011482","withdrawal_credentials":"00ea25ce2c9eb123fb8dc284955dc585aa4d708c0f9f95f14a902427b60b4fa4","amount":"32000000000","signature":"8ecbd8b5042eb9b449eb05b6a779beea7a2f1137e040bc807b53066aa88abfd31a255792bcf168635051913363d6a0b213b46b72ca29dfe06228aa6b4637a7d3a80eb41de1d2011180a810d7d5f6fa6eda2f34e9c6ad4ef244cf260575a80e21","deposit_message_root":"b10edc5d347c30070bedcbd4918e23ed7295641e5dd325d5d7fd3e31b03d8093","deposit_data_root":"a6f47e921ad0d53ab3940cf4ec4f625b27f2833fc2c74d51657451e725f866a1","fork_version":"00002009","eth2_network_name":"pyrmont","deposit_cli_version":"1.1.0","eth1_withdrawal_address":"0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"},"relationships":{"staking_position":{"data":{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position"}}}},{"id":"63081c20-27c4-4bb9-8c32-4bcd1720454b","type":"validator","attributes":{"pubkey":"bce32a7156de5ef650f2c416455379327488c5d31d03bbf3c567be3fc4c9d928fe2b5569259ddf10a1e32ce5e6011482","withdrawal_credentials":"00ea25ce2c9eb123fb8dc284955dc585aa4d708c0f9f95f14a902427b60b4fa4","amount":"32000000000","signature":"8ecbd8b5042eb9b449eb05b6a779beea7a2f1137e040bc807b53066aa88abfd31a255792bcf168635051913363d6a0b213b46b72ca29dfe06228aa6b4637a7d3a80eb41de1d2011180a810d7d5f6fa6eda2f34e9c6ad4ef244cf260575a80e21","deposit_message_root":"b10edc5d347c30070bedcbd4918e23ed7295641e5dd325d5d7fd3e31b03d8093","deposit_data_root":"a6f47e921ad0d53ab3940cf4ec4f625b27f2833fc2c74d51657451e725f866a1","fork_version":"00002009","eth2_network_name":"pyrmont","deposit_cli_version":"1.1.0","eth1_withdrawal_address":"0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"},"relationships":{"staking_position":{"data":{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position"}}}},{"id":"e392ca88-3d85-432a-b875-38c4ceded46f","type":"validator","attributes":{"pubkey":"cce32a7156de5ef650f2c416455379327488c5d31d03bbf3c567be3fc4c9d928fe2b5569259ddf10a1e32ce5e6011482","withdrawal_credentials":"00ea25ce2c9eb123fb8dc284955dc585aa4d708c0f9f95f14a902427b60b4fa4","amount":"32000000000","signature":"8ecbd8b5042eb9b449eb05b6a779beea7a2f1137e040bc807b53066aa88abfd31a255792bcf168635051913363d6a0b213b46b72ca29dfe06228aa6b4637a7d3a80eb41de1d2011180a810d7d5f6fa6eda2f34e9c6ad4ef244cf260575a80e21","deposit_message_root":"b10edc5d347c30070bedcbd4918e23ed7295641e5dd325d5d7fd3e31b03d8093","deposit_data_root":"a6f47e921ad0d53ab3940cf4ec4f625b27f2833fc2c74d51657451e725f866a1","fork_version":"00002009","eth2_network_name":"pyrmont","deposit_cli_version":"1.1.0","eth1_withdrawal_address":"0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"},"relationships":{"staking_position":{"data":{"id":"94c8dadf-5b2d-40af-9f93-3c293ecb9326","type":"staking_position"}}}}],"links":{"self":"https://localhost/test/api/v1/staking/eth2/staking_positions?include=eth2_validators\u0026filter[customer_id_eq]=958dbd70-eef7-4563-9cd5-0f8a765772ad","current":"https://localhost/test/api/v1/staking/eth2/staking_positions?filter[customer_id_eq]=958dbd70-eef7-4563-9cd5-0f8a765772ad\u0026include=eth2_validators\u0026page[number]=1"}}'
+    recorded_at: Tue, 31 Aug 2021 22:43:22 GMT
+recorded_with: VCR 6.0.0

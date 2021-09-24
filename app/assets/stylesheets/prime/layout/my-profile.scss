@@ -3,8 +3,15 @@
   margin: 92px auto 0;
 }
 
+.profile h3 {
+  font-size: 20px;
+  line-height: 40px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
 .profile__section + .profile__section {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .profile__row {
@@ -26,7 +33,37 @@
 }
 
 .profile__button {
-  margin: 54px auto 0;
+  margin: 20px 0px;
+}
+
+.profile__section-mfa {
+  .disclaimer {
+    color: #777777;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .instructions {
+    margin-bottom: 30px;
+    font-size: 14px;
+  }
+
+  .row {
+    display: flex;
+
+    .col {
+      display: flex;
+
+      &:last-of-type {
+        padding-left: 20px;;
+      }
+    }
+  }
+
+  a.disable {
+    color: #EB5757;
+    border-bottom: 1px solid #EB5757;
+  }
 }
 
 .change-modal__subtitle {

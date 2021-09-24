@@ -22,7 +22,7 @@ describe 'Prime Admin page' do
     expect(page).to have_content(polkadot.name.capitalize)
     expect(page).to have_content('Prime Admin')
 
-    find("a[href='/prime/admin/polkadot/new']").click
+    find("a[href='/prime/admin/networks/polkadot/chains/new']").click
 
     expect(page).to have_content('Creating New Polkadot Chain')
 
@@ -38,9 +38,31 @@ describe 'Prime Admin page' do
     expect(page).to have_content('Chain created successfully')
     expect(page).to have_content('PolkadotChain')
 
-    find("a[href='/prime/admin/polkadot/test-slug']", match: :first).click
+    find("a[href='/prime/admin/networks/polkadot/chains/test-slug']", match: :first).click
     click_button 'enable'
     expect(page).to have_content('Chain info has been updated!')
+  end
+
+  context 'with rpc url' do
+    before do
+      visit '/prime/admin'
+
+      fill_in 'email', with: admin.email
+      fill_in 'password', with: admin.password
+
+      click_button 'login'
+
+      first("a[href='/prime/admin/networks/polkadot/chains/#{polkadot_chain.slug}']").click
+    end
+
+    it 'updates rpc related fields' do
+      fill_in 'prime_chains_polkadot_rpc_host', with: 'rpc.example.com'
+      fill_in 'prime_chains_polkadot_rpc_port', with: '443'
+      fill_in 'prime_chains_polkadot_rpc_api_key', with: 'secret-api-key'
+
+      click_button 'rpc-update-button'
+      expect(page).to have_content('Chain info has been updated!')
+    end
   end
 
   context 'with validator addresses' do
@@ -52,7 +74,7 @@ describe 'Prime Admin page' do
 
       click_button 'login'
 
-      find("a[href='/prime/admin/polkadot/new']").click
+      find("a[href='/prime/admin/networks/polkadot/chains/new']").click
 
       fill_in 'prime_chain_name', with: 'PolkadotChain'
       fill_in 'prime_chain_slug', with: 'test-slug'
@@ -63,27 +85,32 @@ describe 'Prime Admin page' do
 
       click_button 'Create Chain'
 
-      find("a[href='/prime/admin/polkadot/test-slug']", match: :first).click
+      find("a[href='/prime/admin/networks/polkadot/chains/test-slug']", match: :first).click
     end
 
     it 'add validator addresses' do
       fill_in 'new address', with: 'hi there'
       click_button 'address update'
       expect(page).to have_content('Chain info has been updated!')
+
+      find("a[href='/prime/admin/networks/polkadot/chains/test-slug']", match: :first).click
+      click_button 'enable'
+      find("a[href='/prime/admin/networks/polkadot/chains/test-slug']", match: :first).click
+      expect(page).to have_selector("input[value='hi there']")
     end
 
     it 'remove validator addresses' do
       fill_in 'new address', with: 'hi there'
       click_button 'address update'
 
-      find("a[href='/prime/admin/polkadot/test-slug']", match: :first).click
+      find("a[href='/prime/admin/networks/polkadot/chains/test-slug']", match: :first).click
       expect(page).to have_selector("input[value='hi there']")
       expect(page).to have_content('Check to remove')
       find('#prime_chains_polkadot_to_remove_0').set(true)
       click_button 'address update'
       expect(page).to have_content('Chain info has been updated!')
 
-      find("a[href='/prime/admin/polkadot/test-slug']", match: :first).click
+      find("a[href='/prime/admin/networks/polkadot/chains/test-slug']", match: :first).click
       expect(page).to have_no_selector("input[value='hi there']")
     end
 
@@ -91,12 +118,12 @@ describe 'Prime Admin page' do
       fill_in 'new address', with: 'hi there'
       click_button 'address update'
 
-      find("a[href='/prime/admin/polkadot/test-slug']", match: :first).click
+      find("a[href='/prime/admin/networks/polkadot/chains/test-slug']", match: :first).click
       fill_in 'addresshi there', with: 'hello world'
       click_button 'address update'
       expect(page).to have_content('Chain info has been updated!')
 
-      find("a[href='/prime/admin/polkadot/test-slug']", match: :first).click
+      find("a[href='/prime/admin/networks/polkadot/chains/test-slug']", match: :first).click
       expect(page).to have_no_selector("input[value='hi there']")
       expect(page).to have_selector("input[value='hello world']")
     end
@@ -121,7 +148,7 @@ describe 'Prime Admin page' do
     end
 
     it 'same network same slug' do
-      find("a[href='/prime/admin/polkadot/new']").click
+      find("a[href='/prime/admin/networks/polkadot/chains/new']").click
 
       fill_in 'prime_chain_name', with: 'PolkadotChain'
       fill_in 'prime_chain_slug', with: 'mainnet'
@@ -135,7 +162,7 @@ describe 'Prime Admin page' do
     end
 
     it 'different network same slug' do
-      find("a[href='/prime/admin/polkadot/new']").click
+      find("a[href='/prime/admin/networks/polkadot/chains/new']").click
 
       fill_in 'prime_chain_name', with: 'PolkadotChain'
       fill_in 'prime_chain_slug', with: 'main'

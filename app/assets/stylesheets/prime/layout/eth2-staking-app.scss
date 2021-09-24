@@ -1,0 +1,26 @@
+.eth2-staking-app__slider-wrapper {
+  padding: 55px 5px 0px 5px;
+}
+
+.eth2-staking-app__eth-amount-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 30px 5px 0px 5px;
+
+  input {
+    width: 30%;
+    margin: 0 10px;
+  }
+}
+
+.eth2-staking-app__withdrawal-address-wrapper {
+  padding-top: 20px;
+}
+
+.eth-staking-app__withdrawal-address-note {
+  padding-top: 20px;
+  text-transform: uppercase;
+  font-weight: lighter;
+  font-size: 14px;
+  line-height: 18px;
+}

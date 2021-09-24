@@ -13,6 +13,8 @@ module Skale
     field :staked, type: :integer
     field :minimum_delegation_amount, type: :integer
 
+    alias address id
+
     def display_name
       @name
     end

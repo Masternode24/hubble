@@ -1,9 +1,12 @@
 <% content_for :body_class, 'transaction-show' -%>
 
-<%= render partial: '/shared/chain_header', locals: { active_tab: '' } %>
+<% content_for :additional_header_tabs do %>
+  <%= render partial: 'shared/chain_header_link', locals: { active_tab: '', link_text: 'Events', link_path: namespaced_path('events') } %>
+<% end %>
+<%= render partial: 'shared/chain_header', locals: { active_tab: '' } %>
 
 <div class='container'>
-  <div  class='content'>
+  <div class='content'>
     <%= link_to celo_chain_block_path(@chain.slug, @transaction.height), class: 'link text-uppercase' do %>
       <span class='fas fa-chevron-left'></span>
       back
@@ -51,7 +54,7 @@
 
           <%= render layout: 'shared/data_block', locals: { header: 'Raw JSON' } do %>
             <%= link_to 'View', namespaced_path('block_transaction', params[:block_id], @transaction.hash, format: 'json'),
-                target: '_blank', class: 'button-secondary' %>
+                        target: '_blank', class: 'button-secondary' %>
           <% end %>
         </div>
 

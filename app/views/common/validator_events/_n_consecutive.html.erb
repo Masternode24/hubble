@@ -1,7 +1,7 @@
 <% if @validator.nil? %>
   <td>
     <span class='paragraph font-weight-bold'>
-      <%= link_to event.validatorlike.short_name, namespaced_path('validator', event.validatorlike) %>
+      <%= link_to event.validatorlike_short_name, namespaced_path('validator', event.validatorlike) %>
     </span>
   </td>
 <% end -%>

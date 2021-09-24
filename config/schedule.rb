@@ -19,6 +19,7 @@ every '* * * * *' do
   rake 'sync:iris', output: log_path('iris-sync')
   rake 'sync:kava', output: log_path('kava-sync')
   rake 'sync:emoney', output: log_path('emoney-sync')
+  rake 'sync:crypto', output: log_path('crypto-sync')
   rake 'common:alerts:users:instant', output: log_path('alerts')
 end
 

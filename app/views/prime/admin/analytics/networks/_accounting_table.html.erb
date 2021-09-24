@@ -1,0 +1,57 @@
+<table class="table small my-5">
+  <thead>
+    <tr>
+      <th colspan='3' class='border-right'></th>
+      <th colspan='3' class='border-right'>Delegations</th>
+      <th colspan='5' class='border-right'>Commission</th>
+      <th class='border-right'>Network Profitability</th>
+    </tr>
+    <tr>
+      <th>Network</th>
+      <th>Date</th>
+      <th class='border-right'>Price</th>
+      <th>Figment VP</th>
+      <th>Figment VP USD</th>
+      <th class='border-right'>Network %</th>
+      <th>30 Days</th>
+      <th>30 Days USD</th>
+      <th>Annual</th>
+      <th>Annual USD</th>
+      <th class='border-right'>Comm / VP</th>
+      <th class='border-right'>Rev / $1M VP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @data_points.each do |data_point| %>
+      <tr>
+        <td><%= link_to "#{data_point.network.name.titleize} (#{data_point.network.primary_chain.reward_token_display})", prime_admin_analytics_network_path(data_point.network) %></td>
+        <td><%= data_point.date.strftime('%m-%d') %></td>
+        <td class='border-right'><%= number_to_currency(data_point.token_price) %></td>
+        <td><%= number_with_delimiter(factor_analytics_value(data_point, data_point.figment_delegated_tokens).round(0)) %></td>
+        <td><%= number_to_currency(factor_analytics_value(data_point, data_point.figment_delegated_usd), precision: 0) %></td>
+        <td class='border-right'><%= number_to_percentage(data_point.figment_staking_share * 100) %></td>
+        <td><%= number_with_delimiter(factor_analytics_value(data_point, data_point.figment_monthly_commission).round(2)) %></td>
+        <td><%= number_to_currency(factor_analytics_value(data_point, data_point.figment_monthly_commission_usd), precision: 0) %></td>
+        <td><%= number_with_delimiter(factor_analytics_value(data_point, data_point.figment_annualized_commission).round(2)) %></td>
+        <td><%= number_to_currency(factor_analytics_value(data_point, data_point.figment_annualized_commission_usd), precision: 0) %></td>
+        <td class='border-right'><%= number_to_percentage(data_point.figment_effective_rate * 100) %> </td>
+        <td class='border-right'><%= number_to_currency(data_point.network_profitability, precision: 0) %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td>TOTALS:</td>
+      <td></td>
+      <td></td>
+      <td><%= number_with_delimiter(sum_analytics_value(@data_points, :figment_delegated_tokens).round(0)) %></td>
+      <td><%= number_to_currency(sum_analytics_value(@data_points, :figment_delegated_usd), precision: 0) %></td>
+      <td></td>
+      <td></td>
+      <td><%= number_to_currency(sum_analytics_value(@data_points, :figment_monthly_commission_usd), precision: 0) %></td>
+      <td></td>
+      <td><%= number_to_currency(sum_analytics_value(@data_points, :figment_annualized_commission_usd), precision: 0) %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>

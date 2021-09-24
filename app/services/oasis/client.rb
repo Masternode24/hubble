@@ -26,7 +26,7 @@ module Oasis
       end
     end
 
-    def staking(height)
+    def staking(height = 0)
       Oasis::Staking.new(get('/staking', height: height))
     end
 
@@ -95,13 +95,29 @@ module Oasis
       end
     end
 
-    def prime_rewards(prime_account)
+    def prime_rewards(prime_account, start_time, end_time)
       Rails.cache.fetch([self.class.name, 'rewards', prime_account.address].join('-'), expires_in: MEDIUM_EXPIRY_TIME) do
         token_factor = prime_account.network.primary_chain.reward_token_factor
         token_display = prime_account.network.primary_chain.reward_token_display
-        list = get("/balance/#{prime_account.address}") || []
+        list = get("/balance/#{prime_account.address}", start: start_time, end: end_time) || []
         list.map do |reward|
           Prime::Reward::Oasis.new(reward, prime_account, token_factor: token_factor, token_display: token_display)
+        end
+      end
+    end
+
+    def validator_rewards(address, start_time = Time.now.strftime('%Y-%m-%d'), end_time = nil)
+      get("/apr/#{address}", start: start_time, end: end_time)
+    end
+
+    def validator_commission(address, network, params = {})
+      Rails.cache.fetch([self.class.name, 'commission', address].join('-'), expires_in: SHORT_EXPIRY_TIME) do
+        token_factor = network.primary_chain.reward_token_factor
+        token_display = network.primary_chain.reward_token_display
+
+        list = get("/balance/#{address}", params) || []
+        list.map do |reward|
+          Prime::Reward::Oasis.new(reward, address, token_factor: token_factor, token_display: token_display)
         end
       end
     end

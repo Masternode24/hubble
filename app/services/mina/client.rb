@@ -63,5 +63,16 @@ module Mina
     def delegations(public_key: nil, delegate: nil)
       get_collection(Mina::Account, '/delegations', { public_key: public_key, delegate: delegate })
     end
+
+    def validator_daily_rewards(validator, date)
+      rewards_data = get("/rewards/#{validator}", { interval: 'daily', owner_type: 'validator' })
+      begin
+        daily_data = rewards_data.find { |r| r['interval'] == date.strftime('%Y-%m-%d') }
+        daily_data['amount'].to_f
+      rescue StandardError
+        Rails.logger.error $!.message
+        0
+      end
+    end
   end
 end

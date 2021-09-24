@@ -16,7 +16,7 @@ describe Near::Client do
     stub_endpoint('/validators', {}, 'validators')
     stub_endpoint('/validators/id', {}, 'validator')
     stub_endpoint('/validators/height', {}, 'validator')
-    stub_endpoint('/accounts/id', {}, 'account')
+    stub_endpoint('/accounts/figment.near', {}, 'account')
   end
 
   describe '#status' do
@@ -103,7 +103,7 @@ describe Near::Client do
   end
 
   describe '#account' do
-    let(:result) { client.account('id') }
+    let(:result) { client.account('figment.near') }
 
     it 'returns account details' do
       expect(result).to be_a Near::Account

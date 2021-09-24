@@ -1,13 +1,16 @@
 // = require jquery
 // = require jquery-ui
+// = require rails-ujs
 // = require moment/min/moment.min
 // = require moment-timezone/builds/moment-timezone.min
 // = require datatables/media/js/jquery.dataTables.min
 // = require apexcharts
 // = require fullcalendar/main.min
+// = require lib/highlight.min.js
 
 // = require prime/page/home
 // = require prime/page/events
+// = require prime/page/staking
 
 // = require prime/main
 // = require prime/auto-alert-hide

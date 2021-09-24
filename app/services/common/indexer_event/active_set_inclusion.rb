@@ -13,4 +13,8 @@ class Common::IndexerEvent::ActiveSetInclusion < Common::IndexerEvent
   def positive?
     data['status'] == 'added'
   end
+
+  def twitter_message
+    "#{validatorlike_short_name} #{positive? ? 'joined' : 'left'} the active set of validators"
+  end
 end

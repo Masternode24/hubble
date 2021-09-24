@@ -44,12 +44,8 @@ Rails.application.configure do
   config.log_level = :info
   config.log_tags = [:remote_ip]
 
-  # Use a different cache store in staging.
-  config.cache_store = :mem_cache_store, [ENV['MEM_CACHE_ADDRESS'] || 'localhost'], {
-    namespace: "hubble-#{Rails.env}",
-    expires_in: 2.weeks,
-    compress: true
-  }
+  # Memcached is not set up in previews, use :memory_store
+  config.cache_store = :memory_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque

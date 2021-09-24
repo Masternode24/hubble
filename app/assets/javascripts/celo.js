@@ -21,13 +21,14 @@
 // = require page/celo/validator-group-show
 // = require page/celo/validator-show
 // = require page/celo/block-show
+// = require page/celo/events-index
 // = require components/common/timeline-chart
 // = require components/common/sparkline-chart
 // = require components/common/transactions-volume-chart
 // = require components/common/hourly-uptime-chart
+// = require components/common/events-table
+// = require components/common/blocks-heatmap
+// = require components/common/small-average-block-time-chart
 // = require components/celo/validator-score-chart
 // = require components/celo/validator-groups-table
 // = require components/celo/validator-table
-// = require components/common/blocks-heatmap
-//
-// = require components/common/small-average-block-time-chart

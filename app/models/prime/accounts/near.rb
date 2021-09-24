@@ -3,7 +3,9 @@ class Prime::Accounts::Near < Prime::Account
     @details ||= network.primary_chain.client.account(address)
   end
 
-  def rewards
-    @rewards ||= network.primary_chain.client.prime_rewards(self)
+  def rewards(start_time, end_time)
+    @rewards ||= network.primary_chain.client.prime_rewards(self, start_time, end_time)
+  rescue Common::IndexerClient::NotFoundError
+    []
   end
 end

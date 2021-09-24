@@ -6,6 +6,8 @@ module Celo
     ACCOUNT_DETAILS_TRANSFERS_LIMIT = -1 # no limit
     DEFAULT_SEQUENCES_LIMIT = 1
     SCORE_FACTOR = 10 ** 24
+    DEFAULT_EVENTS_PAGE = 1
+    DEFAULT_EVENTS_LIMIT = 30
     TRANSFER_TYPE = 'transfer'.freeze
     ACCOUNT_TRANSACTIONS_KEYS = %w[
       validator_group_vote_cast_received
@@ -38,7 +40,7 @@ module Celo
         raw_account_details = get("/account_details/#{address}", limit: ACCOUNT_DETAILS_TRANSFERS_LIMIT)
         operations = raw_account_details['internal_transfers_sent'].map { |operation| operation.merge(operation['data']) }
         transactions = raw_account_details.slice(*ACCOUNT_TRANSACTIONS_KEYS).values.flatten.map { |transaction| transaction.merge(transaction['data']) }
-        Celo::AccountDetails.new(raw_account_details.merge(operations: operations, transactions: transactions))
+        Celo::AccountDetails.new(raw_account_details.merge(operations: operations, transactions: transactions, address: address))
       end
     end
 
@@ -74,7 +76,7 @@ module Celo
       end
     end
 
-    def validator(address, sequences_limit = DEFAULT_SEQUENCES_LIMIT)
+    def validator(address, sequences_limit: DEFAULT_SEQUENCES_LIMIT, fetch_group: true)
       raw_validator = get("/validator/#{address}", sequences_limit: sequences_limit)
       if last_sequence = raw_validator['last_sequences'].first
         # indexer usually returns score in floats, but this time it doesn't...
@@ -82,7 +84,7 @@ module Celo
         raw_validator.merge!(last_sequence)
       end
       validator = Celo::Validator.new(raw_validator)
-      validator.tap { |validator| validator.validator_group = validator_group(validator.affiliation) if validator.affiliation }
+      validator.tap { |validator| validator.validator_group = validator_group(validator.affiliation) if validator.affiliation && fetch_group }
     end
 
     def validators(address)
@@ -141,8 +143,10 @@ module Celo
     end
 
     def get_alertable_name(address)
-      validator = validator(address)
-      validator.display_name.presence || validator.address
+      Rails.cache.fetch([self.class.name, address, 'get_alertable_name'].join('-'), expires_in: 7.days) do
+        validator = validator(address, fetch_group: false)
+        validator.display_name.presence || validator.address
+      end
     end
 
     def fetch_events(address, after_block)
@@ -156,6 +160,12 @@ module Celo
         raw_proposals = get('/proposals')['items'] || []
         raw_proposals.map { |proposal| Celo::Proposal.new(proposal) }.sort_by(&:started_at).reverse
       end
+    end
+
+    def paginated_events(chain, page = DEFAULT_EVENTS_PAGE, limit = DEFAULT_EVENTS_LIMIT)
+      raw_response = get('/system_events', page: page, limit: limit)
+      events = (raw_response['records'] || []).map { |event| Celo::EventFactory.generate(event.merge(validator_name: event['actor_recent_name']), chain) }
+      Common::PaginatedResponse.new(data: raw_response, records: events)
     end
 
     private

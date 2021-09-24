@@ -7,7 +7,9 @@ module Prime::HomeHelper
     'kava': 'kava.svg',
     'near': 'near.svg',
     'livepeer': 'livepeer.svg',
-    'celo': 'celo.svg'
+    'celo': 'celo.svg',
+    'mina': 'mina.svg',
+    'solana': 'solana.svg'
   }.freeze
 
   def active_nav_tab?(route)
@@ -18,7 +20,7 @@ module Prime::HomeHelper
     "prime/networks/#{NETWORK_IMAGES[network.name.to_sym]}"
   end
 
-  def decorate_user_network_reward(network)
-    "#{number_with_delimiter(user_network_rewards(network).round(2))} #{network.primary_chain.reward_token_display}"
+  def decorate_user_network_reward(network, start_time: nil, end_time: nil)
+    "#{number_with_delimiter(network_reward_total(network, start_time: start_time, end_time: end_time).round(2))} #{network.primary_chain.reward_token_display}"
   end
 end

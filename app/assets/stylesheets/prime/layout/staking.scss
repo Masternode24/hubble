@@ -1,0 +1,108 @@
+.staking__header-actions {
+  display: flex;
+  justify-content: space-between;
+
+  .button--primary {
+    margin-right: 8px;
+  }
+}
+
+.staking__mfa-banner {
+  h3 {
+    font-size: 16px;
+    margin: 10px 0px 5px 0px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 10px 0px;
+  }
+
+  .cta {
+    display: flex;
+    margin-bottom: 10px;
+  }
+}
+
+.staking__api {
+  .table {
+    margin-bottom: 10px;
+
+    td.key {
+      width: 60%;
+
+      a.reveal {
+        font-size: 12px;
+        color: #AAAAAA;
+        margin-left: 10px;
+      }
+
+      span.blurred {
+        text-shadow: 0 0 4px #000;
+        color: transparent;
+      }
+    }
+  }
+}
+
+.staking__docs {
+  h2 {
+    font-size: 24px;
+    line-height: 40px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  h3 {
+    font-size: 20px;
+    line-height: 20px;
+    margin: 30px 0px 12px 0px;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.3em;
+    margin-bottom: 1em;
+  }
+
+  pre {
+    background: #fff;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    padding: 12px;
+    line-height: 1.2em;
+    margin-bottom: 1em;
+    overflow-x: auto;
+    color: #000;
+    font-size: 14px;
+    font-family: Consolas, Monaco, monospace;
+
+    code {
+      padding: 0px;
+      font-family: SFMono-Regular, Consolas, Monaco, monospace;
+      background: #fff;
+    }
+  }
+
+  table {
+    @extend .table;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    font-size: 14px;
+    margin: 0 2em 1em;
+    list-style: circle;
+
+    li {
+      display: list-item;
+      margin-bottom: 0.5rem;
+      display: list-item;
+    }
+  }
+}

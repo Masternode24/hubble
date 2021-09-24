@@ -20,6 +20,7 @@ module Common
 
     alias timestamp time
     alias action kind
+    alias validatorlike alertable_address
 
     def initialize(attrs, chain)
       super(attrs)
@@ -48,6 +49,14 @@ module Common
 
     def added?
       data['status'] == 'added'
+    end
+
+    def validatorlike_short_name
+      validator_name.presence || alertable_address
+    end
+
+    def twitter_message
+      "#{validatorlike_short_name} #{action.humanize.downcase}"
     end
 
     def kind_class

@@ -10,7 +10,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - rest-client/2.1.0 (darwin20.3.0 x86_64) ruby/2.7.2p137
+      - rest-client/2.1.0 (darwin20.3.0 arm) ruby/2.7.2p137
       Content-Length:
       - '0'
       Content-Type:
@@ -25,35 +25,33 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 24 Mar 2021 14:21:43 GMT
-      Content-Type:
-      - application/json
+      - Wed, 11 Aug 2021 17:50:05 GMT
       Content-Length:
       - '0'
       Connection:
       - keep-alive
-      X-Ratelimit-Remaining-Minute:
-      - '1997'
       X-Ratelimit-Limit-Minute:
       - '2000'
       Ratelimit-Remaining:
-      - '1997'
+      - '1999'
+      Ratelimit-Reset:
+      - '55'
       Ratelimit-Limit:
       - '2000'
-      Ratelimit-Reset:
-      - '17'
+      X-Ratelimit-Remaining-Minute:
+      - '1999'
       X-Quota-Limit-Day:
       - '10000000'
-      Quota-Remaining:
-      - '9999978'
-      X-Quota-Remaining-Day:
-      - '9999978'
-      Quota-Reset:
-      - '34697'
       Quota-Limit:
       - '10000000'
+      Quota-Remaining:
+      - '9999863'
+      Quota-Reset:
+      - '22195'
+      X-Quota-Remaining-Day:
+      - '9999863'
     body:
       encoding: UTF-8
       string: ''
-  recorded_at: Wed, 24 Mar 2021 14:21:43 GMT
+  recorded_at: Wed, 11 Aug 2021 17:50:05 GMT
 recorded_with: VCR 6.0.0

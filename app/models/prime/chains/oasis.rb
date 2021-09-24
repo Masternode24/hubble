@@ -8,4 +8,8 @@ class Prime::Chains::Oasis < Prime::Chain
       Prime::Oasis::ValidatorDecorator.new(client.validator(address, 0, network: network, retrieve_delegations: false))
     end
   end
+
+  def account_valid?(address)
+    client.account(address).present?
+  end
 end

@@ -23,6 +23,7 @@ module Mina
     field :memo
     field :status
     field :failure_reason
+    field :canonical
 
     def formatted_type
       TYPE_NAMES[type] || type

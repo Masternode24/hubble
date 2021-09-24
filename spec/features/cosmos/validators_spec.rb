@@ -14,15 +14,13 @@ describe 'cosmos validators' do
     allow(proposals).to receive(:valid_proposal?).and_return(true)
   end
 
-  context 'logged out' do
-    it 'visiting Cosmos Validators View as not signed in user', :vcr do
-      visit "/cosmos/chains/#{chain.slug}/validators/#{validator.address}"
-      expect(page).to have_content(validator.address)
-      expect(page).to have_content('UPTIME HISTORY')
-      expect(page).to have_content('Governance Proposal Activity')
-      expect(page).to have_content('Event History')
-      # expect(page).to have_content('Delegations') # https://github.com/figment-networks/hubble-internal/pull/561
-      expect(page).to have_content('CURRENT VOTING POWER')
-    end
+  it 'visiting Cosmos Validators View as not signed in user', :vcr do
+    visit "/cosmos/chains/#{chain.slug}/validators/#{validator.address}"
+    expect(page).to have_content(validator.address)
+    expect(page).to have_content('UPTIME HISTORY')
+    expect(page).to have_content('Governance Proposal Activity')
+    expect(page).to have_content('Event History')
+    # expect(page).to have_content('Delegations') # https://github.com/figment-networks/hubble-internal/pull/561
+    expect(page).to have_content('CURRENT VOTING POWER')
   end
 end

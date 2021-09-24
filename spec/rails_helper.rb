@@ -22,10 +22,14 @@ VCR.configure do |config|
   config.debug_logger = File.open('./log/vcr.log', 'w')
   config.ignore_hosts('127.0.0.1', 'chromedriver.storage.googleapis.com')
   config.before_record { |i| i.response.body.force_encoding('UTF-8') }
+
+  # VCR scrubber will replace any rails secrets found in the YAML files with "REDACTED"
+  VcrScrubber.configure(config, Rails.application.secrets)
 end
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = true
+  config.example_status_persistence_file_path = '.rspec-examples.txt'
 
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
@@ -52,5 +56,12 @@ RSpec.configure do |config|
 
   config.append_after do
     DatabaseCleaner.clean
+  end
+end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
   end
 end

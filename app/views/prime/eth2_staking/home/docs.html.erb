@@ -1,0 +1,18 @@
+<% content_for :body_class, 'prime-staking' %>
+
+<% content_for :page_header_body do %>
+  <div class="staking__header-actions">
+    <%= link_to 'Go Back', prime_eth2_staking_path, class: "button button--secondary page__header-button" %>
+  </div>
+<% end %>
+
+<div class="section">
+  <div class="page__container">
+    <div class="staking__docs">
+      <%= render "prime/eth2_staking/home/api/overview" %>
+      <%= render "prime/eth2_staking/home/api/auth" %>
+      <%= render "prime/eth2_staking/home/api/ratelimit" %>
+      <%= render "prime/eth2_staking/home/api/management" %>
+    </div>
+  </div>
+</div>

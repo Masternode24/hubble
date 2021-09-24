@@ -1,0 +1,29 @@
+<table class="table api-keys">
+  <thead>
+    <tr>
+      <th>API Key</th>
+      <th>Last Used</th>
+      <th>Created</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% if @api_keys.any? %>
+        <% @api_keys.each do |key| %>
+          <tr>
+            <td class="key">
+              <span class="blurred"><%= key.key %></span>
+              <a href="#" class="reveal">reveal</a>
+            </td>
+            <td><%= key.last_used_at&.strftime("%b %d, %Y") || '-' %></td>
+            <td><%= key.created_at.strftime("%b %d, %Y") %></td>
+            <td><%= link_to "", prime_api_key_path(key), class: "delete-btn button--inline", data: { method: :delete, confirm: "You will not be able to access Staking API with this key once it's deactivated. Are you sure?" } %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <td colspan="4">No API keys found</td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

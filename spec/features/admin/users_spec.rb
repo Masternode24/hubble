@@ -49,7 +49,7 @@ describe 'Admin user page' do
 
   it 'displays Prime address for the user', :vcr do
     visit('/admin/users')
-    expect(page).to have_content('PRIME with 2 addresses')
+    expect(page).to have_content('Active with 2 addresses')
 
     click_link 'Details'
     expect(page).to have_content('Polkadot')

@@ -1,0 +1,41 @@
+<%= render "prime/admin/eth2_staking/nav", title: "Validator" %>
+
+<div class="card">
+  <div class="card-header">
+    Details
+  </div>
+  <div class="card-body p-0">
+    <table class="table table-sm">
+      <tbody>
+        <tr>
+          <td>Internal ID</td>
+          <td><%= @validator.id %></td>
+        </tr>
+        <tr>
+          <td>Pubkey</td>
+          <td><%= @validator.pubkey %></td>
+        </tr>
+        <tr>
+          <td>Amount</td>
+          <td><%= @validator.amount %></td>
+        </tr>
+        <tr>
+          <td>Fork Version</td>
+          <td><%= @validator.fork_version %></td>
+        </tr>
+        <tr>
+          <td>ETH2 network name</td>
+          <td><%= @validator.eth2_network_name %></td>
+        </tr>
+        <tr>
+          <td>Deposit CLI version</td>
+          <td><%= @validator.deposit_cli_version %></td>
+        </tr>
+        <tr>
+          <td>ETH1 withdrawal address</td>
+          <td><%= @validator.eth1_withdrawal_address %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

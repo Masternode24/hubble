@@ -1,0 +1,39 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Position</th>
+      <th>Withdrawal Address</th>
+      <th>Staked Amount</th>
+      <th>Validators in Group</th>
+      <th/></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @staking.positions.any? %>
+      <% @staking.positions.each do |position| %>
+        <tr>
+          <td><%= position.display_name %></td>
+          <td><%= position.eth1_withdrawal_address %></td>
+          <td><%= position.staked_eth_amount %> ETH</td>
+          <td><%= position.validators.size %></td>
+          <td>
+            <%= link_to "details", prime_eth2_staking_staking_position_path(position.id) %>
+            <%= link_to "fund", funding_prime_eth2_staking_staking_position_path(position.id) %>
+          </td>
+        <tr/>
+      <% end %>
+      <% if show_totals %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td><strong><%= @staking.total_amount %></strong> ETH</td>
+          <td colspan="2"><strong><%= @staking.validators_count %></strong> TOTAL</td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="5">No staking positions found</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

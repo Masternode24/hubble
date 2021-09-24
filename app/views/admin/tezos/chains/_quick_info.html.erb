@@ -14,9 +14,7 @@
     <% chains.each do |chain| -%>
       <tr>
         <td class='align-middle pl-3'>
-          <a href='<%= namespaced_path( chain: chain, admin: true ) %>'>
-            <span class='text-lg'><%= chain.name %></span>
-          </a>
+          <%= link_to chain.name, namespaced_path(chain: chain, admin: true) %>
 
           <% if chain.primary? -%>
             <span class='fas fa-star text-primary' data-toggle='tooltip' data-tooltip-side='top'title='Primary Chain'></span>

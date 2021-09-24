@@ -109,6 +109,37 @@ RSpec.describe AlertMailer do
         end
       end
     end
+
+    context 'with an alertable address and Skale events' do
+      let!(:alertable) { create(:alertable_address, chain: chain, address: '15') }
+      let(:chain) { create(:skale_chain) }
+      let(:events) { [event_1, event_2, event_3] }
+      let(:event_1) do
+        Common::IndexerEvent::ActiveSetInclusion.new({ 'type' => 'joined_active_set',
+                                                       'time' => 1.minute.ago.to_s, 'height' => 22 }, chain)
+      end
+      let(:event_2) do
+        Common::IndexerEvent::ActiveSetInclusion.new({ 'type' => 'left_active_set',
+                                                       'time' => 1.minute.ago.to_s, 'height' => 22 }, chain)
+      end
+      let(:event_3) do
+        Common::IndexerEvent::Slashed.new({ 'type' => 'slashed',
+                                            'time' => 1.minute.ago.to_s, 'height' => 22 }, chain)
+      end
+
+      it 'sends an instant alert', :vcr do
+        allow(alertable).to receive(:long_name).and_return('15')
+
+        expect(email.from).to contain_exactly('notifications@figment.io')
+        expect(email.to).to contain_exactly(sub.user.email)
+
+        expect(email.subject).to eq('HUBBLE ALERT - 15 on Skale/SkaleChain (3 new events)')
+
+        assert_emails 1 do
+          email.deliver_now
+        end
+      end
+    end
   end
 
   describe '#daily' do

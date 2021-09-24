@@ -1,0 +1,24 @@
+<%= render "prime/admin/eth2_staking/nav", title: "Staking Positions" %>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Staked Amount</th>
+      <th>Withdrawal Address</th>
+      <th>Validators</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @positions.each do |pos| %>
+      <tr>
+        <td><%= pos.id %></td>
+        <td><%= pos.display_name %></td>
+        <td><%= pos.staked_eth_amount %></td>
+        <td><%= pos.eth1_withdrawal_address %></td>
+        <td><%= pos.validators.size %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

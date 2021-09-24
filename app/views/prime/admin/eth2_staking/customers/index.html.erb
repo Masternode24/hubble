@@ -1,0 +1,20 @@
+<%= render "prime/admin/eth2_staking/nav", title: "Customers" %>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Staking Positions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= link_to customer.id, prime_admin_eth2_staking_customer_path(customer.id) %></td>
+        <td><%= customer.name %></td>
+        <td><%= customer.staking_positions.size %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

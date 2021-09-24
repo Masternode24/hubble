@@ -4,7 +4,7 @@ class Celo::ValidatorsController < Celo::BaseController
   SEQUENCES_LIMIT = 50
 
   def show
-    @validator = client.validator(params[:id], SEQUENCES_LIMIT)
+    @validator = client.validator(params[:id], sequences_limit: SEQUENCES_LIMIT)
     raise ActiveRecord::RecordNotFound unless @validator
 
     @validator_scores = client.validator_daily_score(@validator.address).map do |validator_summary|
@@ -17,5 +17,8 @@ class Celo::ValidatorsController < Celo::BaseController
 
     events = client.validator_events(chain: @chain, address: @validator.address)
     @pagination, @events = pagy_array(events)
+
+    page_title @chain.network_name, @chain.name, @validator.display_name, 'Scores, Uptime and Event History'
+    meta_description 'Scores History, Uptime History, Commission, Activity and Event History'
   end
 end

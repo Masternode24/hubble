@@ -1,0 +1,794 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:1738/cosmos/bank/v1beta1/supply/uatom
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin19.6.0 x86_64) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:1738
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 23 Aug 2021 21:35:37 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '75'
+      Connection:
+      - close
+      X-Ratelimit-Remaining-Minute:
+      - '1999'
+      Ratelimit-Limit:
+      - '2000'
+      Ratelimit-Remaining:
+      - '1999'
+      Ratelimit-Reset:
+      - '23'
+      X-Ratelimit-Limit-Minute:
+      - '2000'
+      Grpc-Metadata-X-Cosmos-Block-Height:
+      - '7406570'
+      X-Server-Time:
+      - '1629754537'
+      X-Concurrent-Quota-Remaining:
+      - '4'
+      X-Concurrent-Quota-Limit:
+      - '5'
+      X-Quota-Limit-Day:
+      - '2500000'
+      X-Quota-Limit-Month:
+      - '75000000'
+      Quota-Limit:
+      - '2500000'
+      Quota-Remaining:
+      - '2499989'
+      Quota-Reset:
+      - '8663'
+      X-Quota-Remaining-Day:
+      - '2499989'
+      X-Quota-Remaining-Month:
+      - '74997156'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "amount": {
+            "denom": "uatom",
+            "amount": "278005115725582"
+          }
+        }
+  recorded_at: Mon, 23 Aug 2021 21:35:37 GMT
+- request:
+    method: get
+    uri: https://data.messari.io/api/v1/assets/cosmos/metrics
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin19.6.0 x86_64) ruby/2.7.2p137
+      X-Messari-Api-Key:
+      - ''
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - data.messari.io
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 23 Aug 2021 21:35:37 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Vary:
+      - Accept-Encoding,Origin
+      X-Ratelimit-Limit:
+      - '4000'
+      X-Ratelimit-Remaining:
+      - '3999'
+      X-Ratelimit-Reset:
+      - '1629840937'
+      X-Envoy-Upstream-Service-Time:
+      - '24'
+      Server:
+      - istio-envoy
+      X-Envoy-Decorator-Operation:
+      - meridian-service.meridian.svc.cluster.local:8080/*
+    body:
+      encoding: UTF-8
+      string: '{"status":{"elapsed":21,"timestamp":"2021-08-23T21:35:37.881556506Z"},"data":{"id":"3385649f-7e22-4260-9995-309f05650e47","symbol":"ATOM","name":"Cosmos","slug":"cosmos","contract_addresses":[],"_internal_temp_agora_id":"eb97a2be-c1f8-4544-b2d4-623e17bffef3","market_data":{"price_usd":21.783552876777364,"price_btc":0.0004398954557635377,"price_eth":0.006544972813904669,"volume_last_24_hours":444851391.04862535,"real_volume_last_24_hours":253336231.68139324,"volume_last_24_hours_overstatement_multiple":1.7559722432758453,"percent_change_usd_last_1_hour":0.651186728933419,"percent_change_btc_last_1_hour":0.17482905064572507,"percent_change_eth_last_1_hour":0.18430117217896153,"percent_change_usd_last_24_hours":0.984419162160287,"percent_change_btc_last_24_hours":0.5258036238708024,"percent_change_eth_last_24_hours":-2.3712779559587576,"ohlcv_last_1_hour":{"open":21.559813722640477,"high":21.843381401819602,"low":21.558624115301214,"close":21.78360053485126,"volume":5292575.47559155},"ohlcv_last_24_hour":{"open":21.202709619463025,"high":23.159476247866543,"low":21.146369857146748,"close":21.783552876777364,"volume":323608767.58909386},"last_trade_at":"2021-08-23T21:35:34.46Z"},"marketcap":{"rank":33,"marketcap_dominance_percent":0.22350699115940542,"current_marketcap_usd":4794062931.875526,"y_2050_marketcap_usd":47731731239.69724,"y_plus10_marketcap_usd":12646602508.263475,"liquid_marketcap_usd":6139071064.77059,"volume_turnover_last_24_hours_percent":4.122573195100687,"realized_marketcap_usd":null,"outstanding_marketcap_usd":null},"supply":{"y_2050":2192096427.8,"y_plus10":580799637.0999999,"liquid":281938982.76,"circulating":220169014.50397497,"y_2050_issued_percent":12.861614077942523,"annual_inflation_percent":7.4947305949483916,"stock_to_flow":13.342707750883287,"y_plus10_issued_percent":48.54324361629324,"supply_revived_90d":null},"blockchain_stats_24_hours":{"count_of_active_addresses":null,"transaction_volume":null,"adjusted_transaction_volume":null,"adjusted_nvt":null,"median_tx_value":null,"median_tx_fee":null,"count_of_tx":null,"count_of_payments":null,"new_issuance":null,"average_difficulty":null,"kilobytes_added":null,"count_of_blocks_added":null},"market_data_liquidity":{"clearing_prices_to_sell":null,"marketcap":null,"asset_bid_depth":null,"usd_bid_depth":null,"updated_at":"0001-01-01T00:00:00Z"},"all_time_high":{"price":30.5717844324454,"at":"2021-05-08T06:00:00Z","days_since":101,"percent_down":49.38625344230268,"breakeven_multiple":1.9757478313921029},"cycle_low":{"price":8.04460361299306,"at":"2021-06-22T13:00:00Z","percent_up":92.34664919737953,"days_since":56},"token_sale_stats":{"sale_proceeds_usd":null,"sale_start_date":null,"sale_end_date":null,"roi_since_sale_usd_percent":null,"roi_since_sale_btc_percent":null,"roi_since_sale_eth_percent":null},"staking_stats":{"staking_type":"Run
+        a Validator Node","staking_yield_percent":10.037332220275315,"real_staking_yield_percent":3.0492443676147927,"staking_minimum":null,"tokens_staked":194033835.153197,"tokens_staked_percent":69.94562861831976,"staking_engaged_balance":194033835.153197,"staked_total_percent":69.94562861831976,"staking_options":[{"name":"Delegate
+        Cosmos","reward":9.014868619372448,"adjusted_reward":2.0267807667119255},{"name":"Run
+        a Validator Node","reward":10.037332220275315,"adjusted_reward":3.0492443676147927}]},"mining_stats":{"mining_algo":null,"network_hash_rate":null,"available_on_nicehash_percent":null,"1_hour_attack_cost":null,"24_hours_attack_cost":null,"attack_appeal":null,"hash_rate":null,"hash_rate_30d_average":null,"mining_revenue_per_hash_usd":null,"mining_revenue_per_hash_native_units":null,"mining_revenue_per_hash_per_second_usd":null,"mining_revenue_per_hash_per_second_native_units":null,"mining_revenue_from_fees_percent_last_24_hours":null,"mining_revenue_native":null,"mining_revenue_usd":null,"mining_revenue_total":null,"average_difficulty":null},"developer_activity":{"stars":null,"watchers":null,"commits_last_3_months":null,"commits_last_1_year":null,"lines_added_last_3_months":null,"lines_added_last_1_year":null,"lines_deleted_last_3_months":null,"lines_deleted_last_1_year":null},"roi_data":{"percent_change_last_1_week":38.12176045555747,"percent_change_last_1_month":90.82347703970139,"percent_change_last_3_months":56.471471292438395,"percent_change_last_1_year":155.83503847109824,"percent_change_btc_last_1_week":28.318020840892427,"percent_change_btc_last_1_month":32.32959078119427,"percent_change_btc_last_3_months":21.452596926626608,"percent_change_btc_last_1_year":-39.737666076408914,"percent_change_eth_last_1_week":30.317361612318795,"percent_change_eth_last_1_month":25.026485448320194,"percent_change_eth_last_3_months":26.95970364410204,"percent_change_eth_last_1_year":-70.05176698355159,"percent_change_month_to_date":77.03623147310361,"percent_change_quarter_to_date":97.61968367203264,"percent_change_year_to_date":271.39746150983586},"roi_by_year":{"2020_usd_percent":47.64800410051998,"2019_usd_percent":11.161385242410816,"2018_usd_percent":0,"2017_usd_percent":0,"2016_usd_percent":0,"2015_usd_percent":0,"2014_usd_percent":0,"2013_usd_percent":0,"2012_usd_percent":0,"2011_usd_percent":0},"risk_metrics":{"sharpe_ratios":{"last_30_days":9.749161142873755,"last_90_days":2.043220603398405,"last_1_year":1.544916699043356,"last_3_years":0.941932501525336},"volatility_stats":{"volatility_last_30_days":0.8342208641220409,"volatility_last_90_days":1.235554189302025,"volatility_last_1_year":1.4932424032770384,"volatility_last_3_years":1.3716088274521554}},"misc_data":{"private_market_price_usd":null,"vladimir_club_cost":null,"btc_current_normalized_supply_price_usd":null,"btc_y2050_normalized_supply_price_usd":null,"asset_created_at":null,"asset_age_days":null,"categories":["Infrastructure"],"sectors":["Smart
+        Contract Platforms"],"tags":["Cosmos Ecosystem"]},"reddit":{"active_user_count":201,"subscribers":34149},"on_chain_data":{"addresses_count":null,"active_addresses":null,"active_addresses_received_count":null,"active_addresses_sent_count":null,"addresses_balance_greater_0_001_native_units_count":null,"addresses_balance_greater_0_01_native_units_count":null,"addresses_balance_greater_0_1_native_units_count":null,"addresses_balance_greater_1_usd_count":null,"addresses_balance_greater_1_native_units_count":null,"addresses_balance_greater_10_usd_count":null,"addresses_balance_greater_10_native_units_count":null,"addresses_balance_greater_100_usd_count":null,"addresses_balance_greater_100_native_units_count":null,"addresses_balance_greater_100k_usd_count":null,"addresses_balance_greater_100k_native_units_count":null,"addresses_balance_greater_10k_usd_count":null,"addresses_balance_greater_10k_native_units_count":null,"addresses_balance_greater_10m_usd_count":null,"addresses_balance_greater_1k_usd_count":null,"addresses_balance_greater_1k_native_units_count":null,"addresses_balance_greater_1m_usd_count":null,"addresses_balance_greater_1m_native_units_count":null,"average_block_gas_limit":null,"block_height":null,"average_block_interval":null,"blocks_added_last_24_hours":null,"block_size_bytes_total":null,"block_size_bytes_average":null,"uncle_blocks_count_last_24_hours":null,"uncle_rewards_last_24_hours_usd":null,"uncle_rewards_last_24_hours_native_units":null,"mining_revenue_from_uncle_blocks_percent_last_24_hours":null,"block_weight":null,"average_block_weight":null,"total_fees_last_24_hours":null,"total_fees_last_24_hours_usd":null,"hash_rate":null,"issuance_last_24_hours_native_units":null,"issuance_rate_daily":null,"issuance_total_usd":null,"issuance_total_native_units":null,"new_issuance":null,"issuance_rate":null,"realized_marketcap_usd":null,"adjusted_nvt":null,"adjusted_nvt_90d_moving_average":null,"adjusted_rvt":null,"adjusted_rvt_90d_moving_average":null,"txn_count_last_24_hours":null,"txn_contracts_calls_count_last_24_hours":null,"txn_contracts_calls_success_count_last_24_hours":null,"txn_contracts_creation_count_last_24_hours":null,"txn_contracts_destruction_count_last_24_hours":null,"txn_contracts_count_last_24_hours":null,"txn_erc20_count_last_24_hours":null,"txn_erc721_count_last_24_hours":null,"txn_per_second_count":null,"txn_token_count_last_24_hours":null,"average_fee_usd":null,"average_fee_native_units":null,"median_fee_usd":null,"median_fee_native_units":null,"average_txn_gas_used":null,"txn_gas_limit_last_24_hours":null,"average_txn_gas_limit":null,"txn_gas_used_last_24_hours":null,"transfer_count_last_24_hours":null,"transfer_erc_20_count_last_24_hours":null,"transfer_erc721_count_last_24_hours":null,"txn_volume_last_24_hours_usd":null,"adjusted_txn_volume_last_24_hours_usd":null,"adjusted_txn_volume_last_24_hours_native_units":null,"txn_volume_last_24_hours_native_units":null,"average_transfer_value_usd":null,"average_transfer_value_native_units":null,"median_transfer_value_usd":null,"median_transfer_value_native_units":null,"average_utxo_age":null,"value_weighted_average_utxo_age":null,"median_utxo_age":null,"utxo_count_last_24_hours":null,"utxo_in_loss_count":null,"utxo_in_profit_count":null},"exchange_flows":{"flow_in_exchange_native_units":null,"flow_in_exchange_usd":null,"flow_in_exchange_native_units_inclusive":null,"flow_in_exchange_usd_inclusive":null,"flow_out_exchange_native_units":null,"flow_out_exchange_usd":null,"flow_out_exchange_native_units_inclusive":null,"flow_out_exchange_usd_inclusive":null,"flow_in_binance_usd":null,"flow_in_binance_native_units":null,"flow_in_bitfinex_usd":null,"flow_in_bitfinex_native_units":null,"flow_in_bitmex_usd":null,"flow_in_bitmex_native_units":null,"flow_in_bitstamp_usd":null,"flow_in_bitstamp_native_units":null,"flow_in_bittrex_usd":null,"flow_in_bittrex_native_units":null,"flow_in_gemini_usd":null,"flow_in_gemini_native_units":null,"flow_in_huobi_usd":null,"flow_in_huobi_native_units":null,"flow_in_kraken_usd":null,"flow_in_kraken_native_units":null,"flow_in_poloniex_usd":null,"flow_in_poloniex_native_units":null,"flow_net_binance_usd":null,"flow_net_binance_native_units":null,"flow_net_bitfinex_usd":null,"flow_net_bitfinex_native_units":null,"flow_net_bitmex_usd":null,"flow_net_bitmex_native_units":null,"flow_net_bitstamp_usd":null,"flow_net_bitstamp_native_units":null,"flow_net_bittrex_usd":null,"flow_net_bittrex_native_units":null,"flow_net_gemini_usd":null,"flow_net_gemini_native_units":null,"flow_net_huobi_usd":null,"flow_net_huobi_native_units":null,"flow_net_kraken_usd":null,"flow_net_kraken_native_units":null,"flow_net_poloniex_usd":null,"flow_net_poloniex_native_units":null,"flow_out_binance_usd":null,"flow_out_binance_native_units":null,"flow_out_bitfinex_usd":null,"flow_out_bitfinex_native_units":null,"flow_out_bitmex_usd":null,"flow_out_bitmex_native_units":null,"flow_out_bitstamp_usd":null,"flow_out_bitstamp_native_units":null,"flow_out_bittrex_usd":null,"flow_out_bittrex_native_units":null,"flow_out_gemini_usd":null,"flow_out_gemini_native_units":null,"flow_out_huobi_usd":null,"flow_out_huobi_native_units":null,"flow_out_kraken_usd":null,"flow_out_kraken_native_units":null,"flow_out_poloniex_usd":null,"flow_out_poloniex_native_units":null,"supply_exchange_native_units":null,"supply_exchange_usd":null,"supply_binance_usd":null,"supply_binance_native_units":null,"supply_bitfinex_usd":null,"supply_bitfinex_native_units":null,"supply_bitmex_usd":null,"supply_bitmex_native_units":null,"supply_bitstamp_usd":null,"supply_bitstamp_native_units":null,"supply_bittrex_usd":null,"supply_bittrex_native_units":null,"supply_gemini_usd":null,"supply_gemini_native_units":null,"supply_huobi_usd":null,"supply_huobi_native_units":null,"supply_kraken_usd":null,"supply_kraken_native_units":null,"supply_poloniex_usd":null,"supply_poloniex_native_units":null},"miner_flows":{"supply_1hop_miners_usd":null,"supply_1hop_miners_native_units":null,"supply_miners_usd":null,"supply_miners_native_units":null},"supply_activity":{"supply_active_10y":null,"supply_active_180d":null,"supply_active_1d":null,"supply_active_1y":null,"supply_active_1y_percent":null,"supply_active_2y":null,"supply_active_30d":null,"supply_active_3y":null,"supply_active_4y":null,"supply_active_5y":null,"supply_active_7d":null,"supply_active_90d":null,"supply_active_ever":null,"outstanding":null,"supply_revived_1y":null,"supply_revived_2y":null,"supply_revived_30d":null,"supply_revived_3y":null,"supply_revived_4y":null,"supply_revived_5y":null,"supply_revived_7d":null,"supply_revived_90d":null},"supply_distribution":{"supply_in_addresses_balance_greater_0_001_native_units":null,"supply_in_addresses_balance_greater_0_01_native_units":null,"supply_in_addresses_balance_greater_0_1_native_units":null,"supply_in_addresses_balance_greater_1_usd":null,"supply_in_addresses_balance_greater_10_usd":null,"supply_in_addresses_balance_greater_100_usd":null,"supply_in_addresses_balance_greater_100k_usd":null,"supply_in_addresses_balance_greater_100k_native_units":null,"supply_in_addresses_balance_greater_100_native_units":null,"supply_in_addresses_balance_greater_10k_usd":null,"supply_in_addresses_balance_greater_10k_native_units":null,"supply_in_addresses_balance_greater_10m_usd":null,"supply_in_addresses_balance_greater_10_native_units":null,"supply_in_addresses_balance_greater_1k_usd":null,"supply_in_addresses_balance_greater_1k_native_units":null,"supply_in_addresses_balance_greater_1m_usd":null,"supply_in_addresses_balance_greater_1m_native_units":null,"supply_in_addresses_balance_greater_1_native_units":null,"supply_in_contracts_usd":null,"supply_in_contracts_native_units":null,"supply_shielded":null,"supply_in_top_100_addresses":null,"supply_in_top_10_percent_addresses":null,"supply_in_top_1_percent_addresses":null,"supply_in_utxo_in_loss":null,"supply_in_utxo_in_profit":null},"alert_messages":null}}'
+  recorded_at: Mon, 23 Aug 2021 21:35:37 GMT
+- request:
+    method: get
+    uri: http://localhost:1738/cosmos/bank/v1beta1/supply/uatom
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin19.6.0 x86_64) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:1738
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 23 Aug 2021 21:35:38 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '75'
+      Connection:
+      - close
+      X-Ratelimit-Remaining-Minute:
+      - '1998'
+      Ratelimit-Limit:
+      - '2000'
+      Ratelimit-Remaining:
+      - '1998'
+      Ratelimit-Reset:
+      - '22'
+      X-Ratelimit-Limit-Minute:
+      - '2000'
+      Grpc-Metadata-X-Cosmos-Block-Height:
+      - '7406570'
+      X-Server-Time:
+      - '1629754538'
+      X-Concurrent-Quota-Remaining:
+      - '4'
+      X-Concurrent-Quota-Limit:
+      - '5'
+      X-Quota-Limit-Day:
+      - '2500000'
+      X-Quota-Limit-Month:
+      - '75000000'
+      Quota-Limit:
+      - '2500000'
+      Quota-Remaining:
+      - '2499988'
+      Quota-Reset:
+      - '8662'
+      X-Quota-Remaining-Day:
+      - '2499988'
+      X-Quota-Remaining-Month:
+      - '74997155'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "amount": {
+            "denom": "uatom",
+            "amount": "278005115725582"
+          }
+        }
+  recorded_at: Mon, 23 Aug 2021 21:35:38 GMT
+- request:
+    method: get
+    uri: http://localhost:1738/cosmos/mint/v1beta1/inflation
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin19.6.0 x86_64) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:1738
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 23 Aug 2021 21:35:38 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '41'
+      Connection:
+      - close
+      Ratelimit-Limit:
+      - '2000'
+      Ratelimit-Remaining:
+      - '1997'
+      X-Ratelimit-Remaining-Minute:
+      - '1997'
+      X-Ratelimit-Limit-Minute:
+      - '2000'
+      Ratelimit-Reset:
+      - '22'
+      Grpc-Metadata-X-Cosmos-Block-Height:
+      - '7406570'
+      X-Server-Time:
+      - '1629754538'
+      X-Concurrent-Quota-Limit:
+      - '5'
+      X-Concurrent-Quota-Remaining:
+      - '4'
+      Quota-Limit:
+      - '2500000'
+      X-Quota-Remaining-Day:
+      - '2499987'
+      X-Quota-Remaining-Month:
+      - '74997154'
+      X-Quota-Limit-Month:
+      - '75000000'
+      Quota-Reset:
+      - '8662'
+      Quota-Remaining:
+      - '2499987'
+      X-Quota-Limit-Day:
+      - '2500000'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "inflation": "0.070000000000000000"
+        }
+  recorded_at: Mon, 23 Aug 2021 21:35:38 GMT
+- request:
+    method: get
+    uri: http://localhost:1738/cosmos/distribution/v1beta1/params
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin19.6.0 x86_64) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:1738
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 23 Aug 2021 21:35:38 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '205'
+      Connection:
+      - close
+      X-Ratelimit-Limit-Minute:
+      - '2000'
+      Ratelimit-Limit:
+      - '2000'
+      Ratelimit-Remaining:
+      - '1996'
+      X-Ratelimit-Remaining-Minute:
+      - '1996'
+      Ratelimit-Reset:
+      - '22'
+      Grpc-Metadata-X-Cosmos-Block-Height:
+      - '7406570'
+      X-Server-Time:
+      - '1629754538'
+      Quota-Reset:
+      - '8662'
+      Quota-Limit:
+      - '2500000'
+      X-Quota-Remaining-Day:
+      - '2499986'
+      X-Quota-Remaining-Month:
+      - '74997153'
+      X-Quota-Limit-Month:
+      - '75000000'
+      Quota-Remaining:
+      - '2499986'
+      X-Quota-Limit-Day:
+      - '2500000'
+      X-Concurrent-Quota-Remaining:
+      - '4'
+      X-Concurrent-Quota-Limit:
+      - '5'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "params": {
+            "community_tax": "0.020000000000000000",
+            "base_proposer_reward": "0.010000000000000000",
+            "bonus_proposer_reward": "0.040000000000000000",
+            "withdraw_addr_enabled": true
+          }
+        }
+  recorded_at: Mon, 23 Aug 2021 21:35:38 GMT
+- request:
+    method: get
+    uri: http://localhost:1738/cosmos/bank/v1beta1/supply/uatom
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin19.6.0 x86_64) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:1738
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 23 Aug 2021 21:35:39 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '75'
+      Connection:
+      - close
+      Ratelimit-Limit:
+      - '2000'
+      Ratelimit-Remaining:
+      - '1995'
+      X-Ratelimit-Remaining-Minute:
+      - '1995'
+      X-Ratelimit-Limit-Minute:
+      - '2000'
+      Ratelimit-Reset:
+      - '21'
+      Grpc-Metadata-X-Cosmos-Block-Height:
+      - '7406570'
+      X-Server-Time:
+      - '1629754539'
+      X-Concurrent-Quota-Limit:
+      - '5'
+      X-Concurrent-Quota-Remaining:
+      - '4'
+      Quota-Limit:
+      - '2500000'
+      X-Quota-Remaining-Day:
+      - '2499985'
+      X-Quota-Remaining-Month:
+      - '74997152'
+      X-Quota-Limit-Month:
+      - '75000000'
+      Quota-Reset:
+      - '8661'
+      Quota-Remaining:
+      - '2499985'
+      X-Quota-Limit-Day:
+      - '2500000'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "amount": {
+            "denom": "uatom",
+            "amount": "278005115725582"
+          }
+        }
+  recorded_at: Mon, 23 Aug 2021 21:35:39 GMT
+- request:
+    method: get
+    uri: http://localhost:1738/cosmos/mint/v1beta1/inflation
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin19.6.0 x86_64) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:1738
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 23 Aug 2021 21:35:39 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '41'
+      Connection:
+      - close
+      Ratelimit-Limit:
+      - '2000'
+      Ratelimit-Remaining:
+      - '1994'
+      X-Ratelimit-Remaining-Minute:
+      - '1994'
+      X-Ratelimit-Limit-Minute:
+      - '2000'
+      Ratelimit-Reset:
+      - '21'
+      Grpc-Metadata-X-Cosmos-Block-Height:
+      - '7406570'
+      X-Server-Time:
+      - '1629754539'
+      X-Concurrent-Quota-Remaining:
+      - '4'
+      X-Concurrent-Quota-Limit:
+      - '5'
+      X-Quota-Limit-Day:
+      - '2500000'
+      X-Quota-Limit-Month:
+      - '75000000'
+      Quota-Reset:
+      - '8661'
+      Quota-Limit:
+      - '2500000'
+      X-Quota-Remaining-Day:
+      - '2499984'
+      X-Quota-Remaining-Month:
+      - '74997151'
+      Quota-Remaining:
+      - '2499984'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "inflation": "0.070000000000000000"
+        }
+  recorded_at: Mon, 23 Aug 2021 21:35:39 GMT
+- request:
+    method: get
+    uri: http://localhost:1738/cosmos/distribution/v1beta1/params
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin19.6.0 x86_64) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:1738
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 23 Aug 2021 21:35:40 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '205'
+      Connection:
+      - close
+      X-Ratelimit-Remaining-Minute:
+      - '1993'
+      Ratelimit-Limit:
+      - '2000'
+      Ratelimit-Remaining:
+      - '1993'
+      Ratelimit-Reset:
+      - '20'
+      X-Ratelimit-Limit-Minute:
+      - '2000'
+      Grpc-Metadata-X-Cosmos-Block-Height:
+      - '7406570'
+      X-Server-Time:
+      - '1629754540'
+      X-Concurrent-Quota-Remaining:
+      - '4'
+      X-Concurrent-Quota-Limit:
+      - '5'
+      X-Quota-Limit-Day:
+      - '2500000'
+      X-Quota-Limit-Month:
+      - '75000000'
+      Quota-Limit:
+      - '2500000'
+      Quota-Remaining:
+      - '2499983'
+      Quota-Reset:
+      - '8660'
+      X-Quota-Remaining-Day:
+      - '2499983'
+      X-Quota-Remaining-Month:
+      - '74997150'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "params": {
+            "community_tax": "0.020000000000000000",
+            "base_proposer_reward": "0.010000000000000000",
+            "bonus_proposer_reward": "0.040000000000000000",
+            "withdraw_addr_enabled": true
+          }
+        }
+  recorded_at: Mon, 23 Aug 2021 21:35:40 GMT
+- request:
+    method: get
+    uri: http://localhost:1738/cosmos/bank/v1beta1/supply/uatom
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin19.6.0 x86_64) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:1738
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 23 Aug 2021 21:35:40 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '75'
+      Connection:
+      - close
+      X-Ratelimit-Limit-Minute:
+      - '2000'
+      Ratelimit-Limit:
+      - '2000'
+      Ratelimit-Remaining:
+      - '1992'
+      X-Ratelimit-Remaining-Minute:
+      - '1992'
+      Ratelimit-Reset:
+      - '20'
+      Grpc-Metadata-X-Cosmos-Block-Height:
+      - '7406570'
+      X-Server-Time:
+      - '1629754540'
+      Quota-Reset:
+      - '8660'
+      Quota-Limit:
+      - '2500000'
+      X-Quota-Remaining-Day:
+      - '2499982'
+      X-Quota-Remaining-Month:
+      - '74997149'
+      X-Quota-Limit-Month:
+      - '75000000'
+      Quota-Remaining:
+      - '2499982'
+      X-Quota-Limit-Day:
+      - '2500000'
+      X-Concurrent-Quota-Remaining:
+      - '4'
+      X-Concurrent-Quota-Limit:
+      - '5'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "amount": {
+            "denom": "uatom",
+            "amount": "278005115725582"
+          }
+        }
+  recorded_at: Mon, 23 Aug 2021 21:35:40 GMT
+- request:
+    method: get
+    uri: http://localhost:1738/cosmos/mint/v1beta1/inflation
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin19.6.0 x86_64) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:1738
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 23 Aug 2021 21:35:40 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '41'
+      Connection:
+      - close
+      Ratelimit-Limit:
+      - '2000'
+      Ratelimit-Remaining:
+      - '1991'
+      X-Ratelimit-Remaining-Minute:
+      - '1991'
+      X-Ratelimit-Limit-Minute:
+      - '2000'
+      Ratelimit-Reset:
+      - '20'
+      Grpc-Metadata-X-Cosmos-Block-Height:
+      - '7406570'
+      X-Server-Time:
+      - '1629754540'
+      X-Concurrent-Quota-Limit:
+      - '5'
+      X-Concurrent-Quota-Remaining:
+      - '4'
+      Quota-Limit:
+      - '2500000'
+      X-Quota-Remaining-Day:
+      - '2499981'
+      X-Quota-Remaining-Month:
+      - '74997148'
+      X-Quota-Limit-Month:
+      - '75000000'
+      Quota-Reset:
+      - '8660'
+      Quota-Remaining:
+      - '2499981'
+      X-Quota-Limit-Day:
+      - '2500000'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "inflation": "0.070000000000000000"
+        }
+  recorded_at: Mon, 23 Aug 2021 21:35:40 GMT
+- request:
+    method: get
+    uri: http://localhost:1738/cosmos/distribution/v1beta1/params
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin19.6.0 x86_64) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:1738
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 23 Aug 2021 21:35:41 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '205'
+      Connection:
+      - close
+      X-Ratelimit-Limit-Minute:
+      - '2000'
+      Ratelimit-Limit:
+      - '2000'
+      Ratelimit-Remaining:
+      - '1990'
+      X-Ratelimit-Remaining-Minute:
+      - '1990'
+      Ratelimit-Reset:
+      - '19'
+      Grpc-Metadata-X-Cosmos-Block-Height:
+      - '7406570'
+      X-Server-Time:
+      - '1629754541'
+      Quota-Reset:
+      - '8659'
+      Quota-Limit:
+      - '2500000'
+      X-Quota-Remaining-Day:
+      - '2499980'
+      X-Quota-Remaining-Month:
+      - '74997147'
+      X-Quota-Limit-Month:
+      - '75000000'
+      Quota-Remaining:
+      - '2499980'
+      X-Quota-Limit-Day:
+      - '2500000'
+      X-Concurrent-Quota-Remaining:
+      - '4'
+      X-Concurrent-Quota-Limit:
+      - '5'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "params": {
+            "community_tax": "0.020000000000000000",
+            "base_proposer_reward": "0.010000000000000000",
+            "bonus_proposer_reward": "0.040000000000000000",
+            "withdraw_addr_enabled": true
+          }
+        }
+  recorded_at: Mon, 23 Aug 2021 21:35:41 GMT
+recorded_with: VCR 6.0.0

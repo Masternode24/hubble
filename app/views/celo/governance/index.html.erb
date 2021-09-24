@@ -1,6 +1,9 @@
 <% content_for :body_class, 'governance-index' %>
 
-<%= render partial: '/shared/chain_header', locals: { active_tab: '' } %>
+<% content_for :additional_header_tabs do %>
+  <%= render partial: 'shared/chain_header_link', locals: { active_tab: '', link_text: 'Events', link_path: namespaced_path('events') } %>
+<% end %>
+<%= render partial: 'shared/chain_header', locals: { active_tab: '' } %>
 
 <div class='container'>
   <div class='content'>
@@ -12,7 +15,9 @@
               <h4 class="data-table__title">Governance Proposals</h4>
               <% if false -%>
                 <div class='controls'>
-                  <button class='btn btn-sm btn-outline-light' data-toggle='modal' data-target='#proposal-modal'>New Proposal</button>
+                  <button class='btn btn-sm btn-outline-light' data-toggle='modal' data-target='#proposal-modal'>New
+                    Proposal
+                  </button>
                 </div>
               <% end -%>
             </div>

@@ -1,0 +1,32 @@
+<table class="table small my-5">
+  <thead>
+    <tr>
+      <th>Network</th>
+      <th>Date</th>
+      <th>Price</th>
+      <th>Market Cap</th>
+      <th>Figment VP</th>
+      <th>Network %</th>
+      <th>Figment Commission</th>
+      <th>APR (Gross)</th>
+      <th>APR (Net)</th>
+      <th>APY (Mthly Comp.)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @data_points.each do |data_point| %>
+      <tr>
+        <td><%= link_to "#{data_point.network.name.titleize} (#{data_point.network.primary_chain.reward_token_display})", prime_admin_analytics_network_path(data_point.network) %></td>
+        <td><%= data_point.date.strftime('%m-%d') %></td>
+        <td><%= number_to_currency(data_point.token_price) %></td>
+        <td><%= number_to_currency(factor_analytics_value(data_point, data_point.network_market_cap), precision: 0) %></td>
+        <td><%= number_with_delimiter(factor_analytics_value(data_point, data_point.figment_delegated_tokens).round(0)) %></td>
+        <td><%= number_to_percentage(data_point.figment_staking_share * 100) %></td>
+        <td><%= number_to_percentage(data_point.figment_commission_rate * 100) %></td>
+        <td><%= number_to_percentage(data_point.investor_rewards_gross_apr * 100) %></td>
+        <td><%= number_to_percentage(data_point.investor_rewards_net_apr * 100) %></td>
+        <td><%= number_to_percentage(data_point.investor_monthly_compounded_apy * 100) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

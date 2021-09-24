@@ -22,6 +22,7 @@
     <%= stylesheet_link_tag 'prime', media: 'all' %>
     <%= prime_js_namespace %>
     <%= javascript_include_tag 'prime', media: 'all' %>
+    <%= javascript_pack_tag 'prime' %>
   </head>
 
   <body class='<%= yield :body_class %> <%= monitor_body_classes %>'>
@@ -40,6 +41,8 @@
                 Add address
               </button>
             <% end %>
+
+            <%= yield :page_header_body %>
           </div>
         </div>
         <%= render_flash_messages %>

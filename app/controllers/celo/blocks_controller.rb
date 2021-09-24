@@ -7,6 +7,9 @@ class Celo::BlocksController < Celo::BaseController
     @transactions = fetch_transactions(params[:id])
     @validator_groups = fetch_validator_groups(params[:id])
 
+    page_title @chain.network_name, @chain.name, "Transactions and Validator Groups for block #{@block.height}"
+    meta_description "#{@chain.network_name} -- #{@chain.name} - Transactions and Validator Groups"
+
     respond_to do |format|
       format.html
       format.json do

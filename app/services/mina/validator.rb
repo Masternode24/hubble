@@ -3,7 +3,7 @@ module Mina
     STATUS_ACTIVE = 'online'.freeze
     STATUS_INACTIVE = 'offline'.freeze
 
-    PERIOD_ACTIVE = 24.hours
+    PERIOD_ACTIVE = 48.hours
 
     field :public_key
     field :identity_name

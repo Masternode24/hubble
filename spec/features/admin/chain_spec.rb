@@ -1,5 +1,7 @@
 require 'features_helper'
 
+# in the future these should be done as controller tests
+
 describe 'Admin page' do
   let!(:admin) { create(:admin) }
 

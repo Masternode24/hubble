@@ -18,9 +18,13 @@
         <tr>
           <td class='data-table__empty' colspan='3'>Transactions are currently unavailable for this account</td>
         </tr>
+      <% elsif transactions.records.empty? && transactions.page > 1 -%>
+        <tr>
+          <td class='data-table__empty' colspan='3'>No more transactions for this account.</td>
+        </tr>
       <% elsif transactions.records.empty? -%>
         <tr>
-          <td class='data-table__empty' colspan='3'>No transactions for this block.</td>
+          <td class='data-table__empty' colspan='3'>No transactions for this account.</td>
         </tr>
       <% else -%>
         <% transactions.records.each do |transaction| -%>

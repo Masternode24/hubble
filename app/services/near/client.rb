@@ -44,7 +44,7 @@ module Near
     end
 
     def paginate(resource_class, path, opts = {})
-      Near::PaginatedResponse.new(resource_class, get(path, opts))
+      Common::PaginatedResponse.new(resource_class: resource_class, data: get(path, opts))
 
       # currently the indexer timeouts here due to the way it calculates counts.
       # this is a WIP and hopefully will be fixed in future but using
@@ -81,12 +81,12 @@ module Near
       Near::Account.new(get("/accounts/#{id}").merge('id' => id))
     end
 
-    def prime_rewards(prime_account)
+    def prime_rewards(prime_account, start_time, end_time)
       Rails.cache.fetch([self.class.name, 'rewards', prime_account.address].join('-'), expires_in: MEDIUM_EXPIRY_TIME) do
         token_factor = prime_account.network.primary_chain.reward_token_factor
         token_display = prime_account.network.primary_chain.reward_token_display
-        start_time = (Time.now.utc - DEFAULT_REWARDS_REQUEST_LENGTH).strftime('%Y-%m-%d')
-        end_time = Time.now.utc.strftime('%Y-%m-%d')
+        start_time ||= DEFAULT_REWARDS_REQUEST_LENGTH.ago.strftime('%Y-%m-%d')
+        end_time ||= Time.now.utc.strftime('%Y-%m-%d')
         list = get("/delegators/#{prime_account.address}/rewards", from: start_time, to: end_time, interval: 'daily') || []
         list.map do |reward|
           Prime::Reward::Near.new(reward, prime_account, token_factor: token_factor, token_display: token_display)

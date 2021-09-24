@@ -36,7 +36,7 @@ describe 'mina transactions', :vcr do
       within '.transactions-search-results' do
         expect(page.all('tbody > tr').size).to eq 2
         expect(page).to have_text 'Payment'
-        expect(page).to have_text 'E4YgzwkKzKGy6M6Ro79DAPfCAtnehgfEQ4dwz6XPQTRq5wenxdPk3'
+        expect(page).to have_text 'E4Ygz'
         expect(page).to have_link 'details'
       end
     end

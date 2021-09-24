@@ -16,6 +16,11 @@
   background: #FFFFFF;
   border: 1px solid #E9E9E9;
   border-radius: 4px;
+
+  &.input--valid {
+    border: 2px solid #3BB086;
+    outline-color: #3BB086;
+  }
 }
 
 .form {

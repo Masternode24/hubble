@@ -1,0 +1,16 @@
+<h3 id='mfa'>Multi-Factor Authentication</h3>
+<div class="profile__section disclaimer">
+  Multi-factor authentication adds an additional layer of security to your account by requiring more than just a password to sign in.
+</div>
+
+<% if current_user.mfa_enabled? %>
+  <div class="profile__section">
+    <div class="alert alert-success">
+      Status: <strong>Enabled</strong>
+    </div>
+
+    <%= link_to 'Disable MFA', prime_profile_disable_mfa_path, data: { method: :post, confirm: 'Are you sure you want to disable MFA?' }, class: 'disable' %>
+  </div>
+<% end %>
+
+<%= render "prime/profile/mfa_setup" unless current_user.mfa_enabled? %>

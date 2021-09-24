@@ -1,6 +1,9 @@
 <% content_for :body_class, 'prime-admin-root' %>
 
 <h3 class='mb-4'>Prime Admin</h3>
+<div class='text-right'> 
+  <%= link_to 'New Network', new_prime_admin_network_path, class: 'btn btn-sm mb-3 btn-outline-dark' %>
+</div>
 
 <% @networks.each do |network| %>
   <div class='row'>
@@ -8,8 +11,16 @@
       <div class='card'>
         <h5 class='card-header header mb-0'>
           <%= network.name.capitalize %>
-          <div class='buttons text-right'>
-            <%= link_to 'new', new_prime_admin_network_chain_path(network), class: 'btn btn-sm btn-light' %>
+          <div class='btn-group text-right'> 
+            <div class = 'buttons pr-3'>
+              <%= link_to 'edit', edit_prime_admin_network_path(network), class: 'btn btn-sm btn-light' %>
+            </div>
+            <div class='buttons text-right'>
+              <%= link_to 'new', new_prime_admin_network_chain_path(network), class: 'btn btn-sm btn-light' %>
+            </div>
+            <%= button_to prime_admin_network_path(network), method: 'delete', class: 'btn btn-sm btn-danger action-delete-confirmation ml-3' do %>
+              <span class='fas fa-times'></span> delete
+            <% end %>
           </div>
         </h5>
         <div class='card-body p-0'><%= render 'prime/admin/main/chain_quick_info', chains: network.chains %></div>
@@ -34,6 +45,16 @@
             <%= @prime_users.where( 'last_seen_at >= ?', 1.day.ago ).count %>
             seen in past day
           </small></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class='col-12 col-md-3'>
+    <%= link_to prime_admin_eth2_staking_customers_path do %>
+      <div class='card'>
+        <h5 class='card-header'>ETH Staking</h5>
+        <div class='card-body'>
+          See Customers
         </div>
       </div>
     <% end %>

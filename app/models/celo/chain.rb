@@ -1,5 +1,6 @@
 class Celo::Chain < ApplicationRecord
   include TokenMap
+  include TwitterConfig
 
   ASSET = 'celo'.freeze
 

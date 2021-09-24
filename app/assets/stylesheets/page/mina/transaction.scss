@@ -28,6 +28,26 @@
   }
 
   .transactions-search-results {
+    td {
+      &.id {
+        padding-left: 10px;
+      }
+      span.status-icon {
+        font-size: 10px;
+        color: $gray-300;
+        padding-right: 4px;
+
+        &.true {
+          @extend .text-success;
+        }
+
+        &.false {
+          @extend .text-danger;
+          opacity: 0.5;
+        }
+      }
+    }
+
     .inline-pagination {
       padding: 12px;
       text-align: center;

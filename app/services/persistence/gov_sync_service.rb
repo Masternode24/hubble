@@ -1,0 +1,69 @@
+class Persistence::GovSyncService < Cosmoslike::GovSyncService
+  private
+
+  def build_proposal(proposal)
+    if @chain.sdk_gte?('0.42.9')
+      return if proposal['id'] == '0' || proposal['content'].nil?
+
+      h = {
+        ext_id: proposal['id'].to_i,
+        proposal_type: proposal['content']['type'],
+        proposal_status: proposal_status(proposal['status']),
+        title: proposal['content']['value']['title'],
+        description: proposal['content']['value']['description'],
+        additional_data: proposal['content']['value'].except('title', 'description'),
+        submit_time: DateTime.parse(proposal['submit_time']),
+        deposit_end_time: DateTime.parse(proposal['deposit_end_time']),
+        total_deposit: proposal['total_deposit']
+      }.stringify_keys
+
+      merge_voting_times(proposal['voting_start_time'], proposal['voting_end_time'], h)
+
+      h
+
+    else
+      proposal = proposal['value']
+
+      {
+        ext_id: proposal['proposal_id'].to_i,
+        proposal_type: proposal['proposal_type'],
+        proposal_status: proposal['proposal_status'],
+        title: proposal['title'],
+        description: proposal['description'],
+        submit_time: DateTime.parse(proposal['submit_time']),
+        deposit_end_time: DateTime.parse(proposal['deposit_end_time']),
+        voting_start_time: DateTime.parse(proposal['voting_start_time']),
+        voting_end_time: DateTime.parse(proposal['voting_end_time']),
+        total_deposit: proposal['total_deposit']
+      }.stringify_keys
+    end
+  end
+
+  def merge_voting_times(start_date, end_date, h)
+    if DateTime.parse(start_date).to_i > 0
+      h.merge!({
+                 voting_start_time: DateTime.parse(start_date),
+                 voting_end_time: DateTime.parse(end_date)
+               }).stringify_keys
+    end
+  end
+
+  def proposal_status(status)
+    case status
+    when 0
+      ''
+    when 1
+      'DepositPeriod'
+    when 2
+      'VotingPeriod'
+    when 3
+      'Passed'
+    when 4
+      'Rejected'
+    when 5
+      'Failed'
+    else
+      ''
+    end
+  end
+end

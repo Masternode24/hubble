@@ -1,0 +1,28 @@
+<% content_for :body_class, 'prime-eth2-staking-app' %>
+
+<% content_for :page_header_body do %>
+  <div class="staking__header-actions">
+    <%= link_to "Staking Positions", prime_eth2_staking_path, class: 'button button--secondary page__header-button' %>
+  </div>
+<% end %>
+
+<div class="section">
+  <div class="page__container">
+    <div class="section__header">
+      <h2 class="section__title">Deposit to un-funded validators</h2>
+    </div>
+    <div class="section__row">
+      <div class="section__item section__item--wide">
+        <%= react_app_wrapper(
+              :eth2_staking_app,
+              html_options: { class: 'box' },
+              props: {
+                availableValidatorsCount: @position.validators.length,
+                withdrawalAddress: @position.eth1_withdrawal_address
+              }
+            )
+        %>
+      </div>
+    </div>
+  </div>
+</div>

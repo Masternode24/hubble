@@ -60,9 +60,6 @@
         <% if current_admin -%>
           <%= render partial: 'shared/chain_header_link', locals: { active_tab: active_tab, link_text: 'Admin', link_path: namespaced_path(admin: true) } %>
         <% end -%>
-        <% if defined?(faucet_link) && @chain.faucet && @chain.faucet.enabled? -%>
-          <%= render partial: 'shared/chain_header_link', locals: { active_tab: active_tab, link_text: 'Faucet', link_path: namespaced_path('faucet') } %>
-        <% end -%>
         <% if defined?(events_link) -%>
           <%= render partial: 'shared/chain_header_link', locals: { active_tab: active_tab, link_text: 'Events', link_path: namespaced_path('events') } %>
         <% end -%>

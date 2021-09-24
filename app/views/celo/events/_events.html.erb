@@ -1,0 +1,42 @@
+<div class='data-table events-table'>
+  <div class='d-flex align-items-center flex-grow-1 py-2 events-table-header'>
+    <h3 class="data-table__title">Events</h3>
+    <input type='text' class='form-control form-control-sm events-search' placeholder='filter events...'>
+  </div>
+  <div class='table-responsive'>
+    <table class='w-100'>
+      <thead>
+        <tr>
+          <th>Validator</th>
+          <th>Event</th>
+          <th>Block</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if events.records.blank? -%>
+          <tr>
+            <td class='data-table__empty' colspan='3'>No events yet.</td>
+          </tr>
+        <% else -%>
+          <% events.records.each do |event| -%>
+            <tr>
+              <%= render partial: to_partial_path(event), locals: { event: event, icon_classes: nil } %>
+              <td>
+                <div class='d-flex align-items-center justify-content-between'>
+                    <span class="event-history__date">
+                      <%= event.timestamp.strftime("%B %d, %Y") -%>
+                    </span>
+                </div>
+              </td>
+            </tr>
+          <% end -%>
+        <% end -%>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class='mt-5'>
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>

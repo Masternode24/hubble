@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 describe Cosmoslike::ValidatorDelegationsDecorator do
-  let(:instance) { described_class.new(chain, validator) }
+  let(:instance) { described_class.new(chain, validator, page) }
+  let(:page) { 1 }
   let(:chain) { build(:cosmos_chain) }
   let(:validator) { double(id: 1, owner: 'cosmosowner123', info_field: 1000000) }
+  let(:params) { { 'pagination.limit': 20, 'pagination.offset': 0 } }
   let(:syncer) { double }
   let(:delegation) { { 'delegator_address' => 'cosmos2121', 'shares' => 5000 } }
   let(:unbonding) { { 'delegator_address' => 'cosmos2121', 'entries' => [{ 'balance': 1 }] } }
@@ -13,7 +15,7 @@ describe Cosmoslike::ValidatorDelegationsDecorator do
 
     before do
       allow(chain).to receive(:syncer).and_return(syncer)
-      expect(syncer).to receive(:get_validator_delegations).with(validator.owner).and_return([delegation])
+      expect(syncer).to receive(:get_validator_delegations).with(validator.owner, params).and_return([delegation])
       expect(syncer).to receive(:get_validator_unbonding_delegations).with(validator.owner).and_return([unbonding])
       expect(Rails.cache).to receive(:fetch).twice.and_call_original
     end

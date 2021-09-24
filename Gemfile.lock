@@ -82,7 +82,13 @@ GEM
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     bcrypt (3.1.12)
+    better_errors (2.9.1)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
     bindex (0.5.0)
+    binding_of_caller (1.0.0)
+      debug_inspector (>= 0.0.1)
     bip_mnemonic (0.0.2)
     bitcoin-ruby (0.0.18)
     bitcoin-secp256k1 (0.5.0)
@@ -130,6 +136,7 @@ GEM
     chunky_png (1.3.10)
     coderay (1.1.2)
     concurrent-ruby (1.1.8)
+    connection_pool (2.2.5)
     counter_culture (2.6.2)
       activerecord (>= 4.2)
       activesupport (>= 4.2)
@@ -144,6 +151,7 @@ GEM
     curb (0.9.10)
     dalli (2.7.9)
     database_cleaner (1.8.5)
+    debug_inspector (1.1.0)
     diff-lcs (1.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
@@ -187,6 +195,8 @@ GEM
       rspec (>= 2.99.0, < 4.0)
     hashdiff (1.0.1)
     hashie (3.6.0)
+    health_check (3.1.0)
+      railties (>= 5.0)
     htmlentities (4.3.4)
     http (2.2.2)
       addressable (~> 2.3)
@@ -314,6 +324,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.3.0)
       loofah (~> 2.3)
+    rails-reverse-proxy (0.10.1)
+      actionpack
+      addressable
     railties (5.2.6)
       actionpack (= 5.2.6)
       activesupport (= 5.2.6)
@@ -403,6 +416,12 @@ GEM
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
     shellany (0.0.1)
+    shoulda-matchers (5.0.0)
+      activesupport (>= 5.2.0)
+    sidekiq (6.2.2)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
     simple_oauth (0.3.1)
     slack-notifier (2.3.2)
     smart_kv (0.2.8.1)
@@ -491,6 +510,8 @@ DEPENDENCIES
   aws-sdk-s3 (~> 1)
   babel-transpiler
   bcrypt
+  better_errors
+  binding_of_caller
   bip_mnemonic
   bitcoin-ruby
   bitcoin-secp256k1
@@ -515,6 +536,7 @@ DEPENDENCIES
   gqli (~> 1.0.0)
   groupdate
   guard-rspec
+  health_check
   jbuilder (~> 2.5)
   jquery-ui-rails
   letter_opener_web (~> 1.0)
@@ -532,6 +554,7 @@ DEPENDENCIES
   rack-revision
   rails (~> 5.2)
   rails-controller-testing
+  rails-reverse-proxy (~> 0.10.0)
   rash_alt (~> 0.4.8)
   redcarpet
   rest-client
@@ -545,6 +568,8 @@ DEPENDENCIES
   rubocop-rspec
   sass-rails (~> 5.0)
   selenium-webdriver (~> 3.142)
+  shoulda-matchers (~> 5.0)
+  sidekiq (~> 6.2.0)
   slack-notifier
   spring
   spring-commands-rspec

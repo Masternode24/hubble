@@ -8,4 +8,8 @@ class Prime::Chains::Polkadot < Prime::Chain
       Prime::Polkadot::ValidatorDecorator.new(client.validator(address, network: network))
     end
   end
+
+  def account_valid?(address)
+    client.account_details(address).present?
+  end
 end

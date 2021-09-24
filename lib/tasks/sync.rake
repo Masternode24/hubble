@@ -1,11 +1,11 @@
 namespace :sync do
   task all: :environment do
-    %w[cosmos terra iris kava emoney livepeer].each do |network|
+    %w[cosmos terra iris kava emoney livepeer crypto persistence].each do |network|
       Rake::Task["sync:#{network}"].invoke
     end
   end
 
-  %w[cosmos terra iris kava emoney].each do |network|
+  %w[cosmos terra iris kava emoney crypto persistence].each do |network|
     task "#{network.to_sym}": :environment do
       $stdout.sync = true
       puts "\nStarting sync:#{network} task at #{Time.now.utc.strftime(TASK_DATETIME_FORMAT)}"

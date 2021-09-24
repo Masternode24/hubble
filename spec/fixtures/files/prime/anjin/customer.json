@@ -1,0 +1,23 @@
+{
+  "data": {
+    "id": "958dbd70-eef7-4563-9cd5-0f8a765772ad",
+    "type": "customer",
+    "attributes": {
+      "name": "MCDOWALL",
+      "environment": "test"
+    },
+    "relationships": {
+      "eth2_staking_positions": {
+        "data": [
+          {
+            "id": "94c8dadf-5b2d-40af-9f93-3c293ecb9326",
+            "type": "staking_position"
+          }
+        ]
+      }
+    }
+  },
+  "links": {
+    "self": "https://localhost/test/api/v1/customers/958dbd70-eef7-4563-9cd5-0f8a765772ad"
+  }
+}

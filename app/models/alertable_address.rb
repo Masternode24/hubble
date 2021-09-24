@@ -20,9 +20,15 @@ class AlertableAddress < ApplicationRecord
     chain.get_alertable_name(address)
   end
 
+  # Skale doesn't pass the validator name through the event, only the validator ID
+  # so we use an indexer call to get the validator name directly. In the future this
+  # should be refactored so we can pass through an address into this in future or
+  # perhaps use a decorator or similar
   def short_name(max_length = 16)
     if FULL_LENGTH_NETWORK_NAMES.include?(chain.network_name)
       long_name
+    elsif chain.network_name == 'Skale'
+      chain.client.validator(long_name).name
     else
       long_name.truncate(max_length)
     end

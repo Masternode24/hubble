@@ -1,0 +1,155 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://localhost:26657/status
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin20.5.0 arm) ruby/2.7.2p137
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:26657
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 01 Sep 2021 17:48:51 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - AWSALB=yPN13rNJK1puBSGyRfoeAhx6oS4N5760UDHgp3WesKQ5iLR3iDQ2hE6PsDTJk8K8KVOeH2Suso8OminaHfBjnjxngSAxZq0G/ISIduFHbJNhVjvo9bjBwSnJiCc6;
+        Expires=Wed, 08 Sep 2021 17:48:51 GMT; Path=/
+      - AWSALBCORS=yPN13rNJK1puBSGyRfoeAhx6oS4N5760UDHgp3WesKQ5iLR3iDQ2hE6PsDTJk8K8KVOeH2Suso8OminaHfBjnjxngSAxZq0G/ISIduFHbJNhVjvo9bjBwSnJiCc6;
+        Expires=Wed, 08 Sep 2021 17:48:51 GMT; Path=/; SameSite=None; Secure
+      - __cf_bm=9b30efd9bfcfd307d8ff06e4741975039432eb69-1630518531-1800-Aa10NBl801RDg1Yfj9Y7W4T5rQBxW79NirpbUqgVS5iyUCfvYrqZmX4EyyydIBJZXwgF8PdwS5r7d8maBLt3DJs=;
+        path=/; expires=Wed, 01-Sep-21 18:18:51 GMT; domain=.crypto.org; HttpOnly;
+        Secure; SameSite=None
+      Vary:
+      - Origin
+      X-Server-Time:
+      - '1630518531'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 688054ed89a634c0-DUB
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "jsonrpc": "2.0",
+          "id": -1,
+          "result": {
+            "node_info": {
+              "protocol_version": {
+                "p2p": "8",
+                "block": "11",
+                "app": "0"
+              },
+              "id": "8af7c92277f3edce58aa828cf1026cfa74fd6569",
+              "listen_addr": "127.0.0.1:26656",
+              "network": "testnet-croeseid-4",
+              "version": "0.34.11",
+              "channels": "40202122233038606100",
+              "moniker": "seed-node1",
+              "other": {
+                "tx_index": "on",
+                "rpc_address": "tcp://127.0.0.1:26657"
+              }
+            },
+            "sync_info": {
+              "latest_block_hash": "333966C850F2E598F676BA345E29FFB814164C3436E8D06E53CC7FEBE384CD81",
+              "latest_app_hash": "FB89A1FA00EFB0B88F77A6B65C1089A5F3A230762CDA85ADBB39B83DA339831A",
+              "latest_block_height": "219733",
+              "latest_block_time": "2021-09-01T17:48:41.588193225Z",
+              "earliest_block_hash": "1D1ED00BDB7E95A765294BAF16035FB814EBBF7522315990FC8F5013A73CBE62",
+              "earliest_app_hash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+              "earliest_block_height": "1",
+              "earliest_block_time": "2021-08-19T04:44:03.645446Z",
+              "catching_up": false
+            },
+            "validator_info": {
+              "address": "324CB516281B0AEDE9AD10482638C2350CDB253F",
+              "pub_key": {
+                "type": "tendermint/PubKeyEd25519",
+                "value": "a1QFtWqYD09v+TW4BbHB2RLTOwLpX50K8CMH7/45hL4="
+              },
+              "voting_power": "0"
+            }
+          }
+        }
+  recorded_at: Wed, 01 Sep 2021 17:48:51 GMT
+- request:
+    method: get
+    uri: https://localhost:1317/txs/4407c0f7f87d9b36ae19f853543cf7de50fe1f1f3104486d3d17ba226bdc5dae
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin20.5.0 arm) ruby/2.7.2p137
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - localhost:1317
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Date:
+      - Wed, 01 Sep 2021 17:48:51 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '91'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - AWSALB=A6IvDTVEn8jG0RKnq/vxYKCKg5jcjtyqkOhFW/y3jaqs4V4uwtfEcO9FOU64SEUMu4O+GKgXKxv1n0RmDTrq/KJDQ49zK8DjX14BT7c+Gh3um6eKsMTgmq9Uzesq;
+        Expires=Wed, 08 Sep 2021 17:48:51 GMT; Path=/
+      - AWSALBCORS=A6IvDTVEn8jG0RKnq/vxYKCKg5jcjtyqkOhFW/y3jaqs4V4uwtfEcO9FOU64SEUMu4O+GKgXKxv1n0RmDTrq/KJDQ49zK8DjX14BT7c+Gh3um6eKsMTgmq9Uzesq;
+        Expires=Wed, 08 Sep 2021 17:48:51 GMT; Path=/; SameSite=None; Secure
+      - __cf_bm=989a2477256b0a3a8351bb35f78be01f72535f4f-1630518531-1800-AVEYE+8i8P2IwNt/hQDKwjTNWDyjVtlDeiPOJE+Xsa5lz6HfSYJAeeVqoKbi72JAaOiwkuEwhmuxbajPahxMoTA=;
+        path=/; expires=Wed, 01-Sep-21 18:18:51 GMT; domain=.crypto.org; HttpOnly;
+        Secure; SameSite=None
+      Deprecation:
+      - 'true'
+      Link:
+      - <https://docs.cosmos.network/master/migrations/rest.html>; rel="deprecation"
+      Warning:
+      - 199 - "this endpoint is deprecated and may not work as before, see deprecation
+        link for more info"
+      X-Server-Time:
+      - '1630518531'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 688054f47d2b34de-DUB
+    body:
+      encoding: UTF-8
+      string: '{"error":"tx (4407C0F7F87D9B36AE19F853543CF7DE50FE1F1F3104486D3D17BA226BDC5DAE)
+        not found"}'
+  recorded_at: Wed, 01 Sep 2021 17:48:51 GMT
+recorded_with: VCR 6.0.0

@@ -5,6 +5,7 @@ module Prime
     field :validator_address
     field :token_factor, type: :integer
     field :token_display
+    field :total_commission
     field :account, type: Prime::Account
 
     def initialize(attr, account, token_factor: nil, token_display: nil)

@@ -1,0 +1,34 @@
+<% content_for :body_class, 'prime-staking' %>
+
+<% content_for :page_header_body do %>
+  <% if current_user.mfa_enabled? %>
+    <div class="staking__header-actions">
+      <%= link_to prime_api_keys_path, data: { method: :post, confirm: 'Are you sure?' }, class: "button button--primary page__header-button" do %>
+        <%= image_tag 'prime/icons/plus-light.svg', alt: 'plus' %> Create a new API key
+      <% end %>
+      <%= link_to 'API documentation', prime_eth2_staking_docs_path, class: "button button--secondary page__header-button" %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="section">
+  <div class="page__container staking__api">
+    <div class="section__header">
+      <h2 class="section__title">Staking API Access</h2>
+    </div>
+    <% if current_user.mfa_enabled? %>
+      <%= render "prime/eth2_staking/home/api" %>
+    <% else %>
+      <%= render "prime/eth2_staking/home/api_mfa_required" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="section">
+  <div class="page__container">
+    <div class="section__header">
+      <h2 class="section__title">My Staking Positions</h2>
+    </div>
+    <%= render "prime/eth2_staking/home/positions", show_totals: true %>
+  </div>
+</div>

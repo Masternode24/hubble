@@ -1,0 +1,135 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://localhost:8080/validators/15
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin20.5.0 arm) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - skale--mainnet--indexer.datahub.figment.io
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 23 Aug 2021 17:55:03 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '432'
+      Connection:
+      - keep-alive
+      Ratelimit-Limit:
+      - '2000'
+      Ratelimit-Remaining:
+      - '1999'
+      X-Ratelimit-Remaining-Minute:
+      - '1999'
+      X-Ratelimit-Limit-Minute:
+      - '2000'
+      Ratelimit-Reset:
+      - '57'
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Authorization
+      X-Quota-Remaining-Day:
+      - '9999946'
+      Quota-Limit:
+      - '10000000'
+      Quota-Remaining:
+      - '9999946'
+      X-Quota-Limit-Day:
+      - '10000000'
+      Quota-Reset:
+      - '21897'
+    body:
+      encoding: UTF-8
+      string: '[{"id":15,"name":"Figment Networks","description":"https://figment.io","validator_address":"0x82697068ef6be38a79af90efcd675e5cf792287c","requested_address":"0x0000000000000000000000000000000000000000","fee_rate":150,"registration_time":"2020-09-21T20:08:00Z","minimum_delegation_amount":10000000000000000000000,"accept_new_requests":true,"authorized":true,"active_nodes":0,"linked_nodes":11,"staked":"225826355000000000000000000"}]
+
+'
+  recorded_at: Mon, 23 Aug 2021 17:55:03 GMT
+- request:
+    method: get
+    uri: https://localhost:8080/validators/15
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - rest-client/2.1.0 (darwin20.5.0 arm) ruby/2.7.2p137
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Host:
+      - skale--mainnet--indexer.datahub.figment.io
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 23 Aug 2021 17:55:05 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '432'
+      Connection:
+      - keep-alive
+      Ratelimit-Limit:
+      - '2000'
+      Ratelimit-Remaining:
+      - '1998'
+      X-Ratelimit-Remaining-Minute:
+      - '1998'
+      X-Ratelimit-Limit-Minute:
+      - '2000'
+      Ratelimit-Reset:
+      - '55'
+      Access-Control-Allow-Headers:
+      - Content-Type
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Authorization
+      Quota-Limit:
+      - '10000000'
+      Quota-Remaining:
+      - '9999945'
+      X-Quota-Limit-Day:
+      - '10000000'
+      Quota-Reset:
+      - '21895'
+      X-Quota-Remaining-Day:
+      - '9999945'
+    body:
+      encoding: UTF-8
+      string: '[{"id":15,"name":"Figment Networks","description":"https://figment.io","validator_address":"0x82697068ef6be38a79af90efcd675e5cf792287c","requested_address":"0x0000000000000000000000000000000000000000","fee_rate":150,"registration_time":"2020-09-21T20:08:00Z","minimum_delegation_amount":10000000000000000000000,"accept_new_requests":true,"authorized":true,"active_nodes":0,"linked_nodes":11,"staked":"225826355000000000000000000"}]
+
+'
+  recorded_at: Mon, 23 Aug 2021 17:55:05 GMT
+recorded_with: VCR 6.0.0

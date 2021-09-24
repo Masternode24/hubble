@@ -19,7 +19,7 @@ RSpec.describe Admin::Skale::ChainsController do
       expect(response).to render_template(:show)
     end
 
-    it "doesn't show error", :vcr do
+    it "doesn't show error" do
       expect(flash[:error]).to be_nil
     end
   end

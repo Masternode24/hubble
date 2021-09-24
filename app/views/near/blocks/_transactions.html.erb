@@ -14,7 +14,11 @@
       </tr>
       </thead>
       <tbody>
-      <% if @transactions.records.blank? -%>
+      <% if @transactions.records.blank? && @transactions.page > 1 -%>
+        <tr>
+          <td class='data-table__empty' colspan='3'>No more transactions for this block.</td>
+        </tr>
+        <% elsif @transactions.records.blank? -%>
         <tr>
           <td class='data-table__empty' colspan='3'>No transactions for this block.</td>
         </tr>

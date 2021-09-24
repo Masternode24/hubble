@@ -1,6 +1,9 @@
 <% content_for :body_class, 'validator-group-show' %>
 
-<%= render partial: 'shared/chain_header', locals: { active_tab: nil } %>
+<% content_for :additional_header_tabs do %>
+  <%= render partial: 'shared/chain_header_link', locals: { active_tab: 'Validators', link_text: 'Events', link_path: namespaced_path('events') } %>
+<% end %>
+<%= render partial: 'shared/chain_header', locals: { active_tab: 'Validators' } %>
 
 <%= render_flash_messages %>
 
@@ -21,9 +24,9 @@
         <ul class="validator-group-info__list">
           <li class="validator-group-info__item">
             <p class="text-label validator-group-info__label">Address</p>
-              <%= link_to namespaced_path('account', @validator_group.address), class: "validator-info__value technical" do %>
-                <%= @validator_group.address %>
-              <% end %>
+            <%= link_to namespaced_path('account', @validator_group.address), class: "validator-info__value technical" do %>
+              <%= @validator_group.address %>
+            <% end %>
             </p>
           </li>
         </ul>
@@ -56,7 +59,7 @@
           </li>
           <li class="data-blocks__item">
             <%= render partial: 'celo/validators/lifetime',
-                locals: { first_seen: @validator_group.started_at, last_updated: @validator_group.recent_at} %>
+                       locals: { first_seen: @validator_group.started_at, last_updated: @validator_group.recent_at } %>
           </li>
           <li class="data-blocks__item">
             <%= render partial: 'celo/validators/commission', locals: { commission: @validator_group.factored_commission } %>

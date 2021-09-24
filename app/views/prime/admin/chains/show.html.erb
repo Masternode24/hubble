@@ -15,7 +15,7 @@
 <table class='table table-sm mb-5'>
   <tbody>
     <tr>
-      <th class='align-middle mt-0'>Status:</th>
+      <th class='align-middle mt-0'>Prime Dashboard Status:</th>
       <td class='mt-0'>
         <div class='chain-status d-flex'>
 
@@ -69,12 +69,66 @@
     </tr>
 
     <tr>
+      <th class='align-middle mt-0'>Analytics Status:</th>
+      <td class='mt-0'>
+        <div class='chain-status d-flex'>
+          <% if @chain.analytics_enabled %>
+            <%= form_for @chain, url: prime_admin_network_chain_path, method: 'patch' do |f| %>
+              <%= f.hidden_field :analytics_enabled, value: false %>
+              <%= f.button  class: 'btn btn-sm btn-warning ml-2' do %>
+                <span class='fas fa-exclamation-triangle'></span> disable
+              <% end %>
+            <% end -%>
+          <% else %>
+            <%= form_for @chain, url: prime_admin_network_chain_path, method: 'patch' do |f| %>
+              <%= f.hidden_field :analytics_enabled, value: true %>
+              <%= f.button  class: 'btn btn-sm btn-primary ml-2' do %>
+                <span class='fas fa-play-circle'></span> Enable
+              <% end %>
+            <% end -%>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
       <th class='align-middle'>API URL:</th>
       <td>
         <%= form_for @chain, url: prime_admin_network_chain_path, method: 'patch' do |f| %>
           <div class='rpc-host-edit d-flex'>
             <%= f.text_field :api_url, class: 'mr-2 w-50 form-control technical', placeholder: 'api_url' %>
             <%= f.submit 'update', class: 'btn btn-sm btn-primary ml-auto' %>
+          </div>
+        <% end -%>
+      </td>
+    </tr>
+
+    <tr>
+      <th class="align-middle">RPC URL:</th>
+      <td>
+        <%= form_for @chain, url: prime_admin_network_chain_path, method: 'patch' do |f| %>
+          <div class='d-flex flex-column py-3'>
+            <div class='d-flex'>
+              <div class='w-100 mr-4'>
+                <%= f.label :rpc_host, 'RPC Host:', class: 'text-muted text-sm mb-0' %>
+                <%= f.text_field :rpc_host, class: 'mr-2 w-100 form-control technical', placeholder: 'rpc host' %>
+              </div>
+              <div class='w-100 ml-4'>
+                <%= f.label :rpc_port, 'RPC Port:', class: 'text-muted text-sm mb-0' %>
+                <%= f.text_field :rpc_port, class: 'mr-2 w-50 form-control technical' %>
+              </div>
+              <div class="w-100 ml-4">
+                <%= f.label 'Use SSL' %>
+                <%= f.check_box :use_ssl_for_rpc, { :multiple => false } %>
+              </div>
+            </div>
+            <div class='d-flex'>
+              <div class='w-100 mr-4'>
+                <%= f.label :rpc_api_key, 'RPC Api Key:', class: 'text-muted text-sm mt-3 mb-0' %>
+                <%= f.text_field :rpc_api_key, class: 'mr-2 w-100 form-control technical', placeholder: 'API Key' %>
+              </div>
+            </div>
+            <%= f.submit 'update', id: 'rpc-update-button', class: 'mt-3 ml-auto btn btn-sm btn-primary' %>
           </div>
         <% end -%>
       </td>

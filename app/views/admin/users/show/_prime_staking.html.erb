@@ -1,0 +1,28 @@
+<div class='row mt-5'>
+  <div class='col-12'>
+    <h4>Prime ETH Staking</h4>
+    <div class='card'>
+      <div class='card-body row'>
+        <div class='col-8'>
+          <% if @user.prime_eth_staking_customer_id.present? %>
+            <div>Internal customer ID: <code><%= @user.prime_eth_staking_customer_id %></code></div>
+          <% end %>
+          <div>
+            Status:
+            <% if @user.prime_eth_staking_enabled? %>
+              <span class='text-success'>Enabled</span>
+            <% else %>
+              <span class='text-danger'>Disabled</span>
+            <% end %>
+          </div>
+        </div>
+        <div class='col-4 text-right'>
+          <% if @user.prime_eth_staking_customer_id.present? %>
+            <%= link_to "View Details", prime_admin_eth2_staking_customer_path(@user.prime_eth_staking_customer_id), class: "btn btn-primary" %>
+          <% end %>
+          <%= link_to "Edit Settings", prime_eth_staking_admin_user_path(@user), class: 'btn btn-secondary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

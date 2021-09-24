@@ -1,0 +1,12 @@
+<% content_for :body_class, 'events-index' %>
+
+<% content_for :additional_header_tabs do %>
+  <%= render partial: 'shared/chain_header_link', locals: { active_tab: 'Events', link_text: 'Events', link_path: namespaced_path('events') } %>
+<% end %>
+<%= render partial: 'shared/chain_header', locals: { active_tab: 'Events' } %>
+
+<div class='content'>
+  <div class='container'>
+    <%= render partial: 'celo/events/events', locals: { events: @events } %>
+  </div>
+</div>

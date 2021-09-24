@@ -1,0 +1,10 @@
+<div class="section">
+  <div class="page__container">
+    <div class="section__header">
+      <h2 class="section__title">Staking Position Details</h2>
+    </div>
+    <%= render "prime/eth2_staking/staking_positions/validators", validators: @position.validators %>
+    <br/>
+    <%= link_to "All Staking Positions", prime_eth2_staking_path, class: "button button--primary button--inline" %>
+  </div>
+</div>

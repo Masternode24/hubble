@@ -1,18 +1,26 @@
 <% content_for :body_class, 'account-show' %>
 
-<%= render partial: '/shared/chain_header', locals: { active_tab: '' } %>
+<% content_for :additional_header_tabs do %>
+  <%= render partial: 'shared/chain_header_link', locals: { active_tab: '', link_text: 'Events', link_path: namespaced_path('events') } %>
+<% end %>
+<%= render partial: 'shared/chain_header', locals: { active_tab: '' } %>
 
 <div class='container'>
-  <div  class='content'>
+  <div class='content'>
     <div class='data-block'>
       <h3 class='data-block__title'>Account</h3>
-      <span class='technical text-lg'><%= params[:id] %></span>
+      <span class='technical text-lg'><%= @account_details.address %></span>
     </div>
-    <% if @account_details.name %>
-<!-- TODO: metadata_url, link to a validator/validator group when Indexer returns data -->
+    <% if @account_details.name.present? || @account_details.has_owner? %>
       <div class='data-block'>
         <h3 class='data-block__title'>Owner</h3>
-        <span class='text-monospace'><%= @account_details.name %></span>
+        <span class='text-monospace'>
+          <% if @account_details.has_owner? %>
+            <%= link_to @account_details.display_name, namespaced_path(@account_details.type, @account_details.address) %>
+          <% else %>
+            <%= @account_details.display_name %>
+          <% end %>
+        </span>
       </div>
     <% end %>
     <% if @error %>

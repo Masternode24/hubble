@@ -9,4 +9,11 @@ module SessionHelpers
       click_button 'login'
     end
   end
+
+  def confirm_otp(user)
+    return unless user.mfa_enabled?
+
+    fill_in 'otp_code', with: '123455'
+    click_button 'verify'
+  end
 end

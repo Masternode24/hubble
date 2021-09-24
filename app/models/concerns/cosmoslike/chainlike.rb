@@ -1,5 +1,6 @@
 module Cosmoslike::Chainlike
   extend ActiveSupport::Concern
+  include TwitterConfig
 
   included do |klass|
     namespace = klass.name.deconstantize.constantize
@@ -93,13 +94,6 @@ module Cosmoslike::Chainlike
     self.history_height = height
     self.validator_event_defs = validator_event_defs.map { |defn| defn['height'] = height; defn }
     save!
-  end
-
-  TWITTER_CONFIG_FIELDS = %w[consumer_key consumer_secret access_token access_secret].freeze
-  def has_twitter_config?
-    TWITTER_CONFIG_FIELDS.all? do |field|
-      !twitter_events_config[field].nil?
-    end
   end
 
   def get_event_height(defn_id)
@@ -212,6 +206,18 @@ module Cosmoslike::Chainlike
 
   def supports_ledger?
     false
+  end
+
+  def prime_chain
+    "Prime::Chains::#{network_name}".constantize
+  end
+
+  def prime_primary_chain
+    prime_chain.primary_chain
+  end
+
+  def lcd_url
+    lcd_host + lcd_path
   end
 
   private

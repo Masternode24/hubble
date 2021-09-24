@@ -1,5 +1,8 @@
 <% content_for :body_class, 'chain-show' %>
 
+<% content_for :additional_header_tabs do %>
+  <%= render partial: 'shared/chain_header_link', locals: { active_tab: 'Validators', link_text: 'Events', link_path: namespaced_path('events') } %>
+<% end %>
 <%= render partial: 'shared/chain_header', locals: { active_tab: 'Validators' } %>
 
 <%= render_flash_messages %>
@@ -10,13 +13,13 @@
       <div class='col-12 col-md-9 order-1 order-md-0'>
         <div class="row">
           <%= render partial: 'validator_groups_summary', locals: {
-              validator_groups_summary: @validator_groups_summary,
-              current_groups_summary_total: @current_groups_summary_total,
-              chain: @chain } %>
+            validator_groups_summary: @validator_groups_summary,
+            current_groups_summary_total: @current_groups_summary_total,
+            chain: @chain } %>
 
           <%= render partial: 'blocks_summary', locals: {
-              blocks_summary: @blocks_summary, average_block_time: @average_block_time,
-              chain: @chain } %>
+            blocks_summary: @blocks_summary, average_block_time: @average_block_time,
+            chain: @chain } %>
         </div>
 
         <%= render partial: 'celo/shared/validator_groups', locals: { validator_groups: @validator_groups } %>

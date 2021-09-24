@@ -1,6 +1,6 @@
 class Util::LogsController < Hubble::ApplicationController
   def index
-    raise ActionController::NotFound if !params[:network].in?(%w[cosmos terra iris kava emoney])
+    raise ActionController::NotFound if !params[:network].in?(%w[cosmos terra iris kava emoney crypto])
 
     @chain = params[:network].titleize.constantize::Chain.find_by(slug: params[:chain_id])
     page_title @chain.network_name, @chain.name, 'Sync Logs'

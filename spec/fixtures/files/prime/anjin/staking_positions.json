@@ -1,0 +1,862 @@
+{
+  "data": [
+    {
+      "id": "94c8dadf-5b2d-40af-9f93-3c293ecb9326",
+      "type": "staking_position",
+      "attributes": {
+        "staked_eth_amount": 96,
+        "eth1_withdrawal_address": "0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"
+      },
+      "relationships": {
+        "customer": {
+          "data": {
+            "id": "958dbd70-eef7-4563-9cd5-0f8a765772ad",
+            "type": "customer"
+          }
+        },
+        "eth1_withdrawal_address": {
+          "data": {
+            "id": "10aa9021-31e4-45b8-ba57-02d87c3f32c6",
+            "type": "eth1_withdrawal_address"
+          }
+        },
+        "eth2_validators": {
+          "data": [
+            {
+              "id": "f8aa9a9f-c29f-466f-8372-7b1397c1f257",
+              "type": "validator"
+            },
+            {
+              "id": "63081c20-27c4-4bb9-8c32-4bcd1720454b",
+              "type": "validator"
+            },
+            {
+              "id": "e392ca88-3d85-432a-b875-38c4ceded46f",
+              "type": "validator"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "7d5cf55f-ab61-4a8e-8935-451d4f308701",
+      "type": "staking_position",
+      "attributes": {
+        "staked_eth_amount": 44,
+        "eth1_withdrawal_address": "0xE40F80618324C814cD444434670a44ba4583aE38"
+      },
+      "relationships": {
+        "customer": {
+          "data": {
+            "id": "2348383f-90cc-414b-9d5f-5e8e181eaf18",
+            "type": "customer"
+          }
+        },
+        "eth1_withdrawal_address": {
+          "data": {
+            "id": "0ef9985a-804c-40b8-93fb-0791594e8af7",
+            "type": "eth1_withdrawal_address"
+          }
+        },
+        "eth2_validators": {
+          "data": [
+            {
+              "id": "d686e457-b8f5-4eb3-aa88-7a1aadac1135",
+              "type": "validator"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "6a197245-d214-405b-8f90-1e0a95c74440",
+      "type": "staking_position",
+      "attributes": {
+        "staked_eth_amount": 32,
+        "eth1_withdrawal_address": "0xE40F80618324C814cD444434670a44ba4583aE38"
+      },
+      "relationships": {
+        "customer": {
+          "data": {
+            "id": "2348383f-90cc-414b-9d5f-5e8e181eaf18",
+            "type": "customer"
+          }
+        },
+        "eth1_withdrawal_address": {
+          "data": {
+            "id": "0ef9985a-804c-40b8-93fb-0791594e8af7",
+            "type": "eth1_withdrawal_address"
+          }
+        },
+        "eth2_validators": {
+          "data": [
+            {
+              "id": "284e111a-f54e-4c26-ac97-36edd2423589",
+              "type": "validator"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "5a862d8f-df89-4f5b-8c20-ecc0da9f8472",
+      "type": "staking_position",
+      "attributes": {
+        "staked_eth_amount": 64,
+        "eth1_withdrawal_address": "0xE40F80618324C814cD444434670a44ba4583aE38"
+      },
+      "relationships": {
+        "customer": {
+          "data": {
+            "id": "2348383f-90cc-414b-9d5f-5e8e181eaf18",
+            "type": "customer"
+          }
+        },
+        "eth1_withdrawal_address": {
+          "data": {
+            "id": "0ef9985a-804c-40b8-93fb-0791594e8af7",
+            "type": "eth1_withdrawal_address"
+          }
+        },
+        "eth2_validators": {
+          "data": [
+            {
+              "id": "64e85b0a-0ceb-4d0d-ad12-b4c7850429b7",
+              "type": "validator"
+            },
+            {
+              "id": "fedcd214-9425-43a3-ad83-ab4eda858d53",
+              "type": "validator"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "c9f53ae6-ee7e-40c3-a0f4-27c39b81d275",
+      "type": "staking_position",
+      "attributes": {
+        "staked_eth_amount": 64,
+        "eth1_withdrawal_address": "0xE40F80618324C814cD444434670a44ba4583aE38"
+      },
+      "relationships": {
+        "customer": {
+          "data": {
+            "id": "2348383f-90cc-414b-9d5f-5e8e181eaf18",
+            "type": "customer"
+          }
+        },
+        "eth1_withdrawal_address": {
+          "data": {
+            "id": "0ef9985a-804c-40b8-93fb-0791594e8af7",
+            "type": "eth1_withdrawal_address"
+          }
+        },
+        "eth2_validators": {
+          "data": [
+            {
+              "id": "a9477845-acd9-4a43-8e6d-c00387861ebe",
+              "type": "validator"
+            },
+            {
+              "id": "b8c0610e-7391-4a44-814b-59d56383039e",
+              "type": "validator"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "f0334905-9118-41ee-b061-95459a3f8707",
+      "type": "staking_position",
+      "attributes": {
+        "staked_eth_amount": 320,
+        "eth1_withdrawal_address": "0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762"
+      },
+      "relationships": {
+        "customer": {
+          "data": {
+            "id": "1c6bd5f5-2650-4931-8be7-4a85a5099565",
+            "type": "customer"
+          }
+        },
+        "eth1_withdrawal_address": {
+          "data": {
+            "id": "1a327f44-2577-4dd2-a12f-4298871d6a55",
+            "type": "eth1_withdrawal_address"
+          }
+        },
+        "eth2_validators": {
+          "data": [
+            {
+              "id": "db86b462-c843-4a3f-89c1-572f602e44b8",
+              "type": "validator"
+            },
+            {
+              "id": "15dfb1b1-d89c-4ea1-ae3f-d1f05932d088",
+              "type": "validator"
+            },
+            {
+              "id": "10028ae7-224b-4ec9-9359-eb9760883508",
+              "type": "validator"
+            },
+            {
+              "id": "bfea25eb-da14-4477-a3bc-4336a87686e3",
+              "type": "validator"
+            },
+            {
+              "id": "afb3b123-38d6-4e38-aa04-8f6082c3c4f1",
+              "type": "validator"
+            },
+            {
+              "id": "4ee54d61-1bfc-4de0-b7a9-76131a4a38a4",
+              "type": "validator"
+            },
+            {
+              "id": "7e9450a3-ab23-4264-8ebf-85cf3181eed7",
+              "type": "validator"
+            },
+            {
+              "id": "bd32c189-4388-4279-98b5-83363edcf47b",
+              "type": "validator"
+            },
+            {
+              "id": "1cbe1f27-beb1-4331-a0af-22832cd40ecd",
+              "type": "validator"
+            },
+            {
+              "id": "c5bac0a3-ffb9-493b-8a55-7843798893d8",
+              "type": "validator"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "80697980-156f-4b81-8574-ee424641d399",
+      "type": "staking_position",
+      "attributes": {
+        "staked_eth_amount": 64,
+        "eth1_withdrawal_address": "0xE40F80618324C814cD444434670a44ba4583aE38"
+      },
+      "relationships": {
+        "customer": {
+          "data": {
+            "id": "a1eeec52-f285-4598-8c7e-c33052d23657",
+            "type": "customer"
+          }
+        },
+        "eth1_withdrawal_address": {
+          "data": {
+            "id": "0ef9985a-804c-40b8-93fb-0791594e8af7",
+            "type": "eth1_withdrawal_address"
+          }
+        },
+        "eth2_validators": {
+          "data": [
+            {
+              "id": "39534ac4-cfc4-447a-b194-90f37b7fcf65",
+              "type": "validator"
+            },
+            {
+              "id": "5a7bf73c-c528-46ff-afc0-1f2f1dc2f14f",
+              "type": "validator"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "6c7f2cde-bb37-43c0-91ae-b4135b10062f",
+      "type": "staking_position",
+      "attributes": {
+        "staked_eth_amount": 64,
+        "eth1_withdrawal_address": "0xE40F80618324C814cD444434670a44ba4583aE38"
+      },
+      "relationships": {
+        "customer": {
+          "data": {
+            "id": "a1eeec52-f285-4598-8c7e-c33052d23657",
+            "type": "customer"
+          }
+        },
+        "eth1_withdrawal_address": {
+          "data": {
+            "id": "0ef9985a-804c-40b8-93fb-0791594e8af7",
+            "type": "eth1_withdrawal_address"
+          }
+        },
+        "eth2_validators": {
+          "data": [
+            {
+              "id": "a447d2f3-5c3b-4408-94d5-9e3a3b205cb5",
+              "type": "validator"
+            },
+            {
+              "id": "d3cf9726-f369-4f06-97ed-1e2af074d37f",
+              "type": "validator"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "included": [
+    {
+      "id": "f8aa9a9f-c29f-466f-8372-7b1397c1f257",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "ace32a7156de5ef650f2c416455379327488c5d31d03bbf3c567be3fc4c9d928fe2b5569259ddf10a1e32ce5e6011482",
+        "withdrawal_credentials": "00ea25ce2c9eb123fb8dc284955dc585aa4d708c0f9f95f14a902427b60b4fa4",
+        "amount": "32000000000",
+        "signature": "8ecbd8b5042eb9b449eb05b6a779beea7a2f1137e040bc807b53066aa88abfd31a255792bcf168635051913363d6a0b213b46b72ca29dfe06228aa6b4637a7d3a80eb41de1d2011180a810d7d5f6fa6eda2f34e9c6ad4ef244cf260575a80e21",
+        "deposit_message_root": "b10edc5d347c30070bedcbd4918e23ed7295641e5dd325d5d7fd3e31b03d8093",
+        "deposit_data_root": "a6f47e921ad0d53ab3940cf4ec4f625b27f2833fc2c74d51657451e725f866a1",
+        "fork_version": "00002009",
+        "eth2_network_name": "pyrmont",
+        "deposit_cli_version": "1.1.0",
+        "eth1_withdrawal_address": "0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "94c8dadf-5b2d-40af-9f93-3c293ecb9326",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "63081c20-27c4-4bb9-8c32-4bcd1720454b",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "bce32a7156de5ef650f2c416455379327488c5d31d03bbf3c567be3fc4c9d928fe2b5569259ddf10a1e32ce5e6011482",
+        "withdrawal_credentials": "00ea25ce2c9eb123fb8dc284955dc585aa4d708c0f9f95f14a902427b60b4fa4",
+        "amount": "32000000000",
+        "signature": "8ecbd8b5042eb9b449eb05b6a779beea7a2f1137e040bc807b53066aa88abfd31a255792bcf168635051913363d6a0b213b46b72ca29dfe06228aa6b4637a7d3a80eb41de1d2011180a810d7d5f6fa6eda2f34e9c6ad4ef244cf260575a80e21",
+        "deposit_message_root": "b10edc5d347c30070bedcbd4918e23ed7295641e5dd325d5d7fd3e31b03d8093",
+        "deposit_data_root": "a6f47e921ad0d53ab3940cf4ec4f625b27f2833fc2c74d51657451e725f866a1",
+        "fork_version": "00002009",
+        "eth2_network_name": "pyrmont",
+        "deposit_cli_version": "1.1.0",
+        "eth1_withdrawal_address": "0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "94c8dadf-5b2d-40af-9f93-3c293ecb9326",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "e392ca88-3d85-432a-b875-38c4ceded46f",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "cce32a7156de5ef650f2c416455379327488c5d31d03bbf3c567be3fc4c9d928fe2b5569259ddf10a1e32ce5e6011482",
+        "withdrawal_credentials": "00ea25ce2c9eb123fb8dc284955dc585aa4d708c0f9f95f14a902427b60b4fa4",
+        "amount": "32000000000",
+        "signature": "8ecbd8b5042eb9b449eb05b6a779beea7a2f1137e040bc807b53066aa88abfd31a255792bcf168635051913363d6a0b213b46b72ca29dfe06228aa6b4637a7d3a80eb41de1d2011180a810d7d5f6fa6eda2f34e9c6ad4ef244cf260575a80e21",
+        "deposit_message_root": "b10edc5d347c30070bedcbd4918e23ed7295641e5dd325d5d7fd3e31b03d8093",
+        "deposit_data_root": "a6f47e921ad0d53ab3940cf4ec4f625b27f2833fc2c74d51657451e725f866a1",
+        "fork_version": "00002009",
+        "eth2_network_name": "pyrmont",
+        "deposit_cli_version": "1.1.0",
+        "eth1_withdrawal_address": "0xDC25EF3F5B8A186998338A2ADA83795FBA2D695E"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "94c8dadf-5b2d-40af-9f93-3c293ecb9326",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "d686e457-b8f5-4eb3-aa88-7a1aadac1135",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "84be53bbe80e67a91db3570abb6b49e0314e4fa4814af690c35bc89d23d5f66b00d19fb25efed37c72abc22e0994ea8c",
+        "withdrawal_credentials": "010000000000000000000000e40f80618324c814cd444434670a44ba4583ae38",
+        "amount": "32000000000",
+        "signature": "ad845359b04d75897186884eadb8ab7cd36d602dff65eb82e5b79505a2e489914ccef795196627c80da22a4e316958851469ac63fcfba3e6093593da24dd678e175df82ad4e1284664fb3f34be7073ccff3476324614bcfdb87920ad6288e536",
+        "deposit_message_root": "2d4e1d75dc9409a74c5e5d1e9aa21aa29ad491d6e0e8dc5ca12375a653195e1a",
+        "deposit_data_root": "e706391d219118ce5a7a17fa3aa2a5cb91d31da5c60d9a3e66e0ea9c4dbb2086",
+        "fork_version": "00002009",
+        "eth2_network_name": "pyrmont",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xE40F80618324C814cD444434670a44ba4583aE38"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "7d5cf55f-ab61-4a8e-8935-451d4f308701",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "284e111a-f54e-4c26-ac97-36edd2423589",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "a9b7821918b516edddede1657058f8fbd2dd290f8512dd91998368d4349f74779111b641006481562abd25bdd51eedad",
+        "withdrawal_credentials": "010000000000000000000000e40f80618324c814cd444434670a44ba4583ae38",
+        "amount": "32000000000",
+        "signature": "8377374ea1e920adcf5c7dca2ae175addbed71fd2ad3685e57032b736759382f334707cccbe129c298c3e7341823dd8816fa84de38b8723fee6ac01b3a5202b8a48cf085314b0f942bab15c592f41918b0d1175a6b82f5f7e95d28df83ef6bb8",
+        "deposit_message_root": "0702a28a1ba0b25fcbf3947a958ef38c73bb17124af379970d5820a283d6f0df",
+        "deposit_data_root": "6e35d0108e2c56a8bd13e77b3e726b69df38a3a29d0e897cd639690653f5ddd3",
+        "fork_version": "00002009",
+        "eth2_network_name": "pyrmont",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xE40F80618324C814cD444434670a44ba4583aE38"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "6a197245-d214-405b-8f90-1e0a95c74440",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "64e85b0a-0ceb-4d0d-ad12-b4c7850429b7",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "905c1fc2fe08d1dabd4ddaa7b84fc13679082ef9a82dd5221c270245f92af58684f40c0f6a19a845852ec0e475f10129",
+        "withdrawal_credentials": "010000000000000000000000e40f80618324c814cd444434670a44ba4583ae38",
+        "amount": "32000000000",
+        "signature": "a392fb2f96db9c4ea4f29815b527965f0bd203cd55980b632066556b8dff0aa44207e8d3b29327ac764514f75e54220704c3287bd64a493d30baa4794fe5499276662689f13f6bd59b97d42219767c1a7146fb039b6dd503d7c57549c413613f",
+        "deposit_message_root": "252d53601bfbe042c8c22c7ab5f1f6beacc3d3ef1eff937b682f123369afa90e",
+        "deposit_data_root": "c154457f50b884630b9b0a2d10b78f8f196d110f40451a76d2472085a067dca1",
+        "fork_version": "00002009",
+        "eth2_network_name": "pyrmont",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xE40F80618324C814cD444434670a44ba4583aE38"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "5a862d8f-df89-4f5b-8c20-ecc0da9f8472",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "fedcd214-9425-43a3-ad83-ab4eda858d53",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "91169ad8449b74d0affb232e0b572d1775570a13d8077e91c002bdfb83d9c75ddb5a3cfdca4f5d5caad7b62652a721f5",
+        "withdrawal_credentials": "010000000000000000000000e40f80618324c814cd444434670a44ba4583ae38",
+        "amount": "32000000000",
+        "signature": "839ce5e1f00cf7fed1f25581419000aee231dd7a548286aaabe4582b46631ac3370bd28e5e0e7d5a038970475da0356e1695e75f45360a59428da501da7d29cf65926f0fb16313d6e9cdd4065cbefb90a0aebc83eecd8bfd9e9f5f866d19958f",
+        "deposit_message_root": "1f1855af4929e28d575f3e4bfd8c2343cd7ed8f035624ba3fef7011007b55e2a",
+        "deposit_data_root": "8062a5eac72e32e8e9d1c2b8f784c3e09b3fbb547b7ffbba69bd9558490c52e6",
+        "fork_version": "00002009",
+        "eth2_network_name": "pyrmont",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xE40F80618324C814cD444434670a44ba4583aE38"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "5a862d8f-df89-4f5b-8c20-ecc0da9f8472",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "a9477845-acd9-4a43-8e6d-c00387861ebe",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "977a25db1d3891c557c61d376afeb28f2a877c29441b1c2ff6e43d4ad7624c7a1dede9c1d16db68b0bf8d1ff86229163",
+        "withdrawal_credentials": "010000000000000000000000e40f80618324c814cd444434670a44ba4583ae38",
+        "amount": "32000000000",
+        "signature": "b1309c1ee864670560d3d7050f1ab50504ab66ae19f648d528a68d0917383e4c3e7bd12b7b815135d763b0c0034eea640b03965230afd624911ce252b807e9bb313f3e3a1ad5648c21c657c5b4ebf3e5cfd025f662b7bddf47c3872ac21fad40",
+        "deposit_message_root": "320d1672cf17bc0fb25b47bcb82318d1768fc6a837e8c83b332dba2479359edf",
+        "deposit_data_root": "81f3d8105b46cf0054c4e2e047ec52b35547df77cb6c469dd7f987c031cb0bf1",
+        "fork_version": "00002009",
+        "eth2_network_name": "pyrmont",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xE40F80618324C814cD444434670a44ba4583aE38"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "c9f53ae6-ee7e-40c3-a0f4-27c39b81d275",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "b8c0610e-7391-4a44-814b-59d56383039e",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "80084c0455686f1e25514785ffcccfe85e8b555dda2d03946f6796b1d6e90b1291db9d8d12070ccbca21dfa134d52f3c",
+        "withdrawal_credentials": "010000000000000000000000e40f80618324c814cd444434670a44ba4583ae38",
+        "amount": "32000000000",
+        "signature": "85ce441ea096277b3f8569952d4226d94ed94da2f13938ed89db9bab0a343eacd706c0dee9ea24d9ab1c30b742c2ae8308d03284e4926881db1f243d24016c1cc5429449e1c353168a42fe69de74c624520fe81bda078d5db4e39a1627542d17",
+        "deposit_message_root": "70059ecb8d1aafc6aa684c817a1867dea5268529cbba3d06a9761b8b946fb3d2",
+        "deposit_data_root": "51aca4497baaec5fe821f2c428fd900456d0947a5afef2bf67159a9ccf48d8e3",
+        "fork_version": "00002009",
+        "eth2_network_name": "pyrmont",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xE40F80618324C814cD444434670a44ba4583aE38"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "c9f53ae6-ee7e-40c3-a0f4-27c39b81d275",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "db86b462-c843-4a3f-89c1-572f602e44b8",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "8d60ef9a165051d9678c52025bad8a2b9ace7f7035fa487b77427ad86170c3c70b70c19e06cc9ffdb5378bb153823691",
+        "withdrawal_credentials": "010000000000000000000000dc62f9e8c34be08501cdef4ebde0a280f576d762",
+        "amount": "32000000000",
+        "signature": "a7038804aec1fdd2d38249075005b36695ce4cefa86cc8bcba11ca5dffe637cfea954bc7eba96f6c4163b962477d5742051e44953a7e5fbdbf847b93eb5851f7b31553cd553f76d8affd3f603ad0f26fc3002767764bc4f7a48032fe3f005d91",
+        "deposit_message_root": "ea8d53fba146861230e17ff30a58aff337bd486972172b579483f0f43a4f00e3",
+        "deposit_data_root": "89c70a4d7e6c9ae38acc2ceed8d0a879144d0460abb7986691c2b522b8f9abe1",
+        "fork_version": "00001020",
+        "eth2_network_name": "prater",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "f0334905-9118-41ee-b061-95459a3f8707",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "15dfb1b1-d89c-4ea1-ae3f-d1f05932d088",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "8d9b82d7f5e469d4441b4ee8fd65e68fbc08f705121d51a8b3c651e04469003f7266f3d567db692d1a51ced45e51d11f",
+        "withdrawal_credentials": "010000000000000000000000dc62f9e8c34be08501cdef4ebde0a280f576d762",
+        "amount": "32000000000",
+        "signature": "a6342ba3054a63cee9c5804b16d3892604197fe6bfd2b2dc2270b9cac4919620ccb1f6f2009773c9b214d2442ddb9fe110a23372bcdcac3edd0efc79ec10070ef0ec0f49d5e82c0d8551b642665b33debe53d45e8eec6f5ec240befdfbc58873",
+        "deposit_message_root": "dcb0b41dd39e9e429aa1a9896399f5971d29a6bc6262ad4ea382a83967fdd76c",
+        "deposit_data_root": "d8c6a76e53f934089fa5155ffd63b3f0ddb31500dfde7491a29fb1c155ef1019",
+        "fork_version": "00001020",
+        "eth2_network_name": "prater",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "f0334905-9118-41ee-b061-95459a3f8707",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "10028ae7-224b-4ec9-9359-eb9760883508",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "8ead24ce7fc899409ea8309f59ab8cbc8fac94c1cdae594e368a0642a4ef2d06f0dbaf5757d383e56fbe8f4ebe405cd1",
+        "withdrawal_credentials": "010000000000000000000000dc62f9e8c34be08501cdef4ebde0a280f576d762",
+        "amount": "32000000000",
+        "signature": "89d75b4dc6fe8ae0d0dab74ce01063d65078aeae9784c93fb2720e7b824edd63adea2e51ed4099b19860f62c2b3ba1d20a4a7f6fdee8d7f3cea27cbb6db60c03251216a009cacc108b601f80aaca42bc5b1c9e3589cb0afe70d2ed19d37a8390",
+        "deposit_message_root": "40950a9c55a33580fe454c599e5afdece332402cbf13f633476cfcb76887886d",
+        "deposit_data_root": "9c8e65d19f233c597b306f349892ebabc3153493142fb54258f30fd2ee503472",
+        "fork_version": "00001020",
+        "eth2_network_name": "prater",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "f0334905-9118-41ee-b061-95459a3f8707",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "bfea25eb-da14-4477-a3bc-4336a87686e3",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "853cbb557c30f22ce983aa846c5320c29f66064554c5166b2e89464dac81fca97f4d1f0aa842758550f117203764fc15",
+        "withdrawal_credentials": "010000000000000000000000dc62f9e8c34be08501cdef4ebde0a280f576d762",
+        "amount": "32000000000",
+        "signature": "8f145e00256e3ce0480d3e538757bb38582b858a369d2f829b73d1da7599edc62c9eaff99e67aac255bf8db0ff4eed0e10a9c669fbbe77826e719ac712de30e9ad014530528668809ba10129cf45ffab01871af4c28215a86d9e303ae75d480e",
+        "deposit_message_root": "eb9130f85e78a911bcc9f1846a49753648dcfd909b6970e4b57b7b49e702c72a",
+        "deposit_data_root": "b8d638594dff041b3a6186abeab90aa625f4c1081776a971ac128abcc538e89c",
+        "fork_version": "00001020",
+        "eth2_network_name": "prater",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "f0334905-9118-41ee-b061-95459a3f8707",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "afb3b123-38d6-4e38-aa04-8f6082c3c4f1",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "93c37bf9a862c21fb103478b72e17242aeb4b8af39b168e65034f4779aa702b1c77fc05dead48aff509767bc48bcac5d",
+        "withdrawal_credentials": "010000000000000000000000dc62f9e8c34be08501cdef4ebde0a280f576d762",
+        "amount": "32000000000",
+        "signature": "a8977b9943af1f8e4981e25c3365de321879dc4c378b5be0edd1be5376dcba8e2727d682e6c9396260ee34bb9a6d3a6f177da8cb0f547bef6ffe9345ec7cff88b45dab0e955407ab9cc1d788119971cdd3a5da4749c46f0ca8efdbfa2763a847",
+        "deposit_message_root": "7949a32c56f6e2255bec896890b15c779b9756bdc6055cc2c3fb9be185eac6b3",
+        "deposit_data_root": "474af9d13cd1c0a8c8a5ea37278e2465a33a32aef05b84c21c808a8147195015",
+        "fork_version": "00001020",
+        "eth2_network_name": "prater",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "f0334905-9118-41ee-b061-95459a3f8707",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "4ee54d61-1bfc-4de0-b7a9-76131a4a38a4",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "90e4979275c2650083353d763bda501a127df83d287409676c39bd0d87b7a65cab66139f3139b412867c3fafc7bd5504",
+        "withdrawal_credentials": "010000000000000000000000dc62f9e8c34be08501cdef4ebde0a280f576d762",
+        "amount": "32000000000",
+        "signature": "96dbab4aa9cb4c97c570d4c37f2f1ed3147696dbe3efdab94ed1c326cf97cae0d8eba3dbaf8df5947c4bf8cddb57e849008c8eaaca16421bd040caabd3f90330137d032620e087d04de50fc182ebd02a9842a694853e7735948eb9699601b795",
+        "deposit_message_root": "9b8b1302794bbb40e8dd3479c340a589c13f5e7d085bc928dea87a9b3c0c65a2",
+        "deposit_data_root": "78c836bc24f585b687db4643853606a272b06d01d3c493a3d2fba9e32afb5d82",
+        "fork_version": "00001020",
+        "eth2_network_name": "prater",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "f0334905-9118-41ee-b061-95459a3f8707",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "7e9450a3-ab23-4264-8ebf-85cf3181eed7",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "a542407b238443c787879c2c02922950241ad3578a62ebfa5a7009a48bb308b044a174cdf3e9cf16662e075b58fe6714",
+        "withdrawal_credentials": "010000000000000000000000dc62f9e8c34be08501cdef4ebde0a280f576d762",
+        "amount": "32000000000",
+        "signature": "ab087430cad5fe9f354c7fe290228917ad2b05617a05fa5469a562624f50deed01fc0d91c3eb91ed6b5445a9b3cbdbcf18907b77d947c878c1b915c6b4e25ea4b70ca12e9b5ee5715299f9ca39c5c285b3a54a622e47dea3d1e2c6890469bb77",
+        "deposit_message_root": "f59a74e86f5c6be4cf14c96c7f04b39a6e8e7153416537a77433220d0700ecb4",
+        "deposit_data_root": "118c1da8a501e544a1c16d87b2e98b76a4bdcd4ba8ec2a2e69e0ea36869b5f71",
+        "fork_version": "00001020",
+        "eth2_network_name": "prater",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "f0334905-9118-41ee-b061-95459a3f8707",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "bd32c189-4388-4279-98b5-83363edcf47b",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "86b044d98bb34f990803d8009e645c0cb9088ae2cf73fb2ff8e0d0ccbbc3f245cd9026f49afa39003f25ba6a4dbdfc99",
+        "withdrawal_credentials": "010000000000000000000000dc62f9e8c34be08501cdef4ebde0a280f576d762",
+        "amount": "32000000000",
+        "signature": "a330bdc8ee905bc4fd697689afb927a191324c040d3eae4de4654344fdfc2eee02ae13bd0c64f427b3f5db7272005ffe19c719ca122b15a4373ae53f94a6b943912c3cd45542c4662d39da4af181eef45cefbe4cf56c32fd60d897dc021f559d",
+        "deposit_message_root": "fd27475688fd5febbfc7e2d3fb186bedd15d478bd671c50adc2652c172c2a1a1",
+        "deposit_data_root": "396a86e739e8dfbe37fbde6130bb01e9a09de89d35a8e0a8989112f163ebb755",
+        "fork_version": "00001020",
+        "eth2_network_name": "prater",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "f0334905-9118-41ee-b061-95459a3f8707",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "1cbe1f27-beb1-4331-a0af-22832cd40ecd",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "86bd8d783e16137cf98902a9f91c6e67282549b4ae73bf51d96d373062fff2f705eabf5d743f209e1b4ccfdfe44112e6",
+        "withdrawal_credentials": "010000000000000000000000dc62f9e8c34be08501cdef4ebde0a280f576d762",
+        "amount": "32000000000",
+        "signature": "aa634ed9b3737edd01356d15560fda12aebaeea42b288b9b08e61649fc651ecadaf684bf81ae36d4864fec51d9e8e05108b4c8bb3f9a52ee18d1bf0948a084cb2883a80b5bc5e7e484794387fb1533fc0bbd2ad872b1fb61fff0037400273ff3",
+        "deposit_message_root": "96f394f6f0ecbd2e2067cd940bfc49af992048f210e6b7635fc82d36f56a1478",
+        "deposit_data_root": "4bb50dc715ac919f7ea299e35f08f8d1ee73ae7d02795a2ea807e4f979fa6a1b",
+        "fork_version": "00001020",
+        "eth2_network_name": "prater",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "f0334905-9118-41ee-b061-95459a3f8707",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "c5bac0a3-ffb9-493b-8a55-7843798893d8",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "8f36e9d7649f4881b09057e8d3f0eb1b7a9c57d03e779838ee7932d4ecd7470c4ecda2d8674552ec8be9f6192e01ee7a",
+        "withdrawal_credentials": "010000000000000000000000dc62f9e8c34be08501cdef4ebde0a280f576d762",
+        "amount": "32000000000",
+        "signature": "828e163a92deedffb44c06e87999e39b3d33a9d8c7765d0eec26e514c4eb4452c2db57503731f6d74926a08e661b2b8f07e3a92a5c5f208e861d9938eb30272ca8e82c23c1fa7878e574ec3712d193610c43a3790a66f7810b6ddb494171e5a9",
+        "deposit_message_root": "0e12fbaa7bb969641741b7c4e9d297129b5ccd31da98a91804f608d689968c1b",
+        "deposit_data_root": "62d40780e258d03bacbac33a5c3d47dc13d1d6c681fb337f55f43eadfe53034b",
+        "fork_version": "00001020",
+        "eth2_network_name": "prater",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xdc62f9e8C34be08501Cdef4EBDE0a280f576D762"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "f0334905-9118-41ee-b061-95459a3f8707",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "39534ac4-cfc4-447a-b194-90f37b7fcf65",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "8c77bf6c3b290786e15500517b19e13d3c78315a74918e2039023ac010915e43f280aa8599c78934019b94cc9882769c",
+        "withdrawal_credentials": "010000000000000000000000e40f80618324c814cd444434670a44ba4583ae38",
+        "amount": "32000000000",
+        "signature": "b2dfcadeda6178ba76cb61bb32cbad35523dbeb0c36688b098d37cb73c4438cdad3df5f27588de25a21d9ddbfc8fa5ba0b21ad41973cc0b2515fbfdca20d7bd3c9bcdc09290d56e2b48db7b6b38834e70ba7da55d5669ae8535e83158d0760c4",
+        "deposit_message_root": "ee14fba4599f7495fef59ed9f1abaa816cbe59774285892988d4b6ccc2e39ba1",
+        "deposit_data_root": "1661c286170c3db2aadc6702321b90b274f4a432815e769fc35ca1f6042ec3cf",
+        "fork_version": "00002009",
+        "eth2_network_name": "pyrmont",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xE40F80618324C814cD444434670a44ba4583aE38"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "80697980-156f-4b81-8574-ee424641d399",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "5a7bf73c-c528-46ff-afc0-1f2f1dc2f14f",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "95389013e5fca8474ebf5aecaad4a200bb9187dc4d2aa2466b01929ccf3c7ec749b2c78c81c1cb28381cfbec8224362a",
+        "withdrawal_credentials": "010000000000000000000000e40f80618324c814cd444434670a44ba4583ae38",
+        "amount": "32000000000",
+        "signature": "954ea39cf77c27900e900463144942b812ebbd01d1e4b7f7a599ebd0d4075ad68d1096f147747508d1571680070a5d910f24f2f4fd5ce0bede01743d89955a95edcec42612b91683351d7ad294ca0eb2464d67f28ee065bbc79e7a0a8075e6ba",
+        "deposit_message_root": "10b7ee82fefc3fdc48c56aef6a1f05e98a57c140f1c0d857c4fb3eeb7dab91f3",
+        "deposit_data_root": "65fb161e083bdd645b3aae4c4b0f96dafa6f7760b9aedf0ee2debf9bec0d2f4b",
+        "fork_version": "00002009",
+        "eth2_network_name": "pyrmont",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xE40F80618324C814cD444434670a44ba4583aE38"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "80697980-156f-4b81-8574-ee424641d399",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "a447d2f3-5c3b-4408-94d5-9e3a3b205cb5",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "b474b40b91005838b35ade289721c9af23788fedfd756d0e057f2e352e5f6310551dadf5590ad4d685a402d96c5f2bda",
+        "withdrawal_credentials": "010000000000000000000000e40f80618324c814cd444434670a44ba4583ae38",
+        "amount": "32000000000",
+        "signature": "b0753c784f3acfc855d9573867e3a22fd36bc3bbabf71b870c8cd26ae955f3bdf851ba438fc501bca0b7b929efce6f9311979f8a3d03e99fdbffe76f453940429847e6dca3da5e948f84615ee0f8a5c5114c0f185442f1f62b8c0636c92d727b",
+        "deposit_message_root": "f300267db7f21dcbdeea05c2fda538bbd8203684cf61f5122632556ad42fc5f7",
+        "deposit_data_root": "273ac89fc74f7caed76d61a41467ace53af8c7161500a3be9853a037c93309d7",
+        "fork_version": "00002009",
+        "eth2_network_name": "pyrmont",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xE40F80618324C814cD444434670a44ba4583aE38"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "6c7f2cde-bb37-43c0-91ae-b4135b10062f",
+            "type": "staking_position"
+          }
+        }
+      }
+    },
+    {
+      "id": "d3cf9726-f369-4f06-97ed-1e2af074d37f",
+      "type": "validator",
+      "attributes": {
+        "pubkey": "95ca5fd582269982f40ede92f79d4a8a8799f48dbe906051e89ce8d99a7cac0749c504d064cfc5393ecb1a8011e399a7",
+        "withdrawal_credentials": "010000000000000000000000e40f80618324c814cd444434670a44ba4583ae38",
+        "amount": "32000000000",
+        "signature": "b5ca8845a7f54dfc502352900e43c5560440847bfd030271a863121458603314f1c2c700689c869e24a19a6f5ab0cc4d0e9d33cf353b82fd60674051c89f14a5883315352406451ef0050f256901caa9768a9f73b3258cba87ffd619a7733eb1",
+        "deposit_message_root": "74c48ce27339177bf77f7b2922a2ab3527cba35b083d04ad2750eba26251f70a",
+        "deposit_data_root": "8a1d652fb66db3ed274a855583376d2aa0ab7769855c5cfd42efae3c574a62be",
+        "fork_version": "00002009",
+        "eth2_network_name": "pyrmont",
+        "deposit_cli_version": "1.2.0",
+        "eth1_withdrawal_address": "0xE40F80618324C814cD444434670a44ba4583aE38"
+      },
+      "relationships": {
+        "staking_position": {
+          "data": {
+            "id": "6c7f2cde-bb37-43c0-91ae-b4135b10062f",
+            "type": "staking_position"
+          }
+        }
+      }
+    }
+  ],
+  "links": {
+    "self": "https://localhost/test/api/v1/staking/eth2/staking_positions?include=eth2_validators",
+    "current": "https://localhost/test/api/v1/staking/eth2/staking_positions?include=eth2_validators&page[number]=1"
+  }
+}

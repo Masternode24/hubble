@@ -11,5 +11,9 @@ FactoryBot.define do
     reward_token_display { 'DOT' }
     reward_token_factor { 10 }
     network factory: :prime_network
+    rpc_host { 'chain-network.example.com' }
+    rpc_port { 443 }
+    rpc_api_key { 'api-key-for-rpc' }
+    use_ssl_for_rpc { true }
   end
 end

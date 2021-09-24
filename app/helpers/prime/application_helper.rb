@@ -41,22 +41,20 @@ module Prime::ApplicationHelper
     @user_networks ||= decorate_networks(Prime::Network.find(@current_user.prime_accounts.on_enabled_networks.distinct.pluck(:prime_network_id)))
   end
 
-  def user_rewards
-    @user_rewards ||= user_accounts.map(&:rewards).flatten.sort_by!(&:time).reverse!
+  def user_rewards(start_time: nil, end_time: nil)
+    @user_rewards ||= user_accounts.map { |account| account.rewards(start_time, end_time) }.flatten.sort_by(&:time).reverse
   end
 
-  def user_network_rewards(network)
-    user_rewards.select { |reward| reward.account.network.name == network.name }.sum(&:amount) / (10 ** network.primary_chain.reward_token_factor)
+  def user_network_rewards(network, start_time: nil, end_time: nil)
+    user_rewards(start_time: start_time, end_time: end_time).select { |reward| reward.account.network.name == network.name }.sum(&:amount) / (10 ** network.primary_chain.reward_token_factor)
   end
 
   def network_events
-    @network_events ||= begin
-      events = []
-      enabled_networks.each do |network|
-        events += network.events!
-      end
-      events.sort_by!(&:update_date).reverse![0, [events.length, NETWORK_EVENTS_LIMIT].min - 1]
-    end
+    @network_events ||= enabled_networks.
+      flat_map(&:events!).
+      sort_by(&:update_date).
+      reverse.
+      take(NETWORK_EVENTS_LIMIT)
   end
 
   def calendar_events

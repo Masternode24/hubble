@@ -74,6 +74,12 @@
               <td><span class="text-monospace memo"><%= transaction.memo %></span></td>
             </tr>
           <% end %>
+          <tr>
+            <td class="text-nowrap">Canonical</td>
+            <td>
+              <%= transaction.canonical.to_s.humanize %>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

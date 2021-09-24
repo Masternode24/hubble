@@ -26,10 +26,20 @@
   border-radius: 4px;
 }
 
+.button--secondary[disabled] {
+  cursor: not-allowed;
+  border: 1px solid #DAD7D7;
+  color: #DAD7D7;
+}
+
 .button--danger {
   color: #FFFFFF;
   background: #EB5757;
   border: 1px solid #EB5757;
+}
+
+.button--danger[disabled] {
+  border: 1px solid #cfcfcf;
 }
 
 .button--l {
@@ -42,10 +52,35 @@
   }
 }
 
+.button--inline {
+  display: inline-block;
+}
+
 .button__icon {
   width: 16px;
   height: 16px;
   margin-right: 8px;
+}
+
+.button--loading::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 4px solid transparent;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: button-loading-spinner 1s ease infinite;
+  margin-right: 10px;
+
+  @keyframes button-loading-spinner {
+    from {
+      transform: rotate(0turn);
+    }
+
+    to {
+      transform: rotate(1turn);
+    }
+  }
 }
 
 .edit-btn {

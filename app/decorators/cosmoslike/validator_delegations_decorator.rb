@@ -1,12 +1,16 @@
 class Cosmoslike::ValidatorDelegationsDecorator
   include FormattingHelper
 
+  DEFAULT_VALIDATOR_DELEGATIONS_PAGE = 1
+  DEFAULT_DELEGATIONS_LIMIT = 20
+
   delegate :empty?, to: :delegations
 
-  def initialize(chain, validator)
+  def initialize(chain, validator, page)
     @chain = chain
     @namespace = chain.class.name.deconstantize.constantize
     @validator = validator
+    @page = page
   end
 
   def error?
@@ -15,6 +19,18 @@ class Cosmoslike::ValidatorDelegationsDecorator
 
   def delegations
     @delegations ||= fetch_delegations
+  end
+
+  def limit
+    DEFAULT_DELEGATIONS_LIMIT
+  end
+
+  def page
+    @page ||= DEFAULT_VALIDATOR_DELEGATIONS_PAGE
+  end
+
+  def offset
+    page.to_i > 1 ? ((page.to_i - 1) * limit) : 0
   end
 
   protected
@@ -36,7 +52,7 @@ class Cosmoslike::ValidatorDelegationsDecorator
 
   def validator_delegations
     Rails.cache.fetch("#{@chain.slug}/#{@validator.id}/validator_delegations", expires_in: 1.day) do
-      @chain.syncer(30000).get_validator_delegations(@validator.owner)
+      @chain.syncer(30000).get_validator_delegations(@validator.owner, params = { 'pagination.offset': offset, 'pagination.limit': limit })
     end
   end
 

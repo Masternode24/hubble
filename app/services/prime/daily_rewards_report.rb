@@ -17,8 +17,8 @@ class Prime::DailyRewardsReport
     @network = network
   end
 
-  def to_csv
-    data = rewards_to_rows(user_network_accounts)
+  def to_csv(start_time: nil, end_time: nil)
+    data = rewards_to_rows(user_network_accounts, start_time, end_time)
     fields = Common::CsvExporter.filter_unused_fields(FIELDS, data)
     Common::CsvExporter.new(data, fields).call
   end
@@ -29,13 +29,13 @@ class Prime::DailyRewardsReport
     Prime::Account.for_user(@user.id).for_network(@network.id)
   end
 
-  def rewards_to_rows(accounts)
+  def rewards_to_rows(accounts, start_time, end_time)
     rows = []
-    total_commission = accounts.map { |a| a.rewards.sum(&:commission) }.sum
+    total_commission = accounts.map { |account| account.rewards(start_time, end_time).sum(&:commission) }.sum
     accounts.each do |account|
       token_hash = account.network.daily_price_series_hash
       factor = account.network.primary_chain.reward_token_factor
-      account.rewards.each do |reward|
+      account.rewards(start_time, end_time).each do |reward|
         factored_reward = reward.amount.to_f / (10 ** factor)
         factored_commission = reward.commission.to_f / (10 ** factor) if reward.commission != 0
         reward_usd_equivalent, commission_usd_equivalent = usd_equivalent(account.network.primary_chain, reward, token_hash)
@@ -71,6 +71,6 @@ class Prime::DailyRewardsReport
     elsif reward.token_display == 'USD'
       factor = 1.0 / (10 ** primary.reward_token_factor)
     end
-    defined?(factor) ? [reward.amount.to_f * factor, reward.commission.to_f * factor] : [nil, nil]
+    factor.present? ? [reward.amount.to_f * factor, reward.commission.to_f * factor] : [nil, nil]
   end
 end

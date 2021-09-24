@@ -14,6 +14,7 @@ module Mina
                   :end_time,
                   :after_id,
                   :before_id,
+                  :canonical,
                   :limit
 
     def initialize(attrs = {})
@@ -35,7 +36,8 @@ module Mina
         end_time: end_time,
         after_id: after_id,
         before_id: before_id,
-        limit: limit
+        limit: limit,
+        canonical: canonical == '1' ? canonical : ''
       }.select { |_, v| v.present? }
     end
   end

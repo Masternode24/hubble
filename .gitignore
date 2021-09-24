@@ -37,3 +37,5 @@ tmp/localhost.key
 /public/packs-test
 yarn-debug.log*
 .yarn-integrity
+
+.rspec-examples.txt

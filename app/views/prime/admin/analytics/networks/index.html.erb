@@ -1,0 +1,19 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-10'>
+      <h2>Analytics</h2>
+    </div>
+    <div class='col-2'>
+      <%= link_to 'Accounting', request.params.merge(team: 'accounting'), class: "btn btn-sm btn-outline-primary #{analytics_active_tab('accounting')}" %>
+    <%# </div>
+    <div class='col-2'> %>
+      <%= link_to 'Sales', request.params.merge(team: 'sales'), class: "btn btn-sm btn-outline-primary #{analytics_active_tab('sales')}" %>
+    </div>
+  </div>
+</div>
+
+<% if @team == 'sales' %>
+  <%= render 'sales_table' %>
+<% else %>
+  <%= render 'accounting_table' %>
+<% end %>

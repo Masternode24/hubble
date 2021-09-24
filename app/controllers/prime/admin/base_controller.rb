@@ -1,5 +1,6 @@
 class Prime::Admin::BaseController < Prime::ApplicationController
   include AdminHelper
+  include Prime::ServiceClients
 
   before_action :require_administrator
   before_action :require_2fa

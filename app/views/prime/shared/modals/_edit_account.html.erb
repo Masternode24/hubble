@@ -7,7 +7,7 @@
     <p class="edit-modal__name"><%= account.network.name.capitalize %></p> 
     <%= link_to account.address, '#', class: "link edit-modal__link" %>
     <br></br>
-    <%= form_with model: account, :url => prime_account_path(account), :scope => "update", html: { class: 'form', id: "#{account.address}-edit-account-form" } do |f| %>
+    <%= form_with model: account, :url => prime_account_path(account), :scope => "update", local: true, html: { class: 'form', id: "#{account.address}-edit-account-form" } do |f| %>
       <% if account.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>

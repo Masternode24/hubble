@@ -1,4 +1,6 @@
-<% delegation_object = @chain.namespace::ValidatorDelegationsDecorator.new(@chain, @validator) -%>
+<% page = params[:page] if present? -%>
+<% delegation_object = @chain.namespace::ValidatorDelegationsDecorator.new(@chain, @validator, page ) -%>
+<% pagy = Pagy.new(count: delegation_object.delegations.count, page: delegation_object.page, items: @limit) -%>
 
 <div class='data-table'>
   <div class='data-table__header'>
@@ -49,6 +51,9 @@
       </tbody>
     </table>
   </div>
+</div>
+<div class='mt-5'>
+  <%== pagy_bootstrap_nav(pagy) %>
 </div>
 
 <script>

@@ -11,7 +11,11 @@
       </tr>
       </thead>
       <tbody>
-        <% if @events.records.blank? -%>
+        <% if @events.records.blank? && @events.page > 1 -%>
+          <tr>
+            <td class='data-table__empty' colspan='3'>No more events found.</td>
+          </tr>
+        <% elsif @events.records.blank? -%>
           <tr>
             <td class='data-table__empty' colspan='3'>No events for this block.</td>
           </tr>

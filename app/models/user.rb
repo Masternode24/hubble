@@ -1,6 +1,9 @@
 class User < ApplicationRecord
-  has_secure_password
   MASQ_TIMEOUT = 10.minutes
+
+  include MultiFactorAuth
+
+  has_secure_password
 
   has_many :alert_subscriptions
   has_many :watches, class_name: 'Common::Watch'
@@ -8,7 +11,9 @@ class User < ApplicationRecord
 
   has_many :livepeer_delegator_lists, class_name: 'Livepeer::DelegatorList'
 
-  has_many  :prime_accounts, class_name: 'Prime::Account', dependent: :destroy, inverse_of: :user
+  has_many :prime_accounts, class_name: 'Prime::Account', dependent: :destroy, inverse_of: :user
+
+  has_many :api_keys, dependent: :delete_all
 
   validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
@@ -20,12 +25,16 @@ class User < ApplicationRecord
   scope :with_subscriptions, ->(network) { where.not("#{network.downcase}_subscriptions_count" => 0) }
   scope :with_prime_access, -> { where(prime: true) }
 
+  before_save do
+    validate_prime_eth_staking_customer
+  end
+
   def network_balances
     network_balances ||= begin
       balances = {}
 
       Prime::Network.enabled.each do |network|
-        prime_accounts.for_network(network).each do |account|
+        prime_accounts.includes(:network).for_network(network).each do |account|
           account = "Prime::#{network.name.capitalize}::AccountDecorator".constantize.new(account)
           if balances[network.name]
             balances[network.name] += account.balance
@@ -87,5 +96,20 @@ class User < ApplicationRecord
     if ip
       self.ip_addresses = [ip, *(ip_addresses || [])].uniq.slice(0, 5)
     end
+  end
+
+  # Perform actual customer ID validation via an Anjin API call
+  def validate_prime_eth_staking_customer
+    return unless prime
+    return unless changes[:prime_eth_staking_customer_id]
+    return if prime_eth_staking_customer_id.blank?
+
+    Prime::Anjin::Client.current.customer(prime_eth_staking_customer_id)
+  rescue Common::Client::NotFoundError
+    errors.add(:prime_eth_staking_customer_id, 'is not a valid customer ID')
+    throw :abort
+  rescue StandardError => err
+    errors.add(:prime_eth_staking_customer_id, err.message)
+    throw :abort
   end
 end

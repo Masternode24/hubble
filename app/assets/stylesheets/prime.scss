@@ -1,5 +1,6 @@
 @import "jquery-ui";
 @import "fullcalendar/main.min";
+@import "common/highlightjs.css";
 @import "prime/helpers/reset";
 @import "prime/helpers/breakpoints";
 
@@ -19,6 +20,8 @@
 @import "prime/components/dropdown";
 @import "prime/components/calendar";
 @import "prime/components/alert-info";
+@import "prime/components/box";
+@import "prime/components/rc-slider";
 
 @import "prime/page/portfolio";
 
@@ -28,4 +31,6 @@
 @import "prime/layout/add-address";
 @import "prime/layout/my-addresses";
 @import "prime/layout/my-profile";
-@import "prime/layout/sessions"
+@import "prime/layout/sessions";
+@import "prime/layout/staking";
+@import "prime/layout/eth2-staking-app";

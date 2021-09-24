@@ -72,7 +72,7 @@ module Cosmoslike::Blocklike
         # there are transactions in the block
         begin
           if block_meta['num_txs'].to_i > 0 || block_meta['header']['num_txs'].to_i > 0
-            syncer = chain.namespace::SyncBase.new(chain, 500)
+            syncer = chain.namespace::SyncBase.new(chain, 2000)
             block_txs = syncer.get_block(height)['result']['block']['data']['txs']
           end
         rescue StandardError

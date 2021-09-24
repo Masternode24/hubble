@@ -26,6 +26,11 @@
       <li class='nav__item'>
         <%= link_to 'My Addresses', prime_accounts_path, class: "nav__link addresses-btn #{active_nav_option(prime_accounts_path)}" %>
       </li>
+      <% if current_user.prime_eth_staking_enabled %>
+        <li class='nav__item'>
+          <%= link_to 'ETH Staking', prime_eth2_staking_path, class: "nav__link eth-staking-btn #{active_nav_option(prime_eth2_staking_path)}" %>
+        </li>
+      <% end %>
       <li class='nav__item'>
         <%= link_to 'My Profile', prime_profile_path, class: "nav__link profile-btn #{active_nav_option(prime_profile_path)}" %>
       </li>

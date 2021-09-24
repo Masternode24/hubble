@@ -1,11 +1,11 @@
 <% content_for :body_class, 'admin-users-index' %>
 
-<div class='container'>
+<div class='container my-2'>
   <div class='row'>
     <div class='col-9'>
       <h2>Users</h2>
     </div>
-    <div class='col-3'>
+    <div class='col-3 text-right'>
       <%= link_to user_index_prime_filter_text, request.params.merge(prime_only: user_index_prime_filter_value), class: 'btn btn-sm btn-outline-success' %>
     </div>
   </div>
@@ -15,29 +15,53 @@
   <thead class='thead-light'>
     <tr>
       <th>Name</th>
+      <th>Email</th>
+      <th>Status</th>
+      <th>MFA</th>
+      <th>Prime</th>
       <th class='extra-info'>&nbsp;</th>
       <th width='10'>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
-    <% if @users.empty? -%>
+    <% if @users.empty? %>
       <tr>
-        <td colspan='2' class='pt-3'><strong class='text-warning'>No users!</strong></td>
+        <td colspan='7' class='pt-3'>
+          <span class='text-muted'>No users found</span>
+        </td>
       </tr>
     <% end -%>
-    <% @users.find_each do |user| -%>
+    <% @users.find_each do |user| %>
       <tr>
+        <td><%= link_to user.name, admin_user_path(user) %></td>
+        <td><%= link_to user.email, admin_user_path(user) %></td>
         <td>
-          <%= user.name %>
-          <small class='ml-2 text-muted'><%= user.email %></small>
-          <% if !user.verified? -%>
-            <span class='badge badge-danger'>pending</span>
-          <% end -%>
+          <% if user.verified? %>
+            <span class='badge badge-success'>Active</span>
+          <% else %>
+            <span class='badge badge-danger'>Pending</span>
+          <% end %>
+        </td>
+        <td>
+          <% if user.mfa_enabled? %>
+            <span class='badge badge-success'>ON</span>
+          <% else %>
+            <span class='badge badge-secondary'>OFF</span>
+          <% end %>
+        </td>
+        <td>
           <% if user.prime? %>
-            <% if user.prime_accounts.length %>
-              <span class='ml-2 badge badge-success'>PRIME <small> with <%= user.prime_accounts.length %> addresses </small> </span>
+            <% if user.prime_accounts.any? %>
+              <span class='ml-2 badge badge-success'>
+                Active
+                <small> with <%= pluralize(user.prime_accounts.size, 'addresses') %> </small>
+              </span>
             <% else %>
-              <span class='ml-2 badge badge-success'>PRIME</span>
+              <span class='ml-2 badge badge-success'>Active</span>
+            <% end %>
+
+            <% if user.prime_eth_staking_enabled %>
+              <span class='ml-2 badge badge-info'>Staking</span>
             <% end %>
           <% end %>
         </td>
@@ -45,7 +69,7 @@
         <td>
           <div class='d-flex user-list-buttons'>
             <%= button_to prime_toggle_text(user), toggle_prime_admin_user_path(user), method: 'patch', class: 'btn btn-sm btn-outline-success' %>
-            <a class='btn btn-sm btn-outline-warning <%= 'disabled' if !user.verified? %>' <%= 'disabled=disabled' if !user.verified? %> href='<%= masq_admin_user_path(user) %>'>login-as</a>
+            <a class='btn btn-sm btn-outline-warning <%= 'disabled' if !user.verified? %>' <%= 'disabled=disabled' if !user.verified? %> href='<%= masq_admin_user_path(user) %>'>Impersonate</a>
             <%= link_to 'Details', admin_user_path(user), class: 'btn btn-sm btn-outline-primary' %>
           </div>
         </td>

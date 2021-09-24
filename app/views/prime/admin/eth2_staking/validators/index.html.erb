@@ -1,0 +1,22 @@
+<%= render "prime/admin/eth2_staking/nav", title: "Validators" %>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Amount</th>
+      <th>Network Name</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @validators.each do |validator| %>
+      <tr>
+        <td><%= link_to validator.id, prime_admin_eth2_staking_validator_path(validator.id) %></td>
+        <td><%= validator.amount %></td>
+        <td><%= validator.eth2_network_name %>
+        <td><%= validator.eth1_withdrawal_address %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

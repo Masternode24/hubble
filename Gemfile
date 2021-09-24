@@ -35,6 +35,7 @@ gem 'suo'
 gem 'useragent'
 
 gem 'postmark-rails', '~> 0.21.0'
+gem 'sidekiq', '~> 6.2.0'
 gem 'twitter', '~> 6.1.0'
 
 # used for notifing when Chains are out of sync
@@ -53,6 +54,7 @@ gem 'bitcoin-ruby', require: 'bitcoin' # bech32
 gem 'bitcoin-secp256k1', require: 'secp256k1'
 gem 'money-tree', require: false # bip32
 
+gem 'health_check'
 gem 'lograge'
 gem 'rack-attack'
 gem 'rack-revision'
@@ -68,8 +70,11 @@ gem 'validate_url', '~> 1.0.8'
 gem 'apexcharts'
 gem 'groupdate'
 gem 'jquery-ui-rails'
+gem 'rails-reverse-proxy', '~> 0.10.0'
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
 
@@ -103,6 +108,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'rspec-retry', '>= 0.6.2'
   gem 'selenium-webdriver', '~> 3.142'
+  gem 'shoulda-matchers', '~> 5.0'
   gem 'vcr', '~> 6.0'
   gem 'webdrivers', '~> 4.3'
   gem 'webmock', '~> 3.11'
